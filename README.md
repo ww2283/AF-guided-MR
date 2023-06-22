@@ -55,3 +55,10 @@ For example:
 python MolecularReplacementMaster.py --csv_path your_protein_sequence.csv --mtz_path your_xray_data.mtz --uniprot_id P12345 --nproc 8
 ```
 Replace your_protein_sequence.csv and your_xray_data.mtz with your actual input files, P12345 with your actual UniProt ID, and 8 with your desired number of processors.
+
+## NOTE
+I'm still working on the usage description so stay tuned.
+some works to be done:
+- dependencies installation;
+- PDB test cases;
+- Google Colab integration
