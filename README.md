@@ -16,7 +16,7 @@ You'll need to have the following installed:
 - PHENIX (Python-based Hierarchical ENvironment for Integrated Xtallography)
 - Rosetta software suite (optional)
 
-### Installation
+### Installation (for pre Ada Lovelace cards)
 #### first install conda
 You can follow the [official Conda installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) for detailed instructions.
 After installing Conda, create a new Conda environment with Python 3.7:
@@ -41,6 +41,26 @@ The version I tested was giving stable results so if there's difficulty getting 
 pip install "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold@5b3fc193e880cd9599f91cd16fcb1fe69f7759f2"
 
 ```
+### Installation (for Ada Lovelace cards) update 09-16-2023
+I recently encountered problem with above installation method after I upgrade my cards from RTX 5000 16GB to RTX 6000 Ada. After some troubleshooting I traced down the errors are due to the upgraded needs for Ada Lovelace cards. So you will probably face similar issues if you use RTX 4080 or 4090 cards.
+
+First you need to upgrade CUDA to 11.8 or later so that your Ada Lovelace cards can use CUDA. Then you will need to upgrade python from 3.7 to at least 3.9 and jax with the right CUDA support.
+
+There are two possible ways to solve this issue after upgrading CUDA. You can either upgrade python with `conda install --upgrade python==3.9`, which I didn't have the luck of success. You may get away if you use mamba solver, but I haven't installed mamba so I'm not sure.
+
+The other way is to use a new conda env. so after you upgraded your CUDA to 11.8 or later (I use 11.8):
+```
+conda create -n automatemr python=3.9
+pip install "colabfold[alphafold-minus-jax] @ git+https://github.com/sokrypton/ColabFold"
+pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+conda install -c conda-forge -c bioconda kalign2=2.04 hhsuite=3.3.0
+conda install -c conda-forge openmm=7.7.0 pdbfixer
+pip install --upgrade dm-haiku
+```
+If you encounter problem when running colabfold because of pdbfixer, like `ModuleNotFoundError: No module named 'simtk.openmm.app.internal'`, then you may need to do the following:
+use a text editor, like nano or vim, open your pdbfixer.py, e.g.
+`nano ~/anaconda3/envs/automatemr/lib/python3.9/site-packages/pdbfixer/pdbfixer.py`
+then replace every instance of `simtk.openmm` with just `openmm`.
 
 ## Usage
 
