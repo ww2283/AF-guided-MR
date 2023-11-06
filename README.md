@@ -1,4 +1,4 @@
-# Automated-Molecular-Replacement
+# AF-guided MR
 A Python tool that automates molecular replacement using protein sequences and x-ray diffraction data, designed especially to handle difficult cases with significant structural discrepancies.
 This tool uses protein sequences and reduced x-ray diffraction data to automate the process of molecular replacement. It leverages the power of Colab_Fold for initial structure prediction and then refines the structure based on predefined modes. For high-resolution cases, it also uses mr_rosetta to enhance and build the model. While it is capable of solving all cases, it is specifically designed to handle difficult cases where the predicted structure varies significantly from the final solution.
 
