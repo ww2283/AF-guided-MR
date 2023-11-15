@@ -1,0 +1,17 @@
+
+new_ncs_group
+rota_matrix    1.0000   -0.0000    0.0000
+rota_matrix    0.0000    1.0000   -0.0000
+rota_matrix    0.0000    0.0000    1.0000
+tran_orth     0.0000   -0.0000   -0.0000
+
+center_orth   27.1546  -12.5718    0.4306
+
+rota_matrix   -0.3713   -0.8108   -0.4526
+rota_matrix   -0.8768    0.1458    0.4583
+rota_matrix   -0.3055    0.5670   -0.7650
+tran_orth    36.4433  -22.7289   17.4970
+
+center_orth   -0.2416   -0.6642   21.9128
+
+

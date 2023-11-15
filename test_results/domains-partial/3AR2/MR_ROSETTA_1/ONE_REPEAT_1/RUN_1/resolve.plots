@@ -1,0 +1,118 @@
+
+
+Plot     1
+Solvent_content      0.500
+Title Probability that points are in protein region
+X_legend Percentile of grid points
+Y_legend p(protein)
+X_min      0.000 X_max    100.000
+Y_min      0.000 Y_max      1.000
+Symbol x  X_value      2.000  Y_value      0.012
+Symbol x  X_value      4.000  Y_value      0.022
+Symbol x  X_value      6.000  Y_value      0.029
+Symbol x  X_value      8.000  Y_value      0.037
+Symbol x  X_value     10.000  Y_value      0.045
+Symbol x  X_value     12.000  Y_value      0.053
+Symbol x  X_value     14.000  Y_value      0.062
+Symbol x  X_value     16.000  Y_value      0.072
+Symbol x  X_value     18.000  Y_value      0.083
+Symbol x  X_value     20.000  Y_value      0.095
+Symbol x  X_value     22.000  Y_value      0.106
+Symbol x  X_value     24.000  Y_value      0.119
+Symbol x  X_value     26.000  Y_value      0.132
+Symbol x  X_value     28.000  Y_value      0.146
+Symbol x  X_value     30.000  Y_value      0.161
+Symbol x  X_value     32.000  Y_value      0.177
+Symbol x  X_value     34.000  Y_value      0.193
+Symbol x  X_value     36.000  Y_value      0.211
+Symbol x  X_value     38.000  Y_value      0.230
+Symbol x  X_value     40.000  Y_value      0.249
+Symbol x  X_value     42.000  Y_value      0.270
+Symbol x  X_value     44.000  Y_value      0.293
+Symbol x  X_value     46.000  Y_value      0.316
+Symbol x  X_value     48.000  Y_value      0.341
+Symbol x  X_value     50.000  Y_value      0.367
+Symbol x  X_value     52.000  Y_value      0.394
+Symbol x  X_value     54.000  Y_value      0.422
+Symbol x  X_value     56.000  Y_value      0.452
+Symbol x  X_value     58.000  Y_value      0.482
+Symbol x  X_value     60.000  Y_value      0.513
+Symbol x  X_value     62.000  Y_value      0.545
+Symbol x  X_value     64.000  Y_value      0.577
+Symbol x  X_value     66.000  Y_value      0.609
+Symbol x  X_value     68.000  Y_value      0.641
+Symbol x  X_value     70.000  Y_value      0.674
+Symbol x  X_value     72.000  Y_value      0.706
+Symbol x  X_value     74.000  Y_value      0.739
+Symbol x  X_value     76.000  Y_value      0.771
+Symbol x  X_value     78.000  Y_value      0.801
+Symbol x  X_value     80.000  Y_value      0.831
+Symbol x  X_value     82.000  Y_value      0.859
+Symbol x  X_value     84.000  Y_value      0.886
+Symbol x  X_value     86.000  Y_value      0.911
+Symbol x  X_value     88.000  Y_value      0.933
+Symbol x  X_value     90.000  Y_value      0.952
+Symbol x  X_value     92.000  Y_value      0.969
+Symbol x  X_value     94.000  Y_value      0.982
+Symbol x  X_value     96.000  Y_value      0.992
+Symbol x  X_value     98.000  Y_value      0.998
+Symbol x  X_value    100.000  Y_value      0.999
+
+
+Plot     2
+Solvent_content      0.500
+Title Probability that points are in protein region
+X_legend Percentile of grid points
+Y_legend p(protein)
+X_min      0.000 X_max    100.000
+Y_min      0.000 Y_max      1.000
+Symbol x  X_value      2.000  Y_value      0.012
+Symbol x  X_value      4.000  Y_value      0.022
+Symbol x  X_value      6.000  Y_value      0.029
+Symbol x  X_value      8.000  Y_value      0.037
+Symbol x  X_value     10.000  Y_value      0.045
+Symbol x  X_value     12.000  Y_value      0.053
+Symbol x  X_value     14.000  Y_value      0.062
+Symbol x  X_value     16.000  Y_value      0.072
+Symbol x  X_value     18.000  Y_value      0.083
+Symbol x  X_value     20.000  Y_value      0.095
+Symbol x  X_value     22.000  Y_value      0.106
+Symbol x  X_value     24.000  Y_value      0.119
+Symbol x  X_value     26.000  Y_value      0.132
+Symbol x  X_value     28.000  Y_value      0.146
+Symbol x  X_value     30.000  Y_value      0.161
+Symbol x  X_value     32.000  Y_value      0.177
+Symbol x  X_value     34.000  Y_value      0.193
+Symbol x  X_value     36.000  Y_value      0.211
+Symbol x  X_value     38.000  Y_value      0.230
+Symbol x  X_value     40.000  Y_value      0.249
+Symbol x  X_value     42.000  Y_value      0.270
+Symbol x  X_value     44.000  Y_value      0.293
+Symbol x  X_value     46.000  Y_value      0.316
+Symbol x  X_value     48.000  Y_value      0.341
+Symbol x  X_value     50.000  Y_value      0.367
+Symbol x  X_value     52.000  Y_value      0.394
+Symbol x  X_value     54.000  Y_value      0.422
+Symbol x  X_value     56.000  Y_value      0.452
+Symbol x  X_value     58.000  Y_value      0.482
+Symbol x  X_value     60.000  Y_value      0.513
+Symbol x  X_value     62.000  Y_value      0.545
+Symbol x  X_value     64.000  Y_value      0.577
+Symbol x  X_value     66.000  Y_value      0.609
+Symbol x  X_value     68.000  Y_value      0.641
+Symbol x  X_value     70.000  Y_value      0.674
+Symbol x  X_value     72.000  Y_value      0.706
+Symbol x  X_value     74.000  Y_value      0.739
+Symbol x  X_value     76.000  Y_value      0.771
+Symbol x  X_value     78.000  Y_value      0.801
+Symbol x  X_value     80.000  Y_value      0.831
+Symbol x  X_value     82.000  Y_value      0.859
+Symbol x  X_value     84.000  Y_value      0.886
+Symbol x  X_value     86.000  Y_value      0.911
+Symbol x  X_value     88.000  Y_value      0.933
+Symbol x  X_value     90.000  Y_value      0.952
+Symbol x  X_value     92.000  Y_value      0.969
+Symbol x  X_value     94.000  Y_value      0.982
+Symbol x  X_value     96.000  Y_value      0.992
+Symbol x  X_value     98.000  Y_value      0.998
+Symbol x  X_value    100.000  Y_value      1.000

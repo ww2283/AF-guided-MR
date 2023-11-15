@@ -1,0 +1,53 @@
+2023-04-23 19:55:39,700 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-23 19:55:41,634 Running on GPU
+2023-04-23 19:55:42,089 Found 5 citations for tools or databases
+2023-04-23 19:55:42,090 Query 1/1: P0AGF4 (length 491)
+2023-04-23 19:55:42,684 Sleeping for 6s. Reason: PENDING
+2023-04-23 19:55:49,269 Sleeping for 9s. Reason: RUNNING
+2023-04-23 19:55:58,885 Sleeping for 9s. Reason: RUNNING
+2023-04-23 19:56:08,472 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:56:17,069 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:56:22,665 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:56:28,253 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:56:33,857 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:56:42,453 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:56:48,068 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:56:56,664 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:57:05,263 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:57:13,884 Sleeping for 10s. Reason: RUNNING
+2023-04-23 19:57:24,496 Sleeping for 10s. Reason: RUNNING
+2023-04-23 19:57:35,105 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:57:43,709 Sleeping for 7s. Reason: RUNNING
+2023-04-23 19:57:51,318 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:57:59,920 Sleeping for 7s. Reason: RUNNING
+2023-04-23 19:58:07,516 Sleeping for 7s. Reason: RUNNING
+2023-04-23 19:58:15,121 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:58:23,719 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:58:29,319 Sleeping for 6s. Reason: RUNNING
+2023-04-23 19:58:35,906 Sleeping for 5s. Reason: RUNNING
+2023-04-23 19:58:41,503 Sleeping for 10s. Reason: RUNNING
+2023-04-23 19:58:52,108 Sleeping for 6s. Reason: RUNNING
+2023-04-23 19:58:58,702 Sleeping for 10s. Reason: RUNNING
+2023-04-23 19:59:09,309 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:59:17,894 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:59:26,486 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:59:35,086 Sleeping for 8s. Reason: RUNNING
+2023-04-23 19:59:43,685 Sleeping for 9s. Reason: RUNNING
+2023-04-23 19:59:53,291 Sleeping for 10s. Reason: RUNNING
+2023-04-23 20:00:07,827 Setting max_seq=512, max_extra_seq=5120
+2023-04-23 20:01:35,831 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=85.4 pTM=0.85
+2023-04-23 20:02:29,616 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=88.3 pTM=0.877 tol=0.562
+2023-04-23 20:03:10,979 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=88.4 pTM=0.878 tol=0.26
+2023-04-23 20:04:02,901 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=88.8 pTM=0.877 tol=0.136
+2023-04-23 20:04:45,180 alphafold2_ptm_model_1_seed_000 recycle=4 pLDDT=88.8 pTM=0.875 tol=0.0424
+2023-04-23 20:05:38,027 alphafold2_ptm_model_1_seed_000 recycle=5 pLDDT=88.5 pTM=0.874 tol=0.0498
+2023-04-23 20:05:38,027 alphafold2_ptm_model_1_seed_000 took 319.5s (5 recycles)
+2023-04-23 20:05:38,276 reranking models by 'plddt' metric
+2023-04-23 20:05:53,575 Relaxation took 15.3s
+2023-04-23 20:05:53,575 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=88.5 pTM=0.874
+2023-04-23 20:05:54,714 Done
+2023-04-23 20:46:09,113 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-23 20:46:11,112 Running on GPU
+2023-04-23 20:46:11,431 Found 5 citations for tools or databases
+2023-04-23 20:46:11,431 Skipping P0AGF4 (already done)
+2023-04-23 20:46:11,431 Done

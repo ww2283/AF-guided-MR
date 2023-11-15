@@ -1,0 +1,4 @@
+ncs_group {
+  reference = (chain 'A' and (resid 356 through 435 or resid 437 through 488 or resid 490 through 523 or resid 525 through 533 or resid 535 through 572 or resid 574 through 575 or resid 577 through 586))
+  selection = (chain 'B' and (resid 356 through 435 or resid 437 through 488 or resid 490 through 523 or resid 525 through 533 or resid 535 through 572 or resid 574 through 575 or resid 577 through 586))
+}

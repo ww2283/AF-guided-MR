@@ -1,0 +1,22 @@
+remove_free_from_map {
+  input_files {
+    free_in = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/5jms-sf.mtz"
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz"
+    labin_map_coeffs = "FP=FWT PHIB=PHWT"
+    labin_free = ""
+    test_flag_value = None
+  }
+  output_files {
+    mtz_out = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.mtz"
+    params_out = "remove_free_from_map_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+  }
+  control {
+    verbose = True
+    raise_sorry = False
+    debug = False
+    dry_run = False
+  }
+}

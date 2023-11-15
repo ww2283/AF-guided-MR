@@ -1,0 +1,1237 @@
+Parameters taken from: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/PARAMS_1.eff
+
+
+#                       mr_rosetta
+#
+# Run automr/autobuild/rosetta together 
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rosetta mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rosetta {
+  input_files {
+    data = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/3AR2-sf.mtz"
+    data_labels = None
+    free_r_data = ""
+    free_r_labels = None
+    remove_free = True
+    labin = None
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+    search_models = None
+    copies_in_search_models = None
+    hhr_files = None
+    alignment_files = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali"
+    model_info_file = None
+    mr_rosetta_solutions = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/rosetta_rebuild_result.pkl"
+    ids_to_load = None
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz"
+    labin_map_coeffs = "FP=FWT PHIB=PHWT"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map"
+    refinement_params = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params"
+    display_solutions = False
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta.log"
+    sort_score_type = None
+    params_out = "mr_rosetta_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  read_hhpred {
+    number_of_models = 1
+    number_of_models_to_skip = 0
+    copies_to_extract = None
+    only_extract_proper_symmetry = False
+  }
+  place_model {
+    run_place_model = False
+    prerefine {
+      run_prerefine = False
+      number_of_prerefine_models = 1000
+      number_of_models_in_ensemble = 1
+    }
+    model_already_placed = True
+    model_already_aligned = True
+    force_alignment = False
+    number_of_output_models = 5
+    align_with_sculptor = True
+    identity = None
+    identity_for_scoring_only = 25
+    use_all_plausible_sg = False
+    overlap_allowed = 10
+    selection_criteria_rot_value = 75
+    fast_search_mode = True
+    peak_rota_down = 25
+    mr_resolution = None
+    refine_after_mr = True
+    denmod_after_refine = True
+    ps_in_rebuild = False
+    find_ncs_after_mr = True
+    fixed_model = ""
+    fixed_model_identity = None
+    sufficient_number_finished = None
+    fixed_ensembles {
+      fixed_ensembleID_list = None
+      fixed_euler_list = 0 0 0
+      fixed_frac_list = 0 0 0
+      fixed_frac_list_is_fractional = True
+    }
+    copies_of_search_model_to_place = None
+  }
+  rescore_mr {
+    run_rescore_mr = False
+    nstruct = 5
+    relax = False
+    include_unrelaxed_in_scoring = False
+    align = True
+    edit_model = False
+    stage_to_rescore = "mr_solution"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 8
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_rescore {
+    run_rosetta_rescore = False
+    percentage_to_rescore = 20
+    min_solutions_to_rescore = 2
+  }
+  similarity {
+    run_similarity = False
+    required_cc = 0.2
+    number_of_required_cc = 5
+  }
+  refine_top_models {
+    run_refine_top_models = False
+    stage_to_refine = "rescored_rosetta_solution"
+    sort_score_type = "MR_LLG"
+    percent_to_refine = 20
+    denmod_after_refine = True
+    remove_clashing_residues = None
+    clash_cutoff = 1.5
+  }
+  average_density_top_models {
+    run_average_density_top_models = False
+    percent_to_average = 100
+  }
+  relax_top_models {
+    run_relax_top_models = False
+    stage_to_relax = None
+    number_to_relax = 2
+    nstruct = 5
+    sort_score_type = None
+  }
+  autobuild_top_models {
+    run_autobuild_top_models = False
+    number_to_autobuild = 2
+    quick = False
+    phase_and_build = False
+    macro_cycles = None
+    remove_residues_on_special_positions = True
+    morph = False
+    edit_model = True
+    use_map_coeffs = True
+  }
+  setup_repeat_mr_rosetta {
+    run_setup_repeat_mr_rosetta = False
+    repeats = 0
+    template_repeats = 0
+    morph_repeats = 0
+    number_to_repeat = 1
+    acceptable_r = 0.25
+    minimum_delta_r = None
+  }
+  repeat_mr_rosetta {
+    run_repeat_mr_rosetta = False
+    copies_in_new_search_group = 1
+    update_map_coeffs_with_autobuild = True
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "C 1 2 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 2
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 8
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/INFO_FILE_1"
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = None
+    print_citations = False
+    highest_id = 48
+    is_sub_process = True
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rosetta
+Date: Sun Apr 23 07:08:36 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1
+
+NOTE: model_already_aligned=True so alignment files will be ignored
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1
+
+Log file will be /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/mr_rosetta.log 
+Splitting output to  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/mr_rosetta.log
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+
+ ================================================================================
+Setting up reflection file and labels
+================================================================================
+LABIN LINE TO BE USED: FP=FOBS SIGFP=SIGFOBS FreeR_flag=R-free-flags  
+
+================================================================================
+ LOADING EXISTING SOLUTIONS
+================================================================================
+Loading solutions from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/rosetta_rebuild_result.pkl 
+RESULTS:  
+ID: 45  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb 
+Stage: rescored_mr_solution  MR_LLG:   438.11  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+Loaded 1 previous solutions: 
+(list is in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/solutions_loaded.log) 
+SET CRYSTAL SYMMETRY FROM INPUT SOLUTION:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+
+Methods to be run:
+
+place_model : False
+rescore_mr : False
+rosetta_rebuild : True
+rosetta_rescore : False
+similarity : False
+refine_top_models : False
+average_density_top_models : False
+relax_top_models : False
+autobuild_top_models : False
+setup_repeat_mr_rosetta : False
+repeat_mr_rosetta : False
+
+
+Note: fragment files will be generated by Rosetta
+ (Requires version 2013wk35 or later of Rosetta)
+
+
+================================================================================
+   REBUILDING BEST MR SOLUTIONS WITH ROSETTA 
+
+================================================================================
+
+Choosing 1 MR solutions for Rosetta rebuilding
+
+Rebuilding MR model (ID:45) by generating 8 rosetta models and choosing 
+the best using rosetta scoring
+
+
+#                       mr_rosetta_rebuild
+#
+# Run automr mr_rosetta_rebuild with rosetta 
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rosetta_rebuild mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rosetta_rebuild {
+  input_files {
+    model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map"
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+    hhr_files = None
+    alignment_files = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali"
+    model_info_file = ""
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta_rebuild.log"
+    params_out = "mr_rosetta_rebuild_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 8
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "C 1 2 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 2
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 8
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = None
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = "S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001"
+    print_citations = False
+    highest_id = 48
+    is_sub_process = True
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rosetta_rebuild
+Date: Sun Apr 23 07:08:38 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1
+
+USER = wei
+PID = 4143090
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+Sequence rewritten to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/EDITED_P04191.fasta : 
+ >sequence
+MEAAHSKSTEECLAYFGVSETTGLTPDQVKRHLEKYGHNELPAEEGKSLWELVIEQFEDLLVRILLLAACISFVLAWFEEGEETITAFVEPFVILLILIANAIVGVWQERNAENAIEALKEYEPEMGKVYRADRKSVQRIKARDIVPGDIVEVAVGDKVPADIRILSIKSTTLRVDQSILTGESVSVIKHTEPVPDPRAVNQDKKNMLFSGTNIAAGKALGIVATTGVSTEIGKIRDQMAATEQDKTPLQQKLDEFGEQLSKVISLICVAVWLINIGHFNDPVHGGSWIRGAIYYFKIAVALAVAAIPEGLPAVITTCLALGTRRMAKKNAIVRSLPSVETLGCTSVICSDKTGTLTTNQMSVCKMFIIDKVDGDFCSLNEFSITGSTYAPEGEVLKNDKPIRSGQFDGLVELATICALCNDSSLDFNETKGVYEKVGEATETALTTLVEKMNVFNTEVRNLSKVERANACNSVIRQLMKKEFTLEFSRDRKSMSVYCSPAKSSRAAVGNKMFVKGAPEGVIDRCNYVRVGTTRVPMTGPVKEKILSVIKEWGTGRDTLRCLALATRDTPPKREEMVLDDSSRFMEYETDLTFVGVVGMLDPPRKEVMGSIQLCRDAGIRVIMITGDNKGTAIAICRRIGIFGENEEVADRAYTGREFDDLPLAEQREACRRACCFARVEPSHKSKIVEYLQSYDEITAMTGDGVNDAPALKKAEIGIAMGSGTAVAKTASEMVLADDNFSTIVAAVEEGRAIYNNMKQFIRYLISSNVGEVVCIFLTAALGLPEALIPVQLLWVNLVTDGLPATALGFNPPDLDIMDRPPRSPKEPLISGWLFFRYMAIGGYVGAATVGAAAWWFMYAEDGPGVTYHQLTHFMQCTEDHPHFEGLDCEIFEAPEPMTMALSVLVTIEMCNALNSLSENQSLMRMPPWVNIWLLGSICLSMSLHFLILYVDPLPMIFKLKALDLTQWLMVLKISLPVIGLDEILKFIARNYLEDPEDERRK
+ 
+
+Note: fragment files will be generated by Rosetta
+ (Requires version 2013wk35 or later of Rosetta)
+
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1
+
+
+Rebuilding the model /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb 
+with rosetta
+================================================================================
+
+Splitting generation of rebuilt models into 8 jobs 
+with 1 structures generated per job
+
+================================================================================
+============================================================================== 
+Starting sub-processes Rebuild in sets... 
+ ==============================================================================
+
+Splitting work into 8 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_2.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_3.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_4.log
+Starting job 5...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_5.log
+Starting job 6...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_6.log
+Starting job 7...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_7.log
+Starting job 8...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_8.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_1 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_2 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_2.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_3  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_3 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_3.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_4  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_4 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_4.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_5  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_5 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_5.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_6  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_6 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_6.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_7  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_7 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_7.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_8  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_8 
+method: mr_rosetta_rebuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_8.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/results.pkl
+============================================================================== 
+ DONE with running subprocesses Rebuild in sets
+ ==============================================================================
+NEW REBUILD_IN_SETS : 
+ID: None  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001.pdb 
+Stage: prerefined_rosetta_solution  ROSETTA SCORE: -1724.66  
+Group: None
+map_coeffs: None labin:None 
+map: None
+Placed model: None 
+component_solutions: None, -1724.66 
+NEW REBUILD_IN_SETS : 
+ID: None  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001.pdb 
+Stage: prerefined_rosetta_solution  ROSETTA SCORE: -1629.68  
+Group: None
+map_coeffs: None labin:None 
+map: None
+Placed model: None 
+component_solutions: None, -1629.68 
+NEW REBUILD_IN_SETS : 
+ID: None  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001.pdb 
+Stage: prerefined_rosetta_solution  ROSETTA SCORE: -1735.01  
+Group: None
+map_coeffs: None labin:None 
+map: None
+Placed model: None 
+component_solutions: None, -1735.01 
+NEW REBUILD_IN_SETS : 
+ID: None  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001.pdb 
+Stage: prerefined_rosetta_solution  ROSETTA SCORE: -1676.24  
+Group: None
+map_coeffs: None labin:None 
+map: None
+Placed model: None 
+component_solutions: None, -1676.24 
+NEW REBUILD_IN_SETS : 
+ID: None  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001.pdb 
+Stage: prerefined_rosetta_solution  ROSETTA SCORE: -1604.63  
+Group: None
+map_coeffs: None labin:None 
+map: None
+Placed model: None 
+component_solutions: None, -1604.63 
+etc...
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.pkl  display_solutions=True
+
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.468301185074
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001_50_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001_50_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.779381611948
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001_50_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_S_PHA_0001_50_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.497088666625
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001_52_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001_52_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.328552010806
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001_52_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_S_PHA_0001_52_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001_53_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001_53_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.514784343395
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001_53_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_5/WORK_1/S_S_PHA_0001_53_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.342257929847
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.375452963354
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb 
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.222037347663
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed.pdb 
+Rosetta rebuilt solutions: 8
+
+Top rebuilt rosetta models at stage: rosetta_solution
+
+ 
+ID: 54  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6/WORK_1/S_S_PHA_0001_54_ed_one.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1874.95  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+ 
+ID: 55  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed_one.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1764.10  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+ 
+ID: 56  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_S_PHA_0001_56_ed_one.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1749.70  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+ 
+ID: 51  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_51_ed_one.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1735.01  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+ 
+ID: 49  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_49_ed_one.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1724.66  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+Total complete rosetta solutions obtained (all chains): 8
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.pkl  display_solutions=True
+
+
+Finishing up mr_rosetta...
+
+Changing to starting directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1

@@ -1,0 +1,14 @@
+-database "/home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database"
+-MR:mode cm
+-in:file:extended_pose 1
+-in:file:fasta "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/EDITED_P04191.fasta"
+-in:file:alignment "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali"
+-in:file:template_pdb "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb"  
+-edensity:mapreso     3.00
+-edensity:grid_spacing     1.50
+-edensity:mapfile "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map" 
+-MR:max_gaplength_to_model 8
+-nstruct 1
+-ignore_unrecognized_res
+-overwrite
+

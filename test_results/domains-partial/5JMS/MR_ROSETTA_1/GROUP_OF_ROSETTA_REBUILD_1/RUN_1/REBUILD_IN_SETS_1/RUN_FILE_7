@@ -1,0 +1,4 @@
+#!/bin/sh
+cd "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1"
+pwd
+sh "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_FILE_7.sh"

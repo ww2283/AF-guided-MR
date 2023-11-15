@@ -1,0 +1,100 @@
+2023-04-17 20:57:52,132 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-17 20:57:53,283 Running on GPU
+2023-04-17 20:57:53,493 Found 5 citations for tools or databases
+2023-04-17 20:57:53,493 Query 1/1: P04191 (length 1001)
+2023-04-17 20:57:54,090 Sleeping for 8s. Reason: PENDING
+2023-04-17 20:58:02,690 Sleeping for 7s. Reason: RUNNING
+2023-04-17 20:58:10,302 Sleeping for 8s. Reason: RUNNING
+2023-04-17 20:58:18,920 Sleeping for 8s. Reason: RUNNING
+2023-04-17 20:58:27,542 Sleeping for 7s. Reason: RUNNING
+2023-04-17 20:58:35,156 Sleeping for 8s. Reason: RUNNING
+2023-04-17 20:58:43,755 Sleeping for 6s. Reason: RUNNING
+2023-04-17 20:58:50,353 Sleeping for 6s. Reason: RUNNING
+2023-04-17 20:58:56,957 Sleeping for 6s. Reason: RUNNING
+2023-04-17 20:59:03,566 Sleeping for 5s. Reason: RUNNING
+2023-04-17 20:59:09,154 Sleeping for 6s. Reason: RUNNING
+2023-04-17 20:59:15,764 Sleeping for 5s. Reason: RUNNING
+2023-04-17 20:59:21,346 Sleeping for 5s. Reason: RUNNING
+2023-04-17 20:59:26,939 Sleeping for 10s. Reason: RUNNING
+2023-04-17 20:59:37,550 Sleeping for 5s. Reason: RUNNING
+2023-04-17 20:59:43,131 Sleeping for 8s. Reason: RUNNING
+2023-04-17 20:59:51,727 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:00:00,350 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:00:09,937 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:00:18,551 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:00:27,146 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:00:36,750 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:00:45,346 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:00:52,950 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:01:01,552 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:01:07,154 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:01:14,759 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:01:23,351 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:01:34,003 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:01:41,622 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:01:49,236 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:01:58,857 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:02:07,452 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:02:14,047 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:02:23,654 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:02:29,261 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:02:39,864 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:02:45,460 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:02:56,065 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:03:01,669 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:03:08,273 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:03:18,869 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:03:24,462 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:03:35,074 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:03:45,698 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:03:53,288 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:04:02,891 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:04:13,505 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:04:20,112 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:04:29,716 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:04:36,324 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:04:42,944 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:04:48,558 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:04:54,157 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:05:02,765 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:05:08,353 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:05:16,961 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:05:22,560 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:05:30,172 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:05:37,788 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:05:47,382 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:05:54,996 Sleeping for 9s. Reason: RUNNING
+2023-04-17 21:06:04,600 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:06:10,195 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:06:20,801 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:06:27,388 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:06:32,990 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:06:43,583 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:06:54,196 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:07:04,819 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:07:13,412 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:07:21,002 Sleeping for 7s. Reason: RUNNING
+2023-04-17 21:07:28,590 Sleeping for 5s. Reason: RUNNING
+2023-04-17 21:07:34,185 Sleeping for 6s. Reason: RUNNING
+2023-04-17 21:07:40,785 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:07:51,385 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:08:01,988 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:08:10,580 Sleeping for 10s. Reason: RUNNING
+2023-04-17 21:08:21,177 Sleeping for 8s. Reason: RUNNING
+2023-04-17 21:08:35,679 Setting max_seq=512, max_extra_seq=5120
+2023-04-17 21:11:40,424 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=81.9 pTM=0.665
+2023-04-17 21:14:10,943 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=83.1 pTM=0.7 tol=1.08
+2023-04-17 21:16:41,572 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=83.4 pTM=0.709 tol=0.409
+2023-04-17 21:19:12,211 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=83.2 pTM=0.703 tol=0.175
+2023-04-17 21:21:42,840 alphafold2_ptm_model_1_seed_000 recycle=4 pLDDT=83.5 pTM=0.707 tol=0.181
+2023-04-17 21:24:13,436 alphafold2_ptm_model_1_seed_000 recycle=5 pLDDT=83.7 pTM=0.716 tol=0.185
+2023-04-17 21:24:13,437 alphafold2_ptm_model_1_seed_000 took 926.4s (5 recycles)
+2023-04-17 21:24:14,263 reranking models by 'plddt' metric
+2023-04-17 21:24:40,880 Relaxation took 26.6s
+2023-04-17 21:24:40,880 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=83.7 pTM=0.716
+2023-04-17 21:24:42,421 Done
+2023-04-22 22:00:20,133 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-22 22:00:22,729 Running on GPU
+2023-04-22 22:00:23,293 Found 5 citations for tools or databases
+2023-04-22 22:00:23,294 Skipping P04191 (already done)
+2023-04-22 22:00:23,294 Done

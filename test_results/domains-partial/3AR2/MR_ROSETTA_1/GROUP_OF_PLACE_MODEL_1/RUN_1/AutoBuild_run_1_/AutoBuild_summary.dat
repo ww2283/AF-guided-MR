@@ -1,0 +1,62 @@
+
+Summary of model-building for run 1  Sat Apr 22 23:06:29 2023
+Files are in the directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/
+
+
+Starting mtz file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz
+Sequence file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat
+
+Summary of output files for Solution 1 from rebuild cycle 2
+
+---  NCS information file ---
+ncs_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_ncs_file.ncs_spec
+
+---  Data for refinement FP SIGFP PHIM FOMM HLAM HLBM HLCM HLDM FreeR_flag ---
+refine_data: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_refine_data.mtz
+
+---  Density-modification log file ---
+log_denmod: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best.log_denmod
+
+---  Density-modified map coefficients FWT PHWT ---
+denmod_map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+
+Citations for AutoBuild:
+
+Afonine PV, Grosse-Kunstleve RW, Echols N, Headd JJ, Moriarty NW, Mustyakimov
+M, Terwilliger TC, Urzhumtsev A, Zwart PH, Adams PD. (2012) Towards automated
+crystallographic structure refinement with phenix.refine. Acta Crystallogr D
+Biol Crystallogr 68:352-67.
+
+DiMaio F, Terwilliger TC, Read RJ, Wlodawer A, Oberdorfer G, Wagner U, Valkov
+E, Alon A, Fass D, Axelrod HL, Das D, Vorobiev SM, Iwaï H, Pokkuluri PR, Baker
+D. (2011) Improved molecular replacement by density- and energy-guided protein
+structure optimization. Nature 473:540-3.
+
+Liebschner D, Afonine PV, Baker ML, Bunkóczi G, Chen VB, Croll TI, Hintze B,
+Hung LW, Jain S, McCoy AJ, Moriarty NW, Oeffner RD, Poon BK, Prisant MG, Read
+RJ, Richardson JS, Richardson DC, Sammito MD, Sobolev OV, Stockwell DH,
+Terwilliger TC, Urzhumtsev AG, Videau LL, Williams CJ, Adams PD. (2019)
+Macromolecular structure determination using X-rays, neutrons and electrons:
+recent developments in Phenix. Acta Cryst. D75:861-877.
+
+Söding J. (2005) Protein homology detection by HMM-HMM comparison.
+Bioinformatics 21:951-60.
+
+Terwilliger T. (2003) SOLVE and RESOLVE: automated structure solution, density
+modification and model building. J Synchrotron Radiat 11:49-52.
+
+Terwilliger TC. (2002) Rapid automatic NCS identification using heavy-atom
+substructures. Acta Crystallogr D Biol Crystallogr 58:2213-5.
+
+Terwilliger TC, Grosse-Kunstleve RW, Afonine PV, Moriarty NW, Zwart PH, Hung
+L-W, Read RJ, Adams PD. (2008) Iterative model building, structure refinement
+and density modification with the PHENIX AutoBuild wizard. Acta Cryst.
+D64:61-69.
+
+Zwart PH, Grosse-Kunstleve RW, Adams PD. (2005) Xtriage and Fest: automatic
+assessment of X-ray data and substructure structure factor estimation. CCP4
+Newsletter Winter:Contribution 7.
+
+
+

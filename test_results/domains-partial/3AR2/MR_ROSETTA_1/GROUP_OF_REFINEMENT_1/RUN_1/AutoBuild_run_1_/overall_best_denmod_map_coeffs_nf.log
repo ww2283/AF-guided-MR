@@ -1,0 +1,40 @@
+
+
+#                       remove_free_from_map
+#
+# Remove free set reflections from a map mtz file
+
+
+# Type phenix.doc for help
+Values of all params:
+remove_free_from_map {
+  input_files {
+    free_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/3AR2-sf.mtz"
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz"
+    labin_map_coeffs = "FP=FWT PHIB=PHWT"
+    labin_free = ""
+    test_flag_value = None
+  }
+  output_files {
+    mtz_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.mtz"
+    params_out = "remove_free_from_map_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1"
+  }
+  control {
+    verbose = True
+    raise_sorry = False
+    debug = False
+    dry_run = False
+  }
+}
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz : ['FP', 'SIGFP'] ['PHIM'] ['FOMM'] ['HLAM', 'HLBM', 'HLCM', 'HLDM'] ['FWT', 'PHWT'] 
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/3AR2-sf.mtz : ['R-free-flags'] 
+Output space group: C 1 2 1 (No. 5)
+Columns of data in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/TEMP_merge.mtz:
+H K L FP SIGFP PHIM FOMM HLAM HLBM HLCM HLDM FWT PHWT R-free-flags 
+H H H F Q P W A A A A F P I 
+Map from:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/TEMP_merge.mtz  using labin  FP=FWT PHIB=PHWT FreeR_flag=R-free-flags
+
+Map coefficients without freeR reflections is in  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.mtz

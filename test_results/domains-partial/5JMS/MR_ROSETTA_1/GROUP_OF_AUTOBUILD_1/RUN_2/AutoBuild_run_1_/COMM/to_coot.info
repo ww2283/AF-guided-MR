@@ -1,0 +1,12 @@
+(
+1684998421
+"/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/COMM/working_best_coot_11.pdb"
+"PHENIX-COOT INTERFACE
+
+Map and model from AutoBuild cycle 14
+MODEL: working_best.pdb
+MAP: working_best_denmod_map_coeffs.mtz
+R/Rfree: 0.35 0.41  Map-model CC: 0.59 
+Working directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_
+"
+)

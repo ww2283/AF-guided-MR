@@ -1,0 +1,52 @@
+2023-04-25 11:26:00 - INFO - Checking for available GPUs...
+2023-04-25 11:26:00 - INFO - Total GPUs: 1
+2023-04-25 11:26:00 - INFO - GPU 0: 269.875 MiB used (1.65% used)
+2023-04-25 11:26:00 - INFO - GPU 0 is available
+2023-04-25 11:26:00 - INFO - Using GPU 0
+2023-04-25 11:26:07 - INFO - sequence is : MLDDRARMEAAKKEKVEQILAEFQLQEEDLKKVMRRMQKEMDRGLRLETHEEASVKMLPTYVRSTPEGSEVGDFLSLDLGGTNFRVMLVKVGEGEEGQWSVKTKHQMYSIPEDAMTGTAEMLFDYISECISDFLDKHQMKHKKLPLGFTFSFPVRHEDIDKGILLNWTKGFKASGAEGNNVVGLLRDAIKRRGDFEMDVVAMVNDTVATMISCYYEDHQCEVGMIVGTGCNACYMEEMQNVELVEGDEGRMCVNTEWGAFGDSGELDEFLLEYDRLVDESSANPGQQLYEKLIGGKYMGELVRLVLLRLVDENLLFHGEASEQLRTRGAFETRFVSQVESDTGDRKQIYNILSTLGLRPSTTDCDIVRRACESVSTRAAHMCSAGLAGVINRMRESRSEDVMRITVGVDGSVYKLHPSFKERFHASVRRLTPSCEITFIESEEGSGRGAALVSAVACKKACMLGQ
+2023-04-25 11:26:07 - INFO - Number of residues: 465
+2023-04-25 11:26:07 - INFO - Xtriage analysis output:
+
+=================== Solvent content and Matthews coefficient ==================
+
+ Crystallized molecule(s) defined as 465 protein residues
+  -------------------------------------------------------------------
+  | Solvent content analysis                                        |
+  |-----------------------------------------------------------------|
+  | Copies | Solvent content | Matthews coeff. | P(solvent content) |
+  |-----------------------------------------------------------------|
+  | 1      | 0.702           | 4.13            | 0.262              |
+  | 2      | 0.404           | 2.06            | 0.730              |
+  | 3      | 0.107           | 1.38            | 0.008              |
+  -------------------------------------------------------------------
+
+ Best guess :    2 copies in the ASU
+
+ Caution: this estimate is based on the distribution of solvent content across
+ structures in the PDB, but it does not take into account the resolution of
+ the data (which is strongly correlated with solvent content) or the physical
+ properties of the model (such as oligomerization state, et cetera).  If you
+ encounter problems with molecular replacement and/or refinement, you may need
+ to consider the possibility that the ASU contents are different than expected.
+
+
+2023-04-25 11:26:07 - INFO - Most probable solvent content: 40.43%
+2023-04-25 11:26:07 - INFO - Most probable number of molecules: 2
+2023-04-25 11:26:07 - INFO - Data is not twinned
+2023-04-25 11:26:07 - INFO - running phaser molecular replacement with default mode, see parameters used in phaser.params...
+2023-04-25 11:37:13 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (3.9) and may not be reliable. Check log file for details at phaser_output/PHASER.log
+2023-04-25 11:37:13 - [1;33mWARNING[0m - default_phaser_success: False
+2023-04-25 11:37:14 - INFO - Threshold length for a domain to be used: 93.0
+2023-04-25 11:37:14 - INFO - List of adjusted domains: [{'accession': 'IPR043129', 'name': 'ATPase, nucleotide binding domain', 'start': 12, 'end': 217}, {'accession': 'IPR043129', 'name': 'ATPase, nucleotide binding domain', 'start': 219, 'end': 459}]
+2023-04-25 11:37:14 - INFO - Domain 1: 12 - 217
+2023-04-25 11:37:14 - INFO - Domain 1 will be used for MR with length: 206
+2023-04-25 11:37:14 - INFO - Domain 2: 219 - 459
+2023-04-25 11:37:14 - INFO - Domain 2 will be used for MR with length: 241
+2023-04-25 11:37:14 - INFO - the following domains were found and will be used for alternative phaser molecular replacement: ['domains/ensemble_1.pdb', 'domains/ensemble_2.pdb']
+2023-04-25 11:37:14 - INFO - running phaser molecular replacement with alternative mode, see parameters used in alternative_phaser.params...
+2023-04-25 11:41:33 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (3.6) and may not be reliable. Check log file for details at alternative_phaser_output/PHASER.log
+2023-04-25 11:41:33 - [1;32mSUCCESS[0m - Valid partial solutions found with TFZ score: 22.6. Check alternative_phaser_output/PHASER.log for details.
+2023-04-25 11:41:33 - INFO - the mr_solution is alternative_phaser_output/PHASER.1.pdb, which will be used to check for the presence of ssbonds
+2023-04-25 11:41:33 - INFO - ssbonds are not present in the structure.
+2023-04-25 11:41:33 - [1;33mWARNING[0m - Data resolution is worse than 2.5 Angstroms. Skipping MR-Rosetta.
+2023-04-25 11:41:33 - INFO - Auto processing is done. You can check the log file for details at automated_structure_solvation.log.

@@ -1,0 +1,24 @@
+# Input script for AutoBuild
+#  Sun Apr 23 07:48:54 2023
+# 
+# Use:
+# 
+# phenix.runWizard AutoBuild AutoBuild_run_1_/AutoBuild.inp restart 
+# 
+ignore_errors_in_subprocess True
+input_pdb_file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb
+refine_eff_file_list '/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params'
+input_data_file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_data.mtz
+chain_type PROTEIN
+space_group C 1 2 1
+input_map_file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1.mtz
+clean_up True
+require_nonzero False
+top_output_dir /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1
+remove_residues_on_special_positions True
+nproc 4
+rebuild_in_place False
+ncs_copies 2
+input_map_labels 'FAVG' 'PHIFAVG'
+run_command sh
+input_seq_file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta

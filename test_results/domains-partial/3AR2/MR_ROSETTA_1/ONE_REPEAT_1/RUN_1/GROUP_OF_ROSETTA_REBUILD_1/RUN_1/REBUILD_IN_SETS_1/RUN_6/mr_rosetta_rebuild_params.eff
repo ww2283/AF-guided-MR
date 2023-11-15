@@ -1,0 +1,118 @@
+mr_rosetta_rebuild {
+  input_files {
+    model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map"
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/EDITED_P04191.fasta"
+    hhr_files = None
+    alignment_files = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali"
+    model_info_file = ""
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta_rebuild.log"
+    params_out = "mr_rosetta_rebuild_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_6"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 1
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "C 1 2 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 2
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 1
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/INFO_FILE_6"
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = "S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001"
+    print_citations = False
+    highest_id = 48
+    is_sub_process = True
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}

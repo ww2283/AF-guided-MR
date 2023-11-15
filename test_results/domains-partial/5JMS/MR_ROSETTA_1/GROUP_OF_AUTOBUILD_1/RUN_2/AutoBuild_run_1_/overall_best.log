@@ -1,0 +1,1024 @@
+ ------------------------  COPYRIGHT NOTICE  ---------------------------------
+                   Los Alamos National Laboratory
+ This program was prepared by Los Alamos National Security, LLC at
+ Los Alamos National Laboratory (the University) under  Contract No. 
+ W-7405-ENG-36 with the U.S. Department of Energy (DOE).  The University has 
+ certain rights in the program pursuant to the contract and the program should
+ not be copied or distributed outside your organization.  All rights in the 
+ program are reserved by the DOE and the University.  Neither the U.S. 
+ Government nor the University makes any warranty, express or implied, or 
+ assumes any liability or responsibility for the use of this software.
+
+        *******************************************************
+        *                --- RESOLVE ---                      *
+        *                                                     *
+        *         Statistical density modification            *
+        *             Automated model-building                *
+        *                                                     *
+        *                For on-line help                     *
+        *            see "http://solve.lanl.gov"              *
+        *                                                     *
+        *      This software uses library routines from the   *
+        *      CCP4 suite (http://www.ccp4.ac.uk) for which   *
+        *           the author is very thankful!              *
+        *******************************************************
+
+               (version 2.15 of 20-Mar-2010)
+                       (size =  12)
+  Tom Terwilliger, Los Alamos National Laboratory, "terwilliger@LANL.gov"
+
+>workdir AutoBuild_run_1_/TEMP0
+Work directory will be : AutoBuild_run_1_/TEMP0/
+
+>outputdir /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1
+Directory for STOPWIZARD will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/
+
+>freer_if_present
+Only writing out FreeR_flag if present
+
+>hklin resolve_work.mtz
+Data to be read from mtz file: resolve_work.mtz
+
+>labin FP=FWT PHIB=PHWT
+Current value of "LABIN" is: labin FP=FWT PHIB=PHWT                                                                                                                                                                                                                  
+
+>extend_only
+Just extending input model. Follow this with "cut_up_model" if you want to break fragments up into pieces
+
+>resolution 1000 2
+Resolution range (A) is:     2.000000     to     1000.000    
+
+>ha_file NONE
+Heavy atom sites will be read from file: NONE
+The file does not exist...ignoring it
+
+>seq_file seq_from_file.dat
+Sequence file: seq_from_file.dat
+Expecting 1-letter aa sequence of chains, chains separated by lines starting with ">" 
+
+>skip_hetatm
+Skipping HETATM records
+
+>pdb_in all.pdb
+Name of input PDB file (to be used to initiate model-building): all.pdb
+
+>group_ca_length 4
+Minimum # of residues in a group to keep=           4
+
+>cut_up_model
+model will be cut into pieces for rebuilding
+
+>use_wang
+Wang method for solvent mask will be used
+
+>no_ha
+no_ha: heavy-atoms not written out in pdb files
+
+>database 5
+Entry in database of histograms to use:            5
+
+>use_any_side
+Best-fitting side chains used if no sequence alignment 
+
+>n_xyz 64 96 90
+Grid units x y z:           64          96          90
+
+>no_merge_ncs_copies
+Not creating NCS-related copies in extend_only
+
+>no_optimize_ncs
+Not optimizing NCS
+
+>nohl
+No HL parameters calculated
+
+>spg_name_use P 1 21 1
+Space group name for output PDB file only: P 1 21 1   
+
+>min_z_value_rho -3.0
+Minimum z-value for a segment not matched to sequence:    -3.000000    
+
+>no_create_free
+Will not create FREE (test) set
+
+>use_all_for_test
+Will use all data for testing solvent content and histograms
+
+>delta_phi   20.00
+Angular grid (degrees) for image search:     20.00000    
+
+>dist_cut_base 3.0
+Tolerance for base pairing (dist_cut_base):     3.000000    
+
+>free_id 0
+Free R flag ID will be            0
+
+>group_length 2
+Minimum # of segments in a group to keep=           2
+
+All done with inputs
+Setting struct_28.n_model_create to 1 for extend_only
+Building protein
+Setting up for building protein
+Standard fill-in residues: ALA A GLY G
+Standard main-chain atoms: N    CA   C    O    CB   NONE
+All main-chain atoms: N     CA    C     O     
+Max dist between adjacent N    atoms:     6.000000    
+List of all residues: GLY ALA SER VAL ILE LEU MET CYS PHE TYR LYS ARG TRP HIS GLU ASP GLN ASN PRO THR 
+List of 1-letter code of residues: GASVILMCFYKRWHEDQNPT
+List of number of atoms in side-chains:            0           1           2           3           4           4           4           2           7           8           5           7          10           6           5           4           5           4           3           3
+checking license file.. solve2.access
+
+       The date today is 25-may-23.  Your license is good until 15-dec-96.
+
+Opened mtz file resolve_work.mtz
+Dataset            1 HKL_base            HKL_base            HKL_base                       0    48.16900        72.75000        65.27600        90.00000        98.62400        90.00000        0.000000    
+Dataset            2 project             crystal             dataset                        1    48.16900        72.75000        65.27600        90.00000        98.62400        90.00000        1.000000    
+Reading SG information from resolve_work.mtz
+Space group name: P21        Point group: PG2       
+Space group number :           4 Symmetry operators:            2
+Number of columns:           13
+H                             K                             L                             FP                            SIGFP                         PHIM                          FOMM                          HLAM                          HLBM                          HLCM                          HLDM                          FWT                           PHWT                          
+
+Column assignments:
+                  PROGRAM                         INPUT_MTZ
+DATA# 1  H                             
+DATA# 2  K                             
+DATA# 3  L                             
+DATA# 4  FP                             :     FWT                           
+DATA# 5  PHIB                           :     PHWT                          
+DATA# 6  FOM                           
+DATA# 7  HLA                           
+DATA# 8  HLB                           
+DATA# 9  HLC                           
+DATA# 10  HLD                           
+DATA# 11  FC                            
+DATA# 12  PHIC                          
+DATA# 13  SIGFP                         
+DATA# 14  FWT                           
+DATA# 15  FreeR_flag                    
+FP taken from column          12
+Dataset information for dataset number           2 and ID=           1
+Dataset name:dataset             
+Crystal name:crystal             
+Project name:project             
+Cell:      48.168999       72.750000       65.276001       90.000000       98.624001       90.000000
+Wavelength:    1.000000    
+PHIB taken from column          13
+WARNING: No SIGFP input data--output SIGFP column will be SIGFP=1.0 for all HKL!
+
+No FreeR_flag read in or created
+Total of        19852 reflections read from file
+Guessing FreeR_flag corresponding to free reflections
+This can be set with free_id xx
+No freeR reflections at all
+Total of            0 of        19852 reflections in test set
+ High-resolution limit of input phased data:  2.30
+Adding F000 term (0.0) to this list
+Closed mtz file
+ Starting resolution:  2.30 max:  2.30
+Space group is           4
+Using symmetry operations from input MTZ file
+
+
+ Transformations from orthogonal to fractional and back:
+
+               Orthogonal to fractional
+
+     fractional x=  0.02076 X +  -0.00000 Y +   0.00315 Z 
+     fractional y=  0.00000 X +   0.01375 Y +  -0.00000 Z 
+     fractional z=  0.00000 X +   0.00000 Y +   0.01549 Z 
+
+
+               Fractional to orthogonal
+
+     Orthogonal X= 48.16900 x +   0.00008 y +  -9.78802 z 
+     Orthogonal Y=  0.00000 x +  72.75000 y +   0.00009 z 
+     Orthogonal Z=  0.00000 x +   0.00000 y +  64.53798 z 
+
+Estimated # of atoms in au:        3571
+Not separating out FREE set from other reflections for main cycles. Using all data.
+
+Expected resolution-corrected F at d = 2.9A : 608.949
+
+ Results of wilson scaling:
+ Scale on I =      5.638
+ B-value =    -18.745
+
+ Scaling data with value of      5.638
+
+Reading model density histograms from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/rho.list
+Read total of           10 sets of density functions
+
+ 1.2 A gvp model data         
+ 
+Database 1
+ Protein
+0.13883 49.993 -0.052545 
+0.0028613 0.65609 0.25933 
+0.00094606 1.6127e-07 0 
+ Solvent 
+0.24297 50 -0.066461 
+0 0.27173 0.36529 
+0 0 0 
+
+ 2.1 A p9 model data          
+ 
+Database 2
+ Protein
+0.044882 10.876 -0.099183 
+0.0065938 0.1915 0.81579 
+0 4.992e-07 0 
+ Solvent 
+0.23814 49.998 -0.018448 
+0 0.092931 5.9969e-08 
+0 0 0 
+
+ 2.5 A p9 model data          
+ 
+Database 3
+ Protein
+0.028005 5.0887 -0.10737 
+0.0072492 0.1898 0.86087 
+0 6.5751e-08 0 
+ Solvent 
+0.20336 49.994 -0.021217 
+0 0.051284 -2.8788e-09 
+0 0 0 
+
+ 3.0 A p9 model data          
+ 
+Database 4
+ Protein
+0.015053 1.4002 -0.6344 
+0.0063877 0.16235 0.49508 
+2.1104e-07 7.8393e-09 0 
+ Solvent 
+0.086901 18.852 0.010379 
+0.014104 3.0605 -0.056333 
+0 0 0 
+
+ 3 A dehalogenase model       
+ 
+Database 5
+ Protein
+0.0191631 3.18726 -0.512357 
+0.00724949 0.64234 1.37647 
+0.0108539 1.62321 5.24151e-05 
+ Solvent 
+0.0309225 7.89451 -3.40749e-05 
+0 0.000394973 0 
+0.100204 31.8955 0.00790565 
+
+ 4.0 A p9 model data          
+ 
+Database 6
+ Protein
+0.01046 0.88702 -0.71921 
+0.0077113 0.1957 0.45527 
+0 1.7141e-08 0 
+ Solvent 
+0.058836 10.067 0.0059672 
+0.012859 1.8175 -0.011273 
+0 0 0 
+
+ Acorn map 2013-02-16 real dat
+ 
+Database 7
+ Protein
+0.018509 4.3226 -0.1313 
+0.01638 1.1255 -0.36873 
+0.00068238 1.8232e-08 0 
+ Solvent 
+0.051385 6.7883 -0.030178 
+0.01453 2.9458 0.047202 
+0 0 0 
+
+carbonic anhydrase 3ryj not sh
+ 
+Database 8
+ Protein
+0.033761 6.5653 -0.71026 
+0.007805 0.37567 0.0043698 
+0.00040671 8.1446e-09 0 
+ Solvent 
+0.019614 12.96 0.044435 
+0.0405 3.3172 -0.056361 
+0 0 0 
+
+carbonic anhydrase 3ryj sharpe
+ 
+Database 9
+ Protein
+0.031194 3.1578 -0.40319 
+0.0043546 0.27955 0.30159 
+0.00042361 7.5122e-08 0 
+ Solvent 
+0.059649 5.9617 -0.034235 
+0.0038858 1.0492 0.10247 
+0 0 0 
+
+heavy-atom model B= 7-10 not s
+ 
+Database 10
+ Protein
+0.05154 18.661 0.050944 
+0.024333 3.1634 0.021875 
+0.00043885 3.954e-09 0 
+ Solvent 
+0.050958 22.738 -0.077164 
+0.057472 10.748 0.046222 
+0 0 0 
+Highest value of ix, iy, iz in a.u:          63           95           45
+nu nv nw:           64          96          90   Number of grid points in au:      276480
+ Mean fom of this map was:  1.00
+
+ Summary of starting FOM vs resolution 
+    RES     FOM   FOM-smoothed  N 
+   20.01    1.00    1.00        71
+   12.64    1.00    1.00       113
+    9.51    1.00    1.00       221
+    7.50    1.00    1.00       382
+    6.34    1.00    1.00       379
+    5.48    1.00    1.00       690
+    4.78    1.00    1.00       829
+    4.28    1.00    1.00       913
+    3.91    1.00    1.00      1051
+    3.61    1.00    1.00      1087
+    3.36    1.00    1.00      1467
+    3.15    1.00    1.00      1258
+    2.98    1.00    1.00      1549
+    2.81    1.00    1.00      1986
+    2.64    1.00    1.00      2536
+    2.49    1.00    1.00      2376
+    2.36    1.00    1.00      2944
+
+ Mean fom of this map was:  1.00
+
+Starting phases assumed to be experimental
+   (To override, use "phases_from_resolve")
+
+
+Estimating optimal initial smoothing radius using the function:
+R=2.41 * (dmin**0.90) * (fom**-0.26)
+with dmin =     2.299513     and fom =     1.000000    
+Leading to R=    5.099051    
+To override, set "wang_radius_cycle", "wang_radius", or "wang_radius_start"
+
+
+Setting final smoothing radius to     4.000000    
+To override, set "wang_radius_cycle", "wang_radius", or "wang_radius_finish"
+
+Opening all.pdb and reading coordinates
+Center of molecule read in with        12733
+ atoms is       19.325495       49.204834       44.940144
+Read        12733 atoms from 
+PDB file for use in model-building all.pdb
+
+Adding extra mask cycle at end to build atomic model
+ Solvent content will be   0.40
+Using database entry            5 for histograms  (" 3 A dehalogenase model       ")
+
+Total mask cycles:            1
+Total density modification mask cycles:            0
+
+ Cycle  Ref NCS  Use NCS  Build     image    solvent    Extend  Cycles  Test
+
+  1      NO         NO      YES       NO        NO        NO       0
+
+
+                        Mask cycle            1
+               Weighting this cycle:     1.000000    
+
+ Histogram DB entry #   5 (" 3 A dehalogenase model       ")
+ Solvent content:  0.40 Smoothing radius:  4.00
+Using Wang mask (highest SD points)
+ New Wang averaging radius =  4.00
+
+ Mean +/- SD of density in protein region :   0.03 +/-   1.55
+ Mean +/- SD of density in solvent region :  -0.04 +/-   0.38
+
+
+ MEAN SD PROT for SQ-SM :   0.73 +/-   0.16
+ MEAN SD SOLV for SQ-SM :   0.17 +/-   0.09
+
+ N:  165864   110616
+Estimate of solvent fraction: 43.0299% 
+
+
+Plot     1
+
+
+ -------------------------------------------------------------------------------
+
+ Plot of probability that a grid point is part of protein region
+ vs percentiles of grid points
+
+ All points to the left of the + signs are in solvent masked region
+ those to right are in protein masked region.
+
+ The values of p(protein) should change from low to high approximately at the 
+ value of the fraction of solvent indicated by the + signs.
+ The sharper the transition the better.
+
+ Note: the mask is only used to make an estimate of the p(protein)
+
+ The values of p(protein) are used to weight the contribution of each grid
+  point to the probability of the map:
+
+  p(rho) = p(rho|protein) p(protein) +  p(rho|solvent) (1-p(protein))
+
+ This says that the probability that we would observe  the value rho  of 
+ electron density at this point is the probability that we 
+ would observe rho if this were really protein times the probability 
+ that this is  protein, plus the probability that we would observe
+ rho if it were really solvent, times the probability that
+ it is solvent.
+
+                     Probability that grid points are in protein region
+
+
+                         1.0  .........................xxxxxxxxxxxxxxxxxxxxxxxxx
+                              .                   +   x                        .
+                              .                   +                            .
+                              .                   +  x                         .
+                              .                   +                            .
+                              .                   +                            .
+                              .                   +                            .
+                p(protein)    .                   + x                          .
+                         0.5  .                   +                            .
+                              .                   +                            .
+                              .                   +                            .
+                              .                   +x                           .
+                              .                   +                            .
+                              .                   x                            .
+                              .                  x+                            .
+                         0.0  .xxxxxxxxxxxxxxxxxx.+.............................
+
+                              0       20        40        60        80       100
+
+                                            Percentile of grid points
+ -------------------------------------------------------------------------------
+
+
+
+ Range of P(protein)  and percentiles 
+ used for histograms of protein and solvent:
+
+               P(protein)                  Percentile
+              Low      High              Low      High
+ Protein:    0.87      1.00               48       100
+ Solvent:    0.00      0.12                0        40
+
+
+
+Plot     2
+
+
+ -------------------------------------------------------------------------------
+
+ Plot of probability that a grid point is part of protein region
+ vs percentiles of grid points
+
+ All points to the left of the "+" signs are in solvent masked region
+ those to right are in protein masked region.
+
+ The values of p(protein) should change from low to high approximately at the
+ value of the fraction of solvent indicated by the "+" signs.
+ The sharper the transition the better.
+
+ Note: the mask is only used to make an estimate of the p(protein)
+
+ The values of p(protein) are used to weight the contribution of each grid
+ point to the probability of the map:
+
+  p(rho) = p(rho|protein) p(protein) + p(rho|solvent) (1-p(protein))
+
+ This says that the probability that we would observe the value "rho" of
+ electron density at this point is the probability that we
+ would observe "rho" if this were really protein times the probability
+ that this is protein, plus the probability that we would observe
+ "rho" if it were really solvent, times the probability that
+ it is solvent.
+
+                     Probability that grid points are in protein region
+
+
+                         1.0  .........................xxxxxxxxxxxxxxxxxxxxxxxxx 
+                              .                   +   x                        . 
+                              .                   +                            . 
+                              .                   +  x                         . 
+                              .                   +                            . 
+                              .                   +                            . 
+                              .                   +                            . 
+                p(protein)    .                   + x                          . 
+                         0.5  .                   +                            . 
+                              .                   +                            . 
+                              .                   +                            . 
+                              .                   +x                           . 
+                              .                   +                            . 
+                              .                   x                            . 
+                              .                  x+                            . 
+                         0.0  .xxxxxxxxxxxxxxxxxx.+............................. 
+
+                              0       20        40        60        80       100
+
+                                            Percentile of grid points
+ -------------------------------------------------------------------------------
+
+
+Template side chain maps from:/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/side_chains_best.dat
+Copying side chain info from cache
+
+TEMPLATE            1 TEMPLATE FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mean_1.ezd
+! MEAN RHO FOR TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+TEMPLATE            1 CC FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_corr_1.ezd
+! CC OF RHO FOR TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+TEMPLATE            1 MASK FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mask_1.ezd
+! TEMPLATE MASK FOR  TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+Rmax in template =     11.05542    
+|xyz| in template =       10.000000       7.5000000       6.6666670
+Setting template values to 0 outside mask:
+mean, rms of template_sd inside mask:   0.6371688       0.6453685    
+Setting average template values to 0
+CUTOFF for nrefl =        19853 struct_27.p_cut=    0.1000000     =     4.500000    
+End of rotation about X =     100.0000    
+
+TEMPLATE            2 TEMPLATE FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mean_2.ezd
+! MEAN RHO FOR TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+TEMPLATE            2 CC FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_corr_2.ezd
+! CC OF RHO FOR TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+TEMPLATE            2 MASK FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mask_2.ezd
+! TEMPLATE MASK FOR  TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+Rmax in template =     11.05542    
+|xyz| in template =       10.000000       5.8333330       5.0000000
+Setting template values to 0 outside mask:
+mean, rms of template_sd inside mask:   0.2944103       0.3282437    
+Setting average template values to 0
+CUTOFF for nrefl =        19853 struct_27.p_cut=    0.1000000     =     4.500000    
+End of rotation about X =     360.0000    
+
+Reading template fragment files from:
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_1_0.pdb
+Reading libraries from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_1_0.pdb with iotbx
+Total of 70118 atoms out of max of 2800000
+First atom: N    : 1 : ALA 
+Orienting residues using CA   C    O   
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_2_0.pdb
+Reading libraries from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_2_0.pdb with iotbx
+Total of 133629 atoms out of max of 2800000
+First atom: N    : 1 : ALA 
+Orienting residues using CA   C    O   
+Total number of template classes read:            2
+Using input d_cut_fragment:      1.2000000       1.4000000
+Restoring analyze_fragments values
+Number of points in AU on special positions:           0 of       276480
+Maximum total number of peaks in template searches:         652
+Total peaks found:            0
+Total peaks kept :            0
+
+------- BUILD CYCLE            0 --------
+
+Note: blank line in seq file interpreted as chain break
+Note: blank line in seq file interpreted as chain break
+Read            1 chains from file seq_from_file.dat
+
+CHAIN            1 with          507 residues: starting at residue    1
+MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+
+
+ Reuse-chain: starting model-building with main-chain
+ from input model with        12733 atoms
+Using main-chain atoms without trimming to match density
+Done with starting model. Total of          385 fragments 
+with        22675 atoms placed.
+New number of fragments after reuse_chain:         385
+Skipping finding fragments (extending pdb_in model)
+Single model to be created
+
+Model assembly cycle            1
+
+Using all fragments this model assembly cycle
+Writing out fragments this cycle           1
+Assembling model from          757 fragments and          237 groups
+Writing out fragments this cycle           1
+Assembling model from          783 fragments and           17 groups
+Guess of number of copies of sequence in au:           1
+
+Initial guess of percentage built...          56%
+ Expected amino acid composition of au: with   507 aa total:
+
+ GLY   :    38
+ ALA   :    30
+ SER   :    37
+ VAL   :    31
+ ILE   :    30
+ LEU   :    47
+ MET   :    15
+ CYS   :     5
+ PHE   :    21
+ TYR   :    18
+ LYS   :    45
+ ARG   :    23
+ TRP   :     4
+ HIS   :    12
+ GLU   :    39
+ ASP   :    39
+ GLN   :    23
+ ASN   :    14
+ PRO   :    11
+ THR   :    25
+
+
+ Residues built and assigned to sequence with confidence >  95%:  205
+
+Number of copies of molecule required:           1
+Number of NCS copies expected:           1
+
+ Total number of chains used:  2   Mean gap length:152
+
+Defining           1 molecular center based on common center
+
+       Summary of molecular assembly results:
+
+ NCS copies:   1
+
+
+ Molecule:   1  Chain:   1
+
+                              Link   Mol
+ Frag  Start End  N  Overlap  Length Radius             Score  
+    1   51   82   32    0      23.0    22.9               6.5
+    2  133  305  173    0               4.2              40.6
+
+ Match of sequence to side-chain density: 
+
+
+Mean, mean SD of rho atom positions of atoms:      2.18+/-    1.25 for     1380 atoms
+
+Max aa seq # for any chain:  507
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ A    51 TYR         0.41    1.09      0.76     -0.62    1.88 
+ A    52 LYS         0.35   -0.08      0.89      0.35    1.44 
+ A    53 GLY         0.19    0.83
+ A    54 GLN         0.48    1.08      1.77      0.63    2.63 
+ A    55 ARG         0.49    1.76      1.43     -0.42    3.65 
+ A    56 VAL         0.67    2.09      2.01      1.00    3.44 
+ A    57 LEU         0.24   -0.84      0.28     -0.71    0.82 
+ A    58 GLY         0.11    0.28
+ A    59 LYS         0.47    0.88      0.96     -0.04    1.67 
+ A    60 GLY         0.33    1.85
+ A    61 SER         0.43    0.23      1.89      1.55    2.22 
+ A    62 PHE         0.57    2.21      1.98      1.09    3.65 
+ A    63 GLY         0.02   -0.32
+ A    64 GLU         0.38    0.07      1.32     -0.05    3.48 
+ A    65 VAL         0.56    1.45      1.17      0.82    1.72 
+ A    66 ILE         0.47    0.88      0.97     -0.05    1.65 
+ A    67 LEU         0.51    0.91      1.76     -0.11    2.95 
+ A    68 CYS         0.54    0.98      2.89      1.49    4.29 
+ A    69 LYS         0.32   -0.41      1.24     -0.49    2.42 
+ A    70 ASP         0.37   -0.12      1.99     -0.29    3.16 
+ A    71 LYS         0.48    0.99      1.22      0.16    2.52 
+ A    72 ILE         0.37    0.20      1.73     -0.29    3.40 
+ A    73 THR         0.31   -0.06      0.96      0.55    1.40 
+ A    74 GLY         0.29    1.58
+ A    75 GLN         0.39    0.27      1.39      0.25    2.35 
+ A    76 GLU         0.35   -0.19      1.00     -0.79    2.29 
+ A    77 CYS         0.66    1.67      3.14      2.13    4.14 
+ A    78 ALA         0.54    1.21      2.49      2.49    2.49 
+ A    79 VAL         0.67    2.07      1.94      1.41    2.26 
+ A    80 LYS         0.47    0.90      1.21     -0.86    3.03 
+ A    81 VAL         0.48    1.00      0.80      0.70    0.88 
+ A    82 ILE         0.47    0.88      1.02      0.24    1.41 
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ A   133 GLY         0.20    0.94
+ A   134 GLY         0.34    1.94
+ A   135 GLU         0.64    2.31      2.12      0.33    3.54 
+ A   136 LEU         0.50    0.86      0.96     -0.64    1.77 
+ A   137 PHE         0.38    0.70      1.06     -0.25    2.56 
+ A   138 ASP         0.51    0.88      2.21      0.31    3.63 
+ A   139 GLU         0.52    1.33      1.76      0.01    3.22 
+ A   140 ILE         0.19   -0.99      0.77     -0.13    1.45 
+ A   141 ILE         0.39    0.35      1.08     -0.40    1.83 
+ A   142 SER         0.48    0.51      1.58      1.17    1.99 
+ A   143 ARG         0.42    1.04      1.11      0.14    2.47 
+ A   144 LYS         0.39    0.24      1.47     -0.33    3.29 
+ A   145 ARG         0.36    0.33      1.49      0.08    3.14 
+ A   146 PHE         0.34    0.34      0.52     -1.04    1.94 
+ A   147 SER         0.61    1.25      1.99      1.66    2.31 
+ A   148 GLU         0.69    2.77      2.54      1.36    4.16 
+ A   149 VAL         0.47    0.93      1.29      0.76    1.92 
+ A   150 ASP         0.62    1.59      2.16      1.51    2.83 
+ A   151 ALA         0.74    2.20      2.47      2.47    2.47 
+ A   152 ALA         0.15   -0.77      0.16      0.16    0.16 
+ A   153 ARG         0.55    2.48      1.51      0.02    2.47 
+ A   154 ILE         0.47    0.88      0.68     -0.21    2.15 
+ A   155 ILE         0.67    2.20      2.09      1.13    3.29 
+ A   156 ARG         0.39    0.63      1.05     -0.57    2.58 
+ A   157 GLN         0.56    1.74      1.54      1.15    2.66 
+ A   158 VAL         0.60    1.69      2.56      1.25    3.48 
+ A   159 LEU         0.64    1.80      1.62      1.22    2.56 
+ A   160 SER         0.58    1.06      2.46      2.45    2.48 
+ A   161 GLY         0.40    2.33
+ A   162 ILE         0.68    2.28      2.67      2.07    3.70 
+ A   163 THR         0.44    0.69      1.44      0.36    2.13 
+ A   164 TYR         0.69    3.44      2.49      1.15    3.47 
+ A   165 MET         0.42    0.32      1.33     -0.54    2.87 
+ A   166 HIS         0.63    2.27      1.99      1.12    2.77 
+ A   167 LYS         0.50    1.19      1.76      0.46    3.29 
+ A   168 ASN         0.58    1.33      1.45      0.75    2.76 
+ A   169 LYS         0.35   -0.15      0.80     -0.42    1.51 
+ A   170 ILE         0.63    1.95      2.24      1.59    3.48 
+ A   171 VAL         0.37    0.35      1.23      0.07    2.88 
+ A   172 HIS         0.52    1.47      2.20      0.81    3.76 
+ A   173 ARG         0.40    0.81      1.24     -0.71    2.80 
+ A   174 ASP         0.59    1.41      2.27     -0.12    3.37 
+ A   175 LEU         0.61    1.62      1.23      0.87    1.65 
+ A   176 LYS         0.59    1.89      2.28      1.19    3.03 
+ A   177 PRO         0.61    3.15      1.29      1.06    1.70 
+ A   178 GLU         0.52    1.28      1.76      0.93    2.33 
+ A   179 ASN         0.65    1.85      2.80      0.64    3.73 
+ A   180 LEU         0.72    2.33      2.64      2.23    3.62 
+ A   181 LEU         0.55    1.19      1.78      0.60    3.59 
+ A   182 LEU         0.62    1.70      1.94      1.34    3.18 
+ A   183 GLU         0.45    0.67      1.54      0.19    3.60 
+ A   184 SER         0.40    0.05      0.66      0.47    0.85 
+ A   185 LYS         0.39    0.20      0.61     -0.69    1.89 
+ A   186 SER         0.38   -0.09      1.36      0.80    1.93 
+ A   187 LYS         0.34   -0.24      0.41     -0.17    1.48 
+ A   188 ASP         0.42    0.21      1.75      0.25    3.13 
+ A   189 ALA         0.24   -0.35      0.19      0.19    0.19 
+ A   190 ASN         0.57    1.32      1.23      0.66    1.57 
+ A   191 ILE         0.54    1.31      1.67      0.48    2.35 
+ A   192 ARG         0.37    0.49      1.07     -0.33    2.86 
+ A   193 ILE         0.60    1.70      2.01      1.25    2.83 
+ A   194 ILE         0.56    1.45      1.55      0.06    2.43 
+ A   195 ASP         0.60    1.49      1.93      0.46    4.24 
+ A   196 PHE         0.45    1.25      1.37     -0.01    3.42 
+ A   197 GLY         0.15    0.57
+ A   198 LEU         0.28   -0.59      0.80     -0.01    1.37 
+ A   199 SER         0.33   -0.34      1.64      1.49    1.79 
+ A   200 THR         0.33    0.06      0.90      0.14    2.03 
+ A   201 HIS         0.31   -0.14      0.96     -0.10    1.82 
+ A   202 PHE         0.31    0.16      0.61     -0.20    1.41 
+ A   203 GLU         0.33   -0.36      1.30      0.22    3.02 
+ A   204 ALA         0.01   -1.49      0.73      0.73    0.73 
+ A   205 SER         0.39   -0.02      1.87      1.47    2.26 
+ A   206 LYS         0.41    0.40      1.36      0.05    2.73 
+ A   207 LYS         0.39    0.19      1.25     -0.65    2.44 
+ A   208 MET         0.39    0.05      1.04     -0.12    2.81 
+ A   209 LYS         0.26   -0.88      0.62     -0.76    3.29 
+ A   210 ASP         0.31   -0.55      0.77      0.10    1.35 
+ A   211 LYS         0.31   -0.49      0.53     -0.17    1.81 
+ A   212 ILE         0.31   -0.22      1.16      0.14    2.16 
+ A   213 GLY         0.27    1.41
+ A   214 THR         0.50    1.07      2.75      1.54    3.64 
+ A   215 ALA         0.60    1.52      2.67      2.67    2.67 
+ A   216 TYR         0.60    2.66      2.61      0.99    4.04 
+ A   217 TYR         0.51    1.93      1.61     -0.47    3.15 
+ A   218 ILE         0.56    1.45      2.13      0.09    3.13 
+ A   219 ALA         0.56    1.30      3.35      3.35    3.35 
+ A   220 PRO         0.61    3.18      2.81      2.08    3.27 
+ A   221 GLU         0.51    1.17      2.55      1.56    3.99 
+ A   222 VAL         0.58    1.53      2.34      0.90    4.19 
+ A   223 LEU         0.59    1.51      1.57      0.90    2.53 
+ A   224 HIS         0.58    1.90      2.41      1.43    3.40 
+ A   225 GLY         0.64    3.97
+ A   226 THR         0.50    1.06      2.08     -0.62    3.72 
+ A   227 TYR         0.62    2.86      1.58      0.04    2.72 
+ A   228 ASP         0.59    1.40      1.99      1.00    3.57 
+ A   229 GLU         0.48    0.95      2.23      0.14    3.87 
+ A   230 LYS         0.43    0.55      1.34      0.22    2.75 
+ A   231 CYS         0.62    1.44      8.70      3.11   14.30 
+ A   232 ASP         0.64    1.72      3.12      2.57    3.75 
+ A   233 VAL         0.74    2.48      2.81      2.19    3.67 
+ A   234 TRP         0.61    3.78      2.38      0.34    3.78 
+ A   235 SER         0.57    1.01      2.89      1.52    4.26 
+ A   236 THR         0.71    2.27      3.39      1.64    4.55 
+ A   237 GLY         0.41    2.38
+ A   238 VAL         0.58    1.54      1.66      1.26    2.25 
+ A   239 ILE         0.67    2.16      2.01      0.56    3.16 
+ A   240 LEU         0.50    0.88      1.44      0.49    2.12 
+ A   241 TYR         0.54    2.21      2.10      0.84    3.80 
+ A   242 ILE         0.60    1.71      2.16      1.39    3.39 
+ A   243 LEU         0.59    1.51      1.71      1.35    2.04 
+ A   244 LEU         0.68    2.09      1.53     -0.09    2.36 
+ A   245 SER         0.52    0.73      1.60      0.68    2.52 
+ A   246 GLY         0.38    2.15
+ A   247 CYS         0.55    1.04      2.46      1.99    2.94 
+ A   248 PRO         0.56    2.81      2.18      1.31    3.52 
+ A   249 PRO         0.46    2.09      1.17      0.92    1.54 
+ A   250 PHE         0.66    2.90      2.27      0.67    3.75 
+ A   251 ASN         0.54    1.10      2.21      0.75    3.60 
+ A   252 GLY         0.21    0.97
+ A   253 ALA         0.48    0.87      0.85      0.85    0.85 
+ A   254 ASN         0.58    1.39      2.13      1.14    3.54 
+ A   255 GLU         0.60    1.97      2.54      2.11    3.14 
+ A   256 TYR         0.56    2.30      1.40     -0.22    3.12 
+ A   257 ASP         0.60    1.49      1.75      1.06    2.83 
+ A   258 ILE         0.60    1.74      2.64      0.84    4.12 
+ A   259 LEU         0.76    2.61      2.83      1.46    4.00 
+ A   260 LYS         0.52    1.29      1.69      0.45    3.13 
+ A   261 LYS         0.37    0.05      0.81     -0.61    1.79 
+ A   262 VAL         0.62    1.79      2.45      1.58    3.72 
+ A   263 GLU         0.52    1.27      1.53      0.81    2.14 
+ A   264 LYS         0.38    0.11      1.00     -0.12    1.97 
+ A   265 GLY         0.52    3.17
+ A   266 LYS         0.52    1.33      1.83     -0.15    3.39 
+ A   267 TYR         0.64    2.98      1.86      0.68    2.84 
+ A   268 THR         0.66    2.02      1.80      1.55    2.10 
+ A   269 PHE         0.61    2.51      1.43      0.14    2.51 
+ A   270 GLU         0.42    0.40      1.37      0.38    2.73 
+ A   271 LEU         0.40    0.23      1.03     -0.79    2.73 
+ A   272 PRO         0.45    2.00      0.93     -0.22    2.14 
+ A   273 GLN         0.41    0.48      1.17     -0.07    3.02 
+ A   274 TRP         0.67    4.37      1.82      0.63    3.62 
+ A   275 LYS         0.53    1.44      1.15      0.17    3.09 
+ A   276 LYS         0.40    0.34      0.55     -0.04    1.31 
+ A   277 VAL         0.69    2.21      2.13      1.68    2.73 
+ A   278 SER         0.61    1.24      2.25      2.16    2.33 
+ A   279 GLU         0.39    0.18      1.37     -0.09    2.96 
+ A   280 SER         0.49    0.54      2.03      1.60    2.46 
+ A   281 ALA         0.63    1.65      2.16      2.16    2.16 
+ A   282 LYS         0.67    2.60      1.57      0.73    2.22 
+ A   283 ASP         0.61    1.51      2.08      1.12    3.19 
+ A   284 LEU         0.54    1.17      1.21      0.65    1.62 
+ A   285 ILE         0.66    2.10      2.49      1.59    3.28 
+ A   286 ARG         0.52    2.10      1.45      0.41    2.52 
+ A   287 LYS         0.56    1.70      1.87      0.20    3.51 
+ A   288 MET         0.69    2.59      3.17      1.46    5.77 
+ A   289 LEU         0.68    2.06      2.62      0.46    3.89 
+ A   290 THR         0.37    0.27      1.03      0.76    1.50 
+ A   291 TYR         0.57    2.39      1.78     -0.12    3.86 
+ A   292 VAL         0.72    2.35      2.24      1.40    3.14 
+ A   293 PRO         0.72    3.98      2.78      1.78    3.62 
+ A   294 SER         0.66    1.53      2.63      2.36    2.90 
+ A   295 MET         0.56    1.48      1.96     -0.52    2.89 
+ A   296 ARG         0.45    1.36      1.52     -1.34    3.37 
+ A   297 ILE         0.59    1.66      2.65      1.69    3.86 
+ A   298 SER         0.68    1.66      2.14      1.49    2.79 
+ A   299 ALA         0.44    0.70      1.82      1.82    1.82 
+ A   300 ARG         0.48    1.71      0.94     -0.57    2.38 
+ A   301 ASP         0.58    1.34      1.41     -0.45    2.67 
+ A   302 ALA         0.48    0.88      2.64      2.64    2.64 
+ A   303 LEU         0.48    0.72      1.24     -0.04    2.06 
+ A   304 ASP         0.41    0.17      0.82      0.16    1.30 
+ A   305 HIS         0.64    2.35      2.39      0.93    3.12 
+
+FRAGMENT (UNPLACED) WITH      163 ATOMS. MEAN RHO:     2.21  Z-SCORE:     0.32
+NOMATCH: 2 LENGTH:35 First residue number: 511 CHAIN:  U :
+ U   511 SER         0.66    1.52      2.07      1.56    2.57 
+ U   512 GLY         0.15    0.57  
+ U   513 LYS         0.39    0.25      0.66     -0.90    1.27 
+ U   514 ILE         0.63    1.89      1.79      1.36    2.08 
+ U   515 LYS         0.51    1.26      1.67      0.36    2.50 
+ U   516 GLY         0.17    0.69  
+ U   517 LEU         0.60    1.56      2.08      1.08    2.68 
+ U   518 ARG         0.52    2.15      1.01      0.35    2.60 
+ U   519 LEU         0.58    1.40      1.90      0.47    2.47 
+ U   520 GLU         0.62    2.15      1.65      0.86    2.48 
+ U   521 VAL         0.61    1.73      1.78      1.55    2.09 
+ U   522 PHE         0.48    1.52      1.47      0.34    2.32 
+ U   523 PRO         0.54    2.64      1.30      0.17    2.01 
+ U   524 ASP         0.54    1.08      1.74     -1.01    3.51 
+ U   525 ILE         0.59    1.67      1.58      1.10    2.51 
+ U   526 LEU         0.46    0.64      1.53     -0.07    2.88 
+ U   527 SER         0.42    0.17      1.24      1.11    1.37 
+ U   528 GLY         0.20    0.96  
+ U   529 PHE         0.47    1.45      1.22      0.33    2.93 
+ U   530 GLY         0.22    1.10  
+ U   531 ARG         0.49    1.73      1.85     -0.94    3.54 
+ U   532 GLY         0.29    1.55  
+ U   533 LYS         0.54    1.46      1.50      0.21    2.71 
+ U   534 TRP         0.27    0.12      0.21     -0.46    1.29 
+ U   535 GLY         0.11    0.31  
+ U   536 GLY         0.21    0.99  
+ U   537 GLY         0.50    2.99  
+ U   538 LEU         0.39    0.14      1.04      0.09    2.79 
+ U   539 PHE         0.71    3.36      1.93      1.10    3.68 
+ U   540 LEU         0.47    0.66      0.99      0.42    1.60 
+ U   541 ILE         0.60    1.70      1.84      1.28    2.67 
+ U   542 GLY         0.08    0.08  
+ U   543 GLY         0.26    1.38  
+ U   544 LEU         0.44    0.46      1.23     -0.32    2.03 
+ U   545 GLY         0.26    1.35  
+
+FRAGMENT (UNPLACED) WITH       46 ATOMS. MEAN RHO:     2.54  Z-SCORE:     1.95
+NOMATCH: 4 LENGTH:10 First residue number: 551 CHAIN:  U :
+ U   551 ALA         0.68    1.91      4.61      4.61    4.61 
+ U   552 TYR         0.67    3.28      2.17      0.59    3.20 
+ U   553 GLY         0.37    2.10  
+ U   554 GLU         0.48    0.91      1.62      0.52    3.41 
+ U   555 GLY        -0.12   -1.29  
+ U   556 GLY         0.06   -0.03  
+ U   557 ALA         0.54    1.19      2.60      2.60    2.60 
+ U   558 ARG         0.55    2.47      1.60     -1.04    3.72 
+ U   559 LEU         0.62    1.69      1.80      1.41    2.24 
+ U   560 LEU         0.40    0.18      0.87     -0.69    2.30 
+
+FRAGMENT (UNPLACED) WITH       35 ATOMS. MEAN RHO:     2.85  Z-SCORE:     3.21
+NOMATCH: 5 LENGTH:7 First residue number: 571 CHAIN:  U :
+ U   571 ALA         0.68    1.89      3.36      3.36    3.36 
+ U   572 ASP         0.72    2.30      3.33      1.50    4.74 
+ U   573 GLY         0.11    0.34  
+ U   574 LYS         0.47    0.92      1.50      0.16    2.63 
+ U   575 ALA         0.58    1.41      2.73      2.73    2.73 
+ U   576 ALA         0.65    1.78      3.78      3.78    3.78 
+ U   577 LEU         0.57    1.36      1.25      0.35    1.91 
+
+FRAGMENT (UNPLACED) WITH       29 ATOMS. MEAN RHO:     3.12  Z-SCORE:     4.06
+NOMATCH: 6 LENGTH:6 First residue number: 581 CHAIN:  U :
+ U   581 GLY         0.22    1.05  
+ U   582 SER         0.69    1.74      2.87      1.72    4.01 
+ U   583 PHE         0.50    1.66      1.57      0.33    2.73 
+ U   584 SER         0.65    1.48      2.34      1.55    3.14 
+ U   585 LEU         0.48    0.77      2.30      2.03    2.63 
+ U   586 TYR         0.64    3.00      2.37      1.47    3.65 
+
+FRAGMENT (UNPLACED) WITH       28 ATOMS. MEAN RHO:     2.00  Z-SCORE:    -0.75
+NOMATCH: 7 LENGTH:6 First residue number: 591 CHAIN:  U :
+ U   591 GLU         0.47    0.84      1.60     -0.51    2.93 
+ U   592 LEU         0.62    1.70      1.72      0.79    2.80 
+ U   593 GLY        -0.10   -1.18  
+ U   594 LEU         0.38    0.05      1.35     -0.22    2.70 
+ U   595 ILE         0.47    0.85      1.11      0.57    1.68 
+ U   596 GLY        -0.02   -0.61  
+
+FRAGMENT (UNPLACED) WITH       21 ATOMS. MEAN RHO:     2.08  Z-SCORE:    -0.34
+NOMATCH: 8 LENGTH:5 First residue number: 601 CHAIN:  U :
+ U   601 GLY         0.17    0.75  
+ U   602 LYS         0.38    0.11      1.60     -1.01    3.50 
+ U   603 GLY         0.05   -0.09  
+ U   604 LYS         0.47    0.94      1.39     -0.33    2.43 
+ U   605 GLY         0.20    0.96  
+
+FRAGMENT (UNPLACED) WITH       19 ATOMS. MEAN RHO:     1.94  Z-SCORE:    -0.84
+NOMATCH: 9 LENGTH:4 First residue number: 611 CHAIN:  U :
+ U   611 GLY         0.00   -0.43  
+ U   612 LEU         0.38    0.10      1.43      0.67    2.86 
+ U   613 LYS         0.42    0.48      1.92     -0.38    4.59 
+ U   614 PRO         0.30    0.90      1.38     -0.53    2.83 
+
+FRAGMENT (UNPLACED) WITH       19 ATOMS. MEAN RHO:     1.45  Z-SCORE:    -2.55
+NOMATCH: 10 LENGTH:4 First residue number: 621 CHAIN:  U :
+ U   621 ALA         0.70    1.98      3.39      3.39    3.39 
+ U   622 GLU         0.50    1.15      1.74      0.32    2.58 
+ U   623 GLY        -0.06   -0.88  
+ U   624 ALA         0.65    1.77      2.94      2.94    2.94 
+
+                      CC    Z-SCORE    RHO-AVG     N 
+
+     MEAN:           0.49    1.24      1.73       205
+
+
+ Total residues placed:  205 of   507 or    40%
+ Residues built without side chains:   77
+ Total residues built:  282 or    55%
+
+ Build score = residues built + placed - 2* # of chains not 
+ assigned to sequence =     471
+
+
+
+ Generating map from model
+
+Finding best overall B and increment
+
+ Recovered map with   122995 elements covers     44.5% of the asymmetric unit
+ CC of recovered map with resolve map:
+       Overall:   0.58   In overlap region:   0.66
+ Radius used for map calculation:   2.80 A
+ Overall pseudo B-factor added to input B-factors:  -40.0
+ B-factor increment for each atom past CB:    7.8
+
+
+
+ Setting B values based on fit to map
+ and setting b_overall=0 beta_b=0
+
+Writing sequence-assigned coordinates of resolve model to:resolve_assigned.pdb                                                            
+Writing non-sequence-assigned coordinates of resolve model to:resolve_unassigned.pdb                                                          
+Writing coordinates of edited model to: resolve.pdb
+
+=====================================================================
+Finished model-building. Best model written out on cycle            0
+=====================================================================
+
+Copying refl to refl_temp
+Writing out           13 columns of data
+CC of prob map with current map:    1.000000    
+resolve exit_info:
+  source_file: /home/builder/slave/phenix-nightly-intel-linux-2_6-x86_64-centos6/modules/solve_resolve/resolve/aaa_resolve_main.cpp
+  source_line: 1692
+  status: 0
+EndOfResolve

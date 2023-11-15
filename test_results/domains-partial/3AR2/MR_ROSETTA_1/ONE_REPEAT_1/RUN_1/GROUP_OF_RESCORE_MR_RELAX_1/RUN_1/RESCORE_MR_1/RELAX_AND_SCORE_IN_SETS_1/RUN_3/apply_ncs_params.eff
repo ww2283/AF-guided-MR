@@ -1,0 +1,40 @@
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_S_PHA_0001_54_ed_one_0001_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}

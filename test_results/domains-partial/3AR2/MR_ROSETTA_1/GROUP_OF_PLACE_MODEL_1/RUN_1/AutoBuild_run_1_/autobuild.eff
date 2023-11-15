@@ -1,0 +1,404 @@
+# Effective parameters for autobuild
+#  Sat Apr 22 22:33:55 2023
+# 
+# Use:
+# 
+# phenix.autobuild AutoBuild_run_1_/autobuild.eff
+# 
+# Input arguments: 
+#  data=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz
+#  top_output_dir=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1
+#  nproc=8
+#  "run_command=sh "
+#  background=True
+#  ignore_errors_in_subprocess=True
+#  seq_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta
+#  "space_group=C 1 2 1"
+#  ncs_copies=2
+#  skip_clash_guard=True
+#  chain_type=PROTEIN
+#  add_double_quotes_in_condor=True
+#  condor=None
+#  condor_universe=vanilla
+#  refine_eff_file_list=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params
+#  clean_up=True
+#  remove_residues_on_special_positions=True
+#  maps_only=True
+#  refine=False
+#  map_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_ref_001.mtz
+#  model=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_ref_001.pdb
+#  require_nonzero=False
+# 
+autobuild {
+  data = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz"
+  model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_ref_001.pdb"
+  seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+  map_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_ref_001.mtz"
+  refinement_file = Auto
+  hires_file = Auto
+  crystal_info {
+    unit_cell = None
+    space_group = "C 1 2 1"
+    solvent_fraction = None
+    chain_type = Auto *PROTEIN DNA RNA
+    resolution = 0
+    dmax = 500
+    overall_resolution = 0
+    sequence = None
+  }
+  input_files {
+    input_labels = None
+    input_hires_labels = None
+    input_map_labels = None
+    input_refinement_labels = None
+    input_ha_file = None
+    force_input_ha = False
+    include_ha_in_model = True
+    cif_def_file_list = None
+    input_lig_file_list = None
+    keep_input_ligands = True
+    keep_input_waters = False
+    keep_pdb_atoms = True
+    remove_residues_on_special_positions = True
+    refine_eff_file_list = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params"
+    map_file_is_density_modified = True
+    map_file_fom = None
+    use_constant_input_map = False
+    use_map_file_as_hklstart = None
+    use_map_in_resolve_with_model = False
+    identity_from_remark = True
+    input_data_type = None
+  }
+  aniso {
+    remove_aniso = True
+    b_iso = None
+    max_b_iso = 40
+    target_b_ratio = 10
+  }
+  decision_making {
+    acceptable_r = 0.25
+    r_switch = 0.4
+    semi_acceptable_r = 0.3
+    reject_weak = False
+    min_weak_z = 0.2
+    min_cc_res_rebuild = 0.4
+    min_seq_identity_percent = 50
+    dist_close = None
+    dist_close_overlap = 1.5
+    loop_cc_min = 0.4
+    group_ca_length = 4
+    group_length = 2
+    include_molprobity = False
+    ok_molp_score = None
+    scale_molp_score = None
+  }
+  density_modification {
+    add_classic_denmod = None
+    skip_classic_if_worse_fom = True
+    skip_ncs_in_add_classic = True
+    thorough_denmod = *Auto True False
+    hl = False
+    mask_type = *histograms probability wang classic
+    mask_from_pdb = None
+    mask_type_extreme_dm = histograms probability *wang classic
+    mask_cycles_extreme_dm = 1
+    minor_cycles_extreme_dm = 4
+    wang_radius_extreme_dm = 20
+    precondition = False
+    minimum_ncs_cc = 0.3
+    extreme_dm = False
+    fom_for_extreme_dm_rebuild = 0.1
+    fom_for_extreme_dm = 0.35
+    rad_mask_from_pdb = 2
+    modify_outside_delta_solvent = 0.05
+    modify_outside_model = False
+    truncate_ha_sites_in_resolve = *Auto True False
+    rad_mask = None
+    s_step = None
+    res_start = None
+    map_dmin_start = None
+    map_dmin_incr = 0.25
+    use_resolve_fragments = True
+    use_resolve_pattern = True
+    use_hl_anom_in_denmod = False
+    use_hl_anom_in_denmod_with_model = False
+    mask_as_mtz = False
+    protein_output_mask_file = None
+    ncs_output_mask_file = None
+    omit_output_mask_file = None
+  }
+  maps {
+    maps_only = True
+    n_xyz_list = None
+  }
+  model_building {
+    build_type = *RESOLVE RESOLVE_AND_BUCCANEER
+    allow_negative_residues = False
+    highest_resno = None
+    semet = False
+    use_met_in_align = *Auto True False
+    base_model = None
+    consider_main_chain_list = None
+    dist_connect_max_helices = None
+    edit_pdb = True
+    helices_strands_only = False
+    resolution_helices_strands = 3.1
+    helices_strands_start = False
+    cc_helix_min = None
+    cc_strand_min = None
+    loop_lib = False
+    standard_loops = True
+    trace_loops = False
+    refine_trace_loops = True
+    density_of_points = None
+    a_cut_min = None
+    max_density_of_points = None
+    cutout_model_radius = None
+    max_cutout_model_radius = 20
+    padding = 1
+    cut_out_density = True
+    max_span = 30
+    max_c_ca_dist = None
+    max_overlap_rmsd = 2
+    max_overlap = None
+    min_overlap = None
+    include_input_model = True
+    input_compare_file = None
+    merge_models = False
+    morph = False
+    morph_main = False
+    dist_cut_base = 3
+    morph_cycles = 2
+    morph_rad = 7
+    n_ca_enough_helices = None
+    delta_phi = 20
+    offsets_list = 53 7 23
+    all_maps_in_rebuild = False
+    ps_in_rebuild = False
+    use_ncs_in_ps = False
+    remove_outlier_segments_z_cut = 3
+    refine = False
+    refine_final_model_vs_orig_data = True
+    reference_model = None
+    resolution_build = None
+    restart_cycle_after_morph = 5
+    retrace_before_build = False
+    reuse_chain_prev_cycle = True
+    richardson_rotamers = *Auto True False
+    rms_random_frag = None
+    rms_random_loop = None
+    start_chains_list = None
+    trace_as_lig = False
+    track_libs = False
+    two_fofc_denmod_in_rebuild = False
+    rebuild_from_fragments = False
+    two_fofc_in_rebuild = False
+    refine_map_coeff_labels = "2FOFCWT PH2FOFCWT"
+    filled_2fofc_maps = True
+    map_phasing = False
+    use_any_side = True
+    truncate_missing_side_chains = None
+    use_cc_in_combine_extend = False
+    sort_hetatms = False
+    map_to_object = None
+  }
+  multiple_models {
+    combine_only = False
+    multiple_models = False
+    multiple_models_first = 1
+    multiple_models_group_number = 5
+    multiple_models_last = 20
+    multiple_models_number = 20
+    multiple_models_starting = True
+    multiple_models_starting_resolution = 4
+    place_waters_in_combine = None
+  }
+  ncs {
+    find_ncs = *Auto True False
+    input_ncs_file = None
+    ncs_copies = 2
+    ncs_refine_coord_sigma_from_rmsd = False
+    ncs_refine_coord_sigma_from_rmsd_ratio = 1
+    no_merge_ncs_copies = False
+    optimize_ncs = True
+    use_ncs_in_build = True
+    ncs_in_refinement = *torsion cartesian None
+  }
+  omit {
+    composite_omit_type = *None simple_omit refine_omit sa_omit \
+                          iterative_build_omit
+    n_box_target = None
+    n_cycle_image_min = 3
+    n_cycle_rebuild_omit = 10
+    offset_boundary = 2
+    omit_boundary = 2
+    omit_box_start = 0
+    omit_box_end = 0
+    omit_box_pdb_list = None
+    omit_chain_list = None
+    omit_offset_list = 0 0 0 0 0 0
+    omit_on_rebuild = False
+    omit_selection = None
+    omit_region_specification = *composite_omit omit_around_pdb \
+                                omit_selection
+    omit_res_start_list = None
+    omit_res_end_list = None
+  }
+  rebuild_in_place {
+    min_seq_identity_percent_rebuild_in_place = 95
+    n_cycle_rebuild_in_place = None
+    n_rebuild_in_place = 1
+    rebuild_chain_list = None
+    rebuild_in_place = *Auto True False
+    rebuild_near_chain = None
+    rebuild_near_dist = 7.5
+    rebuild_near_res = None
+    rebuild_res_end_list = None
+    rebuild_res_start_list = None
+    rebuild_side_chains = False
+    redo_side_chains = True
+    replace_existing = True
+    delete_bad_residues_only = False
+    touch_up = False
+    touch_up_extra_residues = None
+    worst_percent_res_rebuild = 2
+    smooth_range = None
+    smooth_minimum_length = None
+  }
+  refinement {
+    refine_b = True
+    refine_se_occ = True
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    use_mlhl = True
+    generate_hl_if_missing = False
+    place_waters = True
+    refinement_resolution = 0
+    ordered_solvent_low_resolution = None
+    link_distance_cutoff = 3
+    r_free_flags_fraction = 0.1
+    r_free_flags_max_free = 2000
+    r_free_flags_use_lattice_symmetry = True
+    r_free_flags_lattice_symmetry_max_delta = 5
+    allow_overlapping = None
+    fix_ligand_occupancy = None
+    remove_outlier_segments = True
+    twin_law = None
+    max_occ = None
+    refine_before_rebuild = True
+    refine_with_ncs = True
+    refine_xyz = True
+    s_annealing = False
+    skip_hexdigest = False
+    use_hl_anom_in_refinement = False
+    use_hl_if_present = True
+  }
+  thoroughness {
+    build_outside = True
+    connect = True
+    extensive_build = False
+    fit_loops = True
+    insert_helices = True
+    n_cycle_build = None
+    n_cycle_build_max = 6
+    n_cycle_build_min = 1
+    n_cycle_rebuild_max = 15
+    n_cycle_rebuild_min = 1
+    n_mini = 10
+    n_random_frag = 0
+    n_random_loop = 3
+    n_try_rebuild = 2
+    ncycle_refine = 3
+    number_of_models = None
+    number_of_parallel_models = 0
+    skip_combine_extend = False
+    fully_skip_combine_extend = False
+    thorough_loop_fit = True
+  }
+  general {
+    coot_name = "coot"
+    i_ran_seed = 72432
+    raise_sorry = False
+    background = True
+    check_wait_time = 1
+    max_wait_time = 1
+    wait_between_submit_time = 1
+    cache_resolve_libs = True
+    resolve_size = "12"
+    check_run_command = False
+    run_command = "sh"
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    last_process_is_local = True
+    skip_r_factor = False
+    test_flag_value = Auto
+    skip_xtriage = False
+    base_path = None
+    temp_dir = None
+    local_temp_directory = None
+    clean_up = True
+    print_citations = True
+    solution_output_pickle_file = None
+    job_title = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    wizard_directory_number = None
+    verbose = False
+    extra_verbose = False
+    debug = False
+    require_nonzero = False
+    remove_path_word_list = None
+    fill = False
+    res_fill = None
+    check_only = False
+    keep_files = "overall_best*" "AutoBuild_run_*.log"
+    after_autosol = False
+    nbatch = 3
+    nproc = 8
+    quick = False
+    resolve_command_list = None
+    resolve_pattern_command_list = None
+    ignore_errors_in_subprocess = True
+    send_notification = False
+    notify_email = None
+  }
+  special_keywords {
+    write_run_directory_to_file = None
+  }
+  run_control {
+    coot = None
+    ignore_blanks = None
+    stop = None
+    display_facts = None
+    display_summary = None
+    carry_on = None
+    run = None
+    copy_run = None
+    display_runs = None
+    delete_runs = None
+    display_labels = None
+    dry_run = False
+    params_only = False
+    display_all = False
+  }
+  non_user_parameters {
+    gui_output_dir = None
+    background_map = None
+    boundary_background_map = None
+    extend_try_list = True
+    force_combine_extend = False
+    model_list = None
+    oasis_cnos = None
+    offset_boundary_background_map = None
+    skip_refine = False
+    sg = None
+    input_data_file = None
+    input_map_file = Auto
+    input_refinement_file = Auto
+    input_pdb_file = None
+    input_seq_file = Auto
+    super_quick = None
+    require_test_set = False
+  }
+}

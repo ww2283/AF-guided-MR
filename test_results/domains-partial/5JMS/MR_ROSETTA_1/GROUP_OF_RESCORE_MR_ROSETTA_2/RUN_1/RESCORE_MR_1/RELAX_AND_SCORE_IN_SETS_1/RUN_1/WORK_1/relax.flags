@@ -1,0 +1,8 @@
+-database /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database  
+-in:file:s /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+-edensity:mapreso     3.00
+-edensity:grid_spacing     1.50
+-edensity:mapfile /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map 
+-nstruct 2
+-overwrite
+

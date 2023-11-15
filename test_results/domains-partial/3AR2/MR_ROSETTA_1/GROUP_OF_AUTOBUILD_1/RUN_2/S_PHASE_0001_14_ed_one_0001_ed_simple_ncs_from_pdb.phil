@@ -1,0 +1,4 @@
+ncs_group {
+  reference = chain 'A'
+  selection = chain 'B'
+}

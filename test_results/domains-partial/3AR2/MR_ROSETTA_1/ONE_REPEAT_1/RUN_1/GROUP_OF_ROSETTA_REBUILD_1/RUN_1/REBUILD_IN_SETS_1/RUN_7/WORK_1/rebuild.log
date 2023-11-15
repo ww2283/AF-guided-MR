@@ -1,0 +1,1217 @@
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: rosetta.source.release-280 r280 2021.16+release.8ee4f02 8ee4f02ac5768a8a339ffada74cb0ff5f778b3e6 https://www.rosettacommons.org 2021-04-20T20:57:38.289184
+core.init: command: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease @rebuild.flags
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=668989627 seed_offset=0 real_seed=668989627
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=668989627 RG_type=mt19937
+rosetta_MR: The flag -MR::mode is no longer used.  Ignoring.
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+basic.io.database: Database file opened: scoring/score_functions/SecondaryStructurePotential/phi.theta.36.HS.resmooth
+basic.io.database: Database file opened: scoring/score_functions/SecondaryStructurePotential/phi.theta.36.SS.resmooth
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+core.scoring.ramachandran: shapovalov_lib::shap_rama_smooth_level of 4( aka highest_smooth ) got activated.
+basic.io.database: Database file opened: scoring/score_functions/rama/shapovalov/kappa25/all.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.all.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.gly.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.pro.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.valile.txt
+basic.io.database: Database file opened: scoring/score_functions/centroid_smooth/cen_smooth_params.txt
+core.energy_methods.CartesianBondedEnergy: Initializing IdealParametersDatabase with default Ks=300 , 80 , 80 , 10 , 80
+basic.io.database: Database file opened: scoring/score_functions/bondlength_bondangle/default-lengths.txt
+core.energy_methods.CartesianBondedEnergy: Read 759 bb-independent lengths.
+basic.io.database: Database file opened: scoring/score_functions/bondlength_bondangle/default-angles.txt
+core.energy_methods.CartesianBondedEnergy: Read 1434 bb-independent angles.
+basic.io.database: Database file opened: scoring/score_functions/bondlength_bondangle/default-torsions.txt
+core.energy_methods.CartesianBondedEnergy: Read 1 bb-independent torsions.
+basic.io.database: Database file opened: scoring/score_functions/bondlength_bondangle/default-improper.txt
+core.energy_methods.CartesianBondedEnergy: Read 529 bb-independent improper tors.
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 984 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.790067 seconds.
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/all.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/prepro.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+core.scoring.P_AA: shapovalov_lib::shap_p_aa_pp_smooth_level of 1( aka low_smooth ) got activated.
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa131/a20.prop
+core.scoring.electron_density.ElectronDensity: Loading Density Map
+core.scoring.electron_density.ElectronDensity: Loading density map/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+core.scoring.electron_density.ElectronDensity:  Setting resolution to 3A
+core.scoring.electron_density.ElectronDensity:           atom mask to 3.2A
+core.scoring.electron_density.ElectronDensity:             CA mask to 6A
+core.scoring.electron_density.ElectronDensity:  Read density map'/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map'
+core.scoring.electron_density.ElectronDensity:      extent: 200 x 96 x 192
+core.scoring.electron_density.ElectronDensity:      origin: 1 x 1 x 1
+core.scoring.electron_density.ElectronDensity:   altorigin: 0 x 0 x 0
+core.scoring.electron_density.ElectronDensity:        grid: 200 x 96 x 192
+core.scoring.electron_density.ElectronDensity:     celldim: 161.995 x 75.306 x 151.541
+core.scoring.electron_density.ElectronDensity:  cellangles: 90 x 108.97 x 90
+core.scoring.electron_density.ElectronDensity: Symmetry records found:
+core.scoring.electron_density.ElectronDensity: X,  Y,  Z                                                                       
+core.scoring.electron_density.ElectronDensity: -X,  Y,  -Z                                                                     
+core.scoring.electron_density.ElectronDensity: X+1/2,  Y+1/2,  Z                                                               
+core.scoring.electron_density.ElectronDensity: -X+1/2,  Y+1/2,  -Z                                                             
+core.scoring.electron_density.ElectronDensity:  voxel vol.: 0.47425
+core.scoring.electron_density.ElectronDensity: Resizing 200x96x192 to 108x50x102
+core.scoring.electron_density.ElectronDensity:  new extent: 108 x 50 x 102
+core.scoring.electron_density.ElectronDensity:  new origin: 0.54 x 0.520833 x 0.53125
+core.scoring.electron_density.ElectronDensity:    new grid: 108 x 50 x 102
+core.scoring.electron_density.ElectronDensity: Effective resolution = 3.01224
+core.import_pose.import_pose: File '/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_one.pdb' automatically determined to be of type PDB
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.comparative_modeling.threading: [ WARNING ] skipping atom,position  H  ,356 because template doesn't have atom  H  .
+core.chemical.GlobalResidueTypeSet: Finished initializing centroid residue type set.  Created 69 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.022481 seconds.
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.fragment.picking_old.vall.vall_io: Reading Vall library from /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database//sampling/filtered.vall.dat.2006-05-05 ... 
+core.fragment.picking_old.vall.vall_io:    100000
+core.fragment.picking_old.vall.vall_io:    200000
+core.fragment.picking_old.vall.vall_io:    300000
+core.fragment.picking_old.vall.vall_io:    400000
+core.fragment.picking_old.vall.vall_io:    500000
+core.fragment.picking_old.vall.vall_io:    600000
+core.fragment.picking_old.vall.vall_io:    700000
+core.fragment.picking_old.vall.vall_io:    800000
+core.fragment.picking_old.vall.vall_io:    900000
+core.fragment.picking_old.vall.vall_io:    1000000
+core.fragment.picking_old.vall.vall_io:    1100000
+core.fragment.picking_old.vall.vall_io:    1200000
+core.fragment.picking_old.vall.vall_io:    1300000
+core.fragment.picking_old.vall.vall_io:    1400000
+core.fragment.picking_old.vall.vall_io: ... done.  Read 1400124 lines.  Time elapsed: 6 seconds.
+core.fragment.picking_old.vall.vall_io: Prior library contained 0 sections totaling 0 residues.
+core.fragment.picking_old.vall.vall_io: Added 62471 sections to library totaling 1400124 residues.
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = LTTNQMSVC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00005
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00099
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TTNQMSVCK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00089
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TNQMSVCKM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00013
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NQMSVCKMF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00082
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00011
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = QMSVCKMFI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00014
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00013
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = MSVCKMFII
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00013
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00014
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = SVCKMFIID
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00019
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VCKMFIIDK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00011
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = CKMFIIDKV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KMFIIDKVD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00072
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = MFIIDKVDG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = FIIDKVDGD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00099
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00044
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = IIDKVDGDF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00054
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = IDKVDGDFC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00016
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00043
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = DKVDGDFCS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00042
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KVDGDFCSL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00084
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VDGDFCSLN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = DGDFCSLNE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00035
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GDFCSLNEF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00068
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = DFCSLNEFS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00019
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEE  |  aa = FCSLNEFSI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00049
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00015
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLEEL  |  aa = CSLNEFSIT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00005
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLEELL  |  aa = SLNEFSITG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00017
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00041
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEELLL  |  aa = LNEFSITGS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00063
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00034
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEELLLL  |  aa = NEFSITGST
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00027
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEELLLLL  |  aa = EFSITGSTY
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00087
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEELLLLLL  |  aa = FSITGSTYA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00031
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLLLL  |  aa = SITGSTYAP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.00027828
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = ITGSTYAPE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000717354
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00096
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TGSTYAPEG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000517289
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00011
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GSTYAPEGE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000714362
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00014
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = STYAPEGEV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.00019028
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00057
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEE  |  aa = TYAPEGEVL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000566198
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00045
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLEEE  |  aa = YAPEGEVLK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000235992
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00038
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLEEEL  |  aa = APEGEVLKN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.4233e-05
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00076
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEEELL  |  aa = PEGEVLKND
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000724893
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00064
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEEELLE  |  aa = EGEVLKNDK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 9.76498e-05
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEELLEE  |  aa = GEVLKNDKP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.00042789
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEELLEEE  |  aa = EVLKNDKPI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00034
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00041
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLEEEL  |  aa = VLKNDKPIR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00068
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00032
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLEEELL  |  aa = LKNDKPIRS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0008
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00082
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLEEELLL  |  aa = KNDKPIRSG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00046
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00068
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEELLLL  |  aa = NDKPIRSGQ
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00087
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00032
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEELLLLL  |  aa = DKPIRSGQF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00072
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00054
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLLLLL  |  aa = KPIRSGQFD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00095
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00012
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLLLL  |  aa = PIRSGQFDG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00059
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = IRSGQFDGL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00026
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = RSGQFDGLV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00035
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = SGQFDGLVE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00038
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00024
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GQFDGLVEL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00032
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = QFDGLVELA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00014
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLH  |  aa = FDGLVELAT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLHH  |  aa = DGLVELATI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLHHH  |  aa = GLVELATIC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00026
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLHHHH  |  aa = LVELATICA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00009
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLHHHHH  |  aa = VELATICAL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00074
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLHHHHHL  |  aa = ELATICALC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00083
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00052
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLHHHHHLL  |  aa = LATICALCN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00086
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00048
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LHHHHHLLL  |  aa = ATICALCND
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00055
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00026
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHHLLLL  |  aa = TICALCNDS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000815515
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00099
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHLLLLL  |  aa = ICALCNDSS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.0009
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00086
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHLLLLLL  |  aa = CALCNDSSL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00017
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00088
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHLLLLLLL  |  aa = ALCNDSSLD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00065
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HLLLLLLLL  |  aa = LCNDSSLDF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00038
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = CNDSSLDFN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00054
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00043
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NDSSLDFNE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00031
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = DSSLDFNET
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00015
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00031
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = SSLDFNETK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00024
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = SLDFNETKG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00051
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00041
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = LDFNETKGV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00084
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00033
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = DFNETKGVY
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00067
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = FNETKGVYE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00085
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00075
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NETKGVYEK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00055
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = ETKGVYEKV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00043
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TKGVYEKVG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00033
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KGVYEKVGE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00028
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GVYEKVGEA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.0004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00041
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VYEKVGEAT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00049
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = YEKVGEATE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EKVGEATET
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00069
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KVGEATETA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00045
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00049
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VGEATETAL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00034
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GEATETALT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00035
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLH  |  aa = EATETALTT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00062
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLHH  |  aa = ATETALTTL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00021
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLHHH  |  aa = TETALTTLV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLHHHH  |  aa = ETALTTLVE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00048
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00098
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLHHHHL  |  aa = TALTTLVEK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00036
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLHHHHLL  |  aa = ALTTLVEKM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00049
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00078
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLHHHHLLL  |  aa = LTTLVEKMN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00044
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00047
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LHHHHLLLL  |  aa = TTLVEKMNV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00077
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00042
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHLLLLL  |  aa = TLVEKMNVF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00084
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHLLLLLL  |  aa = LVEKMNVFN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00095
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHLLLLLLL  |  aa = VEKMNVFNT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00022
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HLLLLLLLL  |  aa = EKMNVFNTE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00065
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00024
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KMNVFNTEV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = MNVFNTEVR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00056
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NVFNTEVRN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.42813e-05
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00086
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VFNTEVRNL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000541154
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00055
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = FNTEVRNLS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000546669
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00046
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NTEVRNLSK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00038
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00059
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TEVRNLSKV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00041
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00057
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EVRNLSKVE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.0004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00048
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VRNLSKVER
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00059
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = RNLSKVERA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00069
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = NLSKVERAN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00037
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = LSKVERANA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00054
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLH  |  aa = SKVERANAC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00019
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLHH  |  aa = KVERANACN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00025
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00028
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLHHH  |  aa = VERANACNS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00032
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLHHHH  |  aa = ERANACNSV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00035
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00013
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLHHHHH  |  aa = RANACNSVI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00011
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLHHHHHH  |  aa = ANACNSVIR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00008
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLHHHHHHL  |  aa = NACNSVIRQ
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00091
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00084
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LHHHHHHLL  |  aa = ACNSVIRQL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00086
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00054
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHHHLLL  |  aa = CNSVIRQLM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00011
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHHLLLE  |  aa = NSVIRQLMK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00095
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00055
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHLLLEL  |  aa = SVIRQLMKK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00048
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHLLLELL  |  aa = VIRQLMKKE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHLLLELLL  |  aa = IRQLMKKEF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00045
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HLLLELLLL  |  aa = RQLMKKEFT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.0008
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLELLLLL  |  aa = QLMKKEFTL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00037
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00067
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLELLLLLL  |  aa = LMKKEFTLE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00043
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LELLLLLLL  |  aa = MKKEFTLEF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00075
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = KKEFTLEFS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00011
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KEFTLEFSR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00056
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EFTLEFSRD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00071
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00055
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = FTLEFSRDR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00004
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00089
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TLEFSRDRK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00047
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = LEFSRDRKS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00005
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEE  |  aa = EFSRDRKSM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00072
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00019
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLEEE  |  aa = FSRDRKSMS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00055
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00016
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLEEEE  |  aa = SRDRKSMSV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00025
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00088
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEEEEE  |  aa = RDRKSMSVY
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000727812
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEEEEEE  |  aa = DRKSMSVYC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.76099e-05
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEEEEEE  |  aa = RKSMSVYCS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000309351
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEEEEEEL  |  aa = KSMSVYCSP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00077
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00038
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEEEEELL  |  aa = SMSVYCSPA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00062
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEEEELLL  |  aa = MSVYCSPAK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00088
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEEELLLL  |  aa = SVYCSPAKS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00083
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEELLLLL  |  aa = VYCSPAKSS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLLLLL  |  aa = YCSPAKSSR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00012
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLLLL  |  aa = CSPAKSSRA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00016
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = SPAKSSRAA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00081
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = PAKSSRAAV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00043
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00031
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = AKSSRAAVG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00013
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00011
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KSSRAAVGN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00035
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = SSRAAVGNK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00096
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEE  |  aa = SRAAVGNKM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLEEE  |  aa = RAAVGNKMF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00034
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLEEEE  |  aa = AAVGNKMFV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00017
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00055
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEEEEE  |  aa = AVGNKMFVK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00036
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00048
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEEEEEE  |  aa = VGNKMFVKG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.0002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00039
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEEEEEL  |  aa = GNKMFVKGA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 0.000966824
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00078
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEEEEELL  |  aa = NKMFVKGAP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 1.00051
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEEEELLL  |  aa = KMFVKGAPE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00064
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00088
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEEELLLL  |  aa = MFVKGAPEG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00096
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00039
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEEELLLLL  |  aa = FVKGAPEGV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00031
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLLLLL  |  aa = VKGAPEGVI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00032
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00063
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLLLL  |  aa = KGAPEGVID
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00002
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = GAPEGVIDR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00068
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = APEGVIDRC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00027
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = PEGVIDRCN
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00046
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = EGVIDRCNY
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00018
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEE  |  aa = GVIDRCNYV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.0001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00012
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLEEE  |  aa = VIDRCNYVR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00037
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00018
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLEEEL  |  aa = IDRCNYVRV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00019
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00029
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEEELL  |  aa = DRCNYVRVG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00055
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00024
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEEELLL  |  aa = RCNYVRVGT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00041
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00025
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEELLLL  |  aa = CNYVRVGTT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00085
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00037
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEELLLLE  |  aa = NYVRVGTTR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00035
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00064
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLLLEE  |  aa = YVRVGTTRV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00022
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLEEE  |  aa = VRVGTTRVP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0007
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLEEEL  |  aa = RVGTTRVPM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.0009
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLEEELL  |  aa = VGTTRVPMT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00072
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00022
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLEEELLL  |  aa = GTTRVPMTG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00057
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00014
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLEEELLLL  |  aa = TTRVPMTGP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00094
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00028
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LEEELLLLL  |  aa = TRVPMTGPV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00085
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00021
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EEELLLLLL  |  aa = RVPMTGPVK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = EELLLLLLL  |  aa = VPMTGPVKE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = PMTGPVKEK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00045
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00007
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = MTGPVKEKI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00098
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLH  |  aa = TGPVKEKIL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00056
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLHH  |  aa = GPVKEKILS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00097
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00003
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLHHH  |  aa = PVKEKILSV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00069
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLHHHH  |  aa = VKEKILSVI
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00033
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00001
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLHHHHL  |  aa = KEKILSVIK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.0001
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.0002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLHHHHLL  |  aa = EKILSVIKE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00081
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00059
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLHHHHLLL  |  aa = KILSVIKEW
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00017
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00077
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LHHHHLLLL  |  aa = ILSVIKEWG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00016
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00025
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHHLLLLL  |  aa = LSVIKEWGT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00024
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00084
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHHLLLLLL  |  aa = SVIKEWGTG
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00047
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HHLLLLLLL  |  aa = VIKEWGTGR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00006
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00017
+core.fragment.picking_old.vall.eval.IdentityEval: ss = HLLLLLLLL  |  aa = IKEWGTGRD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00011
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00019
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KEWGTGRDT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00045
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00033
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EWGTGRDTL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00032
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00025
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = WGTGRDTLR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00066
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00037
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = GTGRDTLRC
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 2.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00051
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TGRDTLRCL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00047
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLE  |  aa = GRDTLRCLA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00036
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00012
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLEL  |  aa = RDTLRCLAL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00048
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00025
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLELL  |  aa = DTLRCLALA
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00008
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00034
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLELLE  |  aa = TLRCLALAT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0003
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLELLEL  |  aa = LRCLALATR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00011
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLELLELL  |  aa = RCLALATRD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 6.00005
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00008
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLELLELLL  |  aa = CLALATRDT
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 5.00078
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00012
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LELLELLLL  |  aa = LALATRDTP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.0008
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00004
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLELLLLL  |  aa = ALATRDTPP
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00046
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 7.00002
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLELLLLLL  |  aa = LATRDTPPK
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00013
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00025
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LELLLLLLL  |  aa = ATRDTPPKR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00097
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00021
+core.fragment.picking_old.vall.eval.IdentityEval: ss = ELLLLLLLL  |  aa = TRDTPPKRE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 6.00006
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = RDTPPKREE
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00032
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00027
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = DTPPKREEM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00035
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00028
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = TPPKREEMV
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00098
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00037
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = PPKREEMVL
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00091
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = PKREEMVLD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00081
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = KREEMVLDD
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 3.00057
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00059
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = REEMVLDDS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00024
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00062
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EEMVLDDSS
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00014
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00042
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = EMVLDDSSR
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00076
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00047
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = MVLDDSSRF
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00018
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0005
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = VLDDSSRFM
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00024
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.00036
+core.fragment.picking_old.vall.eval.IdentityEval: ss = LLLLLLLLL  |  aa = LDDSSRFME
+core.fragment.picking_old.vall.VallLibrarian: best fragment:   score = 4.00029
+core.fragment.picking_old.vall.VallLibrarian: worst fragment:  score = 5.0005
+protocols.hybridization.HybridizeProtocol: Found 1 domains using template default
+protocols.hybridization.HybridizeProtocol: domain 1: LOOP  begin  end  cut  skip_rate  extended
+protocols.hybridization.HybridizeProtocol: LOOP start: 1  stop: 231  cut: 0  size: 231  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeProtocol: 
+protocols.hybridization.HybridizeProtocol: 
+protocols.hybridization.HybridizeProtocol: FRAGMENTS small max length: 3
+protocols.hybridization.HybridizeProtocol: FRAGMENTS big max length: 9
+protocols.hybridization.HybridizeProtocol: Using initial template:    1 default
+protocols.hybridization.HybridizeProtocol: Align domain with TMscore of    1.000
+protocols.hybridization.HybridizeProtocol: LTTNQMSVCKMFIIDKVDGDFCSLNEFSITGSTYAPEGEVLKNDKPIRSGQFDGLVELATICALCNDSSLDFNETKGVYEKVGEATETALTTLVEKMNVFNTEVRNLSKVERANACNSVIRQLMKKEFTLEFSRDRKSMSVYCSPAKSSRAAVGNKMFVKGAPEGVIDRCNYVRVGTTRVPMTGPVKEKILSVIKEWGTGRDTLRCLALATRDTPPKREEMVLDDSSRFME
+protocols.hybridization.HybridizeProtocol: :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+protocols.hybridization.HybridizeProtocol: LTTNQMSVCKMFIIDKVDGDFCSLNEFSITGSTYAPEGEVLKNDKPIRSGQFDGLVELATICALCNDSSLDFNETKGVYEKVGEATETALTTLVEKMNVFNTEVRNLSKVERANACNSVIRQLMKKEFTLEFSRDRKSMSVYCSPAKSSRAAVGNKMFVKGAPEGVIDRCNYVRVGTTRVPMTGPVKEKILSVIKEWGTGRDTLRCLALATRDTPPKREEMVLDDSSRFME
+core.fragment: compute strand/loop fractions for 231 residues... 
+protocols.hybridization.FoldTreeHybridize: Secondary structure from fragments: LLLLLLLLLLLLLLLLLLLLLLLLLLLEELLLLLLLLLLEEELLEEELLLLLLLLLLLLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHHLLLLLLLLLLLLLLLLLLLLHHHHHHLLLLLLLLLLLLLLLLEEEEEEELLLLLLLLLLLEEEEEELLLLLLLLLLEEELLLLEEELLLLLLLLLHHHHLLLLLLLLLLLLLELLLLLLLLLLLLLLLLLLLLLLLL
+protocols.hybridization.FoldTreeHybridize: Steal chunks with rate = 0
+protocols.hybridization.FoldTreeHybridize: Chunks used for foldtree setup: 
+protocols.hybridization.FoldTreeHybridize: LOOP  begin  end  cut  skip_rate  extended
+protocols.hybridization.FoldTreeHybridize: LOOP start: 40  stop: 47  cut: 0  size: 8  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 116  stop: 121  cut: 0  size: 6  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 138  stop: 144  cut: 0  size: 7  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 156  stop: 161  cut: 0  size: 6  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 172  stop: 174  cut: 0  size: 3  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 179  stop: 181  cut: 0  size: 3  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: LOOP start: 208  stop: 211  cut: 0  size: 4  skip rate: 0  extended?: False
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.FoldTreeHybridize: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 1
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 40  stop: 47  cut: 0  size: 8  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 2
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 116  stop: 121  cut: 0  size: 6  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 3
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 138  stop: 144  cut: 0  size: 7  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 4
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 156  stop: 161  cut: 0  size: 6  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 5
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 172  stop: 174  cut: 0  size: 3  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 6
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 179  stop: 181  cut: 0  size: 3  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Identified template core chunk with index: 7
+protocols.hybridization.HybridizeFoldtreeDynamic: LOOP start: 208  stop: 211  cut: 0  size: 4  skip rate: 0  extended?: False
+protocols.hybridization.HybridizeFoldtreeDynamic: 
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 2 at 81
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: ELLLLLLLLLLLLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHHLLLLLLLLLLLLLLLLLLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            ----------------------------------*----------------------------------
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 3 at 129
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: HLLLLLLLLLLLLLLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            --------*--------
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 4 at 149
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: ELLLLLLLLLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            -----*------
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 5 at 166
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: ELLLLLLLLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            -----*-----
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 6 at 176
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: ELLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            --*--
+protocols.hybridization.HybridizeFoldtreeDynamic: Cutpoint 7 at 190
+protocols.hybridization.HybridizeFoldtreeDynamic:   Loop SS: ELLLLLLLLLHHHHLLLLLLLLLLLLL
+protocols.hybridization.HybridizeFoldtreeDynamic:            ---------*-----------------
+core.pose.util: [ WARNING ] addVirtualResAsRoot() called but pose is already rooted on a VRT residue ... continuing.
+protocols.loops.loops_main: Added cutpoint variant to residue 81
+protocols.loops.loops_main: Added cutpoint variant to residue 82
+protocols.loops.loops_main: Added cutpoint variant to residue 129
+protocols.loops.loops_main: Added cutpoint variant to residue 130
+protocols.loops.loops_main: Added cutpoint variant to residue 149
+protocols.loops.loops_main: Added cutpoint variant to residue 150
+protocols.loops.loops_main: Added cutpoint variant to residue 166
+protocols.loops.loops_main: Added cutpoint variant to residue 167
+protocols.loops.loops_main: Added cutpoint variant to residue 176
+protocols.loops.loops_main: Added cutpoint variant to residue 177
+protocols.loops.loops_main: Added cutpoint variant to residue 190
+protocols.loops.loops_main: Added cutpoint variant to residue 191
+protocols.loops.loops_main: [ WARNING ] Residue 231 is not compatible with cutpoints; variant type not changed.
+protocols.loops.loops_main: [ WARNING ] Residue 232 is not compatible with cutpoints; variant type not changed.
+protocols.hybridization.FoldTreeHybridize: FOLD_TREE  EDGE 232 42 1  EDGE 232 118 2  EDGE 232 140 3  EDGE 232 161 4  EDGE 232 173 5  EDGE 232 179 6  EDGE 232 210 7  EDGE 42 1 -1  EDGE 42 81 -1  EDGE 118 82 -1  EDGE 118 129 -1  EDGE 140 130 -1  EDGE 140 149 -1  EDGE 161 150 -1  EDGE 161 166 -1  EDGE 173 167 -1  EDGE 173 176 -1  EDGE 179 177 -1  EDGE 179 190 -1  EDGE 210 191 -1  EDGE 210 231 -1 
+protocols.hybridization.FoldTreeHybridize: auto_frag_insertion_weight for 1mer fragments: 0.00000 0
+protocols.hybridization.FoldTreeHybridize: auto_frag_insertion_weight for small fragments: 0.00000 0
+protocols.hybridization.FoldTreeHybridize: auto_frag_insertion_weight for big fragments: 0.00000 0
+protocols.hybridization.FoldTreeHybridize: auto_frag_insertion_weight for template chunks: 1.00000 7
+protocols.hybridization.FoldTreeHybridize: 
+===================================================================
+   Stage 2                                                         
+   Folding with score1 for 2000
+core.scoring.electron_density.ElectronDensity: Setting [kmin_,kmax_] to [0.0637226,1.08773]
+core.scoring.electron_density.ElectronDensity: Bin 1:  B(C/N/O/S)=16.7584 / 15.9584 / 16.5797 / 24.1571  sum=(0,0)
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -112.944 -112.944
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=  -0.00152
+protocols.hybridization.FoldTreeHybridize: 
+===================================================================
+   Stage 3                                                         
+   Folding with score2 and score5 for 2000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 1
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -104.335 -104.335
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score5...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 2
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -102.247 -102.247
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 3
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -104.244 -104.244
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score5...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 4
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -102.229 -102.229
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 5
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -104.153 -104.153
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score5...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 6
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -102.21 -102.21
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 7
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -104.061 -104.061
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 8
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -104.016 -104.016
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 9
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -103.97 -103.97
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 3 select score2...
+protocols.hybridization.FoldTreeHybridize: Stage 3 loop iteration 10
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -103.924 -103.924
+protocols.moves.TrialCounter:  ChunkTrialMover trials=   2000;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: 
+===================================================================
+   Stage 4                                                         
+   Folding with score3 for 400
+protocols.hybridization.FoldTreeHybridize: Stage 4 loop iteration 1: small fragments trials
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -16.5552 -16.5552
+protocols.moves.TrialCounter:  ChunkTrialMover trials=    400;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 4 loop iteration 2: small fragments smooth trials
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -16.4638 -16.4638
+protocols.moves.TrialCounter:  ChunkTrialMover trials=    400;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.FoldTreeHybridize: Stage 4 loop iteration 3: small fragments smooth trials
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -16.3725 -16.3725
+protocols.moves.TrialCounter:  ChunkTrialMover trials=    400;  accepts= 1.0000;  energy_drop/trial=   0.00000
+protocols.hybridization.HybridizeProtocol: Realigning template domains to stage1 pose.
+core.util.switchresiduetypeset: [ WARNING ] When switching to a centroid ResidueTypeSet:  Pose already contains centroid ResidueTypes.
+protocols.hybridization.CartesianHybridize: RUNNING FOR 4 MACROCYCLES
+protocols.hybridization.CartesianHybridize:  total_res=232   prot_res=231
+protocols.hybridization.CartesianHybridize: CYCLE 1
+protocols.hybridization.CartesianHybridize:   setting bonded weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded angle weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded length weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded torsion weight = 0
+protocols.hybridization.CartesianHybridize:   setting cst    weight = 0
+protocols.hybridization.CartesianHybridize:   setting vdw    weight = 0.1
+core.energy_methods.CartesianBondedEnergy: Creating new peptide-bonded energy container (232)
+core.energy_methods.CartesianBondedEnergy: Adding undefined angle VRT: X,ORIG,Y to DB with theta0 = 1.5708 , Ktheta = 80
+core.energy_methods.CartesianBondedEnergy: Adding undefined length VRT: ORIG,X, to DB with d0 = 1 , Kd = 300
+core.energy_methods.CartesianBondedEnergy: Adding undefined length VRT: ORIG,Y, to DB with d0 = 1 , Kd = 300
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -150.737 -150.91
+protocols.moves.TrialCounter:       fragNS_15+ trials=     57;  accepts= 0.4912;  energy_drop/trial=  -3.98528
+protocols.moves.TrialCounter:           picker trials=     18;  accepts= 0.2778;  energy_drop/trial=  -0.30134
+protocols.moves.TrialCounter:      picker_rand trials=     25;  accepts= 0.4000;  energy_drop/trial=  -2.09970
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -202.231 -202.231
+protocols.moves.TrialCounter:       fragNS_15+ trials=    124;  accepts= 0.4597;  energy_drop/trial=  -2.13863
+protocols.moves.TrialCounter:           picker trials=     40;  accepts= 0.3000;  energy_drop/trial=  -0.31427
+protocols.moves.TrialCounter:      picker_rand trials=     36;  accepts= 0.4167;  energy_drop/trial=  -1.63361
+protocols.hybridization.CartesianHybridize: CYCLE 2
+protocols.hybridization.CartesianHybridize:   setting bonded weight = 0.0005
+protocols.hybridization.CartesianHybridize:   setting bonded angle weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded length weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded torsion weight = 0
+protocols.hybridization.CartesianHybridize:   setting cst    weight = 0
+protocols.hybridization.CartesianHybridize:   setting vdw    weight = 0.1
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -234.983 -234.983
+protocols.moves.TrialCounter:         frag_15+ trials=     65;  accepts= 0.4308;  energy_drop/trial=  -0.51499
+protocols.moves.TrialCounter:           picker trials=     19 NO ACCEPTS.
+protocols.moves.TrialCounter:      picker_rand trials=     16 NO ACCEPTS.
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -253.733 -253.733
+protocols.moves.TrialCounter:         frag_15+ trials=    135;  accepts= 0.4296;  energy_drop/trial=  -0.38684
+protocols.moves.TrialCounter:           picker trials=     38 NO ACCEPTS.
+protocols.moves.TrialCounter:      picker_rand trials=     27 NO ACCEPTS.
+protocols.hybridization.CartesianHybridize: CYCLE 3
+protocols.hybridization.CartesianHybridize:   setting bonded weight = 0.005
+protocols.hybridization.CartesianHybridize:   setting bonded angle weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded length weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded torsion weight = 0
+protocols.hybridization.CartesianHybridize:   setting cst    weight = 0
+protocols.hybridization.CartesianHybridize:   setting vdw    weight = 0.1
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -264.024 -264.024
+protocols.moves.TrialCounter:         frag_15+ trials=     75;  accepts= 0.4133;  energy_drop/trial=  -0.25477
+protocols.moves.TrialCounter:           picker trials=      8 NO ACCEPTS.
+protocols.moves.TrialCounter:      picker_rand trials=     17;  accepts= 0.0588;  energy_drop/trial=   0.18959
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -272.922 -272.922
+protocols.moves.TrialCounter:         frag_15+ trials=    141;  accepts= 0.3475;  energy_drop/trial=  -0.19862
+protocols.moves.TrialCounter:           picker trials=     28 NO ACCEPTS.
+protocols.moves.TrialCounter:      picker_rand trials=     31;  accepts= 0.0323;  energy_drop/trial=   0.10397
+protocols.hybridization.CartesianHybridize: CYCLE 4
+protocols.hybridization.CartesianHybridize:   setting bonded weight = 0.05
+protocols.hybridization.CartesianHybridize:   setting bonded angle weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded length weight = 0
+protocols.hybridization.CartesianHybridize:   setting bonded torsion weight = 0
+protocols.hybridization.CartesianHybridize:   setting cst    weight = 0
+protocols.hybridization.CartesianHybridize:   setting vdw    weight = 1
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 5 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.moves.MonteCarlo: MonteCarlo:: last_accepted_score,lowest_score: -350.807 -350.807
+protocols.moves.TrialCounter:           picker trials=     50;  accepts= 0.2200;  energy_drop/trial=  -1.34083
+protocols.moves.TrialCounter:      picker_rand trials=     50;  accepts= 0.2400;  energy_drop/trial=  -1.29125
+protocols.hybridization.HybridizeProtocol: History :   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232
+protocols.hybridization.HybridizeProtocol: History :   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 200 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.RelaxScriptManager: Reading relax scripts list from database.
+protocols.relax.RelaxScriptManager: Looking for MonomerRelax2019.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database/sampling/relax_scripts/MonomerRelax2019.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: coord_cst_weight 1.0
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.040
+protocols.relax.RelaxScriptManager: repack
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.051
+protocols.relax.RelaxScriptManager: min 0.01
+protocols.relax.RelaxScriptManager: coord_cst_weight 0.5
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.265
+protocols.relax.RelaxScriptManager: repack
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.280
+protocols.relax.RelaxScriptManager: min 0.01
+protocols.relax.RelaxScriptManager: coord_cst_weight 0.0
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.559
+protocols.relax.RelaxScriptManager: repack
+protocols.relax.RelaxScriptManager: scale:fa_rep 0.581
+protocols.relax.RelaxScriptManager: min 0.01
+protocols.relax.RelaxScriptManager: coord_cst_weight 0.0
+protocols.relax.RelaxScriptManager: scale:fa_rep 1
+protocols.relax.RelaxScriptManager: repack
+protocols.relax.RelaxScriptManager: min 0.00001
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+core.energy_methods.CartesianBondedEnergy: Creating new peptide-bonded energy container (232)
+basic.io.database: Database file opened: scoring/score_functions/elec_cp_reps.dat
+core.scoring.elec.util: Read 40 countpair representative atoms
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib_fixes_enable option is true.
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib::shap_dun10_smooth_level of 1( aka lowest_smooth ) got activated.
+core.pack.dunbrack.RotamerLibrary: Binary rotamer library selected: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.182971 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  79717.4  0  0  0.55
+protocols.relax.FastRelax: CMD: coord_cst_weight  79717.4  0  0  0.55
+protocols.relax.FastRelax: CMD: scale:fa_rep  9485.5  0  0  0.022
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3720 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -651.279  0  0  0.022
+protocols.relax.FastRelax: CMD: scale:fa_rep  -585.526  0  0  0.02805
+core.optimization.LineMinimizer: Inaccurate G in step= 5.96046e-08 Deriv= -151.196 Finite Diff= 120.704
+core.optimization.LineMinimizer: Inaccurate G in step= 3.02506e-09 Deriv= -273.984 Finite Diff= 28.8132
+core.optimization.LineMinimizer: Inaccurate G in step= 7.60239e-09 Deriv= -418.394 Finite Diff= 85.8008
+core.optimization.LineMinimizer: Inaccurate G in step= 8.71371e-09 Deriv= -667.881 Finite Diff= 126.238
+core.optimization.LineMinimizer: Inaccurate G in step= 8.20378e-08 Deriv= -8648.72 Finite Diff= -369.631
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#189
+protocols.relax.FastRelax: CMD: min  -1729.71  1.20021  1.20021  0.02805
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1729.71  1.20021  1.20021  0.02805
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1446.17  1.20021  1.20021  0.14575
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3393 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1490.41  1.20021  1.20021  0.14575
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1473.19  1.20021  1.20021  0.154
+core.optimization.LineMinimizer: Inaccurate G in step= 1.49012e-08 Deriv= -13.2195 Finite Diff= 25.24
+core.optimization.LineMinimizer: Inaccurate G in step= 6.93062e-09 Deriv= -63.195 Finite Diff= 86.5671
+core.optimization.LineMinimizer: Inaccurate G in step= 2.58426e-08 Deriv= -80.3842 Finite Diff= 42.4676
+core.optimization.LineMinimizer: Inaccurate G in step= 5.49819e-09 Deriv= -196.033 Finite Diff= 157.111
+core.optimization.LineMinimizer: Inaccurate G in step= 7.32876e-09 Deriv= -39.1014 Finite Diff= 130.366
+core.optimization.LineMinimizer: Inaccurate G in step= 8.17975e-09 Deriv= -50.3245 Finite Diff= 154.621
+core.optimization.LineMinimizer: Inaccurate G in step= 7.3583e-08 Deriv= -10750.4 Finite Diff= -676.501
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#199
+protocols.relax.FastRelax: CMD: min  -1747.08  1.28528  1.28528  0.154
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1747.08  1.28528  1.28528  0.154
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1646  1.28528  1.28528  0.30745
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3334 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1647.9  1.28528  1.28528  0.30745
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1640.09  1.28528  1.28528  0.31955
+protocols.relax.FastRelax: CMD: min  -1680  1.31102  1.31102  0.31955
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1680  1.31102  1.31102  0.31955
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1586.26  1.31102  1.31102  0.55
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3318 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1587.08  1.31102  1.31102  0.55
+core.optimization.LineMinimizer: Inaccurate G in step= 9.53674e-09 Deriv= -745.54 Finite Diff= 541.446
+core.optimization.LineMinimizer: Inaccurate G in step= 6.65671e-09 Deriv= -164.866 Finite Diff= 54.868
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 200 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: min  -1656.72  1.38864  1.38864  0.55
+protocols.relax.FastRelax: MRP: 0  -1656.72  -1656.72  1.38864  1.38864  
+protocols.relax.FastRelax: CMD: accept_to_best  -1656.72  1.38864  1.38864  0.55
+protocols.relax.FastRelax: CMD: endrepeat  -1656.72  1.38864  1.38864  0.55
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1656.72  1.38864  1.38864  0.55
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1799.21  1.38864  1.38864  0.022
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3568 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1842.3  1.38864  1.38864  0.022
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1835.06  1.38864  1.38864  0.02805
+core.optimization.LineMinimizer: Inaccurate G in step= 7.45058e-09 Deriv= -4.98835 Finite Diff= 10.703
+core.optimization.LineMinimizer: Inaccurate G in step= 7.40769e-09 Deriv= -23.1071 Finite Diff= 4.52845
+core.optimization.LineMinimizer: Inaccurate G in step= 4.69368e-09 Deriv= -15.8576 Finite Diff= 11.9162
+core.optimization.LineMinimizer: Inaccurate G in step= 1.8723e-07 Deriv= -1660.47 Finite Diff= 497.859
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#180
+protocols.relax.FastRelax: CMD: min  -2010.1  1.35124  1.35124  0.02805
+protocols.relax.FastRelax: CMD: coord_cst_weight  -2010.1  1.35124  1.35124  0.02805
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1767.53  1.35124  1.35124  0.14575
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3318 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1778.89  1.35124  1.35124  0.14575
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1763.4  1.35124  1.35124  0.154
+protocols.relax.FastRelax: CMD: min  -1914.63  1.39516  1.39516  0.154
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1914.63  1.39516  1.39516  0.154
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1815.81  1.39516  1.39516  0.30745
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3280 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1808.49  1.39516  1.39516  0.30745
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1800.75  1.39516  1.39516  0.31955
+protocols.relax.FastRelax: CMD: min  -1842.01  1.40302  1.40302  0.31955
+protocols.relax.FastRelax: CMD: coord_cst_weight  -1842.01  1.40302  1.40302  0.31955
+protocols.relax.FastRelax: CMD: scale:fa_rep  -1749.15  1.40302  1.40302  0.55
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 3234 rotamers at 232 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: repack  -1745.54  1.40302  1.40302  0.55
+core.optimization.LineMinimizer: Inaccurate G in step= 9.53674e-09 Deriv= -580.7 Finite Diff= 8.44085
+protocols.relax.FastRelax: CMD: min  -1764.1  1.41855  1.41855  0.55
+protocols.relax.FastRelax: MRP: 1  -1764.1  -1764.1  1.41855  1.41855  
+protocols.relax.FastRelax: CMD: accept_to_best  -1764.1  1.41855  1.41855  0.55
+protocols.relax.FastRelax: CMD: endrepeat  -1764.1  1.41855  1.41855  0.55
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.jd2.JobDistributor: S_S_PHA_0001 reported success in 898 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 1 jobs considered, 1 jobs attempted in 898 seconds
+protocols.jd2.JobDistributor: [ WARNING ] The following options have been set, but have not yet been used:
+	-in:file:extended_pose 1
+

@@ -1,0 +1,487 @@
+--------------------------------------------------------
+-------------LIST OF FACTS:---------------------------
+CurrentWizard  "AutoBuild"
+NeedInputs  False
+OutputDir  "AutoBuild_run_1_"
+acceptable_r  0.25
+add_double_quotes_in_condor  True
+add_double_quotes_in_condor_set  True
+add_sidechains  True
+after_autosol 0
+all_input_labels  FC  PHIFC  FOBS  SIGFOBS  FOM  R-free-flags  None
+all_input_map_labels  F-obs  SIGF-obs  R-free-flags  F-obs-filtered  SIGF-obs-filtered  F-model  PHIF-model  2FOFCWT  PH2FOFCWT  2FOFCWT_no_fill  PH2FOFCWT_no_fill  FOFCWT  PHFOFCWT  None
+all_input_refinement_labels  FC  PHIFC  FOBS  SIGFOBS  FOM  R-free-flags  None
+all_maps_in_rebuild  False
+allow_negative_residues 0
+always_reuse_model 0
+auto_manual  "Manual"
+b_iso  24.9999443302
+background  "True"
+background_map  None
+background_set  True
+base_model  None
+base_path  None
+best_built 0
+best_cc 0
+best_logfile_eval  None
+best_mapfile_refine  "map_coeffs.mtz"
+best_overall_solution  1
+best_placed 0
+boundary_background_map  None
+build_it  False
+build_model_from_scratch  True
+build_outside  True
+build_type  "RESOLVE"
+cache_resolve_libs  True
+capra  True
+cell_found  "C 1 2 1 "
+chain_type  "PROTEIN"
+chain_type_set  "PROTEIN"
+check_only 0
+check_run_command 0
+check_wait_time  1.0
+cif_def_file_list []
+clean_up  True
+clean_up_set  True
+combine_current_number 0
+combine_in_rebuild  False
+combine_only  "False"
+compare_file_trim  False
+completed_region_build  True
+completed_regions_list  0
+composite  True
+composite_omit_type  "None"
+condor  "None"
+condor_set  "None"
+condor_universe  "vanilla"
+condor_universe_set  "vanilla"
+connect  True
+consider_main_chain_list []
+coot_name  "coot"
+crystal_symmetry <self.Facts[crystal_symmetry]>
+current_build_type  "rebuild"
+current_region  None
+current_run_number  1
+cycle  3
+cycle_best  <phenix.autosol.best_model.best_model instance at 0x7f3c20902b00>
+database_version  1.4
+debug  False
+default_find_ncs  True
+default_mask_type  "histograms"
+default_n_cycle_build  3
+default_nbatch  3
+default_number_of_models  3
+default_number_of_parallel_models  1
+default_path  False
+default_semet 0
+default_thorough_denmod  True
+default_truncate_ha_sites_in_resolve  True
+default_use_met_in_align 0
+delete_bad_residues_only 0
+delta_phi  20.0
+dist_close_overlap  1.5
+dist_cut_base  3.0
+dmax  500.0
+done_AutoBuild_build_cycle  True
+done_AutoBuild_check_params  True
+done_AutoBuild_datafile_info_inputs  True
+done_AutoBuild_general_params  True
+done_AutoBuild_set_overall_params  True
+done_AutoBuild_set_up_build 0
+done_AutoBuild_start  True
+done_AutoBuild_uncommon_inputs  True
+edit_pdb  True
+evaluate_it  False
+evaluate_only  "Never"
+extend  False
+extend_on_rebuild  False
+extend_try_list  True
+extensive_build 0
+extra_verbose 0
+extreme_dm 0
+fill 0
+filled_2fofc_maps  True
+find_ncs  "True"
+finished  True
+first_omit_cycle 0
+first_rebuild_cycle  2
+first_try  True
+fit_loops  True
+fom_for_extreme_dm  0.35
+fom_for_extreme_dm_rebuild  0.1
+force_combine_extend 0
+force_input_ha 0
+fully_skip_combine_extend 0
+general_logs  refinement_PHX.mtz_xtriage.log
+generate_hl_if_missing 0
+group_ca_length  4
+group_length  2
+ha_file_trim  False
+have_input_seq_file  True
+have_phib 0
+have_working_best_from_complete_cycle  True
+helices_strands_only 0
+helices_strands_start 0
+highest_screen  4
+hklin_exp  "exptl_phases_for_dm_aniso.mtz"
+hklin_exp_build  "resolve_work.mtz"
+hklin_map  "map_coeffs.mtz"
+hklin_ref  "aniso_refinement_data_PHX.mtz"
+hklin_ref_build  "aniso_refinement_data_PHX.mtz"
+hklin_ref_uncorrected  "exptl_fobs_phases_freeR_flags.mtz"
+hklin_to_exp_run  True
+hl  True
+hold_n_cycle_build  1
+hold_number_of_models  1
+i_ran_seed  693680
+identity_from_remark  True
+ignore_errors_in_subprocess  True
+ignore_errors_in_subprocess_set  True
+imported_facts_dict  False
+include_ha_in_model  True
+include_input_model  True
+include_molprobity 0
+input_compare_file  False
+input_data_file  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_data.mtz"
+input_data_file_set  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_data.mtz"
+input_data_file_use  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz"
+input_ha_file  False
+input_hires_file  False
+input_hires_labels []
+input_labels  FOBS  SIGFOBS  PHIFC  FOM  None  None  None  None
+input_lig_file_list []
+input_map_file  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.mtz"
+input_map_file_PDS_key  "S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.mtz"
+input_map_file_set  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.mtz"
+input_map_file_use  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz"
+input_map_labels  2FOFCWT  PH2FOFCWT  None
+input_ncs_file  False
+input_pdb_file  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+input_pdb_file_PDS_key  "S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+input_pdb_file_set  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+input_refinement_file  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_data.mtz"
+input_refinement_file_use  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz"
+input_refinement_labels  FOBS  SIGFOBS  R-free-flags
+input_refinement_labels_use  FOBS  SIGFOBS  PHIFC  FOM  None  None  None  None  R-free-flags
+input_seq_file  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat"
+input_seq_file_set  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+insert_helices  True
+is_centric 0
+iterative_build_omit_dir  False
+job_title  None
+keep_files  overall_best*  AutoBuild_run_*.log
+keep_going 0
+keep_input_ligands  True
+keep_input_waters 0
+keep_pdb_atoms  True
+labin  "FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM "
+labin_FP_PHIB_FOM  "labin FP=FP PHIB=PHIM FOM=FOMM"
+labin_FWT  "labin FP=FWT PHIB=PHWT"
+labin_exp  "labin FP=FP SIGFP=SIGFP
+"
+labin_exp_with_hl  "labin FP=FP SIGFP=SIGFP PHIB=PHIM FOM=FOMM 
+labin HLA=HLAM HLB=HLBM HLC=HLCM HLD=HLDM 
+"
+labin_hires  False
+labin_map  "FP=2FOFCWT PHIB=PH2FOFCWT "
+labin_map_is_two_cols  True
+labin_map_use  "LABIN  FP=2FOFCWT PHIB=PH2FOFCWT"
+labin_ref  "labin FP=FP SIGFP=SIGFP FreeR_flag=FreeR_flag
+"
+labin_refinement  "FP=FOBS SIGFP=SIGFOBS FreeR_flag=R-free-flags "
+labin_refinement_use  "FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM FreeR_flag=R-free-flags "
+labin_use  "FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM "
+last_process_is_local  True
+link_distance_cutoff  3.0
+logfile_PDS_key  None
+logfile_denmod  "resolve_denmod_with_model_2.log"
+loop_cc_min  0.4
+loop_lib 0
+make_files_for_coot  True
+map_dmin_incr  0.25
+map_file_is_density_modified  True
+map_phasing  False
+mapfile_refine_orig_labels  "AutoBuild_run_1_/TEMP0/refine_pdb_in.mtz"
+maps_only  True
+maps_only_set  True
+mask_as_mtz 0
+mask_cycles_extreme_dm  1.0
+mask_type  "histograms"
+mask_type_extreme_dm  "wang"
+max_b_iso  40.0
+max_cutout_model_radius  20.0
+max_span  30
+max_wait_time  1.0
+merge_models 0
+message_0  "STEP: finished  Run 1"
+message_1  False
+message_2  False
+message_3  False
+min_cc_res_rebuild  0.4
+min_seq_identity_percent  50.0
+min_seq_identity_percent_rebuild_in_place  95.0
+min_weak_z  0.2
+minimum_ncs_cc  0.3
+minimum_version  2.11
+minor_cycles_extreme_dm  4.0
+model_PDS_key  None
+model_list []
+model_number 0
+modify_outside_delta_solvent  0.05
+modify_outside_model 0
+morph  "False"
+morph_cycles  2
+morph_main 0
+morph_only 0
+morph_rad  7.0
+mtz_label  FOBS  SIGFOBS  PHIFC  FOM  None  None  None  None
+mtz_label_map  2FOFCWT  PH2FOFCWT  None
+mtz_label_refinement  FOBS  SIGFOBS  R-free-flags
+multiple_dir  "AutoBuild_run_1_/MULTIPLE_MODELS"
+multiple_models  "False"
+multiple_models_current_number 0
+multiple_models_first  1
+multiple_models_group_number  5
+multiple_models_keep_best  True
+multiple_models_last  20
+multiple_models_number  20
+multiple_models_starting  "True"
+multiple_models_starting_resolution  4.0
+n_box_target  False
+n_cycle_build  1
+n_cycle_build_max  6
+n_cycle_build_min  1
+n_cycle_image_min  3
+n_cycle_rebuild_max  1
+n_cycle_rebuild_min  1
+n_cycle_rebuild_min_extra  4
+n_cycle_rebuild_omit  10
+n_in_group  5
+n_mini  10
+n_omit_cycle  1
+n_random_frag 0
+n_random_loop  3
+n_rebuild_in_place  1
+n_try_rebuild  2
+n_xyz_list  200  96  192
+nbatch  3
+ncs_copies  2
+ncs_copies_from_chains_used  2
+ncs_copies_guess  2
+ncs_copies_set  2
+ncs_in_refinement  "torsion"
+ncs_info  NCS object with 1 groups: NCS group with 2 ops
+ncs_operators  "
+new_ncs_group
+rota_matrix    1.0000   -0.0000    0.0000
+rota_matrix    0.0000    1.0000   -0.0000
+rota_matrix    0.0000    0.0000    1.0000
+tran_orth    -0.0000    0.0000    0.0000
+
+center_orth   27.2373  -12.4879    0.6505
+
+rota_matrix    0.3745   -0.8087    0.4538
+rota_matrix    0.8807    0.1572   -0.4468
+rota_matrix    0.2900    0.5669    0.7711
+tran_orth    36.4698  -22.6406   17.7584
+
+center_orth    0.5235   -0.6377  -21.9156
+"
+ncs_refine_coord_sigma_from_rmsd 0
+ncs_refine_coord_sigma_from_rmsd_ratio  1.0
+ncycle_refine  3
+need_refinement_file 0
+never_done  AutoBuild_set_up_build  AutoBuild_build_cycle
+next_build_cycle  None
+next_method  False
+no_merge_ncs_copies 0
+no_use_phib  True
+not_files  file_or_file_list  write_run_directory_to_file  output_files_1  dataset_input_file_list  use_map_file_as_hklstart  map_file_fom  map_file_is_density_modified  keep_files
+nproc  8
+nproc_set  8
+number_of_models  1
+number_of_parallel_models 0
+number_of_regions 0
+offset_boundary  2.0
+offsets_list  78  359  320
+ok_to_display_restart_build  True
+omit  False
+omit_boundary  2.0
+omit_box_end 0
+omit_box_pdb_list []
+omit_box_start 0
+omit_chain_list []
+omit_line  False
+omit_offset_list  0  0  0  0  0  0
+omit_on_rebuild  "False"
+omit_region_specification  "composite_omit"
+omit_res_end_list []
+omit_res_start_list []
+omit_use  False
+optimize_ncs  True
+overall_resolution 0
+padding  1.0
+pdb_in_current_model  "refine.pdb_1"
+pdb_in_trim  "NO_LIG_NO_WAT_S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+pdb_start  "NO_LIG_NO_WAT_S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+place_waters  "True"
+place_waters_in_combine  "False"
+precondition 0
+print_citations  True
+process_dir  "AutoBuild_run_1_/.PROCESS_1"
+process_number  1
+program_all_refinement_labels  FP  SIGFP  PHIB  FOM  HLA  HLB  HLC  HLD  FreeR_flag
+program_labels  FP  SIGFP  PHIB  FOM  HLA  HLB  HLC  HLD
+program_map_labels  FP  PHIB  FOM
+program_refinement_labels  FP  SIGFP  FreeR_flag
+ps_in_rebuild  False
+queue_commands []
+quick 0
+r_change_per_cycle  -0.005
+r_free_flags_fraction  0.1
+r_free_flags_lattice_symmetry_max_delta  5.0
+r_free_flags_max_free  2000.0
+r_free_flags_use_lattice_symmetry  True
+r_switch  0.4
+rad_mask_from_pdb  2.0
+raise_sorry 0
+read_DB 0
+ready_with_regions  True
+rebuild_chain_list  
+rebuild_from_fragments 0
+rebuild_in_place  "False"
+rebuild_it  True
+rebuild_near_chain  False
+rebuild_near_dist  7.5
+rebuild_near_res  None
+rebuild_res_end_list  None
+rebuild_res_start_list  None
+rebuild_side_chains 0
+redo_side_chains  True
+refine 0
+refine_b  "True"
+refine_before_rebuild  "True"
+refine_eff_file_list  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params
+refine_eff_file_list_set  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params
+refine_file  "AutoBuild_run_1_/TEMP0/refine_f_model.mtz"
+refine_final_model_vs_orig_data  True
+refine_map_coeff_labels  2FOFCWT PH2FOFCWT
+refine_se_occ  True
+refine_set 0
+refine_trace_loops  True
+refine_with_ncs  "True"
+refine_xyz  "True"
+refined_pdb_start  "refined_pdb_in.pdb"
+refined_pdb_start_orig  "refined_pdb_in.pdb"
+refinement_resolution 0
+region_list  0
+reject_weak 0
+remove_aniso  True
+remove_models 0
+remove_outlier_segments_z_cut  3.0
+remove_path_word_list []
+remove_residues_on_special_positions  True
+remove_residues_on_special_positions_set  True
+replace_existing  True
+require_nonzero 0
+require_nonzero_set 0
+require_test_set 0
+reset_first_rebuild_cycle 0
+resolution  2.5
+resolution_build  2.5
+resolution_helices_strands  3.1
+resolution_line  "resolution 2.5 500.0"
+resolve_command_list []
+resolve_libs  <solve_resolve_resolve_helper_ext.resolve_libs object at 0x7f3c1eb86368>
+resolve_pattern_command_list []
+resolve_size  12
+resolve_wait_time  1
+restart_cycle_after_morph  5
+results  input_data_file  work_pdb_file  input_map_file  input_seq_file  input_compare_file
+retrace_before_build  "False"
+reuse_chain_prev_cycle  True
+run_command  "sh"
+run_command_set  "sh"
+s_annealing 0
+save_time  1682248032.0
+scale_refl  0.2
+semet  "False"
+semi_acceptable_r  0.3
+send_notification 0
+seq_file_trim  "seq_from_file.dat"
+sequence_changed 0
+set_up_build_completed  True
+sg_inv  "C 1 2 1"
+skip_build 0
+skip_clash_guard  True
+skip_clash_guard_set  True
+skip_classic_if_worse_fom  True
+skip_combine_extend 0
+skip_hexdigest 0
+skip_ncs_in_add_classic  True
+skip_r_factor 0
+skip_refine 0
+skip_xtriage 0
+solution_number  1
+solution_to_display 0
+solutions  Solution 1 from rebuild cycle 2
+solve_command_list []
+solve_work_path  False
+solvent_fraction  0.38
+sort_hetatms 0
+space_group  "C 1 2 1"
+space_group_set  "C 1 2 1"
+standard_loops  True
+start_chains_list []
+started_build_cycles 0
+still_use_pattern_or_fragments  False
+subtitle_extra  False
+target_b_ratio  10.0
+temp_dir  "AutoBuild_run_1_/TEMP0"
+test_flag_value 0
+thorough_denmod  "True"
+thorough_loop_fit  "True"
+top_output_dir  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+top_output_dir_set  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+top_solution <self.Facts[top_solution]>
+touch_up  "False"
+trace_as_lig 0
+trace_loops 0
+track_libs 0
+truncate_ha_sites_in_resolve  "No"
+truncate_missing_side_chains  True
+two_fofc_denmod_in_rebuild  False
+two_fofc_in_rebuild  False
+uncommon_inputs  "False"
+unit_cell  161.995  75.306  151.541  90.0  108.97  90.0
+unrefined_pdb  "unrefined.pdb_1"
+update_base_model 0
+use_any_side  "True"
+use_cc_in_combine_extend 0
+use_constant_input_map 0
+use_hl_anom_in_denmod 0
+use_hl_anom_in_denmod_with_model 0
+use_hl_anom_in_refinement 0
+use_hl_if_present  True
+use_map_file_as_hklstart  True
+use_map_in_resolve_with_model 0
+use_met_in_align  "False"
+use_mlhl  "True"
+use_ncs_in_build  "True"
+use_ncs_in_ps 0
+use_pattern_or_fragments  False
+use_resolve_fragments  False
+use_resolve_pattern  False
+verbose 0
+visited_highest_screen  True
+wait_between_submit_time  1.0
+wang_radius_extreme_dm  20.0
+warnings []
+work_pdb_file  "AutoBuild_run_1_/TEMP0/NO_LIG_NO_WAT_S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001_ref_001.pdb"
+work_pdb_file_build  "refine.pdb_1"
+work_pdb_file_build_list []
+working_best  <phenix.autosol.best_model.best_model instance at 0x7f3c1eb30c68>
+working_directory  "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+worst_percent_res_rebuild  2.0
+-------------END OF LIST OF FACTS:--------------------------
+------------------------------------------------------------

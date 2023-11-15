@@ -1,0 +1,34 @@
+phaser {
+  mode = MR_AUTO
+  hklin = 5jms-sf.mtz
+  seq_file = /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta
+  composition.solvent = 0.3799741421752262
+  crystal_symmetry.space_group = "P 1 21 1"
+  ensemble {
+    model_id = domains/ensemble_1.pdb
+    coordinates {
+      pdb = domains/ensemble_1.pdb
+      identity = 90.0
+    }
+  }
+  ensemble {
+    model_id = domains/ensemble_2.pdb
+    coordinates {
+      pdb = domains/ensemble_2.pdb
+      identity = 90.0
+    }
+  }
+  search {
+    ensembles = domains/ensemble_1.pdb
+    copies = 1
+  }
+  search {
+    ensembles = domains/ensemble_2.pdb
+    copies = 1
+  }
+  keywords {
+    general {
+      jobs = 8
+    }
+  }
+}

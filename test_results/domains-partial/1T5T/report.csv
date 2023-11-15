@@ -1,0 +1,2 @@
+sequence_length,run_time,resolution,tfz_score,successful_phaser_run,successful_phaser_output_dir,mr_rosetta_success
+1001,1542.3912618160248,2.8999729055983163,18.1,valid_partial,alternative_phaser_output,

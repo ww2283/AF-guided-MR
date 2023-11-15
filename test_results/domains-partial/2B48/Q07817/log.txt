@@ -1,0 +1,21 @@
+2023-04-26 12:35:24,723 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-26 12:35:25,850 Running on GPU
+2023-04-26 12:35:26,061 Found 5 citations for tools or databases
+2023-04-26 12:35:26,061 Query 1/1: Q07817 (length 233)
+2023-04-26 12:35:28,166 Setting max_seq=512, max_extra_seq=2935
+2023-04-26 12:35:56,743 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=73.3 pTM=0.656
+2023-04-26 12:36:07,408 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=72.6 pTM=0.661 tol=4.4
+2023-04-26 12:36:18,135 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=72.4 pTM=0.669 tol=1.78
+2023-04-26 12:36:28,883 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=72.6 pTM=0.669 tol=1.25
+2023-04-26 12:36:39,633 alphafold2_ptm_model_1_seed_000 recycle=4 pLDDT=72.1 pTM=0.668 tol=1.65
+2023-04-26 12:36:50,427 alphafold2_ptm_model_1_seed_000 recycle=5 pLDDT=72.3 pTM=0.668 tol=1.57
+2023-04-26 12:36:50,428 alphafold2_ptm_model_1_seed_000 took 77.6s (5 recycles)
+2023-04-26 12:36:50,491 reranking models by 'plddt' metric
+2023-04-26 12:36:58,559 Relaxation took 8.1s
+2023-04-26 12:36:58,559 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=72.3 pTM=0.668
+2023-04-26 12:36:59,148 Done
+2023-04-26 13:24:51,502 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-26 13:24:52,896 Running on GPU
+2023-04-26 13:24:53,115 Found 5 citations for tools or databases
+2023-04-26 13:24:53,115 Skipping Q07817 (already done)
+2023-04-26 13:24:53,115 Done

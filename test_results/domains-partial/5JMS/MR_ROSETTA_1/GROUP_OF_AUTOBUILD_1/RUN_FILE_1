@@ -1,0 +1,4 @@
+#!/bin/sh
+cd "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1"
+pwd
+sh "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.sh"

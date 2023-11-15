@@ -1,0 +1,4 @@
+refinement.pdb_interpretation.ncs_group {
+  reference = chain 'A' and (resseq 357:393 or resseq  395:402 or resseq  404:412 or resseq  414:428 or resseq  430:435 or resseq  437:459 or resseq  461:466 or resseq  468:476 or resseq  478:482 or resseq  484:488 or resseq  490:504 or resseq  506:533 or resseq  535:537 or resseq  539:540 or resseq  542:551 or resseq  553:558 or resseq  561:566 or resseq  568:569 or resseq  571:571 or resseq  574:577 or resseq  579:582 or resseq  584:586 ) 
+  selection = chain 'B' and (resseq 357:393 or resseq  395:402 or resseq  404:412 or resseq  414:428 or resseq  430:435 or resseq  437:459 or resseq  461:466 or resseq  468:476 or resseq  478:482 or resseq  484:488 or resseq  490:504 or resseq  506:533 or resseq  535:537 or resseq  539:540 or resseq  542:551 or resseq  553:558 or resseq  561:566 or resseq  568:569 or resseq  571:571 or resseq  574:577 or resseq  579:582 or resseq  584:586 ) 
+}

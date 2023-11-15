@@ -1,0 +1,1410 @@
+
+
+#                       mr_rosetta
+#
+# Run automr/autobuild/rosetta together 
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rosetta mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rosetta {
+  input_files {
+    data = "5jms-sf.mtz"
+    data_labels = None
+    free_r_data = None
+    free_r_labels = None
+    remove_free = True
+    labin = None
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta"
+    search_models = "alternative_phaser_output/PHASER.1.pdb"
+    copies_in_search_models = None
+    hhr_files = None
+    alignment_files = None
+    model_info_file = None
+    mr_rosetta_solutions = None
+    ids_to_load = None
+    map_coeffs = None
+    labin_map_coeffs = None
+    map = None
+    refinement_params = "mr_rosetta_phenix.params"
+    display_solutions = False
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta.log"
+    sort_score_type = None
+    params_out = "mr_rosetta_params.eff"
+  }
+  directories {
+    temp_dir = ""
+    workdir = ""
+    output_dir = ""
+    gui_output_dir = None
+    top_output_dir = None
+    rosetta_path = ""
+    rosetta_binary_dir = "rosetta_source/bin"
+    rosetta_binary_name = "mr_protocols.default"
+    rosetta_script_dir = "rosetta_source/src/apps/public/electron_density"
+    rosetta_database_dir = "rosetta_database"
+  }
+  read_hhpred {
+    number_of_models = 1
+    number_of_models_to_skip = 0
+    copies_to_extract = None
+    only_extract_proper_symmetry = False
+  }
+  place_model {
+    run_place_model = True
+    prerefine {
+      run_prerefine = False
+      number_of_prerefine_models = 1000
+      number_of_models_in_ensemble = 1
+    }
+    model_already_placed = True
+    model_already_aligned = False
+    force_alignment = False
+    number_of_output_models = 5
+    align_with_sculptor = True
+    identity = None
+    identity_for_scoring_only = 25
+    use_all_plausible_sg = False
+    overlap_allowed = 10
+    selection_criteria_rot_value = 75
+    fast_search_mode = True
+    peak_rota_down = 25
+    mr_resolution = None
+    refine_after_mr = True
+    denmod_after_refine = True
+    ps_in_rebuild = False
+    find_ncs_after_mr = True
+    fixed_model = None
+    fixed_model_identity = None
+    sufficient_number_finished = None
+    fixed_ensembles {
+      fixed_ensembleID_list = None
+      fixed_euler_list = 0 0 0
+      fixed_frac_list = 0 0 0
+      fixed_frac_list_is_fractional = True
+    }
+    copies_of_search_model_to_place = None
+  }
+  rescore_mr {
+    run_rescore_mr = True
+    nstruct = 5
+    relax = False
+    include_unrelaxed_in_scoring = False
+    align = True
+    edit_model = False
+    stage_to_rescore = "mr_solution"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 8
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_rescore {
+    run_rosetta_rescore = True
+    percentage_to_rescore = 20
+    min_solutions_to_rescore = 2
+  }
+  similarity {
+    run_similarity = False
+    required_cc = 0.2
+    number_of_required_cc = 5
+  }
+  refine_top_models {
+    run_refine_top_models = True
+    stage_to_refine = None
+    sort_score_type = None
+    percent_to_refine = 20
+    denmod_after_refine = True
+    remove_clashing_residues = None
+    clash_cutoff = 1.5
+  }
+  average_density_top_models {
+    run_average_density_top_models = True
+    percent_to_average = 100
+  }
+  relax_top_models {
+    run_relax_top_models = True
+    stage_to_relax = None
+    number_to_relax = 2
+    nstruct = 5
+    sort_score_type = None
+  }
+  autobuild_top_models {
+    run_autobuild_top_models = True
+    number_to_autobuild = 2
+    quick = False
+    phase_and_build = False
+    macro_cycles = None
+    remove_residues_on_special_positions = True
+    morph = False
+    edit_model = True
+    use_map_coeffs = True
+  }
+  setup_repeat_mr_rosetta {
+    run_setup_repeat_mr_rosetta = True
+    repeats = 1
+    template_repeats = 0
+    morph_repeats = 0
+    number_to_repeat = 1
+    acceptable_r = 0.25
+    minimum_delta_r = None
+  }
+  repeat_mr_rosetta {
+    run_repeat_mr_rosetta = True
+    copies_in_new_search_group = 1
+    update_map_coeffs_with_autobuild = True
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = None
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "P 1 21 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 1
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 8
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = None
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = None
+    rosetta_command = None
+    rosetta_3_6_or_later = None
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = *place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = None
+    print_citations = True
+    highest_id = 0
+    is_sub_process = False
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = None
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rosetta
+Date: Wed May 24 23:30:37 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS
+
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1
+
+Log file will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/mr_rosetta.log 
+Splitting output to  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/mr_rosetta.log
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+Running in background as nproc=8 and group_run_command=sh 
+
+ ================================================================================
+Setting up reflection file and labels
+================================================================================
+LABIN LINE TO BE USED: FP=FP SIGFP=SIGFP FreeR_flag=FreeR_flag  
+
+Methods to be run:
+
+place_model : True
+rescore_mr : True
+rosetta_rebuild : True
+rosetta_rescore : True
+similarity : False
+refine_top_models : True
+average_density_top_models : True
+relax_top_models : True
+autobuild_top_models : True
+setup_repeat_mr_rosetta : True
+repeat_mr_rosetta : True
+
+
+Note: fragment files will be generated by Rosetta
+ (Requires version 2013wk35 or later of Rosetta)
+
+
+================================================================================
+    RUNNING GROUP OF PLACE_MODEL (AUTOMR OR DIRECT PLACEMENT)
+
+================================================================================
+
+Running separately for each search model/alignment file
+
+
+Adding run... search model:  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+alignment file:  None 
+NCS copies:  1
+============================================================================== 
+Starting sub-processes Place model... 
+ ==============================================================================
+
+Splitting work into 1 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/results.pkl
+============================================================================== 
+ DONE with running subprocesses Place model
+ ==============================================================================
+NEW MR RESULT: 
+ID: 3  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+Stage: mr_solution  MR_LLG:    48.37  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/place_model_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/place_model_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/place_model_results.pkl  display_solutions=True
+
+
+================================================================================
+   RESCORING WITH LLG RECALCULATION
+
+================================================================================
+
+Running separate job to score each result
+
+
+Adding run... mr_model:  
+ID: 3  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+Stage: mr_solution  MR_LLG:    48.37  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_1  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_1/mr_model_result_to_score.pkl
+============================================================================== 
+Starting sub-processes Group of rescore MR... 
+ ==============================================================================
+
+Splitting work into 1 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_FILE_1.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_1/RUN_1/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of rescore MR
+ ==============================================================================
+NEW GROUP_OF_RESCORE_MR RESULT: 
+ID: 7  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+Stage: rescored_mr_solution  MR_LLG:    48.37  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescoring_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescoring_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescoring_results.pkl  display_solutions=True
+
+
+================================================================================
+   REBUILDING BEST MR SOLUTIONS WITH ROSETTA 
+
+================================================================================
+
+Choosing 1 MR solutions for Rosetta rebuilding
+
+SET CRYSTAL SYMMETRY FROM INPUT SOLUTION:  CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+General result for rebuilding: 
+ID: 7  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+Stage: rescored_mr_solution  MR_LLG:    48.37  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+Running separate job to rosetta rebuild each model
+
+
+Adding run for rosetta rebuilding:  
+ID: 7  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+Stage: rescored_mr_solution  MR_LLG:    48.37  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/rosetta_rebuild_result.pkl
+============================================================================== 
+Starting sub-processes Group of rosetta rebuild... 
+ ==============================================================================
+
+Splitting work into 1 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_FILE_1.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of rosetta rebuild
+ ==============================================================================
+
+Top rebuilt rosetta models at stage: rosetta_solution
+
+ 
+ID: 18  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -2004.71  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+ 
+ID: 11  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1974.50  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+ 
+ID: 12  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_12_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_12_ed.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1963.85  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+ 
+ID: 17  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_PHASE_0001_17_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_PHASE_0001_17_ed.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1963.19  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+ 
+ID: 13  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_13_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_13_ed.pdb 
+Stage: rosetta_solution  ROSETTA SCORE: -1954.66  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+Total complete rosetta solutions obtained (all chains): 8
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rebuild_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rebuild_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rebuild_results.pkl  display_solutions=True
+
+
+================================================================================
+   RESCORING ROSETTA SOLUTIONS BY LLG RECALCULATION
+
+================================================================================
+Taking top 20% of solutions (2) (top 5 listed) for set 1
+Candidate: ID: 18  SCORE : -2004.71 STAGE: rosetta_solution
+Candidate: ID: 11  SCORE : -1974.50 STAGE: rosetta_solution
+
+Running separate job to score each result
+
+============================================================================== 
+Starting sub-processes Group of rescore MR rosetta:Rescoring set of rosetta models... 
+ ==============================================================================
+
+Splitting work into 2 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_2.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_1/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/INFO_FILE_2 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_FILE_2.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_1/RUN_2/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of rescore MR rosetta:Rescoring set of rosetta models
+ ==============================================================================
+NEW GROUP_OF_RESCORE_MR_ROSETTA RESULT: 
+ID: 20  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:   197.56  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+NEW GROUP_OF_RESCORE_MR_ROSETTA RESULT: 
+ID: 21  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:   190.99  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescored_rosetta_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescored_rosetta_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/rescored_rosetta_results.pkl  display_solutions=True
+
+
+================================================================================
+   REFINING ROSETTA SOLUTIONS TO GET MAP COEFFS ONLY BEFORE RELAXING THEM
+
+================================================================================
+Taking top 2 solutions to refine for set 1
+Solution to refine: 20    197.56 rescored_rosetta_solution
+Solution to refine: 21    190.99 rescored_rosetta_solution
+
+Running separate job to refine each model
+
+
+Adding run... refinement:  
+ID: 20  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:   197.56  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/solution_to_refine.pkl
+
+Adding run... refinement:  
+ID: 21  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:   190.99  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2/solution_to_refine.pkl
+============================================================================== 
+Starting sub-processes Group of refinement... 
+ ==============================================================================
+
+Splitting work into 2 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/INFO_FILE_2 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of refinement
+ ==============================================================================
+NEW GROUP_OF_REFINEMENT RESULT: 
+ID: 22  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   197.56  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+NEW GROUP_OF_REFINEMENT RESULT: 
+ID: 23  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   190.99  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/refine_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/refine_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/refine_results.pkl  display_solutions=True
+
+
+================================================================================
+   AVERAGING MAP COEFFS BEFORE USING THEM IN RELAX
+
+================================================================================
+
+Stage to average: refined_rescored_rosetta_solution 
+
+Taking top 100.00 percent of refined_rescored_rosetta_solution solutions for average_density set 1
+Solution to average: 22    197.56 refined_rescored_rosetta_solution /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+Solution to average: 23    190.99 refined_rescored_rosetta_solution /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+Labels for map averaging: FP=FWT SIGFP=None PHIB=PHWT FOM=None
+Averaged map coeffs are in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz
+
+Removing free reflection data from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz to yield /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.mtz 
+Log file is /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.log
+Converted /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz to map using labels FP=FAVG PHIB=PHIFAVG 
+
+Using averaged map /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz for relaxing models in set 1
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/average_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/average_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/average_results.pkl  display_solutions=True
+
+
+Stage to relax: refined_rescored_rosetta_solution 
+
+================================================================================
+   RELAXING ROSETTA SOLUTIONS FOLLOWED BY LLG RECALCULATION
+
+================================================================================
+Taking top 2 solutions to relax
+Candidate: ID: 22  SCORE : 197.56 STAGE: refined_rescored_rosetta_solution
+Candidate: ID: 23  SCORE : 190.99 STAGE: refined_rescored_rosetta_solution
+General result for relaxing: 
+ID: 22  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   197.56  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+General result for relaxing: 
+ID: 23  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   190.99  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+
+Running separate job to score each result
+
+Returning one set of results for each model to rescore
+
+============================================================================== 
+Starting sub-processes Group of rescore MR rosetta:Rescoring set of rosetta models... 
+ ==============================================================================
+
+Splitting work into 2 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_2.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/INFO_FILE_2 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_2.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of rescore MR rosetta:Rescoring set of rosetta models
+ ==============================================================================
+
+Solution with relaxed versions: 
+ID: 22  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   197.56  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+Relaxed solutions (6)
+
+Solution with relaxed versions: 
+ID: 23  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+Stage: refined_rescored_rosetta_solution  MR_LLG:   190.99  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+Relaxed solutions (6)
+
+Best relaxed rosetta solutions:
+
+Solution ID: 33 
+SCORE:  296.386057745  SCORE TYPE:  MR_LLG
+ alignment_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali 
+ allowed_stages: ['mr_solution', 'rescored_mr_solution', 'rosetta_solution', 'rescored_rosetta_solution', 'scored_solution', 'rescored_rescored_rosetta_solution', 'relaxed_rosetta_solution', 'refined_rescored_rosetta_solution', 'rescored_refined_rescored_rosetta_solution', 'autobuild_model', 'solution_for_repeat', 'dummy_solution', 'prerefined_rosetta_solution', 'component_solution', 'relaxed_rosetta_solution_rosetta_score'] 
+ best_mr_llg: None 
+ best_mr_rescore_llg: None 
+ cc: None 
+ cc_to_comparison: None 
+ component_solutions: None 
+ crystal_symmetry: crystal_symmetry
+  unit_cell=(48.169, 72.75, 65.276, 90, 98.62, 90) 
+  space_group_symbol= P 1 21 1
+ data: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz 
+ file_base: PHASER.1 
+ fragment_files: None 
+ group: None 
+ group_by_chain_id: None 
+ id: 33 
+ identity: None 
+ labin_map_coeffs: FP=FAVG PHIB=PHIFAVG 
+ labin_mtz: None 
+ map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map 
+ map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz 
+ model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_18_ed_0001_ed.pdb 
+ model_cc_local_to_comparison: None 
+ model_cc_to_comparison: None 
+ model_info_object: 
+file_base:None
+ crystal_symmetry: crystal_symmetry 
+  unit_cell=(48.169, 72.75, 65.276, 90, 98.62, 90) 
+  space_group_symbol= P 1 21 1
+number_of_groups:1
+sequence_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_start_by_group:[0]
+pdb_file_start_by_group:[0]
+pdb_file_alignment_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_alignment_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_by_group:['/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/group_0.seq']
+align_file_by_group:['/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/group_0.ali'] 
+ model_object: None 
+ model_one_copy: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_18_ed_0001_ed.pdb 
+ mr_llg: 296.386057745 
+ mtz: None 
+ name: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_18_ed_0001_ed.pdb 
+ ncs_copies: 1 
+ ncs_object: None 
+ parent_id: 22 
+ parent_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_8/WORK_1/S_PHASE_0001_18_ed.pdb 
+ placed_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+ r: None 
+ r_free: None 
+ rosetta_score: -2004.71 
+ score_type: MR_LLG 
+ search_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+ seq_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta 
+ special_headers: ['parent_id', 'parent_model'] 
+ stage: relaxed_rosetta_solution 
+
+ None
+Solution ID: 34 
+SCORE:  244.080216532  SCORE TYPE:  MR_LLG
+ alignment_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali 
+ allowed_stages: ['mr_solution', 'rescored_mr_solution', 'rosetta_solution', 'rescored_rosetta_solution', 'scored_solution', 'rescored_rescored_rosetta_solution', 'relaxed_rosetta_solution', 'refined_rescored_rosetta_solution', 'rescored_refined_rescored_rosetta_solution', 'autobuild_model', 'solution_for_repeat', 'dummy_solution', 'prerefined_rosetta_solution', 'component_solution', 'relaxed_rosetta_solution_rosetta_score'] 
+ best_mr_llg: None 
+ best_mr_rescore_llg: None 
+ cc: None 
+ cc_to_comparison: None 
+ component_solutions: None 
+ crystal_symmetry: crystal_symmetry
+  unit_cell=(48.169, 72.75, 65.276, 90, 98.62, 90) 
+  space_group_symbol= P 1 21 1
+ data: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz 
+ file_base: PHASER.1 
+ fragment_files: None 
+ group: None 
+ group_by_chain_id: None 
+ id: 34 
+ identity: None 
+ labin_map_coeffs: FP=FAVG PHIB=PHIFAVG 
+ labin_mtz: None 
+ map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map 
+ map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz 
+ model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_11_ed_0001_ed.pdb 
+ model_cc_local_to_comparison: None 
+ model_cc_to_comparison: None 
+ model_info_object: 
+file_base:None
+ crystal_symmetry: crystal_symmetry 
+  unit_cell=(48.169, 72.75, 65.276, 90, 98.62, 90) 
+  space_group_symbol= P 1 21 1
+number_of_groups:1
+sequence_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_start_by_group:[0]
+pdb_file_start_by_group:[0]
+pdb_file_alignment_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_alignment_by_group:['MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN']
+seq_file_by_group:['/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/group_0.seq']
+align_file_by_group:['/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/group_0.ali'] 
+ model_object: None 
+ model_one_copy: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_11_ed_0001_ed.pdb 
+ mr_llg: 244.080216532 
+ mtz: None 
+ name: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_11_ed_0001_ed.pdb 
+ ncs_copies: 1 
+ ncs_object: None 
+ parent_id: 23 
+ parent_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_11_ed.pdb 
+ placed_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+ r: None 
+ r_free: None 
+ rosetta_score: -1974.497 
+ score_type: MR_LLG 
+ search_model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+ seq_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta 
+ special_headers: ['parent_id', 'parent_model'] 
+ stage: relaxed_rosetta_solution 
+
+ None
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/relax_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/relax_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/relax_results.pkl  display_solutions=True
+
+
+================================================================================
+   AUTOBUILDING TOP SOLUTIONS
+
+================================================================================
+Taking top 2 solutions to autobuild
+Candidate: ID: 33  SCORE : 296.39 STAGE: relaxed_rosetta_solution
+Candidate: ID: 34  SCORE : 244.08 STAGE: relaxed_rosetta_solution
+
+================================================================================
+    RUNNING AUTOBUILD
+
+================================================================================
+
+Adding run for autobuilding:  
+ID: 33  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_18_ed_0001_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_2/WORK_1/S_PHASE_0001_18_ed_0001_ed.pdb 
+Stage: relaxed_rosetta_solution  MR_LLG:   296.39  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/autobuild_result.pkl
+
+Adding run for autobuilding:  
+ID: 34  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_11_ed_0001_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_11_ed_0001_ed.pdb 
+Stage: relaxed_rosetta_solution  MR_LLG:   244.08  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/autobuild_result.pkl
+============================================================================== 
+Starting sub-processes Group of autobuild... 
+ ==============================================================================
+
+Splitting work into 2 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/results.pkl
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/INFO_FILE_2 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of autobuild
+ ==============================================================================
+
+Results of autobuilding: 
+
+
+ID: 35 
+R/Rfree:   0.33 /   0.39 
+MODEL: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb 
+MAP COEFFS /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+ID: 36 
+R/Rfree:   0.36 /   0.41 
+MODEL: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best.pdb 
+MAP COEFFS /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+================================================================================
+RESULTS OF AUTOBUILDING:
+================================================================================
+
+ID: 35 
+R/Rfree:   0.33 /   0.39 
+MODEL: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb 
+MAP COEFFS /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/autobuild_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/autobuild_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/autobuild_results.pkl  display_solutions=True
+
+
+================================================================================
+   SETUP FOR REPEATING MR ROSETTA WITH BEST CURRENT MODELS
+
+================================================================================
+Taking top 1 solutions to use in setup_repeat
+Candidate: ID: 35  SCORE :   0.33 STAGE: autobuild_model
+
+================================================================================
+    RUNNING GROUP OF SETUP_REPEATS
+
+================================================================================
+
+Adding run for setup_repeat:  
+ID: 35  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb 
+Stage: autobuild_model  R_FACTOR:     0.33  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1  with data in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/autobuild_result.pkl
+============================================================================== 
+Starting sub-processes Group of setup_repeat... 
+ ==============================================================================
+
+Splitting work into 1 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_FILE_1.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/INFO_FILE_1 
+method: mr_rosetta 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_FILE_1.log
+Reading pickle file from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/results.pkl
+============================================================================== 
+ DONE with running subprocesses Group of setup_repeat
+ ==============================================================================
+
+Results of setup_repeat: 
+
+RESULT:  
+ID: 37  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+Stage: solution_for_repeat  R_FACTOR:     0.33  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None
+DONE RUNNING GROUP OF SETUP_REPEAT
+
+Results after setup_repeat_mr_rosetta: 
+
+
+ID: 37 
+R/Rfree:   0.33 /   0.39 
+MODEL: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+MAP COEFFS /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/setup_repeat_results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/setup_repeat_results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/setup_repeat_results.pkl  display_solutions=True
+
+
+================================================================================
+   REPEATING MR ROSETTA STARTING FROM BEST CURRENT MODELS
+
+================================================================================
+Taking top 1 solutions to repeat
+Candidate: ID: 37  SCORE :   0.33 STAGE: solution_for_repeat
+
+================================================================================
+    RUNNING ONE REPEAT
+
+================================================================================
+
+Adding run for repeat:  
+ID: 37  Model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+Stage: solution_for_repeat  R_FACTOR:     0.33  
+Group: None
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz labin:FP=FWT PHIB=PHWT 
+map: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/alternative_phaser_output/PHASER.1.pdb 
+component_solutions: None 
+in  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1
+
+Using map coeffs from autobuild from now on
+
+Starting map coeffs will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz 
+
+Using fixed model (no MR) in repeat run
+
+Starting model will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+
+
+#                       mr_rosetta
+#
+# Run automr/autobuild/rosetta together 
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rosetta mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rosetta {
+  input_files {
+    data = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/5jms-sf.mtz"
+    data_labels = None
+    free_r_data = ""
+    free_r_labels = None
+    remove_free = True
+    labin = None
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta"
+    search_models = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb"
+    copies_in_search_models = None
+    hhr_files = None
+    alignment_files = None
+    model_info_file = None
+    mr_rosetta_solutions = None
+    ids_to_load = None
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz"
+    labin_map_coeffs = "FP=FWT PHIB=PHWT"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map"
+    refinement_params = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/mr_rosetta_phenix.params"
+    display_solutions = False
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta.log"
+    sort_score_type = None
+    params_out = "mr_rosetta_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  read_hhpred {
+    number_of_models = 1
+    number_of_models_to_skip = 0
+    copies_to_extract = None
+    only_extract_proper_symmetry = False
+  }
+  place_model {
+    run_place_model = True
+    prerefine {
+      run_prerefine = False
+      number_of_prerefine_models = 1000
+      number_of_models_in_ensemble = 1
+    }
+    model_already_placed = True
+    model_already_aligned = True
+    force_alignment = False
+    number_of_output_models = 5
+    align_with_sculptor = True
+    identity = None
+    identity_for_scoring_only = 25
+    use_all_plausible_sg = False
+    overlap_allowed = 10
+    selection_criteria_rot_value = 75
+    fast_search_mode = True
+    peak_rota_down = 25
+    mr_resolution = None
+    refine_after_mr = True
+    denmod_after_refine = True
+    ps_in_rebuild = False
+    find_ncs_after_mr = True
+    fixed_model = ""
+    fixed_model_identity = None
+    sufficient_number_finished = None
+    fixed_ensembles {
+      fixed_ensembleID_list = None
+      fixed_euler_list = 0 0 0
+      fixed_frac_list = 0 0 0
+      fixed_frac_list_is_fractional = True
+    }
+    copies_of_search_model_to_place = None
+  }
+  rescore_mr {
+    run_rescore_mr = True
+    nstruct = 5
+    relax = False
+    include_unrelaxed_in_scoring = False
+    align = True
+    edit_model = False
+    stage_to_rescore = "mr_solution"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 8
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_rescore {
+    run_rosetta_rescore = True
+    percentage_to_rescore = 20
+    min_solutions_to_rescore = 2
+  }
+  similarity {
+    run_similarity = False
+    required_cc = 0.2
+    number_of_required_cc = 5
+  }
+  refine_top_models {
+    run_refine_top_models = False
+    stage_to_refine = "rescored_rosetta_solution"
+    sort_score_type = "MR_LLG"
+    percent_to_refine = 20
+    denmod_after_refine = True
+    remove_clashing_residues = None
+    clash_cutoff = 1.5
+  }
+  average_density_top_models {
+    run_average_density_top_models = True
+    percent_to_average = 100
+  }
+  relax_top_models {
+    run_relax_top_models = True
+    stage_to_relax = None
+    number_to_relax = 2
+    nstruct = 5
+    sort_score_type = None
+  }
+  autobuild_top_models {
+    run_autobuild_top_models = True
+    number_to_autobuild = 2
+    quick = False
+    phase_and_build = False
+    macro_cycles = None
+    remove_residues_on_special_positions = True
+    morph = False
+    edit_model = True
+    use_map_coeffs = True
+  }
+  setup_repeat_mr_rosetta {
+    run_setup_repeat_mr_rosetta = True
+    repeats = 0
+    template_repeats = 0
+    morph_repeats = 0
+    number_to_repeat = 1
+    acceptable_r = 0.25
+    minimum_delta_r = None
+  }
+  repeat_mr_rosetta {
+    run_repeat_mr_rosetta = True
+    copies_in_new_search_group = 1
+    update_map_coeffs_with_autobuild = True
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "P 1 21 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 1
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 8
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = None
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = None
+    print_citations = False
+    highest_id = 38
+    is_sub_process = False
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rosetta
+Date: Thu May 25 04:00:10 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1
+
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1
+
+Log file will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/mr_rosetta.log 
+Splitting output to  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/mr_rosetta.log
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+
+ ================================================================================
+Setting up reflection file and labels
+================================================================================
+LABIN LINE TO BE USED: FP=FP SIGFP=SIGFP FreeR_flag=FreeR_flag  
+
+Methods to be run:
+
+place_model : True
+rescore_mr : True
+rosetta_rebuild : True
+rosetta_rescore : True
+similarity : False
+refine_top_models : False
+average_density_top_models : True
+relax_top_models : True
+autobuild_top_models : True
+setup_repeat_mr_rosetta : True
+repeat_mr_rosetta : True
+
+
+Note: fragment files will be generated by Rosetta
+ (Requires version 2013wk35 or later of Rosetta)
+
+
+================================================================================
+    RUNNING GROUP OF PLACE_MODEL (AUTOMR OR DIRECT PLACEMENT)
+
+================================================================================
+
+Running separately for each search model/alignment file
+
+
+Adding run... search model:  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+alignment file:  None 
+NCS copies:  1
+============================================================================== 
+Starting sub-processes Place model... 
+ ==============================================================================
+
+Splitting work into 1 jobs and running with 8 processors using sh 
+background=True in /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1
+
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log
+
+
+********************************************************************************
+Sorry, a subprocess has failed...
+
+END OF LOG FILE /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log :
+
+TDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+--
+
+Trying to adjust the PDB sequence from alignment file:
+MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+to match the actual PDB sequence:
+VILCKDKITGQECAVKVVQLLKQLDHPNIMKLYEFFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQNIRQFQGTQKLAQAALLYMTELATIFGEVDFDEFQQMLLKLCG
+New alignment line 4 for PDB: 
+0 -------------------------------------------------------------------------------------------------------------------------GQECAVKVVQLLKQLDHPNIMKLYFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQNIRQFQGTQKLAQLYMTELATIFGEVDFDEFQQMLL------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sorry: Sorry, please supply an alignment file for this job.
+Also specify force_alignment.
+mr_rosetta cannot automatically generate alignments where there
+are deletions required from the PDB file
+
+
+
+

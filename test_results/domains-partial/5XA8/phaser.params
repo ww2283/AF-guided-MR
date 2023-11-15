@@ -1,0 +1,23 @@
+phaser {
+  mode = MR_AUTO
+  hklin = 5XA8-sf.mtz
+  seq_file = /maintank/Wei/automation.colabfold/test45/batch_4/P04191/5XA8/P04191/P04191.fasta
+  composition.solvent = 0.3695589994136068
+  crystal_symmetry.space_group = "C 1 2 1"
+  ensemble {
+    model_id = ensemble_0
+    coordinates {
+      pdb = step_trimmed/ranked_0_plddt40.pdb
+      identity = 90.0
+    }
+  }
+  search {
+    ensembles = ensemble_0
+    copies = 2
+  }
+  keywords {
+    general {
+      jobs = 8
+    }
+  }
+}

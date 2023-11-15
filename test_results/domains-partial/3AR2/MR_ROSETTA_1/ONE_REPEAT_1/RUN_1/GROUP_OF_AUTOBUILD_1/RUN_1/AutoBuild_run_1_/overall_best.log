@@ -1,0 +1,1500 @@
+ ------------------------  COPYRIGHT NOTICE  ---------------------------------
+                   Los Alamos National Laboratory
+ This program was prepared by Los Alamos National Security, LLC at
+ Los Alamos National Laboratory (the University) under  Contract No. 
+ W-7405-ENG-36 with the U.S. Department of Energy (DOE).  The University has 
+ certain rights in the program pursuant to the contract and the program should
+ not be copied or distributed outside your organization.  All rights in the 
+ program are reserved by the DOE and the University.  Neither the U.S. 
+ Government nor the University makes any warranty, express or implied, or 
+ assumes any liability or responsibility for the use of this software.
+
+        *******************************************************
+        *                --- RESOLVE ---                      *
+        *                                                     *
+        *         Statistical density modification            *
+        *             Automated model-building                *
+        *                                                     *
+        *                For on-line help                     *
+        *            see "http://solve.lanl.gov"              *
+        *                                                     *
+        *      This software uses library routines from the   *
+        *      CCP4 suite (http://www.ccp4.ac.uk) for which   *
+        *           the author is very thankful!              *
+        *******************************************************
+
+               (version 2.15 of 20-Mar-2010)
+                       (size =  12)
+  Tom Terwilliger, Los Alamos National Laboratory, "terwilliger@LANL.gov"
+
+>workdir AutoBuild_run_1_/TEMP0
+Work directory will be : AutoBuild_run_1_/TEMP0/
+
+>outputdir /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1
+Directory for STOPWIZARD will be /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/
+
+>freer_if_present
+Only writing out FreeR_flag if present
+
+>hklin resolve_work.mtz
+Data to be read from mtz file: resolve_work.mtz
+
+>labin FP=FWT PHIB=PHWT
+Current value of "LABIN" is: labin FP=FWT PHIB=PHWT                                                                                                                                                                                                                  
+
+>extend_only
+Just extending input model. Follow this with "cut_up_model" if you want to break fragments up into pieces
+
+>resolution 1000 2.5
+Resolution range (A) is:     2.500000     to     1000.000    
+
+>ha_file NONE
+Heavy atom sites will be read from file: NONE
+The file does not exist...ignoring it
+
+>seq_file seq_from_file.dat
+Sequence file: seq_from_file.dat
+Expecting 1-letter aa sequence of chains, chains separated by lines starting with ">" 
+
+>skip_hetatm
+Skipping HETATM records
+
+>pdb_in all.pdb
+Name of input PDB file (to be used to initiate model-building): all.pdb
+
+>group_ca_length 4
+Minimum # of residues in a group to keep=           4
+
+>cut_up_model
+model will be cut into pieces for rebuilding
+
+>use_wang
+Wang method for solvent mask will be used
+
+>no_ha
+no_ha: heavy-atoms not written out in pdb files
+
+>new_ncs_group
+Ignoring new_ncs_group as no NCS read in yet
+About to start NCS group            1
+
+>rota_matrix    1.0000   -0.0000    0.0000
+
+ Starting NCS operator            1
+ The expectation for NCS operators is that they map from molecule j
+ onto molecule 1.f  This is what you get from lsqkab if molecule
+ 1 is xyzin1 (reference) and molecule j is xyzin2 (working)
+ You can input the inverse transformations if you also specify "invert"
+
+>rota_matrix    0.0000    1.0000   -0.0000
+
+>rota_matrix    0.0000    0.0000    1.0000
+
+>tran_orth     0.0000   -0.0000   -0.0000
+
+>center_orth   27.2041  -12.8985    0.6064
+Center of mass of object            1 is near (orthogonal coordinates):    27.20410       -12.89850       0.6064000    
+
+>rota_matrix   -0.3704   -0.8108   -0.4531
+
+ Starting NCS operator            2
+
+>rota_matrix   -0.8808    0.1517    0.4485
+
+>rota_matrix   -0.2949    0.5652   -0.7704
+
+>tran_orth    36.3505  -22.6834   17.6784
+
+>center_orth   -0.1958   -0.7492   21.6863
+Center of mass of object            2 is near (orthogonal coordinates):  -0.1958000      -0.7492000        21.68630    
+
+>database 5
+Entry in database of histograms to use:            5
+
+>use_any_side
+Best-fitting side chains used if no sequence alignment 
+
+>n_xyz 200 96 192
+Grid units x y z:          200          96         192
+
+>no_merge_ncs_copies
+Not creating NCS-related copies in extend_only
+
+>no_optimize_ncs
+Not optimizing NCS
+
+>nohl
+No HL parameters calculated
+
+>spg_name_use C 1 2 1
+Space group name for output PDB file only: C 1 2 1    
+
+>min_z_value_rho -3.0
+Minimum z-value for a segment not matched to sequence:    -3.000000    
+
+>no_create_free
+Will not create FREE (test) set
+
+>use_all_for_test
+Will use all data for testing solvent content and histograms
+
+>delta_phi   20.00
+Angular grid (degrees) for image search:     20.00000    
+
+>dist_cut_base 3.0
+Tolerance for base pairing (dist_cut_base):     3.000000    
+
+>free_id 0
+Free R flag ID will be            0
+
+>group_length 2
+Minimum # of segments in a group to keep=           2
+
+All done with inputs
+Setting struct_28.n_model_create to 1 for extend_only
+New total number of NCS groups:            1
+Copy to group           1           2
+
+-------------------------------------------
+Summary of NCS groups
+NCS GROUP            1 OPERATORS READ:            2
+ DOMAIN FILE:                                                                                 
+ HA     FILE:                                                                                 
+
+-------------------------------------------
+Total of            1 NCS groups.           2
+Restoring group            1 now, with            2 operators
+Building protein
+Setting up for building protein
+Standard fill-in residues: ALA A GLY G
+Standard main-chain atoms: N    CA   C    O    CB   NONE
+All main-chain atoms: N     CA    C     O     
+Max dist between adjacent N    atoms:     6.000000    
+List of all residues: GLY ALA SER VAL ILE LEU MET CYS PHE TYR LYS ARG TRP HIS GLU ASP GLN ASN PRO THR 
+List of 1-letter code of residues: GASVILMCFYKRWHEDQNPT
+List of number of atoms in side-chains:            0           1           2           3           4           4           4           2           7           8           5           7          10           6           5           4           5           4           3           3
+checking license file.. solve2.access
+
+       The date today is 23-apr-23.  Your license is good until 15-dec-96.
+
+Opened mtz file resolve_work.mtz
+Dataset            1 HKL_base            HKL_base            HKL_base                       0    161.9950        75.30600        151.5410        90.00000        108.9700        90.00000        0.000000    
+Dataset            2 project             crystal             dataset                        1    161.9950        75.30600        151.5410        90.00000        108.9700        90.00000        1.000000    
+Reading SG information from resolve_work.mtz
+Space group name: C2         Point group: PG2       
+Space group number :           5 Symmetry operators:            4
+Number of columns:            9
+H                             K                             L                             FP                            SIGFP                         PHIM                          FOMM                          FWT                           PHWT                          
+
+Column assignments:
+                  PROGRAM                         INPUT_MTZ
+DATA# 1  H                             
+DATA# 2  K                             
+DATA# 3  L                             
+DATA# 4  FP                             :     FWT                           
+DATA# 5  PHIB                           :     PHWT                          
+DATA# 6  FOM                           
+DATA# 7  HLA                           
+DATA# 8  HLB                           
+DATA# 9  HLC                           
+DATA# 10  HLD                           
+DATA# 11  FC                            
+DATA# 12  PHIC                          
+DATA# 13  SIGFP                         
+DATA# 14  FWT                           
+DATA# 15  FreeR_flag                    
+FP taken from column           8
+Dataset information for dataset number           2 and ID=           1
+Dataset name:dataset             
+Crystal name:crystal             
+Project name:project             
+Cell:      161.99500       75.306000       151.54100       90.000000       108.97000       90.000000
+Wavelength:    1.000000    
+PHIB taken from column           9
+WARNING: No SIGFP input data--output SIGFP column will be SIGFP=1.0 for all HKL!
+
+No FreeR_flag read in or created
+Total of        59359 reflections read from file
+Guessing FreeR_flag corresponding to free reflections
+This can be set with free_id xx
+No freeR reflections at all
+Total of            0 of        59359 reflections in test set
+ High-resolution limit of input phased data:  2.50
+Adding F000 term (0.0) to this list
+Closed mtz file
+ Starting resolution:  2.50 max:  2.50
+Space group is           5
+Using symmetry operations from input MTZ file
+
+
+ Transformations from orthogonal to fractional and back:
+
+               Orthogonal to fractional
+
+     fractional x=  0.00617 X +  -0.00000 Y +   0.00212 Z 
+     fractional y=  0.00000 X +   0.01328 Y +  -0.00000 Z 
+     fractional z=  0.00000 X +   0.00000 Y +   0.00698 Z 
+
+
+               Fractional to orthogonal
+
+     Orthogonal X=161.99500 x +   0.00009 y + -49.26168 z 
+     Orthogonal Y=  0.00000 x +  75.30600 y +   0.00023 z 
+     Orthogonal Z=  0.00000 x +   0.00000 y + 143.31071 z 
+
+Estimated # of atoms in au:       13802
+Not separating out FREE set from other reflections for main cycles. Using all data.
+Expected I corrected for centering by factor of            2
+
+Expected resolution-corrected F at d = 2.9A : 2394.38
+
+ Results of wilson scaling:
+ Scale on I =      6.468
+ B-value =     54.319
+
+ Scaling data with value of      6.468
+
+Reading model density histograms from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/rho.list
+Read total of           10 sets of density functions
+
+ 1.2 A gvp model data         
+ 
+Database 1
+ Protein
+0.13883 49.993 -0.052545 
+0.0028613 0.65609 0.25933 
+0.00094606 1.6127e-07 0 
+ Solvent 
+0.24297 50 -0.066461 
+0 0.27173 0.36529 
+0 0 0 
+
+ 2.1 A p9 model data          
+ 
+Database 2
+ Protein
+0.044882 10.876 -0.099183 
+0.0065938 0.1915 0.81579 
+0 4.992e-07 0 
+ Solvent 
+0.23814 49.998 -0.018448 
+0 0.092931 5.9969e-08 
+0 0 0 
+
+ 2.5 A p9 model data          
+ 
+Database 3
+ Protein
+0.028005 5.0887 -0.10737 
+0.0072492 0.1898 0.86087 
+0 6.5751e-08 0 
+ Solvent 
+0.20336 49.994 -0.021217 
+0 0.051284 -2.8788e-09 
+0 0 0 
+
+ 3.0 A p9 model data          
+ 
+Database 4
+ Protein
+0.015053 1.4002 -0.6344 
+0.0063877 0.16235 0.49508 
+2.1104e-07 7.8393e-09 0 
+ Solvent 
+0.086901 18.852 0.010379 
+0.014104 3.0605 -0.056333 
+0 0 0 
+
+ 3 A dehalogenase model       
+ 
+Database 5
+ Protein
+0.0191631 3.18726 -0.512357 
+0.00724949 0.64234 1.37647 
+0.0108539 1.62321 5.24151e-05 
+ Solvent 
+0.0309225 7.89451 -3.40749e-05 
+0 0.000394973 0 
+0.100204 31.8955 0.00790565 
+
+ 4.0 A p9 model data          
+ 
+Database 6
+ Protein
+0.01046 0.88702 -0.71921 
+0.0077113 0.1957 0.45527 
+0 1.7141e-08 0 
+ Solvent 
+0.058836 10.067 0.0059672 
+0.012859 1.8175 -0.011273 
+0 0 0 
+
+ Acorn map 2013-02-16 real dat
+ 
+Database 7
+ Protein
+0.018509 4.3226 -0.1313 
+0.01638 1.1255 -0.36873 
+0.00068238 1.8232e-08 0 
+ Solvent 
+0.051385 6.7883 -0.030178 
+0.01453 2.9458 0.047202 
+0 0 0 
+
+carbonic anhydrase 3ryj not sh
+ 
+Database 8
+ Protein
+0.033761 6.5653 -0.71026 
+0.007805 0.37567 0.0043698 
+0.00040671 8.1446e-09 0 
+ Solvent 
+0.019614 12.96 0.044435 
+0.0405 3.3172 -0.056361 
+0 0 0 
+
+carbonic anhydrase 3ryj sharpe
+ 
+Database 9
+ Protein
+0.031194 3.1578 -0.40319 
+0.0043546 0.27955 0.30159 
+0.00042361 7.5122e-08 0 
+ Solvent 
+0.059649 5.9617 -0.034235 
+0.0038858 1.0492 0.10247 
+0 0 0 
+
+heavy-atom model B= 7-10 not s
+ 
+Database 10
+ Protein
+0.05154 18.661 0.050944 
+0.024333 3.1634 0.021875 
+0.00043885 3.954e-09 0 
+ Solvent 
+0.050958 22.738 -0.077164 
+0.057472 10.748 0.046222 
+0 0 0 
+Highest value of ix, iy, iz in a.u:         199           47           96
+nu nv nw:          200          96         192   Number of grid points in au:      921696
+ Mean fom of this map was:  1.00
+Copy to group           1           2
+
+ Summary of starting FOM vs resolution 
+    RES     FOM   FOM-smoothed  N 
+   13.25    1.00    1.00       290
+   10.33    1.00    1.00       663
+    8.17    1.00    1.00      1140
+    6.90    1.00    1.00      1178
+    5.96    1.00    1.00      2039
+    5.20    1.00    1.00      2498
+    4.66    1.00    1.00      2754
+    4.25    1.00    1.00      3199
+    3.93    1.00    1.00      3268
+    3.65    1.00    1.00      4404
+    3.42    1.00    1.00      3787
+    3.24    1.00    1.00      4695
+    3.05    1.00    1.00      5983
+    2.87    1.00    1.00      7629
+    2.71    1.00    1.00      7234
+    2.57    1.00    1.00      8598
+
+ Mean fom of this map was:  1.00
+
+Starting phases assumed to be experimental
+   (To override, use "phases_from_resolve")
+
+
+Estimating optimal initial smoothing radius using the function:
+R=2.41 * (dmin**0.90) * (fom**-0.26)
+with dmin =     2.500038     and fom =     1.000000    
+Leading to R=    5.497547    
+To override, set "wang_radius_cycle", "wang_radius", or "wang_radius_start"
+
+
+Setting final smoothing radius to     4.000000    
+To override, set "wang_radius_cycle", "wang_radius", or "wang_radius_finish"
+
+Total of            1 NCS groups.           2
+Restoring group            1 now, with            2 operators
+Total of            1 NCS groups.           2
+Restoring group            1 now, with            2 operators
+--------------------------------------
+Analysis of NCS for NCS group            1
+Total of            1 NCS groups.           2
+Restoring group            1 now, with            2 operators
+
+
+Non-crystallographic symmetry elements used:
+(All operating on orthogonal Angstrom coordinates XYZ of molecule 1 to generate new X-prime  Yprime Zprime matching molecule j)
+
+Operator #            1
+
+     New X-prime=    1.0000 X +     0.0000 Y +     0.0000 Z +    0.0000
+     New Y-prime=    0.0000 X +     1.0000 Y +     0.0000 Z +   -0.0000
+     New Z-prime=    0.0000 X +     0.0000 Y +     1.0000 Z +   -0.0000
+
+ Approximate center_of_mass of this object (from center_of_mass of 
+ object 1 and NC symmetry) is     27.20  -12.90    0.61
+ and as input by user is,         27.20  -12.90    0.61
+
+Operator #            2
+
+     New X-prime=   -0.3704 X +    -0.8808 Y +    -0.2949 Z +   -1.3018
+     New Y-prime=   -0.8109 X +     0.1518 Y +     0.5653 Z +   22.9262
+     New Z-prime=   -0.4531 X +     0.4485 Y +    -0.7704 Z +   40.2651
+
+ Approximate center_of_mass of this object (from center_of_mass of 
+ object 1 and NC symmetry) is     -0.20   -0.75   21.69
+ and as input by user is,         -0.20   -0.75   21.69
+
+Inverses of transformations:
+(Mapping molecule j onto molecule 1)
+(As input)
+
+Operator #            1
+
+     New X-prime=    1.0000 X +    -0.0000 Y +     0.0000 Z +    0.0000
+     New Y-prime=    0.0000 X +     1.0000 Y +    -0.0000 Z +    0.0000
+     New Z-prime=    0.0000 X +     0.0000 Y +     1.0000 Z +   -0.0000
+
+Operator #            2
+
+     New X-prime=   -0.3704 X +    -0.8108 Y +    -0.4531 Z +   36.3505
+     New Y-prime=   -0.8808 X +     0.1517 Y +     0.4485 Z +  -22.6834
+     New Z-prime=   -0.2949 X +     0.5652 Y +    -0.7704 Z +   17.6784
+
+
+Transformations formatted for input to resolve:
+
+
+rota_matrix      1.0000    -0.0000     0.0000
+rota_matrix      0.0000     1.0000    -0.0000
+rota_matrix      0.0000     0.0000     1.0000
+tran_orth        0.0000     0.0000    -0.0000
+center_orth     27.2041   -12.8985     0.6064
+
+
+rota_matrix     -0.3704    -0.8108    -0.4531
+rota_matrix     -0.8808     0.1517     0.4485
+rota_matrix     -0.2949     0.5652    -0.7704
+tran_orth       36.3505   -22.6834    17.6784
+center_orth     -0.1957    -0.7485    21.6857
+
+
+ Analysis of NC symmetry using cutoff of   1.25 A as maximum
+ distance between intersecting elements
+
+Did not find any NC operator combinations consistent with a point group
+
+ No point-group symmetry found 
+
+
+ End of analysis of NCS
+ -----------------------------------------------------------------
+ -----------------------------------------------------------------
+
+--------------------------------------
+Opening all.pdb and reading coordinates
+Center of molecule read in with        12122
+ atoms is       71.905060       18.037739       9.6410046
+Read        12122 atoms from 
+PDB file for use in model-building all.pdb
+
+Adding extra mask cycle at end to build atomic model
+ Solvent content will be   0.40
+Using database entry            5 for histograms  (" 3 A dehalogenase model       ")
+
+Total mask cycles:            1
+Total density modification mask cycles:            0
+
+ Cycle  Ref NCS  Use NCS  Build     image    solvent    Extend  Cycles  Test
+
+  1      NO         NO      YES       NO        NO        NO       0
+
+
+                        Mask cycle            1
+               Weighting this cycle:     1.000000    
+
+ Histogram DB entry #   5 (" 3 A dehalogenase model       ")
+ Solvent content:  0.40 Smoothing radius:  4.00
+Using Wang mask (highest SD points)
+ New Wang averaging radius =  4.00
+
+ Mean +/- SD of density in protein region :   0.03 +/-   0.41
+ Mean +/- SD of density in solvent region :  -0.05 +/-   0.13
+
+
+ MEAN SD PROT for SQ-SM :   0.05 +/-   0.02
+ MEAN SD SOLV for SQ-SM :   0.02 +/-   0.01
+
+ N:  553012   368684
+Estimate of solvent fraction: 44.6877% 
+
+
+Plot     1
+
+
+ -------------------------------------------------------------------------------
+
+ Plot of probability that a grid point is part of protein region
+ vs percentiles of grid points
+
+ All points to the left of the + signs are in solvent masked region
+ those to right are in protein masked region.
+
+ The values of p(protein) should change from low to high approximately at the 
+ value of the fraction of solvent indicated by the + signs.
+ The sharper the transition the better.
+
+ Note: the mask is only used to make an estimate of the p(protein)
+
+ The values of p(protein) are used to weight the contribution of each grid
+  point to the probability of the map:
+
+  p(rho) = p(rho|protein) p(protein) +  p(rho|solvent) (1-p(protein))
+
+ This says that the probability that we would observe  the value rho  of 
+ electron density at this point is the probability that we 
+ would observe rho if this were really protein times the probability 
+ that this is  protein, plus the probability that we would observe
+ rho if it were really solvent, times the probability that
+ it is solvent.
+
+                     Probability that grid points are in protein region
+
+
+                         1.0  ....................................xxxxxxxxxxxxxx
+                              .                   +            xxx             .
+                              .                   +          xx                .
+                              .                   +        xx                  .
+                              .                   +      xx                    .
+                              .                   +     x                      .
+                              .                   +   xx                       .
+                p(protein)    .                   + xx                         .
+                         0.5  .                   +x                           .
+                              .                  xx                            .
+                              .                xx +                            .
+                              .              xx   +                            .
+                              .            xx     +                            .
+                              .        xxxx       +                            .
+                              .   xxxxx           +                            .
+                         0.0  .xxx................+.............................
+
+                              0       20        40        60        80       100
+
+                                            Percentile of grid points
+ -------------------------------------------------------------------------------
+
+
+
+ Range of P(protein)  and percentiles 
+ used for histograms of protein and solvent:
+
+               P(protein)                  Percentile
+              Low      High              Low      High
+ Protein:    0.90      1.00               70       100
+ Solvent:    0.00      0.11                0        20
+
+
+
+Plot     2
+
+
+ -------------------------------------------------------------------------------
+
+ Plot of probability that a grid point is part of protein region
+ vs percentiles of grid points
+
+ All points to the left of the "+" signs are in solvent masked region
+ those to right are in protein masked region.
+
+ The values of p(protein) should change from low to high approximately at the
+ value of the fraction of solvent indicated by the "+" signs.
+ The sharper the transition the better.
+
+ Note: the mask is only used to make an estimate of the p(protein)
+
+ The values of p(protein) are used to weight the contribution of each grid
+ point to the probability of the map:
+
+  p(rho) = p(rho|protein) p(protein) + p(rho|solvent) (1-p(protein))
+
+ This says that the probability that we would observe the value "rho" of
+ electron density at this point is the probability that we
+ would observe "rho" if this were really protein times the probability
+ that this is protein, plus the probability that we would observe
+ "rho" if it were really solvent, times the probability that
+ it is solvent.
+
+                     Probability that grid points are in protein region
+
+
+                         1.0  ....................................xxxxxxxxxxxxxx 
+                              .                   +            xxx             . 
+                              .                   +          xx                . 
+                              .                   +        xx                  . 
+                              .                   +      xx                    . 
+                              .                   +     x                      . 
+                              .                   +   xx                       . 
+                p(protein)    .                   + xx                         . 
+                         0.5  .                   +x                           . 
+                              .                  xx                            . 
+                              .                xx +                            . 
+                              .              xx   +                            . 
+                              .            xx     +                            . 
+                              .        xxxx       +                            . 
+                              .   xxxxx           +                            . 
+                         0.0  .xxx................+............................. 
+
+                              0       20        40        60        80       100
+
+                                            Percentile of grid points
+ -------------------------------------------------------------------------------
+
+
+Template side chain maps from:/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/side_chains_best.dat
+Reading side-chain library files
+NOTE: Library file has no entries for group 20 i_res_type 5
+NOTE: Library file has no entries for group 16 i_res_type 9
+NOTE: Library file has no entries for group 39 i_res_type 10
+Saving values in cache
+
+TEMPLATE            1 TEMPLATE FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mean_1.ezd
+! MEAN RHO FOR TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+TEMPLATE            1 CC FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_corr_1.ezd
+! CC OF RHO FOR TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+TEMPLATE            1 MASK FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mask_1.ezd
+! TEMPLATE MASK FOR  TEMPLATE TYPE 1 (HELIX               ) ; DMIN=  3.02
+Rmax in template =     11.05542    
+|xyz| in template =       10.000000       7.5000000       6.6666670
+Setting template values to 0 outside mask:
+mean, rms of template_sd inside mask:   0.6371688       0.6453685    
+Setting average template values to 0
+CUTOFF for nrefl =        59360 struct_27.p_cut=    0.1000000     =     4.700000    
+End of rotation about X =     100.0000    
+
+TEMPLATE            2 TEMPLATE FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mean_2.ezd
+! MEAN RHO FOR TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+TEMPLATE            2 CC FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_corr_2.ezd
+! CC OF RHO FOR TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+TEMPLATE            2 MASK FILE: 
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/template_30_mask_2.ezd
+! TEMPLATE MASK FOR  TEMPLATE TYPE 2 (STRAND              ) ; DMIN=  3.02
+Rmax in template =     11.05542    
+|xyz| in template =       10.000000       5.8333330       5.0000000
+Setting template values to 0 outside mask:
+mean, rms of template_sd inside mask:   0.2944103       0.3282437    
+Setting average template values to 0
+CUTOFF for nrefl =        59360 struct_27.p_cut=    0.1000000     =     4.700000    
+End of rotation about X =     360.0000    
+
+Reading template fragment files from:
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_1_0.pdb
+Reading libraries from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_1_0.pdb with iotbx
+Total of 70118 atoms out of max of 2800000
+First atom: N    : 1 : ALA 
+Orienting residues using CA   C    O   
+/home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_2_0.pdb
+Reading libraries from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/fragment_2_0.pdb with iotbx
+Total of 133629 atoms out of max of 2800000
+First atom: N    : 1 : ALA 
+Orienting residues using CA   C    O   
+Total number of template classes read:            2
+Using input d_cut_fragment:      1.2000000       1.4000000
+Total core for class           1:         490
+Total core for class           2:         979
+Mean list for class            1    28.56735        1.004635        200166.0     Nmax=          216
+Mean list for class            2    23.06027        1.153938        326692.0     Nmax=          262
+Saving analyze_fragments values
+Number of points in AU on special positions:         192 of       921696
+Total of          192 points in AU removed from model-building
+Maximum total number of peaks in template searches:        2521
+Total peaks found:            0
+Total peaks kept :            0
+
+------- BUILD CYCLE            0 --------
+
+Note: blank line in seq file interpreted as chain break
+Note: blank line in seq file interpreted as chain break
+Read            1 chains from file seq_from_file.dat
+
+CHAIN            1 with         1001 residues: starting at residue    1
+MEAAHSKSTEECLAYFGVSETTGLTPDQVKRHLEKYGHNELPAEEGKSLWELVIEQFEDLLVRILLLAACISFVLAWFEEGEETITAFVEPFVILLILIANAIVGVWQERNAENAIEALKEYEPEMGKVYRADRKSVQRIKARDIVPGDIVEVAVGDKVPADIRILSIKSTTLRVDQSILTGESVSVIKHTEPVPDPRAVNQDKKNMLFSGTNIAAGKALGIVATTGVSTEIGKIRDQMAATEQDKTPLQQKLDEFGEQLSKVISLICVAVWLINIGHFNDPVHGGSWIRGAIYYFKIAVALAVAAIPEGLPAVITTCLALGTRRMAKKNAIVRSLPSVETLGCTSVICSDKTGTLTTNQMSVCKMFIIDKVDGDFCSLNEFSITGSTYAPEGEVLKNDKPIRSGQFDGLVELATICALCNDSSLDFNETKGVYEKVGEATETALTTLVEKMNVFNTEVRNLSKVERANACNSVIRQLMKKEFTLEFSRDRKSMSVYCSPAKSSRAAVGNKMFVKGAPEGVIDRCNYVRVGTTRVPMTGPVKEKILSVIKEWGTGRDTLRCLALATRDTPPKREEMVLDDSSRFMEYETDLTFVGVVGMLDPPRKEVMGSIQLCRDAGIRVIMITGDNKGTAIAICRRIGIFGENEEVADRAYTGREFDDLPLAEQREACRRACCFARVEPSHKSKIVEYLQSYDEITAMTGDGVNDAPALKKAEIGIAMGSGTAVAKTASEMVLADDNFSTIVAAVEEGRAIYNNMKQFIRYLISSNVGEVVCIFLTAALGLPEALIPVQLLWVNLVTDGLPATALGFNPPDLDIMDRPPRSPKEPLISGWLFFRYMAIGGYVGAATVGAAAWWFMYAEDGPGVTYHQLTHFMQCTEDHPHFEGLDCEIFEAPEPMTMALSVLVTIEMCNALNSLSENQSLMRMPPWVNIWLLGSICLSMSLHFLILYVDPLPMIFKLKALDLTQWLMVLKISLPVIGLDEILKFIARNYLEDPEDERRK
+
+
+ Reuse-chain: starting model-building with main-chain
+ from input model with        12122 atoms
+Using main-chain atoms without trimming to match density
+Done with starting model. Total of          381 fragments 
+with        22303 atoms placed.
+New number of fragments after reuse_chain:         381
+Skipping finding fragments (extending pdb_in model)
+Single model to be created
+
+Model assembly cycle            1
+
+Using all fragments this model assembly cycle
+Writing out fragments this cycle           1
+Assembling model from          619 fragments and          184 groups
+Writing out fragments this cycle           1
+Assembling model from          619 fragments and           28 groups
+Guess of number of copies of sequence in au:           2
+
+Initial guess of percentage built...          29%
+ Expected amino acid composition of au: with  2002 aa total:
+
+ GLY   :   134
+ ALA   :   172
+ SER   :   114
+ VAL   :   164
+ ILE   :   144
+ LEU   :   186
+ MET   :    66
+ CYS   :    48
+ PHE   :    74
+ TYR   :    44
+ LYS   :   108
+ ARG   :   100
+ TRP   :    26
+ HIS   :    24
+ GLU   :   160
+ ASP   :   104
+ GLN   :    46
+ ASN   :    72
+ PRO   :    92
+ THR   :   124
+
+ At least  2 copies of residues found at    46 of 1001 positions in sequence
+
+ Residues built and assigned to sequence with confidence >  95%:  345
+Only using the number of copies where >10% of
+ sequence is duplicated (N=           1)
+
+Number of copies of molecule required:           1
+Number of NCS copies expected:           2
+
+ Total number of chains used:  5   Mean gap length:332
+
+Defining            2 molecular centers based on the            2 NCS centers
+
+       Summary of molecular assembly results:
+
+ NCS copies:   2
+
+
+ Molecule: 1  Chain: 1  Score for molecular location:  1.00
+
+                               Link     Mol   NCS   NCS
+ Frag  Start End  N  Overlap  Length  Radius  RMSD  <N>  Score  
+    1  356  463  108    0      15.1     8.6              13.5
+    2  473  585  113    0               8.2              13.1
+
+ Residues placed for this molecule:   221
+
+ Molecule: 2  Chain: 1  Score for molecular location:  0.86
+
+                               Link     Mol   NCS   NCS
+ Frag  Start End  N  Overlap  Length  Radius  RMSD  <N>  Score  
+    1   80  123   44    0      25.9     6.3               3.4
+    2  626  659   34    0               8.2               4.2
+
+ Residues placed for this molecule:    78
+
+ Unused fragments from chain    1
+
+ Frag  Start End   N 
+    1  499  544   46
+
+ Match of sequence to side-chain density: 
+
+
+Mean, mean SD of rho atom positions of atoms:      1.41+/-    2.01 for     8361 atoms
+
+Max aa seq # for any chain: 1001
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ A   356 LEU         0.63    2.07      1.25      0.86    1.94 
+ A   357 THR         0.38    0.82      0.49     -0.42    1.44 
+ A   358 THR         0.57    1.82      1.27      0.49    2.00 
+ A   359 ASN         0.43    0.75      1.24      0.84    1.66 
+ A   360 GLN         0.28   -0.27      0.42     -0.99    1.41 
+ A   361 MET         0.54    1.59      3.66      0.39    8.39 
+ A   362 SER         0.23   -0.28      0.35     -0.02    0.72 
+ A   363 VAL         0.33    0.57      0.39     -0.31    0.88 
+ A   364 CYS         0.18   -0.49     -0.08     -0.99    0.84 TRUNCATED AT CB
+ A   365 LYS         0.44    0.98      0.72      0.14    1.32 
+ A   366 MET         0.64    2.35      2.59      0.71    4.87 
+ A   367 PHE         0.56    2.34      3.09     -0.53    8.59 
+ A   368 ILE         0.52    1.60      1.17     -0.10    3.15 
+ A   369 ILE         0.24   -0.10      0.10     -0.59    0.65 
+ A   370 ASP         0.53    1.42      2.42      1.07    4.11 
+ A   371 LYS         0.14   -1.30      0.14     -0.04    0.32 
+ A   372 VAL         0.07   -0.88     -0.12     -0.41    0.16 TRUNCATED AT CB
+ A   373 ASP        -0.01   -2.15     -0.04     -0.80    1.11 TRUNCATED AT CB
+ A   374 GLY         0.28    0.50
+ A   375 ASP         0.24   -0.52      0.19     -0.20    0.61 
+ A   376 PHE         0.21   -0.38      0.28     -0.39    0.93 
+ A   377 CYS         0.34    0.44      0.88      0.87    0.88 
+ A   378 SER         0.54    1.30      2.06      1.93    2.19 
+ A   379 LEU         0.39    0.61      0.67     -0.08    1.30 
+ A   380 ASN         0.59    1.86      1.34      0.14    2.36 
+ A   381 GLU         0.51    1.34      0.83     -0.01    1.39 
+ A   382 PHE         0.43    1.35      0.75      0.42    1.00 
+ A   383 SER         0.07   -1.15      0.37     -0.38    1.13 
+ A   384 ILE         0.12   -0.90      0.31     -1.07    1.32 
+ A   385 THR         0.11   -0.63     -0.11     -0.31    0.08 TRUNCATED AT CB
+ A   386 GLY         0.57    1.75
+ A   387 SER         0.70    2.15      1.92      1.33    2.52 
+ A   388 THR         0.45    1.19      0.39     -0.09    1.19 
+ A   389 TYR         0.23   -0.22      0.52     -0.37    1.26 
+ A   390 ALA         0.34    0.54      0.04      0.04    0.04 
+ A   391 PRO         0.52    1.78      1.07      0.21    2.26 
+ A   392 GLU         0.28   -0.36      0.55     -0.36    1.23 
+ A   393 GLY        -0.00   -0.74
+ A   394 GLU         0.60    2.04      1.84      0.95    2.77 
+ A   395 VAL         0.52    1.56      0.31     -0.19    1.16 
+ A   396 LEU         0.43    0.85      0.67      0.28    1.26 
+ A   397 LYS         0.50    1.46      1.16      0.43    1.98 
+ A   398 ASN         0.43    0.75      0.89      0.41    1.38 
+ A   399 ASP         0.32   -0.02      0.77     -0.38    1.21 
+ A   400 LYS         0.14   -1.30      0.24     -0.85    1.41 
+ A   401 PRO         0.44    1.38      0.71     -0.07    1.23 
+ A   402 ILE         0.51    1.56      0.61      0.12    1.38 
+ A   403 ARG         0.32    0.05      1.08      0.56    1.77 
+ A   404 SER         0.03   -1.36      0.91      0.68    1.14 
+ A   405 GLY        -0.08   -1.05
+ A   406 GLN         0.48    1.33      1.07      0.27    1.97 
+ A   407 PHE         0.70    3.43      1.22      0.43    2.27 
+ A   408 ASP         0.44    0.82      0.68     -0.29    1.34 
+ A   409 GLY         0.23    0.27
+ A   410 LEU         0.16   -0.87     -0.14     -1.62    0.91 TRUNCATED AT CB
+ A   411 VAL         0.23    0.01      0.77      0.01    1.32 
+ A   412 GLU         0.15   -1.34      0.25     -0.35    0.78 
+ A   413 LEU         0.12   -1.11      0.48     -1.04    2.17 
+ A   414 ALA         0.11   -0.53     -2.79     -2.79   -2.79 
+ A   415 THR         0.29    0.31      1.38      0.93    1.96 
+ A   416 ILE         0.42    1.00      1.51     -0.72    3.81 
+ A   417 CYS         0.31    0.27      0.45     -0.21    1.11 
+ A   418 ALA         0.34    0.52      2.91      2.91    2.91 
+ A   419 LEU         0.16   -0.84      0.02     -1.16    1.31 
+ A   420 CYS         0.40    0.78      4.76      2.26    7.26 
+ A   421 ASN         0.73    2.76     10.62      8.31   17.08 
+ A   422 ASP         0.32    0.02      1.12      0.06    2.58 
+ A   423 SER         0.38    0.47      0.83      0.83    0.83 
+ A   424 SER         0.48    1.00      0.77      0.45    1.08 
+ A   425 LEU         0.32    0.13      0.56     -0.41    1.66 
+ A   426 ASP         0.55    1.53      1.54      0.38    2.03 
+ A   427 PHE         0.35    0.73      0.91      0.12    1.72 
+ A   428 ASN         0.40    0.60      0.92      0.11    1.45 
+ A   429 GLU         0.54    1.59      1.09      0.53    1.89 
+ A   430 THR         0.55    1.72      1.05      0.75    1.32 
+ A   431 LYS         0.38    0.53      0.43      0.14    1.01 
+ A   432 GLY         0.71    2.35
+ A   433 VAL         0.12   -0.59     -0.08     -0.47    0.25 TRUNCATED AT CB
+ A   434 TYR         0.34    0.76      0.74     -0.09    1.65 
+ A   435 GLU         0.38    0.39      0.71     -0.33    1.43 
+ A   436 LYS         0.41    0.71      0.65      0.18    1.18 
+ A   437 VAL         0.58    1.91      1.30      0.81    2.03 
+ A   438 GLY         0.17    0.03
+ A   439 GLU         0.36    0.27      0.96      0.42    1.91 
+ A   440 ALA         0.65    1.91      0.77      0.77    0.77 
+ A   441 THR         0.47    1.30      0.52     -0.61    1.49 
+ A   442 GLU         0.70    2.77     12.00      6.63   20.58 
+ A   443 THR         0.37    0.74      0.49      0.25    0.93 
+ A   444 ALA         0.18   -0.19     -0.68     -0.68   -0.68 
+ A   445 LEU         0.10   -1.21      0.21     -0.02    0.53 
+ A   446 THR         0.18   -0.30      2.22     -0.72    6.77 
+ A   447 THR         0.34    0.59      0.88     -0.49    2.01 
+ A   448 LEU         0.59    1.85      1.23     -0.53    2.89 
+ A   449 VAL         0.25    0.12      1.14     -2.39    3.47 
+ A   450 GLU         0.48    1.11      1.39     -0.17    2.99 
+ A   451 LYS         0.33    0.15      0.40     -0.34    1.09 
+ A   452 MET         0.44    0.88      4.37     -0.10    8.82 
+ A   453 ASN         0.62    2.03      2.36      0.71    4.24 
+ A   454 VAL         0.09   -0.74     -0.47     -0.69   -0.35 TRUNCATED AT CB
+ A   455 PHE         0.30    0.33      0.19     -0.77    2.20 
+ A   456 ASN         0.61    2.00      2.11      1.67    2.62 
+ A   457 THR         0.32    0.46      0.32     -0.33    0.99 
+ A   458 GLU         0.51    1.40      1.29      0.48    2.53 
+ A   459 VAL         0.38    0.84      0.38     -0.33    0.79 
+ A   460 ARG         0.41    0.86      0.37     -0.20    0.91 
+ A   461 ASN         0.58    1.75      1.58      0.71    2.55 
+ A   462 LEU         0.44    0.91      0.90      0.12    1.66 
+ A   463 SER         0.38    0.51      1.12      0.67    1.57 
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ A   473 SER         0.42    0.70      0.56      0.01    1.11 
+ A   474 VAL         0.37    0.74      0.96      0.23    1.96 
+ A   475 ILE         0.55    1.77      3.84      0.83    9.14 
+ A   476 ARG         0.29   -0.21      6.80      0.68   21.87 
+ A   477 GLN         0.14   -1.35     -0.08     -0.42    0.37 TRUNCATED AT CB
+ A   478 LEU         0.51    1.31      2.04      0.26    3.29 
+ A   479 MET         0.18   -1.02      1.05      0.21    2.26 
+ A   480 LYS         0.50    1.47      0.96      0.20    1.70 
+ A   481 LYS         0.44    1.01      2.08      0.99    4.32 
+ A   482 GLU         0.31   -0.17      0.36     -0.68    1.72 
+ A   483 PHE         0.40    1.14      0.54     -0.16    1.56 
+ A   484 THR         0.56    1.76      1.91      1.48    2.44 
+ A   485 LEU         0.52    1.41      0.84      0.19    1.37 
+ A   486 GLU         0.40    0.50      0.90      0.53    1.25 
+ A   487 PHE         0.27    0.14      0.76     -0.23    2.41 
+ A   488 SER         0.38    0.46     -0.07     -0.43    0.29 TRUNCATED AT CB
+ A   489 ARG         0.36    0.38      0.87     -0.51    2.78 
+ A   490 ASP         0.07   -1.63      0.38      0.05    0.83 
+ A   491 ARG         0.30   -0.19      0.77     -0.44    1.61 
+ A   492 LYS         0.06   -1.95     -0.18     -1.04    0.53 TRUNCATED AT CB
+ A   493 SER         0.24   -0.25      0.01     -0.16    0.18 
+ A   494 MET         0.47    1.08     11.37      3.99   19.41 
+ A   495 SER         0.47    0.93      0.97      0.93    1.01 
+ A   496 VAL         0.29    0.34      1.25      0.70    1.86 
+ A   497 TYR         0.34    0.71      0.12     -0.41    0.31 
+ A   498 CYS         0.14   -0.69      0.56      0.31    0.82 
+ A   499 SER        -0.02   -1.58     -0.73     -0.96   -0.49 TRUNCATED AT CB
+ A   500 PRO         0.29    0.55      0.52      0.05    0.85 
+ A   501 ALA         0.54    1.43     -0.04     -0.04   -0.04 
+ A   502 LYS         0.24   -0.53      0.84      0.05    1.81 
+ A   503 SER         0.19   -0.53      0.05     -0.06    0.15 
+ A   504 SER         0.25   -0.19      0.11      0.04    0.19 
+ A   505 ARG         0.41    0.82      1.11     -0.26    3.00 
+ A   506 ALA         0.54    1.41      0.80      0.80    0.80 
+ A   507 ALA         0.36    0.60      1.57      1.57    1.57 
+ A   508 VAL         0.41    0.96      1.36      0.76    1.99 
+ A   509 GLY         0.73    2.43
+ A   510 ASN         0.34    0.15      0.06     -0.46    0.42 
+ A   511 LYS         0.33    0.16      1.12      0.41    1.95 
+ A   512 MET         0.38    0.45      0.31     -0.54    1.30 
+ A   513 PHE         0.24   -0.16      1.32     -0.06    1.95 
+ A   514 VAL         0.52    1.61      1.66      1.09    2.12 
+ A   515 LYS         0.25   -0.48      0.37     -0.08    1.48 
+ A   516 GLY         0.17   -0.01
+ A   517 ALA         0.47    1.12      0.97      0.97    0.97 
+ A   518 PRO         0.28    0.51     -0.15     -0.32    0.06 TRUNCATED AT CB
+ A   519 GLU         0.14   -1.45     -0.02     -0.80    0.49 TRUNCATED AT CB
+ A   520 GLY         0.51    1.47
+ A   521 VAL        -0.05   -1.50     -0.80     -1.28   -0.44 TRUNCATED AT CB
+ A   522 ILE         0.37    0.67      1.11     -0.24    2.36 
+ A   523 ASP         0.15   -1.15      0.35     -0.70    1.92 
+ A   524 ARG         0.10   -2.01      0.03     -0.18    0.43 
+ A   525 CYS         0.05   -1.22      0.16     -0.56    0.88 
+ A   526 ASN         0.51    1.29      1.34      0.76    2.03 
+ A   527 TYR         0.27    0.13      0.69     -0.24    1.60 
+ A   528 VAL         0.48    1.37      0.56      0.25    0.90 
+ A   529 ARG         0.52    1.89      3.13     -0.55   10.10 
+ A   530 VAL         0.29    0.31      0.75     -0.27    2.07 
+ A   531 GLY         0.47    1.31
+ A   532 THR         0.41    0.98      0.62      0.40    0.76 
+ A   533 THR         0.01   -1.17     -0.23     -0.42    0.02 TRUNCATED AT CB
+ A   534 ARG         0.51    1.77      1.21      0.65    1.90 
+ A   535 VAL         0.04   -1.02     -0.06     -0.21    0.01 TRUNCATED AT CB
+ A   536 PRO         0.11   -0.39      0.11     -0.35    0.75 
+ A   537 MET         0.30   -0.18      0.37      0.01    0.61 
+ A   538 THR         0.15   -0.44      0.39      0.32    0.50 
+ A   539 GLY         0.34    0.72
+ A   540 PRO         0.21    0.14      1.07     -0.01    1.93 
+ A   541 VAL         0.15   -0.42     -0.01     -0.57    0.37 TRUNCATED AT CB
+ A   542 LYS         0.25   -0.44      0.31     -0.36    0.82 
+ A   543 GLU         0.32   -0.03      0.17     -0.15    0.93 
+ A   544 LYS         0.32    0.09      0.19     -0.03    0.55 
+ A   545 ILE         0.29    0.18      0.08     -0.89    0.90 
+ A   546 LEU         0.29   -0.03      0.40     -0.23    0.91 
+ A   547 SER         0.25   -0.20      0.43      0.19    0.66 
+ A   548 VAL         0.15   -0.42      0.06     -0.28    0.33 
+ A   549 ILE         0.21   -0.31     -0.32     -0.46   -0.25 TRUNCATED AT CB
+ A   550 LYS         0.05   -1.99      0.32     -0.83    1.70 
+ A   551 GLU         0.44    0.82      1.05      0.67    1.41 
+ A   552 TRP         0.42    1.52      0.85     -0.14    1.83 
+ A   553 GLY         0.05   -0.52
+ A   554 THR         0.26    0.16      0.28      0.15    0.45 
+ A   555 GLY         0.14   -0.12
+ A   556 ARG         0.41    0.83      0.71     -0.17    1.71 
+ A   557 ASP         0.21   -0.70      0.21     -0.68    1.38 
+ A   558 THR         0.04   -1.05     -0.00     -0.13    0.21 TRUNCATED AT CB
+ A   559 LEU         0.14   -0.99      0.38     -0.57    1.24 
+ A   560 ARG         0.28   -0.30      0.63     -0.27    1.54 
+ A   561 CYS         0.30    0.21      0.36     -0.03    0.75 
+ A   562 LEU         0.54    1.49      2.43      1.23    3.87 
+ A   563 ALA         0.43    0.93      0.64      0.64    0.64 
+ A   564 LEU         0.27   -0.15      0.39      0.09    0.65 
+ A   565 ALA         0.12   -0.47     -0.90     -0.90   -0.90 
+ A   566 THR         0.57    1.84      2.02      0.90    3.64 
+ A   567 ARG         0.37    0.47      0.78     -0.63    1.44 
+ A   568 ASP         0.59    1.81      2.01      0.59    2.73 
+ A   569 THR         0.04   -1.02     -0.12     -0.37    0.02 TRUNCATED AT CB
+ A   570 PRO        -0.01   -1.04     -0.16     -1.20    1.04 TRUNCATED AT CB
+ A   571 PRO         0.23    0.27     -0.03     -0.62    0.45 TRUNCATED AT CB
+ A   572 LYS         0.36    0.38      0.47     -0.21    1.13 
+ A   573 ARG         0.54    2.07      0.96     -0.21    2.54 
+ A   574 GLU         0.32   -0.03      0.64     -0.03    1.12 
+ A   575 GLU         0.36    0.21      0.93     -0.49    2.63 
+ A   576 MET         0.28   -0.30      0.33     -0.35    0.78 
+ A   577 VAL         0.08   -0.79      0.06     -0.08    0.23 
+ A   578 LEU         0.41    0.74      0.32     -0.13    0.67 
+ A   579 ASP         0.41    0.58      0.54     -0.04    0.99 
+ A   580 ASP         0.42    0.68      1.03      0.14    2.11 
+ A   581 SER         0.16   -0.64      0.76      0.12    1.41 
+ A   582 SER         0.38    0.46      1.21      1.14    1.29 
+ A   583 ARG         0.30   -0.13      1.66     -0.22    2.48 
+ A   584 PHE         0.27    0.14      2.58     -0.11    7.49 
+ A   585 MET         0.35    0.20      0.51      0.04    0.95 
+
+FRAGMENT (UNPLACED) WITH     1141 ATOMS. MEAN RHO:     1.99  Z-SCORE:     9.84
+NOMATCH: 1 LENGTH:9 First residue number: 1011 CHAIN:  U :
+ U  1011 GLU         0.33    0.01      0.95     -0.38    1.81 
+ U  1012 GLY         0.65    2.09  
+ U  1013 GLY         0.54    1.59  
+ U  1014 ALA         0.32    0.45      0.69      0.69    0.69 
+ U  1015 LEU         0.30    0.03      1.10      0.82    1.51 
+ U  1016 LEU         0.52    1.40      1.17      0.98    1.44 
+ U  1017 GLU         0.33    0.04      1.07     -0.00    2.36 
+ U  1018 GLY        -0.00   -0.74  
+ U  1019 TRP         0.32    0.62      1.76     -0.27    4.33 
+
+FRAGMENT (UNPLACED) WITH       40 ATOMS. MEAN RHO:     1.24  Z-SCORE:    -0.54
+NOMATCH: 5 LENGTH:8 First residue number: 1031 CHAIN:  U :
+ U  1031 TRP         0.48    2.07      1.42      0.82    2.02 
+ U  1032 PRO         0.53    1.86      0.41      0.17    0.64 
+ U  1033 ALA         0.45    1.04      0.59      0.59    0.59 
+ U  1034 PRO         0.49    1.63      1.02      0.71    1.29 
+ U  1035 TRP         0.54    2.64      1.17      0.60    2.18 
+ U  1036 PHE         0.41    1.23      0.96     -0.38    1.93 
+ U  1037 TYR         0.56    2.65      0.86      0.19    1.34 
+ U  1038 ALA         0.63    1.84      0.97      0.97    0.97 
+
+FRAGMENT (UNPLACED) WITH       29 ATOMS. MEAN RHO:     1.31  Z-SCORE:    -0.27
+NOMATCH: 9 LENGTH:6 First residue number: 1041 CHAIN:  U :
+ U  1041 ARG         0.48    1.53      0.95     -0.16    2.08 
+ U  1042 LEU         0.36    0.37      0.89      0.36    1.59 
+ U  1043 GLY         0.52    1.53  
+ U  1044 GLU         0.59    2.00      1.46      0.92    1.71 
+ U  1045 VAL         0.24    0.06      0.78      0.64    0.92 
+ U  1046 GLY         0.39    0.96  
+
+FRAGMENT (UNPLACED) WITH       28 ATOMS. MEAN RHO:     1.30  Z-SCORE:    -0.28
+NOMATCH: 10 LENGTH:6 First residue number: 1051 CHAIN:  U :
+ U  1051 ALA         0.54    1.44      1.28      1.28    1.28 
+ U  1052 GLY         0.21    0.19  
+ U  1053 LYS         0.50    1.45      1.23      0.89    1.72 
+ U  1054 GLU         0.52    1.43      1.40      1.04    1.94 
+ U  1055 GLY         0.43    1.14  
+ U  1056 GLY         0.62    1.93  
+
+FRAGMENT (UNPLACED) WITH       19 ATOMS. MEAN RHO:     1.47  Z-SCORE:     0.13
+NOMATCH: 11 LENGTH:4 First residue number: 1061 CHAIN:  U :
+ U  1061 VAL         0.50    1.47      0.42      0.19    0.63 
+ U  1062 GLY         0.19    0.09  
+ U  1063 ALA         0.56    1.50      0.53      0.53    0.53 
+ U  1064 PRO         0.47    1.53      0.65      0.48    0.78 
+
+FRAGMENT (UNPLACED) WITH       29 ATOMS. MEAN RHO:     1.12  Z-SCORE:    -0.78
+NOMATCH: 12 LENGTH:6 First residue number: 1071 CHAIN:  U :
+ U  1071 PHE         0.46    1.56      1.51      0.86    2.39 
+ U  1072 GLY         0.58    1.77  
+ U  1073 VAL         0.45    1.18      0.93      0.75    1.11 
+ U  1074 ALA         0.45    1.03      0.76      0.76    0.76 
+ U  1075 GLU         0.43    0.80      0.69     -0.15    1.41 
+ U  1076 PHE         0.46    1.58      0.66      0.15    1.37 
+
+FRAGMENT (UNPLACED) WITH       38 ATOMS. MEAN RHO:     0.94  Z-SCORE:    -1.44
+NOMATCH: 14 LENGTH:8 First residue number: 1081 CHAIN:  U :
+ U  1081 PRO         0.46    1.46      1.07      0.26    2.04 
+ U  1082 LYS         0.31    0.01      1.04     -0.37    3.38 
+ U  1083 ALA         0.46    1.05      0.69      0.69    0.69 
+ U  1084 PHE         0.47    1.66      1.10     -0.17    2.97 
+ U  1085 ALA         0.37    0.67      0.44      0.44    0.44 
+ U  1086 GLU         0.45    0.93      1.26      0.27    2.14 
+ U  1087 LEU         0.43    0.86      0.80      0.35    1.03 
+ U  1088 GLY         0.50    1.44  
+
+FRAGMENT (UNPLACED) WITH       25 ATOMS. MEAN RHO:     1.12  Z-SCORE:    -0.72
+NOMATCH: 15 LENGTH:5 First residue number: 1091 CHAIN:  U :
+ U  1091 GLU         0.46    0.99      0.99      0.12    1.71 
+ U  1092 LEU         0.50    1.29      1.00      0.16    1.46 
+ U  1093 LEU         0.52    1.40      1.33      0.53    1.96 
+ U  1094 ALA         0.48    1.14      0.36      0.36    0.36 
+ U  1095 ALA         0.27    0.21      0.44      0.44    0.44 
+
+FRAGMENT (UNPLACED) WITH       24 ATOMS. MEAN RHO:     1.08  Z-SCORE:    -0.80
+NOMATCH: 18 LENGTH:5 First residue number: 1101 CHAIN:  U :
+ U  1101 LEU         0.54    1.50      0.76      0.56    0.97 
+ U  1102 GLU         0.57    1.81      1.03      0.77    1.33 
+ U  1103 SER         0.55    1.37      1.18      1.04    1.32 
+ U  1104 PRO         0.50    1.67      1.41      1.00    1.83 
+ U  1105 ALA         0.45    1.00      0.74      0.74    0.74 
+
+FRAGMENT (UNPLACED) WITH       27 ATOMS. MEAN RHO:     0.97  Z-SCORE:    -1.13
+NOMATCH: 20 LENGTH:6 First residue number: 1111 CHAIN:  U :
+ U  1111 GLY        -0.20   -1.61  
+ U  1112 ARG         0.58    2.42      1.28     -0.10    2.16 
+ U  1113 LEU         0.50    1.26      0.97      0.36    1.53 
+ U  1114 ALA         0.23    0.00      0.70      0.70    0.70 
+ U  1115 GLY         0.27    0.44  
+ U  1116 PRO         0.40    1.13      0.81     -0.00    1.52 
+
+FRAGMENT (UNPLACED) WITH       19 ATOMS. MEAN RHO:     1.15  Z-SCORE:    -0.55
+NOMATCH: 21 LENGTH:4 First residue number: 1121 CHAIN:  U :
+ U  1121 ARG         0.48    1.50      0.90     -0.20    2.01 
+ U  1122 GLY         0.47    1.29  
+ U  1123 ALA         0.54    1.42      1.31      1.31    1.31 
+ U  1124 ARG         0.53    1.99      1.16      0.25    1.79 
+
+FRAGMENT (UNPLACED) WITH       17 ATOMS. MEAN RHO:     1.12  Z-SCORE:    -0.59
+NOMATCH: 22 LENGTH:4 First residue number: 1131 CHAIN:  U :
+ U  1131 GLY        -0.23   -1.72  
+ U  1132 GLY         0.12   -0.23  
+ U  1133 PRO         0.59    2.17      0.95      0.72    1.18 
+ U  1134 GLU         0.35    0.14      0.62     -0.34    1.77 
+
+FRAGMENT (UNPLACED) WITH       18 ATOMS. MEAN RHO:     0.95  Z-SCORE:    -0.97
+NOMATCH: 25 LENGTH:4 First residue number: 1141 CHAIN:  U :
+ U  1141 GLU         0.53    1.55      1.57      1.04    2.34 
+ U  1142 PRO         0.55    1.94      0.90      0.75    1.01 
+ U  1143 GLY         0.33    0.72  
+ U  1144 GLY        -0.08   -1.06  
+
+FRAGMENT (UNPLACED) WITH       29 ATOMS. MEAN RHO:     0.73  Z-SCORE:    -1.83
+NOMATCH: 26 LENGTH:6 First residue number: 1151 CHAIN:  U :
+ U  1151 ASP         0.44    0.78      1.30     -0.31    2.37 
+ U  1152 LEU         0.51    1.34      1.11      0.14    1.82 
+ U  1153 GLY         0.44    1.18  
+ U  1154 GLU         0.46    1.01      1.57      0.73    2.47 
+ U  1155 GLY         0.54    1.62  
+ U  1156 ALA         0.54    1.41      0.97      0.97    0.97 
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ B    80 GLU         0.40    0.55      1.11     -0.05    1.74 
+ B    81 GLY         0.43    1.11
+ B    82 GLU         0.57    1.78      0.60      0.15    0.91 
+ B    83 GLU         0.39    0.46      0.29     -0.14    0.60 
+ B    84 THR         0.32    0.47      0.62      0.43    0.86 
+ B    85 ILE         0.16   -0.59      0.02     -0.04    0.07 
+ B    86 THR         0.47    1.29      0.99      0.57    1.21 
+ B    87 ALA         0.35    0.58      0.59      0.59    0.59 
+ B    88 PHE         0.06   -1.52      0.19     -0.40    0.73 
+ B    89 VAL         0.23    0.00      0.63      0.25    1.19 
+ B    90 GLU         0.46    0.98      0.76      0.29    1.18 
+ B    91 PRO         0.12   -0.33      0.23     -0.44    1.02 
+ B    92 PHE         0.27    0.08      0.45     -0.10    1.03 
+ B    93 VAL         0.08   -0.81      0.62      0.04    1.57 
+ B    94 ILE         0.23   -0.21      0.22     -0.32    1.13 
+ B    95 LEU         0.50    1.27      0.49     -0.12    0.76 
+ B    96 LEU         0.48    1.12      1.77      0.42    3.00 
+ B    97 ILE         0.41    0.91      0.46      0.17    0.78 
+ B    98 LEU         0.31    0.05      0.47      0.10    0.93 
+ B    99 ILE         0.15   -0.70     -0.03     -1.14    1.06 TRUNCATED AT CB
+ B   100 ALA        -0.02   -1.10      0.21      0.21    0.21 
+ B   101 ASN         0.22   -0.62      0.20     -0.30    0.81 
+ B   102 ALA         0.37    0.67      1.28      1.28    1.28 
+ B   103 ILE         0.49    1.45      1.08     -0.25    1.88 
+ B   104 VAL         0.40    0.92      0.70     -0.33    1.45 
+ B   105 GLY         0.48    1.33
+ B   106 VAL         0.56    1.80      0.70      0.18    1.02 
+ B   107 TRP         0.18   -0.61      0.56     -0.59    1.59 
+ B   108 GLN         0.56    1.88      1.07     -0.21    2.23 
+ B   109 GLU         0.45    0.90      3.88      0.33   10.02 
+ B   110 ARG         0.43    1.06      2.38     -0.20    4.92 
+ B   111 ASN         0.45    0.89      0.96      0.28    1.61 
+ B   112 ALA         0.02   -0.94     -0.47     -0.47   -0.47 
+ B   113 GLU         0.55    1.65      0.67      0.08    1.11 
+ B   114 ASN         0.41    0.66      0.77      0.60    1.20 
+ B   115 ALA        -0.14   -1.66     -0.10     -0.10   -0.10 
+ B   116 ILE         0.09   -1.06     -0.12     -0.71    0.57 TRUNCATED AT CB
+ B   117 GLU         0.38    0.42      1.33      0.48    2.24 
+ B   118 ALA         0.37    0.64      1.20      1.20    1.20 
+ B   119 LEU         0.34    0.27      1.19      0.38    2.83 
+ B   120 LYS         0.45    1.07      2.06      1.02    3.48 
+ B   121 GLU         0.33    0.01      1.52     -0.11    2.68 
+ B   122 TYR         0.26    0.03      0.48     -0.74    2.00 
+ B   123 GLU         0.50    1.30      0.85      0.23    1.51 
+
+                                     --SIDE CHAIN DENSITY/RMS--
+     RESIDUE          CC    Z-SCORE     AVG       MIN    MAX
+ B   626 GLY         0.10   -0.29
+ B   627 ASP         0.40    0.53      0.65      0.46    0.94 
+ B   628 ASN         0.22   -0.63      0.68     -0.23    1.09 
+ B   629 LYS         0.41    0.71      0.82      0.28    1.77 
+ B   630 GLY         0.58    1.80
+ B   631 THR         0.24    0.04      0.25     -0.60    1.28 
+ B   632 ALA         0.63    1.82      1.64      1.64    1.64 
+ B   633 ILE         0.34    0.50      0.58      0.07    0.97 
+ B   634 ALA         0.09   -0.63      0.53      0.53    0.53 
+ B   635 ILE         0.33    0.44      0.06     -0.77    0.66 
+ B   636 CYS         0.24   -0.14      0.13      0.01    0.26 
+ B   637 ARG         0.33    0.16      0.37      0.02    0.79 
+ B   638 ARG         0.47    1.40      0.92      0.02    2.06 
+ B   639 ILE         0.05   -1.30     -0.07     -0.32    0.24 TRUNCATED AT CB
+ B   640 GLY         0.08   -0.39
+ B   641 ILE         0.40    0.87      0.56     -0.07    1.07 
+ B   642 PHE         0.37    0.87      1.16     -0.01    2.01 
+ B   643 GLY         0.49    1.37
+ B   644 GLU         0.35    0.13      0.85      0.09    1.68 
+ B   645 ASN         0.26   -0.35      0.87     -0.71    1.94 
+ B   646 GLU         0.50    1.29      0.97      0.12    2.48 
+ B   647 GLU         0.38    0.40      1.09      0.33    1.92 
+ B   648 VAL         0.64    2.22      1.72      1.01    2.54 
+ B   649 ALA         0.36    0.63      0.82      0.82    0.82 
+ B   650 ASP         0.55    1.54      1.20      0.54    1.92 
+ B   651 ARG         0.19   -1.16      0.19     -0.45    1.19 
+ B   652 ALA         0.06   -0.76     -0.02     -0.02   -0.02 
+ B   653 TYR         0.12   -1.12      0.16     -0.62    0.64 
+ B   654 THR         0.41    0.96      0.76      0.06    1.40 
+ B   655 GLY         0.20    0.14
+ B   656 ARG         0.30   -0.13      1.13     -0.32    3.03 
+ B   657 GLU         0.26   -0.53      0.43      0.02    1.30 
+ B   658 PHE         0.45    1.52      1.21      0.49    2.04 
+ B   659 ASP         0.36    0.29      0.21      0.03    0.43 
+
+FRAGMENT (UNPLACED) WITH      623 ATOMS. MEAN RHO:     1.07  Z-SCORE:    -4.24
+(SKIPPING FRAGMENT --  Z-SCORE TOO LOW)
+
+FRAGMENT (UNPLACED) WITH      623 ATOMS. MEAN RHO:     1.07  Z-SCORE:    -4.24
+(SKIPPING FRAGMENT --  Z-SCORE TOO LOW)
+
+FRAGMENT (UNPLACED) WITH      623 ATOMS. MEAN RHO:     1.07  Z-SCORE:    -4.24
+(SKIPPING FRAGMENT --  Z-SCORE TOO LOW)
+
+FRAGMENT (UNPLACED) WITH        8 ATOMS. MEAN RHO:     6.74  Z-SCORE:     7.51
+NOMATCH: 3 LENGTH:2 First residue number: 1161 CHAIN:  V :
+ V  1161 GLY        -0.21   -1.62  
+ V  1162 ALA         0.43    0.92      0.55      0.55    0.55 
+
+FRAGMENT (UNPLACED) WITH      387 ATOMS. MEAN RHO:     0.76  Z-SCORE:    -6.35
+(SKIPPING FRAGMENT --  Z-SCORE TOO LOW)
+
+FRAGMENT (UNPLACED) WITH      387 ATOMS. MEAN RHO:     0.76  Z-SCORE:    -6.35
+(SKIPPING FRAGMENT --  Z-SCORE TOO LOW)
+
+FRAGMENT (UNPLACED) WITH       36 ATOMS. MEAN RHO:     1.21  Z-SCORE:    -0.60
+NOMATCH: 6 LENGTH:8 First residue number: 1171 CHAIN:  V :
+ V  1171 GLY         0.70    2.28  
+ V  1172 GLU         0.55    1.63      1.05      0.18    1.89 
+ V  1173 ARG         0.32    0.01      0.97     -0.32    1.67 
+ V  1174 GLY         0.55    1.64  
+ V  1175 GLU         0.40    0.54      0.96      0.32    1.87 
+ V  1176 GLU         0.52    1.43      0.76      0.23    1.19 
+ V  1177 ALA         0.49    1.22      0.61      0.61    0.61 
+ V  1178 GLY         0.48    1.36  
+
+FRAGMENT (UNPLACED) WITH       51 ATOMS. MEAN RHO:     1.01  Z-SCORE:    -1.41
+NOMATCH: 7 LENGTH:11 First residue number: 1181 CHAIN:  V :
+ V  1181 LEU         0.44    0.89      0.80      0.07    1.29 
+ V  1182 GLU         0.52    1.47      1.35      0.18    2.74 
+ V  1183 ALA         0.56    1.54      0.94      0.94    0.94 
+ V  1184 TYR         0.60    2.95      1.05      0.23    1.91 
+ V  1185 LEU         0.33    0.19      1.01     -0.34    1.93 
+ V  1186 LYS         0.59    2.16      1.19      0.82    1.58 
+ V  1187 TYR         0.56    2.60      1.46      0.55    2.82 
+ V  1188 GLU         0.62    2.22      1.62      0.25    2.33 
+ V  1189 GLY         0.12   -0.21  
+ V  1190 GLY        -0.28   -1.93  
+ V  1191 GLY        -0.56   -3.12  
+
+FRAGMENT (UNPLACED) WITH       36 ATOMS. MEAN RHO:     1.20  Z-SCORE:    -0.62
+NOMATCH: 8 LENGTH:8 First residue number: 1201 CHAIN:  V :
+ V  1201 PRO         0.49    1.63      0.72     -0.26    1.25 
+ V  1202 PHE         0.37    0.86      0.70      0.09    1.55 
+ V  1203 GLU         0.51    1.40      1.50      0.51    2.30 
+ V  1204 ILE         0.48    1.38      0.81      0.68    1.07 
+ V  1205 GLU         0.34    0.10      1.13     -0.02    2.01 
+ V  1206 GLY         0.49    1.39  
+ V  1207 GLU         0.36    0.22      0.44     -0.31    1.30 
+ V  1208 ALA         0.25    0.12      0.45      0.45    0.45 
+
+FRAGMENT (UNPLACED) WITH       35 ATOMS. MEAN RHO:     0.98  Z-SCORE:    -1.26
+NOMATCH: 13 LENGTH:7 First residue number: 1211 CHAIN:  V :
+ V  1211 TRP         0.25    0.01      0.40     -0.22    1.49 
+ V  1212 GLU         0.39    0.49      0.97     -0.21    2.19 
+ V  1213 VAL         0.30    0.37      0.31      0.13    0.46 
+ V  1214 ARG         0.54    2.07      1.42      0.14    2.66 
+ V  1215 ALA         0.48    1.15      0.71      0.71    0.71 
+ V  1216 GLY         0.42    1.11  
+ V  1217 PRO         0.63    2.40      0.92      0.52    1.17 
+
+FRAGMENT (UNPLACED) WITH       22 ATOMS. MEAN RHO:     1.15  Z-SCORE:    -0.60
+NOMATCH: 16 LENGTH:5 First residue number: 1221 CHAIN:  V :
+ V  1221 ALA         0.34    0.50      0.75      0.75    0.75 
+ V  1222 LEU         0.56    1.68      0.78      0.44    1.20 
+ V  1223 LEU         0.35    0.30      0.89     -0.17    1.70 
+ V  1224 GLU         0.37    0.31      0.83      0.04    1.41 
+ V  1225 VAL         0.35    0.64      0.40      0.13    0.54 
+
+FRAGMENT (UNPLACED) WITH       34 ATOMS. MEAN RHO:     0.91  Z-SCORE:    -1.45
+NOMATCH: 17 LENGTH:7 First residue number: 1231 CHAIN:  V :
+ V  1231 PRO         0.69    2.70      1.13      0.60    1.99 
+ V  1232 LEU         0.61    1.98      1.59      1.23    2.21 
+ V  1233 LEU         0.45    0.95      1.04     -0.13    1.78 
+ V  1234 GLU         0.60    2.06      0.96      0.44    1.75 
+ V  1235 GLY         0.58    1.79  
+ V  1236 PRO         0.57    2.08      0.72      0.59    0.87 
+ V  1237 GLU         0.45    0.94      1.03      0.41    1.56 
+
+FRAGMENT (UNPLACED) WITH       28 ATOMS. MEAN RHO:     0.97  Z-SCORE:    -1.16
+NOMATCH: 19 LENGTH:6 First residue number: 1241 CHAIN:  V :
+ V  1241 PRO         0.50    1.70      0.81      0.46    1.26 
+ V  1242 ALA         0.64    1.90      0.95      0.95    0.95 
+ V  1243 GLY         0.44    1.16  
+ V  1244 ALA         0.40    0.79      1.03      1.03    1.03 
+ V  1245 PHE         0.26    0.02      0.36     -0.28    0.83 
+ V  1246 GLY         0.42    1.07  
+
+FRAGMENT (UNPLACED) WITH       19 ATOMS. MEAN RHO:     1.06  Z-SCORE:    -0.75
+NOMATCH: 23 LENGTH:4 First residue number: 1251 CHAIN:  V :
+ V  1251 ALA         0.25    0.09      0.49      0.49    0.49 
+ V  1252 PHE         0.57    2.43      1.25      0.73    1.91 
+ V  1253 GLU         0.44    0.84      0.79     -0.10    1.88 
+ V  1254 GLY         0.56    1.71  
+
+FRAGMENT (UNPLACED) WITH       17 ATOMS. MEAN RHO:     1.01  Z-SCORE:    -0.82
+NOMATCH: 24 LENGTH:4 First residue number: 1261 CHAIN:  V :
+ V  1261 GLY         0.28    0.48  
+ V  1262 LEU         0.41    0.70      0.93      0.34    1.39 
+ V  1263 GLY         0.13   -0.17  
+ V  1264 LEU         0.41    0.72      0.65      0.21    1.16 
+
+FRAGMENT (UNPLACED) WITH       25 ATOMS. MEAN RHO:     0.56  Z-SCORE:    -2.11
+NOMATCH: 27 LENGTH:5 First residue number: 1271 CHAIN:  V :
+ V  1271 GLY         0.43    1.14  
+ V  1272 TRP         0.31    0.56      1.31     -0.23    2.46 
+ V  1273 GLY         0.44    1.16  
+ V  1274 GLY        -0.26   -1.85  
+ V  1275 GLY        -0.04   -0.90  
+
+FRAGMENT (UNPLACED) WITH        9 ATOMS. MEAN RHO:     0.62  Z-SCORE:    -1.18
+NOMATCH: 28 LENGTH:2 First residue number: 1281 CHAIN:  V :
+ V  1281 GLY         0.53    1.56  
+ V  1282 THR         0.52    1.55      1.50      0.87    1.89 
+
+                      CC    Z-SCORE    RHO-AVG     N 
+
+     MEAN:           0.34    0.40      0.91       299
+
+
+ Total residues placed:  299 of  2002 or    14%
+ Residues built without side chains:  150
+ Total residues built:  449 or    22%
+
+ Build score = residues built + placed - 2* # of chains not 
+ assigned to sequence =     696
+
+
+
+ Generating map from model
+
+Finding best overall B and increment
+
+ Recovered map with   187563 elements covers     20.3% of the asymmetric unit
+ CC of recovered map with resolve map:
+       Overall:   0.30   In overlap region:   0.38
+ Radius used for map calculation:   2.99 A
+ Overall pseudo B-factor added to input B-factors:   23.5
+ B-factor increment for each atom past CB:    5.7
+
+
+
+ Setting B values based on fit to map
+ and setting b_overall=0 beta_b=0
+
+Writing sequence-assigned coordinates of resolve model to:resolve_assigned.pdb                                                            
+Writing non-sequence-assigned coordinates of resolve model to:resolve_unassigned.pdb                                                          
+Writing coordinates of edited model to: resolve.pdb
+Not repeating build cycles as coverage of     33.00000     is less than minimum of     50.00000    
+
+=====================================================================
+Finished model-building. Best model written out on cycle            0
+=====================================================================
+
+Copying refl to refl_temp
+Writing out           13 columns of data
+CC of prob map with current map:    1.000000    
+--------------------------------------
+Getting Final NCS group            1
+Total of            1 NCS groups.           2
+Restoring group            1 now, with            2 operators
+
+Final refined NCS operators:
+
+
+
+Non-crystallographic symmetry elements used:
+(All operating on orthogonal Angstrom coordinates XYZ of molecule 1 to generate new X-prime  Yprime Zprime matching molecule j)
+
+Operator #            1
+
+     New X-prime=    1.0000 X +     0.0000 Y +     0.0000 Z +    0.0000
+     New Y-prime=    0.0000 X +     1.0000 Y +     0.0000 Z +   -0.0000
+     New Z-prime=    0.0000 X +     0.0000 Y +     1.0000 Z +   -0.0000
+
+ Approximate center_of_mass of this object (from center_of_mass of 
+ object 1 and NC symmetry) is     27.20  -12.90    0.61
+ and as input by user is,         27.20  -12.90    0.61
+
+Operator #            2
+
+     New X-prime=   -0.3704 X +    -0.8808 Y +    -0.2949 Z +   -1.3018
+     New Y-prime=   -0.8109 X +     0.1518 Y +     0.5653 Z +   22.9262
+     New Z-prime=   -0.4531 X +     0.4485 Y +    -0.7704 Z +   40.2651
+
+ Approximate center_of_mass of this object (from center_of_mass of 
+ object 1 and NC symmetry) is     -0.20   -0.75   21.69
+ and as input by user is,         -0.20   -0.75   21.69
+
+Inverses of transformations:
+(Mapping molecule j onto molecule 1)
+(As input)
+
+Operator #            1
+
+     New X-prime=    1.0000 X +    -0.0000 Y +     0.0000 Z +    0.0000
+     New Y-prime=    0.0000 X +     1.0000 Y +    -0.0000 Z +    0.0000
+     New Z-prime=    0.0000 X +     0.0000 Y +     1.0000 Z +   -0.0000
+
+Operator #            2
+
+     New X-prime=   -0.3704 X +    -0.8108 Y +    -0.4531 Z +   36.3505
+     New Y-prime=   -0.8808 X +     0.1517 Y +     0.4485 Z +  -22.6834
+     New Z-prime=   -0.2949 X +     0.5652 Y +    -0.7704 Z +   17.6784
+
+
+Transformations formatted for input to resolve:
+
+
+rota_matrix      1.0000    -0.0000     0.0000
+rota_matrix      0.0000     1.0000    -0.0000
+rota_matrix      0.0000     0.0000     1.0000
+tran_orth        0.0000     0.0000    -0.0000
+center_orth     27.2041   -12.8985     0.6064
+
+
+rota_matrix     -0.3704    -0.8108    -0.4531
+rota_matrix     -0.8808     0.1517     0.4485
+rota_matrix     -0.2949     0.5652    -0.7704
+tran_orth       36.3505   -22.6834    17.6784
+center_orth     -0.1957    -0.7485    21.6857
+
+
+ Analysis of NC symmetry using cutoff of   1.25 A as maximum
+ distance between intersecting elements
+
+Did not find any NC operator combinations consistent with a point group
+
+ No point-group symmetry found 
+
+
+ End of analysis of NCS
+ -----------------------------------------------------------------
+ -----------------------------------------------------------------
+
+resolve exit_info:
+  source_file: /home/builder/slave/phenix-nightly-intel-linux-2_6-x86_64-centos6/modules/solve_resolve/resolve/aaa_resolve_main.cpp
+  source_line: 1692
+  status: 0
+EndOfResolve

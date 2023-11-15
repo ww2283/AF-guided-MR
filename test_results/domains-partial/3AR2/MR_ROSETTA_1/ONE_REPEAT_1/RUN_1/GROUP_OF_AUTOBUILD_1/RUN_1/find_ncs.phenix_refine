@@ -1,0 +1,4 @@
+refinement.pdb_interpretation.ncs_group {
+  reference = chain 'None'
+  selection = chain 'None'
+}

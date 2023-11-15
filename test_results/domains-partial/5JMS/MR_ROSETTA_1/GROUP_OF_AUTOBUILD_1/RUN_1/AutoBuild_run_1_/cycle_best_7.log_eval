@@ -1,0 +1,776 @@
+ ------------------------  COPYRIGHT NOTICE  ---------------------------------
+                   Los Alamos National Laboratory
+ This program was prepared by Los Alamos National Security, LLC at
+ Los Alamos National Laboratory (the University) under  Contract No. 
+ W-7405-ENG-36 with the U.S. Department of Energy (DOE).  The University has 
+ certain rights in the program pursuant to the contract and the program should
+ not be copied or distributed outside your organization.  All rights in the 
+ program are reserved by the DOE and the University.  Neither the U.S. 
+ Government nor the University makes any warranty, express or implied, or 
+ assumes any liability or responsibility for the use of this software.
+
+        *******************************************************
+        *                --- RESOLVE ---                      *
+        *                                                     *
+        *         Statistical density modification            *
+        *             Automated model-building                *
+        *                                                     *
+        *                For on-line help                     *
+        *            see "http://solve.lanl.gov"              *
+        *                                                     *
+        *      This software uses library routines from the   *
+        *      CCP4 suite (http://www.ccp4.ac.uk) for which   *
+        *           the author is very thankful!              *
+        *******************************************************
+
+               (version 2.15 of 20-Mar-2010)
+                       (size =  12)
+  Tom Terwilliger, Los Alamos National Laboratory, "terwilliger@LANL.gov"
+
+>workdir AutoBuild_run_1_/TEMP0
+Work directory will be : AutoBuild_run_1_/TEMP0/
+
+>outputdir /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1
+Directory for STOPWIZARD will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/
+
+>freer_if_present
+Only writing out FreeR_flag if present
+
+>hklin resolve_work.mtz
+Data to be read from mtz file: resolve_work.mtz
+
+>labin FP=FWT PHIB=PHWT
+Current value of "LABIN" is: labin FP=FWT PHIB=PHWT                                                                                                                                                                                                                  
+
+>no_build
+Model will not be built
+
+>resolution 1000 2
+Resolution range (A) is:     2.000000     to     1000.000    
+
+>ha_file NONE
+Heavy atom sites will be read from file: NONE
+The file does not exist...ignoring it
+
+>model refine_1.pdb
+A model will be used to estimate electron density or mask in part of the unit cell.
+Model coords to be read from pdb file: refine_1.pdb
+
+>evaluate_model
+Model will be evaluated based on hklin
+
+>use_wang
+Wang method for solvent mask will be used
+
+>no_ha
+no_ha: heavy-atoms not written out in pdb files
+
+>database 5
+Entry in database of histograms to use:            5
+
+>n_xyz 64 96 90
+Grid units x y z:           64          96          90
+
+>no_optimize_ncs
+Not optimizing NCS
+
+>spg_name_use P 1 21 1
+Space group name for output PDB file only: P 1 21 1   
+
+>min_z_value_rho -3.0
+Minimum z-value for a segment not matched to sequence:    -3.000000    
+
+>no_create_free
+Will not create FREE (test) set
+
+>use_all_for_test
+Will use all data for testing solvent content and histograms
+
+>delta_phi   20.00
+Angular grid (degrees) for image search:     20.00000    
+
+>dist_cut_base 3.0
+Tolerance for base pairing (dist_cut_base):     3.000000    
+
+>free_id 0
+Free R flag ID will be            0
+
+>group_ca_length 4
+Minimum # of residues in a group to keep=           4
+
+>group_length 2
+Minimum # of segments in a group to keep=           2
+
+All done with inputs
+Building protein
+Setting up for building protein
+Standard fill-in residues: ALA A GLY G
+Standard main-chain atoms: N    CA   C    O    CB   NONE
+All main-chain atoms: N     CA    C     O     
+Max dist between adjacent N    atoms:     6.000000    
+List of all residues: GLY ALA SER VAL ILE LEU MET CYS PHE TYR LYS ARG TRP HIS GLU ASP GLN ASN PRO THR 
+List of 1-letter code of residues: GASVILMCFYKRWHEDQNPT
+List of number of atoms in side-chains:            0           1           2           3           4           4           4           2           7           8           5           7          10           6           5           4           5           4           3           3
+checking license file.. solve2.access
+
+       The date today is 25-may-23.  Your license is good until 15-dec-96.
+
+Opened mtz file resolve_work.mtz
+Dataset            1 HKL_base            HKL_base            HKL_base                       0    48.16900        72.75000        65.27600        90.00000        98.62400        90.00000        0.000000    
+Dataset            2 project             crystal             dataset                        1    48.16900        72.75000        65.27600        90.00000        98.62400        90.00000        1.000000    
+Reading SG information from resolve_work.mtz
+Space group name: P21        Point group: PG2       
+Space group number :           4 Symmetry operators:            2
+Number of columns:           13
+H                             K                             L                             FP                            SIGFP                         PHIM                          FOMM                          HLAM                          HLBM                          HLCM                          HLDM                          FWT                           PHWT                          
+
+Column assignments:
+                  PROGRAM                         INPUT_MTZ
+DATA# 1  H                             
+DATA# 2  K                             
+DATA# 3  L                             
+DATA# 4  FP                             :     FWT                           
+DATA# 5  PHIB                           :     PHWT                          
+DATA# 6  FOM                           
+DATA# 7  HLA                           
+DATA# 8  HLB                           
+DATA# 9  HLC                           
+DATA# 10  HLD                           
+DATA# 11  FC                            
+DATA# 12  PHIC                          
+DATA# 13  SIGFP                         
+DATA# 14  FWT                           
+DATA# 15  FreeR_flag                    
+FP taken from column          12
+Dataset information for dataset number           2 and ID=           1
+Dataset name:dataset             
+Crystal name:crystal             
+Project name:project             
+Cell:      48.168999       72.750000       65.276001       90.000000       98.624001       90.000000
+Wavelength:    1.000000    
+PHIB taken from column          13
+WARNING: No SIGFP input data--output SIGFP column will be SIGFP=1.0 for all HKL!
+
+No FreeR_flag read in or created
+Total of        19852 reflections read from file
+Guessing FreeR_flag corresponding to free reflections
+This can be set with free_id xx
+No freeR reflections at all
+Total of            0 of        19852 reflections in test set
+ High-resolution limit of input phased data:  2.30
+Adding F000 term (0.0) to this list
+Closed mtz file
+ Starting resolution:  2.30 max:  2.30
+Space group is           4
+Using symmetry operations from input MTZ file
+
+
+ Transformations from orthogonal to fractional and back:
+
+               Orthogonal to fractional
+
+     fractional x=  0.02076 X +  -0.00000 Y +   0.00315 Z 
+     fractional y=  0.00000 X +   0.01375 Y +  -0.00000 Z 
+     fractional z=  0.00000 X +   0.00000 Y +   0.01549 Z 
+
+
+               Fractional to orthogonal
+
+     Orthogonal X= 48.16900 x +   0.00008 y +  -9.78802 z 
+     Orthogonal Y=  0.00000 x +  72.75000 y +   0.00009 z 
+     Orthogonal Z=  0.00000 x +   0.00000 y +  64.53798 z 
+
+Estimated # of atoms in au:        3571
+Not separating out FREE set from other reflections for main cycles. Using all data.
+
+Expected resolution-corrected F at d = 2.9A : 608.949
+
+ Results of wilson scaling:
+ Scale on I =      5.635
+ B-value =    -18.779
+
+ Scaling data with value of      5.635
+
+Reading model density histograms from /home/wei/Software/phenix-1.19.2-4158/modules/solve_resolve/ext_ref_files/segments/rho.list
+Read total of           10 sets of density functions
+
+ 1.2 A gvp model data         
+ 
+Database 1
+ Protein
+0.13883 49.993 -0.052545 
+0.0028613 0.65609 0.25933 
+0.00094606 1.6127e-07 0 
+ Solvent 
+0.24297 50 -0.066461 
+0 0.27173 0.36529 
+0 0 0 
+
+ 2.1 A p9 model data          
+ 
+Database 2
+ Protein
+0.044882 10.876 -0.099183 
+0.0065938 0.1915 0.81579 
+0 4.992e-07 0 
+ Solvent 
+0.23814 49.998 -0.018448 
+0 0.092931 5.9969e-08 
+0 0 0 
+
+ 2.5 A p9 model data          
+ 
+Database 3
+ Protein
+0.028005 5.0887 -0.10737 
+0.0072492 0.1898 0.86087 
+0 6.5751e-08 0 
+ Solvent 
+0.20336 49.994 -0.021217 
+0 0.051284 -2.8788e-09 
+0 0 0 
+
+ 3.0 A p9 model data          
+ 
+Database 4
+ Protein
+0.015053 1.4002 -0.6344 
+0.0063877 0.16235 0.49508 
+2.1104e-07 7.8393e-09 0 
+ Solvent 
+0.086901 18.852 0.010379 
+0.014104 3.0605 -0.056333 
+0 0 0 
+
+ 3 A dehalogenase model       
+ 
+Database 5
+ Protein
+0.0191631 3.18726 -0.512357 
+0.00724949 0.64234 1.37647 
+0.0108539 1.62321 5.24151e-05 
+ Solvent 
+0.0309225 7.89451 -3.40749e-05 
+0 0.000394973 0 
+0.100204 31.8955 0.00790565 
+
+ 4.0 A p9 model data          
+ 
+Database 6
+ Protein
+0.01046 0.88702 -0.71921 
+0.0077113 0.1957 0.45527 
+0 1.7141e-08 0 
+ Solvent 
+0.058836 10.067 0.0059672 
+0.012859 1.8175 -0.011273 
+0 0 0 
+
+ Acorn map 2013-02-16 real dat
+ 
+Database 7
+ Protein
+0.018509 4.3226 -0.1313 
+0.01638 1.1255 -0.36873 
+0.00068238 1.8232e-08 0 
+ Solvent 
+0.051385 6.7883 -0.030178 
+0.01453 2.9458 0.047202 
+0 0 0 
+
+carbonic anhydrase 3ryj not sh
+ 
+Database 8
+ Protein
+0.033761 6.5653 -0.71026 
+0.007805 0.37567 0.0043698 
+0.00040671 8.1446e-09 0 
+ Solvent 
+0.019614 12.96 0.044435 
+0.0405 3.3172 -0.056361 
+0 0 0 
+
+carbonic anhydrase 3ryj sharpe
+ 
+Database 9
+ Protein
+0.031194 3.1578 -0.40319 
+0.0043546 0.27955 0.30159 
+0.00042361 7.5122e-08 0 
+ Solvent 
+0.059649 5.9617 -0.034235 
+0.0038858 1.0492 0.10247 
+0 0 0 
+
+heavy-atom model B= 7-10 not s
+ 
+Database 10
+ Protein
+0.05154 18.661 0.050944 
+0.024333 3.1634 0.021875 
+0.00043885 3.954e-09 0 
+ Solvent 
+0.050958 22.738 -0.077164 
+0.057472 10.748 0.046222 
+0 0 0 
+Highest value of ix, iy, iz in a.u:          63           95           45
+nu nv nw:           64          96          90   Number of grid points in au:      276480
+ Mean fom of this map was:  1.00
+Reading a pdb file and estimating mask with it.
+Opening refine_1.pdb and reading coordinates
+Center of molecule read in with         2020
+ atoms is       21.907751       51.989189       47.580360
+Highest residue number is :          656
+
+ Summary of starting FOM vs resolution 
+    RES     FOM   FOM-smoothed  N 
+   20.01    1.00    1.00        71
+   12.64    1.00    1.00       113
+    9.51    1.00    1.00       221
+    7.50    1.00    1.00       382
+    6.34    1.00    1.00       379
+    5.48    1.00    1.00       690
+    4.78    1.00    1.00       829
+    4.28    1.00    1.00       913
+    3.91    1.00    1.00      1051
+    3.61    1.00    1.00      1087
+    3.36    1.00    1.00      1467
+    3.15    1.00    1.00      1258
+    2.98    1.00    1.00      1549
+    2.81    1.00    1.00      1986
+    2.64    1.00    1.00      2536
+    2.49    1.00    1.00      2376
+    2.36    1.00    1.00      2944
+
+ Mean fom of this map was:  1.00
+Opening refine_1.pdb and reading coordinates
+Center of molecule read in with         2020
+ atoms is       21.907686       51.989269       47.580318
+
+ MEAN SD PROT for SQ-SM :   0.04 +/-   1.68
+ MEAN SD SOLV for SQ-SM :  -0.02 +/-   0.80
+
+ N:  108795   167685
+ Overall map correlation:   0.620
+ Map correlation in region of model:   0.722
+
+ Analysis of density in map at coordinates of model:
+
+ ATOMS                       MEAN      SD        N
+ RESIDUE AVG: 
+              all            1.9       0.7       352
+              main-chain     2.1       0.8       352
+              side-chain     1.1       1.1       352
+ SINGLE ATOMS:
+              N              2.0       1.0       352
+              CA             1.4       0.8       259
+              C              2.6       1.0       259
+              O              2.7       1.1       259
+              CB             1.7       0.9       214
+              CG SG OG       1.8       1.4       196
+              CD OD etc      1.7       1.2       176
+              CE  etc        1.6       1.1       144
+              NZ  etc        1.7       1.1        79
+              CE2 etc        1.7       0.8        82
+
+
+Analysis by residue...
+                       Definitions:
+"out of density":  RHO < 2 SD below 1/2 mean density for this atom/group
+"very weak density":  RHO < 1 SD below 1/2 mean density for this atom/group
+"weak density":  RHO < 1/2 mean density for this atom/group
+"acceptable density":  No atom is < 1 SD below 1/2 mean for that atom type and
+no group is < 1/2 mean for that group
+
+"DENSITY" is the electron density in the map, normalized so that 
+the mean and SD in the region of the model are zero and 1.0, respectively.
+
+
+                    ------ MEAN DENSITY -------              NOTES
+  RESIDUE           CC       ALL     MAIN     SIDE
+ GLY     23   A   0.73      2.6      2.6      0.0
+ THR     24   A   0.80      1.9      2.7      0.8
+ SER     25   A   0.82      2.6      2.8      2.4
+ GLY     26   A   0.81      2.7      2.7      0.0
+ GLY     27   A   0.75      2.8      2.8      0.0
+ PRO     28   A   0.74      1.3      1.4      1.2
+ GLY     29   A   0.77      2.1      2.1      0.0
+ SER    147   A   0.72      1.6      1.8      1.2
+ GLU    148   A   0.79      2.5      2.2      2.8
+ VAL    149   A   0.81      1.6      1.6      1.6
+ ASP    150   A   0.74      1.9      1.6      2.1     WEAK DENSITY (C       )
+ ALA    151   A   0.68      1.6      1.6      1.6
+ ALA    152   A   0.73      1.5      1.4      2.0
+ ARG    153   A   0.72      1.3      1.3      1.4
+ ILE    154   A   0.70      1.4      2.1      0.7     WEAK DENSITY (CD1     )
+ ILE    155   A   0.73      1.7      1.3      2.1     WEAK DENSITY (CA      )
+ ARG    156   A   0.72      1.8      2.7      1.3
+ GLN    157   A   0.80      2.0      2.8      1.4
+ VAL    158   A   0.83      2.1      2.5      1.6
+ LEU    159   A   0.84      2.2      2.6      1.9
+ SER    160   A   0.79      1.6      2.0      0.7
+ GLY    161   A   0.86      2.4      2.4      0.0
+ ILE    162   A   0.86      2.8      3.1      2.5
+ THR    163   A   0.85      2.4      3.1      1.5
+ TYR    164   A   0.83      2.2      2.7      2.0
+ MET    165   A   0.85      2.2      2.7      1.7
+ HIS    166   A   0.84      2.4      2.5      2.4
+ LYS    167   A   0.80      2.3      3.2      1.6
+ ASN    168   A   0.74      1.7      2.2      1.2
+ LYS    169   A   0.78      1.7      2.3      1.2     WEAK DENSITY (CB  CD  )
+ ILE    170   A   0.82      2.3      3.3      1.3
+ VAL    171   A   0.78      1.8      2.2      1.3
+ HIS    172   A   0.83      3.0      3.8      2.4
+ ARG    173   A   0.77      1.8      2.5      1.4
+ ASP    174   A   0.78      2.1      2.1      2.1
+ LEU    175   A   0.74      1.6      1.9      1.3
+ LYS    176   A   0.76      2.4      2.8      2.2
+ PRO    177   A   0.72      1.5      1.3      1.7     WEAK DENSITY (O       )
+ GLU    178   A   0.68      2.0      2.3      1.8
+ ASN    179   A   0.81      2.7      3.0      2.3
+ LEU    180   A   0.84      2.4      2.8      2.0
+ LEU    181   A   0.79      2.1      2.3      1.9
+ LEU    182   A   0.77      1.9      2.4      1.3
+ GLU    183   A   0.66      1.3      1.1      1.4     WEAK DENSITY (CA      )
+ SER    184   A   0.66      1.2      1.3      1.2
+ LYS    185   A   0.52      0.8      1.1      0.5     WEAK DENSITY (All       )
+ SER    186   A   0.52      1.1      0.9      1.4     WEAK DENSITY (Main-chain)
+ LYS    187   A   0.41      1.0      1.1      1.0
+ ASP    188   A   0.57      1.6      1.2      1.9
+ ALA    189   A   0.57      1.2      1.5      0.3     WEAK DENSITY (Side-chain)
+ ASN    190   A   0.69      1.8      1.7      1.8
+ ILE    191   A   0.78      1.6      1.3      2.0     WEAK DENSITY (CA      )
+ ARG    192   A   0.75      2.1      2.8      1.7
+ ILE    193   A   0.78      2.2      2.9      1.5     WEAK DENSITY (CB      )
+ ILE    194   A   0.84      2.3      2.9      1.8
+ ASP    195   A   0.73      1.5      1.7      1.2     WEAK DENSITY (CB      )
+ PHE    196   A   0.64      1.0      0.7      1.2     WEAK DENSITY (Main-chain)
+ GLY    197   A   0.65      1.4      1.4      0.0
+ LEU    198   A   0.62      1.8      2.3      1.2     WEAK DENSITY (CB      )
+ SER    199   A   0.61      0.9      0.6      1.7     WEAK DENSITY (All       )
+ THR    200   A   0.44      1.0      1.1      0.9     WEAK DENSITY (N   C   )
+ HIS    201   A   0.47      1.0      1.2      0.9     WEAK DENSITY (CB      )
+ PHE    202   A   0.57      1.0      0.7      1.1     WEAK DENSITY (Main-chain)
+ GLU    203   A   0.50      1.1      1.5      0.8     WEAK DENSITY (CB  OE1 )
+ ALA    204   A   0.31      0.9      0.8      1.3     WEAK DENSITY (All       )
+ SER    205   A   0.55      1.0      0.8      1.3     WEAK DENSITY (All       )
+ LYS    206   A   0.37      0.7      0.6      0.7     WEAK DENSITY (All       )
+ LYS    207   A   0.54      1.5      1.2      1.7
+ MET    208   A   0.63      1.3      1.1      1.4
+ LYS    209   A   0.53      0.8      0.9      0.7     WEAK DENSITY (All       )
+ ASP    210   A   0.67      1.3      1.5      1.1     WEAK DENSITY (CB      )
+ LYS    211   A   0.39      0.8      1.0      0.7     WEAK DENSITY (All       )
+ ILE    212   A   0.50      1.1      1.1      1.2     WEAK DENSITY (CA  CG2 )
+ GLY    213   A   0.58      0.9      0.9      0.0     WEAK DENSITY (All       )
+ THR    214   A   0.70      2.6      3.0      2.1
+ ALA    215   A   0.87      2.6      2.6      2.9
+ TYR    216   A   0.84      2.6      3.1      2.4
+ TYR    217   A   0.84      2.3      2.6      2.2
+ ILE    218   A   0.77      1.8      2.3      1.3
+ ALA    219   A   0.76      2.7      2.5      3.3
+ PRO    220   A   0.82      2.5      2.2      2.8
+ GLU    221   A   0.86      2.9      2.6      3.2
+ VAL    222   A   0.83      2.6      2.7      2.4
+ LEU    223   A   0.84      2.0      2.1      1.9
+ HIS    224   A   0.77      2.3      2.6      2.1
+ GLY    225   A   0.76      3.2      3.2      0.0
+ THR    226   A   0.79      1.8      2.3      1.1     WEAK DENSITY (CA  CG2 )
+ TYR    227   A   0.79      2.3      3.2      1.8
+ ASP    228   A   0.80      2.2      2.7      1.6
+ GLU    229   A   0.81      2.7      3.1      2.4
+ LYS    230   A   0.84      2.1      2.7      1.6
+ CYS    231   A   0.86      5.4      3.7      8.7
+ ASP    232   A   0.84      3.2      2.5      4.0     WEAK DENSITY (CA      )
+ VAL    233   A   0.82      2.4      2.5      2.3
+ TRP    234   A   0.85      2.2      1.9      2.4
+ SER    235   A   0.83      2.5      2.5      2.5
+ THR    236   A   0.81      2.9      2.2      3.8
+ GLY    237   A   0.85      2.6      2.6      0.0
+ VAL    238   A   0.84      2.3      2.6      1.8
+ ILE    239   A   0.81      2.1      2.6      1.7
+ LEU    240   A   0.76      2.0      2.6      1.5
+ TYR    241   A   0.85      2.7      3.1      2.5
+ ILE    242   A   0.84      2.4      3.0      1.7
+ LEU    243   A   0.84      2.4      3.1      1.7
+ LEU    244   A   0.82      2.0      2.2      1.7
+ SER    245   A   0.80      1.9      1.9      1.7
+ GLY    246   A   0.84      2.8      2.8      0.0
+ CYS    247   A   0.83      2.1      1.9      2.4
+ PRO    248   A   0.82      2.0      2.2      1.7
+ PRO    249   A   0.82      2.1      2.4      1.7     WEAK DENSITY (CA      )
+ PHE    250   A   0.82      1.9      2.5      1.6
+ ASN    251   A   0.82      2.1      1.9      2.4
+ GLY    252   A   0.78      1.6      1.6      0.0
+ ALA    253   A   0.82      2.1      2.3      1.0
+ ASN    254   A   0.84      2.4      2.8      2.1
+ GLU    255   A   0.76      2.4      3.4      1.7
+ TYR    256   A   0.79      1.8      2.3      1.6
+ ASP    257   A   0.82      2.2      2.5      1.9
+ ILE    258   A   0.79      2.5      2.5      2.5
+ LEU    259   A   0.83      2.5      2.4      2.6
+ LYS    260   A   0.78      2.0      2.5      1.7
+ LYS    261   A   0.77      1.7      2.5      1.1
+ VAL    262   A   0.81      2.2      2.5      1.8
+ GLU    263   A   0.76      1.9      2.5      1.4
+ LYS    264   A   0.76      2.0      3.3      0.9
+ GLY    265   A   0.86      2.8      2.8      0.0
+ LYS    266   A   0.80      2.0      2.9      1.3
+ TYR    267   A   0.80      2.0      1.7      2.1
+ THR    268   A   0.77      1.7      1.8      1.7
+ PHE    269   A   0.80      1.5      1.5      1.5
+ GLU    270   A   0.67      1.6      1.8      1.3     WEAK DENSITY (O       )
+ LEU    271   A   0.74      1.1      1.3      0.9
+ PRO    272   A   0.70      1.3      1.9      0.5     WEAK DENSITY (Side-chain)
+ GLN    273   A   0.70      1.2      1.4      1.0
+ TRP    274   A   0.73      1.7      2.0      1.6
+ LYS    275   A   0.46      0.4      0.5      0.4     WEAK DENSITY (All       )
+ LYS    276   A   0.52      0.9      1.2      0.7     WEAK DENSITY (All       )
+ VAL    277   A   0.66      1.3      1.3      1.4
+ SER    278   A   0.75      1.9      2.1      1.6
+ GLU    279   A   0.68      1.8      2.1      1.6     WEAK DENSITY (CB  CG  )
+ SER    280   A   0.73      1.8      1.7      2.0
+ ALA    281   A   0.78      2.0      2.1      1.6
+ LYS    282   A   0.83      1.9      2.0      1.9
+ ASP    283   A   0.83      2.5      2.4      2.6
+ LEU    284   A   0.76      1.7      2.1      1.4
+ ILE    285   A   0.78      2.1      2.1      2.1
+ ARG    286   A   0.77      2.0      2.9      1.5
+ LYS    287   A   0.81      1.8      1.7      1.9
+ MET    288   A   0.87      2.9      2.6      3.1
+ LEU    289   A   0.84      2.2      2.1      2.3
+ THR    290   A   0.87      2.2      2.5      1.9
+ TYR    291   A   0.85      2.5      2.9      2.3
+ VAL    292   A   0.83      3.1      3.5      2.5
+ PRO    293   A   0.81      2.2      1.9      2.6     WEAK DENSITY (CA      )
+ SER    294   A   0.77      2.5      2.5      2.5
+ MET    295   A   0.76      2.0      2.3      1.8
+ ARG    296   A   0.82      2.4      2.2      2.5
+ ILE    297   A   0.78      2.6      2.7      2.6
+ SER    298   A   0.80      2.0      2.1      1.7
+ ALA    299   A   0.84      2.6      2.8      1.5
+ ARG    300   A   0.70      1.3      1.5      1.2     WEAK DENSITY (NH1     )
+ ASP    301   A   0.79      1.9      2.0      1.9
+ ALA    302   A   0.82      2.1      2.2      1.9
+ LEU    303   A   0.82      1.8      1.8      1.7
+ ASP    304   A   0.73      1.4      2.1      0.6
+ HIS    305   A   0.73      2.0      1.6      2.2
+ GLU    306   A   0.70      1.5      2.0      1.1
+ TRP    307   A   0.75      1.7      1.6      1.7
+ ILE    308   A   0.70      1.5      2.5      0.5     WEAK DENSITY (Side-chain)
+ GLN    309   A   0.66      1.3      1.0      1.5     WEAK DENSITY (Main-chain)
+ GLY    511   U   0.62      1.4      1.4      0.0     WEAK DENSITY (N       )
+ GLY    512   U   0.60      1.6      1.6      0.0
+ GLY    513   U   0.74      2.0      2.0      0.0
+ GLY    514   U   0.80      2.4      2.4      0.0
+ SER    515   U   0.79      2.2      2.2      2.0
+ ARG    516   U   0.60      1.3      1.2      1.3     WEAK DENSITY (CB  NH2 )
+ GLY    517   U   0.50      1.2      1.2      0.0     WEAK DENSITY (N       )
+ PRO    518   U   0.62      1.6      1.4      1.8     WEAK DENSITY (N       )
+ GLY    521   U   0.67      2.2      2.2      0.0
+ VAL    522   U   0.80      2.0      2.7      1.1
+ GLN    523   U   0.75      2.0      2.3      1.8
+ ALA    524   U   0.74      2.0      2.0      2.2
+ ASP    525   U   0.77      2.3      2.6      2.0
+ GLY    526   U   0.85      2.5      2.5      0.0
+ GLY    527   U   0.84      3.3      3.3      0.0
+ ALA    528   U   0.85      2.6      2.5      3.0
+ ALA    529   U   0.81      3.0      3.0      2.8
+ LEU    530   U   0.81      2.2      2.8      1.7
+ GLY    541   U   0.66      1.7      1.7      0.0
+ GLY    542   U   0.73      1.6      1.6      0.0
+ ALA    543   U   0.81      2.3      2.3      2.2
+ ALA    544   U   0.79      1.7      1.6      2.5
+ LYS    545   U   0.72      2.2      2.7      1.7
+ ASP    546   U   0.80      2.1      2.5      1.8
+ GLY    547   U   0.83      2.7      2.7      0.0
+ LEU    548   U   0.79      2.1      2.6      1.5
+ THR    549   U   0.73      1.8      2.1      1.3
+ SER    550   U   0.66      2.0      2.0      2.0
+ ASP    551   U   0.64      1.6      1.6      1.7
+ GLY    552   U   0.67      1.6      1.6      0.0
+ GLY    561   U   0.75      3.4      3.4      0.0
+ GLY    562   U   0.82      2.0      2.0      0.0
+ ASP    563   U   0.77      1.9      1.8      2.0
+ ASP    564   U   0.81      2.1      2.3      1.9
+ LEU    565   U   0.79      2.5      2.8      2.3
+ GLY    566   U   0.70      2.3      2.3      0.0
+ GLY    567   U   0.80      3.4      3.4      0.0
+ GLY    568   U   0.78      1.6      1.6      0.0
+ GLY    569   U   0.72      2.3      2.3      0.0
+ PHE    570   U   0.75      1.4      2.2      0.9
+ GLY    571   U   0.68      1.9      1.9      0.0     WEAK DENSITY (CA      )
+ GLY    581   U   0.81      3.9      3.9      0.0
+ ALA    582   U   0.84      2.7      2.9      2.2
+ PHE    583   U   0.78      2.3      3.2      1.7
+ SER    584   U   0.79      2.5      2.8      2.0
+ ALA    585   U   0.73      1.7      1.3      3.5
+ PHE    586   U   0.74      2.2      2.5      2.0
+ LYS    587   U   0.70      2.2      2.2      2.1
+ GLY    588   U   0.67      1.7      1.7      0.0
+ GLY    591   U   0.66      2.0      2.0      0.0
+ TYR    592   U   0.72      2.5      3.0      2.2
+ GLY    593   U   0.79      2.9      2.9      0.0
+ GLN    594   U   0.76      2.0      1.9      2.1
+ PHE    595   U   0.72      1.8      2.3      1.6
+ LYS    596   U   0.63      1.8      2.6      1.1
+ GLU    597   U   0.80      1.9      2.1      1.7
+ GLY    598   U   0.74      2.5      2.5      0.0
+ LEU    599   U   0.73      1.6      1.6      1.7
+ GLY    600   U   0.64      1.3      1.3      0.0
+ GLY    611   U   0.63      2.2      2.2      0.0
+ GLY    612   U   0.79      2.1      2.1      0.0
+ VAL    613   U   0.85      2.7      3.3      1.8
+ SER    614   U   0.83      1.7      1.7      1.7
+ GLU    615   U   0.74      1.4      2.1      0.8
+ LEU    616   U   0.82      2.1      2.4      1.8
+ LYS    617   U   0.77      1.6      2.5      0.9
+ LEU    618   U   0.78      2.0      2.1      2.0
+ LYS    619   U   0.78      1.8      2.1      1.5
+ GLN    620   U   0.65      1.2      1.5      1.0
+ GLY    631   U   0.71      1.9      1.9      0.0     WEAK DENSITY (CA      )
+ GLY    632   U   0.83      3.0      3.0      0.0
+ VAL    633   U   0.75      2.2      1.6      2.9
+ ALA    634   U   0.83      2.1      1.9      3.0
+ THR    635   U   0.78      1.9      2.3      1.3
+ GLU    636   U   0.73      1.4      1.9      1.0
+ LEU    637   U   0.66      1.3      2.0      0.5     WEAK DENSITY (Side-chain)
+ LEU    638   U   0.76      1.9      2.5      1.3
+ SER    641   U   0.66      1.6      1.5      1.8
+ GLU    642   U   0.74      1.9      2.2      1.6
+ LEU    643   U   0.66      1.6      1.4      1.7     WEAK DENSITY (C       )
+ GLY    644   U   0.65      1.4      1.4      0.0
+ LEU    645   U   0.69      1.6      2.1      1.0
+ VAL    646   U   0.64      1.9      2.1      1.7
+ GLU    651   U   0.63      1.3      1.8      0.8     WEAK DENSITY (CG      )
+ TYR    652   U   0.70      1.4      2.1      1.1
+ GLY    653   U   0.67      1.4      1.4      0.0
+ PRO    654   U   0.69      1.1      1.5      0.7     WEAK DENSITY (CD      )
+ GLY    655   U   0.76      2.1      2.1      0.0
+ GLY    656   U   0.74      2.2      2.2      0.0
+ HOH      1   S   0.63      3.0      3.0      0.0
+ HOH      2   S   0.67      2.4      2.4      0.0
+ HOH      3   S   0.65      3.9      3.9      0.0
+ HOH      4   S   0.64      2.7      2.7      0.0
+ HOH      5   S   0.55      2.4      2.4      0.0
+ HOH      6   S   0.56      2.2      2.2      0.0
+ HOH      7   S   0.49      0.5      0.5      0.0     WEAK DENSITY (All       )
+ HOH      8   S   0.71      3.7      3.7      0.0
+ HOH      9   S   0.71      3.0      3.0      0.0
+ HOH     10   S   0.37      0.2      0.2      0.0     WEAK DENSITY (All       )
+ HOH     11   S   0.41      1.3      1.3      0.0
+ HOH     12   S   0.58      3.2      3.2      0.0
+ HOH     13   S   0.72      3.3      3.3      0.0
+ HOH     14   S   0.67      2.3      2.3      0.0
+ HOH     15   S   0.52      1.7      1.7      0.0
+ HOH     16   S   0.45      2.4      2.4      0.0
+ HOH     17   S   0.72      1.7      1.7      0.0
+ HOH     18   S   0.65      2.4      2.4      0.0
+ HOH     19   S   0.74      1.8      1.8      0.0
+ HOH     20   S   0.60      2.9      2.9      0.0
+ HOH     21   S   0.73      3.5      3.5      0.0
+ HOH     22   S   0.57      2.1      2.1      0.0
+ HOH     23   S   0.62      2.5      2.5      0.0
+ HOH     24   S   0.77      2.6      2.6      0.0
+ HOH     25   S   0.20      0.4      0.4      0.0     WEAK DENSITY (All       )
+ HOH     26   S   0.58      2.0      2.0      0.0
+ HOH     27   S   0.68      1.6      1.6      0.0
+ HOH     28   S   0.68      3.4      3.4      0.0
+ HOH     29   S   0.56      2.8      2.8      0.0
+ HOH     30   S   0.69      1.1      1.1      0.0
+ HOH     31   S   0.65      3.6      3.6      0.0
+ HOH     32   S   0.47      1.5      1.5      0.0
+ HOH     33   S   0.62      2.9      2.9      0.0
+ HOH     34   S   0.65      2.9      2.9      0.0
+ HOH     35   S   0.50      0.5      0.5      0.0     WEAK DENSITY (All       )
+ HOH     36   S   0.54      2.1      2.1      0.0
+ HOH     37   S   0.46      1.7      1.7      0.0
+ HOH     38   S   0.68      1.6      1.6      0.0
+ HOH     39   S   0.56      1.0      1.0      0.0     WEAK DENSITY (All       )
+ HOH     40   S   0.55      1.6      1.6      0.0
+ HOH     41   S   0.54      1.4      1.4      0.0
+ HOH     42   S   0.71      3.3      3.3      0.0
+ HOH     43   S   0.40      0.8      0.8      0.0     WEAK DENSITY (All       )
+ HOH     44   S   0.48      1.0      1.0      0.0     WEAK DENSITY (Main-chain)
+ HOH     45   S   0.48      1.9      1.9      0.0
+ HOH     46   S   0.64      0.1      0.1      0.0     VERY WEAK DENSITY (All       )
+ HOH     47   S   0.52      2.0      2.0      0.0
+ HOH     48   S   0.29      0.9      0.9      0.0     WEAK DENSITY (All       )
+ HOH     49   S   0.57      1.0      1.0      0.0
+ HOH     50   S   0.70      2.4      2.4      0.0
+ HOH     51   S   0.45      1.9      1.9      0.0
+ HOH     52   S   0.55      0.5      0.5      0.0     WEAK DENSITY (All       )
+ HOH     53   S   0.70      3.9      3.9      0.0
+ HOH     54   S   0.61      2.4      2.4      0.0
+ HOH     55   S   0.70      1.9      1.9      0.0
+ HOH     56   S   0.55      3.1      3.1      0.0
+ HOH     57   S   0.21      0.2      0.2      0.0     WEAK DENSITY (All       )
+ HOH     58   S   0.68      2.5      2.5      0.0
+ HOH     59   S   0.63      2.1      2.1      0.0
+ HOH     60   S   0.44      1.2      1.2      0.0
+ HOH     61   S   0.49      0.9      0.9      0.0     WEAK DENSITY (All       )
+ HOH     62   S   0.58      2.0      2.0      0.0
+ HOH     63   S   0.28      0.2      0.2      0.0     WEAK DENSITY (All       )
+ HOH     64   S   0.46      1.8      1.8      0.0
+ HOH     65   S   0.48      2.2      2.2      0.0
+ HOH     66   S   0.46      1.0      1.0      0.0     WEAK DENSITY (Main-chain)
+ HOH     67   S   0.36      1.6      1.6      0.0
+ HOH     68   S   0.53      2.7      2.7      0.0
+ HOH     69   S   0.58      2.5      2.5      0.0
+ HOH     70   S   0.60      1.4      1.4      0.0
+ HOH     71   S   0.45      2.4      2.4      0.0
+ HOH     72   S   0.36      0.5      0.5      0.0     WEAK DENSITY (All       )
+ HOH     73   S   0.53      1.8      1.8      0.0
+ HOH     74   S   0.60      2.5      2.5      0.0
+ HOH     75   S   0.30      0.1      0.1      0.0     VERY WEAK DENSITY (All       )
+ HOH     76   S   0.40      0.4      0.4      0.0     WEAK DENSITY (All       )
+ HOH     77   S  -0.03      0.1      0.1      0.0     VERY WEAK DENSITY (All       )
+ HOH     78   S   0.68      0.9      0.9      0.0     WEAK DENSITY (All       )
+ HOH     79   S   0.80      3.3      3.3      0.0
+ HOH     80   S   0.57      1.9      1.9      0.0
+ HOH     81   S   0.58      2.1      2.1      0.0
+ HOH     82   S   0.46     -0.7     -0.7      0.0     OUT OF DENSITY (All       )
+ HOH     83   S   0.62      1.3      1.3      0.0
+ HOH     84   S   0.71      2.4      2.4      0.0
+ HOH     85   S   0.61      2.1      2.1      0.0
+ HOH     86   S   0.59      2.0      2.0      0.0
+ HOH     87   S   0.67      2.4      2.4      0.0
+ HOH     88   S   0.29      0.3      0.3      0.0     WEAK DENSITY (All       )
+ HOH     89   S   0.36      0.6      0.6      0.0     WEAK DENSITY (All       )
+ HOH     90   S   0.73      1.6      1.6      0.0
+ HOH     91   S   0.73      0.2      0.2      0.0     WEAK DENSITY (All       )
+ HOH     92   S   0.68      1.0      1.0      0.0     WEAK DENSITY (Main-chain)
+ HOH     93   S   0.64      0.6      0.6      0.0     WEAK DENSITY (All       )
+
+
+======================================================================
+
+            Summary of fit of model to map
+
+  Overall map correlation:                     0.620
+
+  Total residues:                              352
+  Residues in acceptable density:              278
+  Residues with some weak density:              74
+
+  Residues out of density:                       1
+  Residues in very weak density:                 3
+  Residues in weak density:                     28
+
+  Main-chain out of density:                     0
+  Main-chain in very weak density:               0
+  Main-chain in weak density:                    7
+
+  Side-chain out of density:                     0
+  Side-chain in very weak density:               0
+  Side-chain in weak density:                    4
+
+  Residue with atoms out of density:             0
+  Residue with atoms in very weak density:      31
+
+======================================================================
+
+resolve exit_info:
+  source_file: /home/builder/slave/phenix-nightly-intel-linux-2_6-x86_64-centos6/modules/solve_resolve/resolve/aaa_resolve_main.cpp
+  source_line: 1692
+  status: 0
+EndOfResolve

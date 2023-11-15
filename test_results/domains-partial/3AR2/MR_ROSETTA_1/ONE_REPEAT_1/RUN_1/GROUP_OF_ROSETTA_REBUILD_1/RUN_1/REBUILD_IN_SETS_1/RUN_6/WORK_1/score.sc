@@ -1,0 +1,3 @@
+SEQUENCE: 
+SCORE: total_score aln_ident   aln_len  aln_perc cart_bonded dslf_fa13 elec_dens_window           fa_atr           fa_dun          fa_elec fa_intra_rep fa_intra_sol_xover4              fa_rep              fa_sol hbond_bb_sc hbond_lr_bb    hbond_sc hbond_sr_bb lk_ball_wtd        nres       omega     p_aa_pp rama_prepro         ref yhh_planarity   aln_id description 
+SCORE:   -1874.951     0.231   231.000     0.231     286.447     0.000        -1685.427        -1142.449          256.739         -323.947        2.916              39.076             149.556             700.145     -37.886     -43.543     -16.014     -76.867     -34.866    1001.000       5.464     -45.091      11.037      79.740         0.016    S_PHA S_S_PHA_0001

@@ -1,0 +1,375 @@
+Parameters taken from: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/PARAMS_1.eff
+
+
+#                       mr_rescoring
+#
+# Run automr mr_rescoring with optional rosetta rebuilding
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rescoring mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rescoring {
+  input_files {
+    model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed_one.pdb"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1_nf.map"
+    mtz_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/3AR2-sf.mtz"
+    labin = "FP=FOBS SIGFP=SIGFOBS"
+    mr_rosetta_solutions = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/solution_for_rescore.pkl"
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/EDITED_P04191.fasta"
+    hhr_files = None
+    alignment_files = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/edited_align.ali"
+    model_info_file = ""
+  }
+  output_files {
+    log = "mr_rescoring.log"
+    params_out = "mr_rescoring_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  place_model {
+    run_place_model = False
+    prerefine {
+      run_prerefine = False
+      number_of_prerefine_models = 1000
+      number_of_models_in_ensemble = 1
+    }
+    model_already_placed = True
+    model_already_aligned = True
+    force_alignment = False
+    number_of_output_models = 5
+    align_with_sculptor = True
+    identity = None
+    identity_for_scoring_only = 25
+    use_all_plausible_sg = False
+    overlap_allowed = 10
+    selection_criteria_rot_value = 75
+    fast_search_mode = True
+    peak_rota_down = 25
+    mr_resolution = None
+    refine_after_mr = True
+    denmod_after_refine = True
+    ps_in_rebuild = False
+    find_ncs_after_mr = True
+    fixed_model = ""
+    fixed_model_identity = None
+    sufficient_number_finished = None
+    fixed_ensembles {
+      fixed_ensembleID_list = None
+      fixed_euler_list = 0 0 0
+      fixed_frac_list = 0 0 0
+      fixed_frac_list_is_fractional = True
+    }
+    copies_of_search_model_to_place = None
+  }
+  rescore_mr {
+    run_rescore_mr = True
+    nstruct = 2
+    relax = True
+    include_unrelaxed_in_scoring = False
+    align = False
+    edit_model = True
+    stage_to_rescore = "rescored_rosetta_solution"
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "C 1 2 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 2
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 1
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/INFO_FILE_1"
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = False
+  }
+  non_user_params {
+    file_base = None
+    print_citations = False
+    highest_id = 63
+    is_sub_process = True
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rescoring
+Date: Sun Apr 23 07:24:42 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1
+
+USER = wei
+PID = 49673
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+
+================================================================================
+ LOADING EXISTING SOLUTIONS
+================================================================================
+Loading solutions from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/solution_for_rescore.pkl 
+RESULTS:  
+ID: 59  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed_one.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:    61.30  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+
+Loaded 1 previous solutions: 
+(list is in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/solutions_loaded.log) 
+SET CRYSTAL SYMMETRY FROM INPUT SOLUTION:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1
+
+
+Using information from saved model 
+ID: 59  Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed.pdb Single chain: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed_one.pdb 
+Stage: rescored_rosetta_solution  MR_LLG:    61.30  Target NCS copies: 2
+NCS copies found: 2 
+Group: None
+CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1.mtz labin:FP=FAVG PHIB=PHIFAVG 
+map: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1_nf.map
+Placed model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_1/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_3/WORK_1/S_PHASE_0001_14_ed_one_0001_ed_rs_ref_001.pdb 
+component_solutions: None
+SET CRYSTAL SYMMETRY FROM INPUT SOLUTION:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+
+Scoring the model /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_7/WORK_1/S_S_PHA_0001_55_ed_one.pdb
+Relaxing model at   3.0 A, generating and scoring 2 relaxed models
+Sample relaxed model with score of -1828.30:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001.pdb
+Done with generating relaxed models
+
+Scoring 2 models
+Working directory for scoring: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1 
+
+Scoring /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001.pdb
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.27744730684
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb 
+Score for /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0001_ed.pdb is  91.40 
+
+Scoring /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002.pdb
+
+Editing /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002.pdb and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002_ed.pdb
+
+CRYSTAL SYMMETRY:  CRYST1  161.995   75.306  151.541  90.00 108.97  90.00 C 1 2 1
+Total of 0 atoms matched to info_file and 1791 not
+
+
+#                       apply_ncs
+#
+# Apply NCS to a PDB file
+
+
+# Type phenix.doc for help
+Values of all params:
+apply_ncs {
+  input_files {
+    pdb_in = None
+    ncs_in = None
+    map_in = None
+  }
+  output_files {
+    pdb_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002_ed.pdb"
+    cif_out = None
+    log = "apply_ncs.log"
+    params_out = "apply_ncs_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1"
+    output_dir = ""
+    gui_output_dir = None
+  }
+  ncs {
+    trim_overlapping = False
+    resolution = None
+    match_copy = None
+    no_match_copy = None
+    apply_operators_directly = False
+    max_copies = None
+    start_copy = None
+    only_start_copy = None
+    unique_only = None
+    chain_names = None
+    used_chain_id_list = None
+    use_space_group_symmetry = True
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+  job_title = None
+}
+
+NCS INFORMATION TO APPLY: 
+
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+
+Best match of copy is  1  with dist= 0.32653941094
+Center at : 27.2099937028 -12.6957134761 0.417130352645 
+NCS copy to match is  # 1
+NCS GROUP with  2  operators
+
+Output model with 2 copies: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002_ed.pdb 
+
+
+File with all NCS copies in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002_ed.pdb 
+Score for /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_S_PHA_0001_55_ed_one_0002_ed.pdb is  64.42 
+
+LLG scores:      91.40      64.42  
+Done with scoring this model . Best score = 91.40
+
+Writing solutions as csv to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/results.csv 
+
+Saved overall mr_rosetta results in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/results.pkl
+
+To see details of these results type
+    phenix.mr_rosetta mr_rosetta_solutions=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/results.pkl  display_solutions=True
+
+Changing to starting directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1

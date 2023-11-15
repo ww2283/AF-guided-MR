@@ -1,0 +1,3570 @@
+<pre>
+<B><FONT COLOR="#FF0000">
+<html><!-- PHENIX HTML LOGFILE -->
+
+##########################################################################################
+##########################################################################################
+##########################################################################################
+### PHENIX: Phaser                                                               2.8.3 ###
+##########################################################################################
+User:         wei
+Run time:     Sun Apr 23 10:13:30 2023
+Version:      2.8.3
+Release Date: Thu Feb 25 22:33:09 2021 (git 7516, ba341152b... )
+
+If you use this software please cite:
+"Phaser Crystallographic Software"
+A.J. McCoy, R.W. Grosse-Kunstleve, P.D. Adams, M.D. Winn, L.C. Storoni & R.J. Read
+J. Appl. Cryst. (2007). 40, 658-674
+<a href="http://journals.iucr.org/j/issues/2007/04/00/he5368/he5368.pdf">PDF</a>
+
+<!--END--></FONT></B>
+
+******************************************************************************************
+*** Phaser Module: PREPROCESSOR                                                  2.8.3 ***
+******************************************************************************************
+
+CELL 162 76.3 151.1 90 109 90
+COMPOSITION BY SOLVENT
+COMPOSITION PERCENTAGE 50
+ELLG HIRES ON
+ENSEMBLE domains/ensemble_4.pdb PDB "domains/ensemble_4.pdb" ID 0.9 
+ENSEMBLE domains/ensemble_4.pdb ESTIMATOR oeffner
+HKLOUT ON
+INFORMATION OFF
+JOBS 8
+KEYWORDS OFF
+LABIN F = F SIGF = SIGF
+PEAKS ROT SELECT PERCENT CUTOFF 75
+PEAKS TRA SELECT PERCENT CUTOFF 75
+PURGE ROT PERCENT 75
+PURGE TRA PERCENT 75
+PURGE RNP PERCENT 75
+RESHARPEN PERCENTAGE 100
+SEARCH ENSEMBLE domains/ensemble_4.pdb 
+SEARCH ENSEMBLE domains/ensemble_4.pdb 
+SGALT BASE  C 2y
+SPACEGROUP C 1 2 1
+TNCS RLIST ADD ON
+XYZOUT ON
+
+CPU Time: 0 days 0 hrs 0 mins 2.03 secs (      2.03 secs)
+Finished: Sun Apr 23 10:13:30 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Steps:
+**    Cell Content Analysis
+**    Anisotropy correction
+**    Translational NCS correction
+**    Rotation Function
+**    Translation Function
+**    Packing
+**    Refinement
+**    Final Refinement (if data higher resolution than search resolution)
+** Number of search ensembles = 2
+** Search Method: FAST
+** Input Search Order:
+**    #1   domains/ensemble_4.pdb  
+**    #2   domains/ensemble_4.pdb  
+** Automatic (best predicted) search order WILL be used
+
+CPU Time: 0 days 0 hrs 0 mins 2.08 secs (      2.08 secs)
+Finished: Sun Apr 23 10:13:30 2023
+
+******************************************************************************************
+*** Phaser Module: CELL CONTENT ANALYSIS                                         2.8.3 ***
+******************************************************************************************
+
+   Space-Group Name (Hall Symbol): C 1 2 1 ( C 2y)
+   Space-Group Number: 5
+   Unit Cell:  162.00   76.30  151.10   90.00  109.00   90.00
+
+--------------------
+SPACE GROUP ANALYSIS
+--------------------
+
+   Input Space Group: C 1 2 1
+
+   (a) Space groups derived by translation (screw) symmetry
+   --------------------------------------------------------
+   Z   Space Group    Hall Symbol
+   ----
+   4   C 1 2 1        C 2y
+   ----
+
+   (b) Subgroups of space group for perfect twinning expansions
+   ------------------------------------------------------------
+   R: Reindexing operation required (*)
+   Only subgroups related by rotational symmetry are reported
+   Z   Space Group   R Hall Symbol
+   ----
+   2   C 1           * P 1 (1/2*x+1/2*y,1/2*x-1/2*y,-z)
+   ---
+   4   C 1 2 1         C 2y
+   ----
+
+   Composition is of type: PROTEIN
+   MW to which Matthews applies: 179465
+   Resolution for Matthews calculation:  2.67
+
+   Z       MW         VM    % solvent  rel. freq.
+   1       179465     2.46  50.00      1.000       <== most probable
+
+   Z is the number of multiples of the total composition
+   In most cases the most probable Z value should be 1
+   If it is not 1, you may need to consider other compositions
+
+   Histogram of relative frequencies of VM values
+   ----------------------------------------------
+   Frequency of most common VM value normalized to 1
+   VM values plotted in increments of 1/VM (0.02)
+
+        <--- relative frequency --->
+        0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.0  
+        |    |    |    |    |    |    |    |    |    |    |    
+   10.00 -
+    8.33 -
+    7.14 -
+    6.25 -
+    5.56 -
+    5.00 -
+    4.55 -
+    4.17 --
+    3.85 ---
+    3.57 -----
+    3.33 --------
+    3.12 -------------
+    2.94 -------------------
+    2.78 --------------------------
+    2.63 ----------------------------------
+    2.50 ------------------------------------------
+    2.38 ************************************************ (COMPOSITION*1)
+    2.27 --------------------------------------------------
+    2.17 ------------------------------------------------
+    2.08 -----------------------------------------
+    2.00 -------------------------------
+    1.92 -------------------
+    1.85 ----------
+    1.79 -----
+    1.72 --
+    1.67 -
+    1.61 -
+    1.56 -
+    1.52 -
+    1.47 -
+    1.43 -
+    1.39 -
+    1.35 -
+    1.32 -
+    1.28 -
+    1.25 -
+
+   Most probable VM for resolution = 2.26505
+   Most probable MW of protein in asu for resolution = 194911
+
+CPU Time: 0 days 0 hrs 0 mins 2.15 secs (      2.15 secs)
+Finished: Sun Apr 23 10:13:30 2023
+
+******************************************************************************************
+*** Phaser Module: ANISOTROPY CORRECTION                                         2.8.3 ***
+******************************************************************************************
+
+------------------------------
+DATA FOR ANISOTROPY CORRECTION
+------------------------------
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42789)
+
+   Outlier Rejection
+   -----------------
+   There were 17 reflections of 42806 (0.0397%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      22.479       0.000   1.728e-10  true   false   
+    -56    4   31   2.75      16.340       0.000   8.011e-08  true   false   
+    -52    4   36   2.82      17.420       0.000   2.721e-08  true   false   
+    -52    6   33   2.84      16.526       0.000   6.650e-08  true   false   
+    -35   11   44   2.86      15.300       0.000   2.266e-07  true   false   
+    -27   23    5   2.90      15.017       0.000   3.009e-07  true   false   
+    -21   25   10   2.83      15.763       0.000   1.427e-07  true   false   
+    -14   10   48   2.91      14.943       0.000   3.238e-07  true   false   
+    -11   23   27   2.85      34.865       0.000   7.213e-16  true   false   
+     -8   16   42   2.85      19.142       0.000   4.859e-09  true   false   
+     -8   22   32   2.79      15.628       0.000   1.632e-07  true   false   
+      2    4   51   2.74      23.360       0.000   7.156e-11  true   false   
+      8    4   47   2.83      14.277       0.000   6.301e-07  true   false   
+     16   12   38   2.83      14.457       0.000   5.267e-07  true   false   
+     25   19   21   2.82      16.437       0.000   7.266e-08  true   false   
+     30   22    4   2.82      16.068       0.000   1.051e-07  true   false   
+     34   18    7   2.96      14.048       0.000   7.922e-07  true   false   
+
+---------------------
+ANISOTROPY CORRECTION
+---------------------
+
+   Protocol cycle #1 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Protocol cycle #2 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Protocol cycle #3 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Outlier Rejection
+   -----------------
+   There were 17 reflections of 42806 (0.0397%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      22.479       0.000   1.728e-10  true   false   
+    -56    4   31   2.75      16.340       0.000   8.011e-08  true   false   
+    -52    4   36   2.82      17.420       0.000   2.721e-08  true   false   
+    -52    6   33   2.84      16.526       0.000   6.650e-08  true   false   
+    -35   11   44   2.86      15.300       0.000   2.266e-07  true   false   
+    -27   23    5   2.90      15.017       0.000   3.009e-07  true   false   
+    -21   25   10   2.83      15.763       0.000   1.427e-07  true   false   
+    -14   10   48   2.91      14.943       0.000   3.238e-07  true   false   
+    -11   23   27   2.85      34.865       0.000   7.213e-16  true   false   
+     -8   16   42   2.85      19.142       0.000   4.859e-09  true   false   
+     -8   22   32   2.79      15.628       0.000   1.632e-07  true   false   
+      2    4   51   2.74      23.360       0.000   7.156e-11  true   false   
+      8    4   47   2.83      14.277       0.000   6.301e-07  true   false   
+     16   12   38   2.83      14.457       0.000   5.267e-07  true   false   
+     25   19   21   2.82      16.437       0.000   7.266e-08  true   false   
+     30   22    4   2.82      16.068       0.000   1.051e-07  true   false   
+     34   18    7   2.96      14.048       0.000   7.922e-07  true   false   
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 4 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -280226.922           -279504.001               722.921
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+         3.871              0.0000   1.0000   0.0000
+         0.568              0.9227   0.0000  -0.3856
+        -4.438              0.3856   0.0000   0.9227
+   Anisotropic deltaB (i.e. range of principal components):   8.309
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.269       0.000   1.944e-13  true   false   
+    -56    4   31   2.75      13.917       0.000   9.038e-07  true   false   
+    -52    4   36   2.82      16.532       0.000   6.610e-08  true   false   
+    -52    6   33   2.84      15.826       0.000   1.339e-07  true   false   
+    -27   23    5   2.90      14.811       0.000   3.695e-07  true   false   
+    -21   25   10   2.83      17.782       0.000   1.894e-08  true   false   
+    -11   23   27   2.85      34.567       0.000   9.723e-16  true   false   
+     -8   16   42   2.85      15.888       0.000   1.258e-07  true   false   
+     -8   22   32   2.79      14.916       0.000   3.327e-07  true   false   
+      2    4   51   2.74      14.975       0.000   3.135e-07  true   false   
+     25   19   21   2.82      14.819       0.000   3.666e-07  true   false   
+     30   22    4   2.82      16.385       0.000   7.660e-08  true   false   
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 2 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -279578.119           -279577.711                 0.408
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+         3.916              0.0000   1.0000   0.0000
+         0.595              0.9265   0.0000  -0.3762
+        -4.511              0.3762   0.0000   0.9265
+   Anisotropic deltaB (i.e. range of principal components):   8.426
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.563       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 1 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -279577.711           -279577.711                 0.000
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+         3.916              0.0000   1.0000   0.0000
+         0.595              0.9265   0.0000  -0.3762
+        -4.511              0.3762   0.0000   0.9265
+   Anisotropic deltaB (i.e. range of principal components):   8.426
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Refined Anisotropy Parameters
+   -----------------------------
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+         3.916              0.0000   1.0000   0.0000
+         0.595              0.9265   0.0000  -0.3762
+        -4.511              0.3762   0.0000   0.9265
+   Anisotropic deltaB (i.e. range of principal components):   8.426
+
+--------------
+ABSOLUTE SCALE
+--------------
+
+   Scale factor to put input Fs on absolute scale
+   Wilson Scale:    21.8822
+   Wilson B-factor: 90.2789
+
+--------------------------------
+DATA AFTER ANISOTROPY CORRECTION
+--------------------------------
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 4.73 secs (      4.73 secs)
+Finished: Sun Apr 23 10:13:32 2023
+
+******************************************************************************************
+*** Phaser Module: TRANSLATIONAL NON-CRYSTALLOGRAPHIC SYMMETRY                   2.8.3 ***
+******************************************************************************************
+
+   Unit Cell:  162.00   76.30  151.10   90.00  109.00   90.00
+
+---------------------
+MAXIMUM NMOL ANALYSIS
+---------------------
+
+   Stoichiometry of search components:
+      "domains/ensemble_4.pdb"
+
+   Molecular weight of components:  25682.6
+   Volume of asymmetric unit:       441483
+   Packing to solvent content:      20%
+   Maximum automatic NMOL number:   11
+
+-------------------------------------
+DATA FOR TRANSLATIONAL NCS CORRECTION
+-------------------------------------
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42789)
+
+   Outlier Rejection
+   -----------------
+   There were 17 reflections of 42806 (0.0397%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      22.479       0.000   1.728e-10  true   false   
+    -56    4   31   2.75      16.340       0.000   8.011e-08  true   false   
+    -52    4   36   2.82      17.420       0.000   2.721e-08  true   false   
+    -52    6   33   2.84      16.526       0.000   6.650e-08  true   false   
+    -35   11   44   2.86      15.300       0.000   2.266e-07  true   false   
+    -27   23    5   2.90      15.017       0.000   3.009e-07  true   false   
+    -21   25   10   2.83      15.763       0.000   1.427e-07  true   false   
+    -14   10   48   2.91      14.943       0.000   3.238e-07  true   false   
+    -11   23   27   2.85      34.865       0.000   7.213e-16  true   false   
+     -8   16   42   2.85      19.142       0.000   4.859e-09  true   false   
+     -8   22   32   2.79      15.628       0.000   1.632e-07  true   false   
+      2    4   51   2.74      23.360       0.000   7.156e-11  true   false   
+      8    4   47   2.83      14.277       0.000   6.301e-07  true   false   
+     16   12   38   2.83      14.457       0.000   5.267e-07  true   false   
+     25   19   21   2.82      16.437       0.000   7.266e-08  true   false   
+     30   22    4   2.82      16.068       0.000   1.051e-07  true   false   
+     34   18    7   2.96      14.048       0.000   7.922e-07  true   false   
+
+   Weighted Intensity Moments for Data
+   -----------------------------------
+   Inverse variance-weighted 2nd Moment = <wE^4>/<wE^2>^2 == <wJ^2>/<wJ>^2
+                        Untwinned   Perfect Twin
+   2nd Moment  Centric:    3.0          2.0
+   2nd Moment Acentric:    2.0          1.5
+                               Measured
+   2nd Moment  Centric:             1.14
+   2nd Moment Acentric:             1.21
+
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.51A (HiRes= 2.67A)
+
+---------------------
+ANISOTROPY CORRECTION
+---------------------
+
+   Weighted Intensity Moments after Anisotropy Correction
+   ------------------------------------------------------
+   Inverse variance-weighted 2nd Moment = <wE^4>/<wE^2>^2 == <wJ^2>/<wJ>^2
+                        Untwinned   Perfect Twin
+   2nd Moment  Centric:    3.0          2.0
+   2nd Moment Acentric:    2.0          1.5
+                               Measured
+   2nd Moment  Centric:             0.94
+   2nd Moment Acentric:             1.03
+
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.51A (HiRes= 2.67A)
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS vector not set
+   Space Group (without translational symmetry):C 1 2 1
+   Patterson Symmetry: C 1 2/m 1
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Patterson (Number):       5.00  10.00 (6744)
+
+   Raw Patterson Peaks Table
+   -------------------------
+   Sorted by Height
+   Height Vector
+   100.0%:   FRAC +0.0000 -0.0000 +0.0000   (ORTH    0.0    0.0    0.0)
+
+   Patterson Top (All) = 6.87%
+      There were 431 peaks
+
+   Patterson Top (Non-origin) = 3.27%
+      Patterson Origin Vector Distance = 15
+      There were 423 non-origin peaks
+
+   Patterson Top (Cutoff) = 0.00%
+      Patterson cutoff = 20%
+      There were 0 non-origin peaks over cutoff
+
+   Patterson Top (Large Cell) = 0.00%
+      Unit Cell dimension was not smaller than origin Patterson vector distance
+      There were 0 non-origin and large cell peaks over cutoff
+
+   Patterson Top (Analysis) = 0.00%
+      Peaks within minimum Patterson vector distance of one another were deleted
+      There were 0 widely separated non-origin peaks over cutoff
+
+   There were no interesting non-origin Patterson peaks
+
+   No tNCS found in Patterson
+
+--------
+TWINNING
+--------
+
+   tNCS/Twin Detection Table
+   -------------------------
+                                 -Second Moments-             --P-values--
+                                 Centric Acentric       untwinned  twin frac < 5%
+   Theoretical for untwinned      3.00    2.00    
+     including measurement error  3.89    2.63    
+   Theoretical for perfect twin   2.00    1.50    
+   Initial (data as input)        1.14    1.21+/-0.037  3.48e-104  3.62e-81  
+   After Anisotropy Correction    0.94    1.03+/-0.036  2.98e-165  5.32e-135 
+   After Anisotropy and tNCS         ---n/a---
+
+   P-value < 0.01 for < 5% twinned is considered worth investigating
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.51A (HiRes= 2.67A)
+------------------------------------------------------------------------------------------
+Warning: Intensity moments suggest possibility of twinning. Tests based on possible twin
+laws will be more definitive.
+------------------------------------------------------------------------------------------
+
+---------------------------------------
+DATA AFTER TRANSLATIONAL NCS CORRECTION
+---------------------------------------
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 4.98 secs (      4.98 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Z-score test for definite solution is ON
+** Z-score test for stopping search is OFF
+** Deep search is ON
+
+CPU Time: 0 days 0 hrs 0 mins 4.98 secs (      4.98 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+   Composition Table
+   -----------------
+   Total Scattering = 585195
+   Search occupancy factor = 1 (default)
+   Ensemble                       Frac.Scat. (Search Frac.Scat.) 
+   domains/ensemble_4.pdb             14.02%              14.02%
+
+** Composition not increased
+
+CPU Time: 0 days 0 hrs 0 mins 4.98 secs (      4.98 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: EXPERIMENTAL ERROR CORRECTION PREPARATION                     2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+EXPERIMENTAL ERROR CORRECTION
+-----------------------------
+
+   Calculate Luzzati D factors accounting for observational error...
+
+   Data have been provided as French-Wilson amplitudes
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 5.09 secs (      5.09 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: EXPECTED LLG OF ENSEMBLES                                     2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+   Resolution of Data (Selected):    2.673 (2.6732)
+   Number of Reflections (Selected): 42806 (42794)
+   Twinning indicated: Target doubled
+   eLLG Target: 450
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble: domains/ensemble_4.pdb
+   --------------------------------
+   PDB file # 1: ensemble_4.pdb
+      This file contains 1 model
+      The input RmsD of model #1 with respect to the real structure is 0.489
+
+   Guide to eLLG values
+   ---------------------
+   eLLG      Top solution correct?
+   <25       -no 
+   25-36     -unlikely
+   36-49     -possibly
+   49-64     -probably
+   >64       -yes
+
+-----------------
+POLY-ALANINE ELLG
+-----------------
+
+   Resolution = 2.6732
+   Default RMSD = 0.1 0.2 0.4 0.8 1.6 3.2
+   Minimum solvent = 20%
+      Maximum number of polyalanine residues = 2071 (-full-)
+   Alanine residues for eLLG target = 589
+
+   Table of Alanine Residues for eLLG Target
+   -----------------------------------------
+                  ---RMSD--- 
+   eLLG-target |  0.10  0.20  0.40  0.80  1.60  3.20 
+           450 |   589   606   674   990 -full--full-
+           400 |   556   571   636   933 -full--full-
+           361 |   528   542   604   887 -full--full-
+           324 |   500   514   572   840 -full--full-
+           289 |   472   485   540   793 -full--full-
+           256 |   444   457   508   747  2063 -full-
+           225 |   417   428   477   700  1934 -full-
+           196 |   389   400   445   653  1805 -full-
+           169 |   361   371   413   607  1676 -full-
+           144 |   333   342   381   560  1547 -full-
+           121 |   305   314   349   513  1418 -full-
+           100 |   278   285   318   466  1289 -full-
+            81 |   250   257   286   420  1160 -full-
+            64 |   222   228   254   373  1031 -full-
+            49 |   194   200   222   326   902 -full-
+            36 |   166   171   190   280   773 -full-
+            25 |   139   142   159   233   644 -full-
+            16 |   111   114   127   186   515 -full-
+             9 |    83    85    95   140   386 -full-
+             4 |    55    57    63    93   257  1523 
+             1 |    27    28    31    46   128   761 
+
+--------------
+MONOMERIC ELLG
+--------------
+
+   Expected LLG (eLLG)
+   -------------------
+   eLLG: eLLG of ensemble alone
+       eLLG   RMSD frac-scat  Ensemble
+      113.5  0.489   0.14019  domains/ensemble_4.pdb
+
+   Resolution for eLLG target
+   --------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450)
+     eLLG-reso  Ensemble
+   > 2.67(all)  domains/ensemble_4.pdb
+
+   Resolution for eLLG target: data collection
+   -------------------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450) with perfect data
+     eLLG-reso  Ensemble
+         2.060  domains/ensemble_4.pdb
+
+------------------------------------------------------------------------------------------
+Advisory: 
+eLLG indicates that placement of a single copy of ensemble "domains/ensemble_4.pdb" could
+be difficult
+------------------------------------------------------------------------------------------
+
+   Expected LLG (eLLG): Chains
+   ---------------------------
+   eLLG: eLLG of chain alone
+       eLLG   RMSD frac-scat chain  Ensemble
+      113.5  0.489   0.14019  " A"  domains/ensemble_4.pdb
+
+   Resolution for eLLG target: Chains
+   ----------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450)
+     eLLG-reso chain  Ensemble
+   > 2.67(all)  " A"  domains/ensemble_4.pdb
+
+--------------------
+HOMO-OLIGOMERIC ELLG
+--------------------
+
+   Number of copies for eLLG target
+   --------------------------------
+   eLLG-target   RMSD frac-scat-known frac-scat   num-copies  Ensemble
+           450  0.489         0.14019   0.28038            2  domains/ensemble_4.pdb
+
+CPU Time: 0 days 0 hrs 0 mins 5.39 secs (      5.39 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Search Order (next search *) (placed +):
+**    #1   domains/ensemble_4.pdb *
+**    #2   domains/ensemble_4.pdb  
+
+CPU Time: 0 days 0 hrs 0 mins 5.39 secs (      5.39 secs)
+Finished: Sun Apr 23 10:13:33 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT ROTATION FUNCTION                       2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+--------------------------
+DATA FOR ROTATION FUNCTION
+--------------------------
+
+   High resolution limit unaltered by RMS of ensemble
+   High resolution limit unaltered by expected LLG
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation: domains/ensemble_4.pdb
+   -------------------------------------------
+   Ensemble configured for structure factor interpolation
+   Ensemble configured to resolution  2.67
+
+   Electron Density Calculation
+   0%      100%
+   |=======| DONE
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+-----------------
+ROTATION FUNCTION
+-----------------
+
+   Ensemble configured to resolution  2.67
+   Elmn for Search Ensemble
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Search Ensemble
+   0%                                            100%
+   |=============================================| DONE
+
+   Target Function: FAST LERF1
+
+-------------------------
+ROTATION FUNCTION #1 OF 1
+-------------------------
+
+   Search Ensemble: domains/ensemble_4.pdb
+
+   Sampling:  3.29 degrees
+
+
+   Spherical Harmonics
+   -------------------
+   Elmn for Data
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Data
+   0%                                            100%
+   |==============================================| DONE
+
+   Scanning the Range of Beta Angles
+   ---------------------------------
+   Spreading calculation onto 8 threads.
+   Clmn Calculation
+   0%      100%
+   |========| DONE
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+      Also store peaks over 52.5% of top
+   There were 37 sites over 52.5% of top
+   37 peaks selected
+   The sites over 52.5% are:
+   #     Euler1 Euler2 Euler3    FSS   Z-score
+   1       26.9   16.3    8.5    100.000  8.10
+   2       29.9   15.6    4.3     96.386  7.81
+   3       24.0   17.1   12.4     93.848  7.60
+   #Sites = 37: output truncated to 3 sites
+
+   Top 37 rotations before clustering will be rescored
+   Spreading calculation onto 8 threads
+   Calculating Likelihood for RF #1 of 1
+   0%    100%
+   |======| DONE
+
+   Mean and Standard Deviation
+   ---------------------------
+   Scoring 500 randomly sampled rotations
+   Spreading calculation onto 8 threads
+   Generating Statistics for RF #1 of 1
+   0%                                                              100%
+   |================================================================| DONE
+
+   Highest Score (Z-score):  65.882   ( 8.67)
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+      Also store peaks over 60% of top
+   There was 1 site over 60% of top
+   The sites over 60% are:
+   #     Euler1 Euler2 Euler3    LLG   Z-score Split #Group  FSS-this-ang/FSS-top
+   1       26.9   16.3    8.5     65.882  8.67   0.0     16    100.000/   100.000
+          153.1  163.7  188.5
+
+   Rotation Function Results
+   Top1: ENSEMBLE domains/ensemble_4.pdb EULER 26.864 16.320 8.467 RF=65.9 RFZ=8.67
+
+   Rotation Function Table: domains/ensemble_4.pdb
+   -----------------------------------------------
+   (Z-scores from Fast Rotation Function)
+   #SET        Top    (Z)      Second    (Z)       Third    (Z)
+   1         65.88   8.67         ---    ---         ---    ---
+
+---------------
+FINAL SELECTION
+---------------
+
+   Select by Percentage of Top value: 75%
+   Top RF = 65.882
+   Purge RF mean = -44.946
+   Number of sets stored before final selection = 1
+   Number of solutions stored before final selection = 1
+   Number of sets stored (deleted) after final selection = 1 (0)
+   Number of solutions stored (deleted) after final selection = 1 (0)
+   Percent used for purge = 60.000%
+      Includes deep search down percent = 15%
+      Number of solutions stored above (below) deep threshold = 1 (0)
+
+   Rotation Function Final Selection Table
+   ---------------------------------------
+   Rotation list length by SET
+   SET#  Start Final Deleted Set (*)   Deep: Start Final Deleted Set (*)
+      1  1     1           -                 1     1           -
+   ALL   1     1                             1     1    
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 32.17 secs (     32.17 secs)
+Finished: Sun Apr 23 10:13:41 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT TRANSLATION FUNCTION                    2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+DATA FOR TRANSLATION FUNCTION
+-----------------------------
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+------------------------
+ALTERNATIVE SPACE GROUPS
+------------------------
+
+   Space Group(s) to be tested:
+     C 1 2 1
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+   Trace Generation: domains/ensemble_4.pdb
+   ----------------------------------------
+      This trace is from coordinates
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+---------------------
+TRANSLATION FUNCTIONS
+---------------------
+
+   Target Function: FAST LETF1
+   Translation Packing Function applied: top peak will pack
+   Translation Packing Cutoff: 50%
+   Sampling:  0.67 Angstroms
+
+----------------------------
+TRANSLATION FUNCTION #1 OF 1
+----------------------------
+
+   SOLU SET 
+   SOLU SPAC C 1 2 1
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   26.864   16.320    8.467 RF   65.9 RFZ  8.67
+
+   This set has one trial orientation
+
+   #    Euler                  Rot-LLG      RF     RFZ  Ensemble
+   1      26.9   16.3    8.5      65.9    65.9     8.7 domains/ensemble_4.pdb
+
+   Scoring 500 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0% 100%
+   |==| DONE
+
+   Mean Score (Sigma):       15.24   ( 9.94)
+
+   SET #1 of 1 TRIAL #1 of 1
+   -------------------------
+   Ensemble domains/ensemble_4.pdb Euler  26.86  16.32   8.47 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      1803 peaks
+      500 peaks over 64.8246 checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = 139.28 (TFZ=9.3) at Trial #1
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.119 -0.000  0.746     139.28  9.27
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #1 of 1
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 11...
+      1 peaks
+      1 peaks over 105.826 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = 105.83 (TFZ=9.3) at Trial #1
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.119 -0.000  0.746     105.83  9.27   0.0      1     139.28/    139.28
+
+   Translation Function Results
+   Top1: ENSEMBLE domains/ensemble_4.pdb EULER 26.864 16.320 8.467 FRAC 0.119 -0.000 0.746
+   TF=105.8
+
+   Translation Function Table
+   --------------------------
+   SET ROT*deep   Top   (Z)     Second   (Z)      Third   (Z) SpaceGroup  Ensemble
+     1   1      105.8  9.27          -     -          -     - C 1 2 1  domains/   
+   --- ---
+
+---------------
+FINAL SELECTION
+---------------
+
+   LLG will be used for purge, not FSS
+   Top TF  = 105.83
+   Top TFZ = 9.27
+   Mean TF = 15.24
+   Percent used for purge = 75%
+   Cutoff for acceptance = 83.2
+      TFZ used for final selection = 8
+         Number of solutions over TF final cutoff  = 1
+         Number of solutions over TFZ final cutoff = 1
+         Number of solutions over TF & TFZ cutoff  = 1
+   Number of solutions stored before final selection = 1
+   Number of solutions stored (deleted) after final selection = 1 (0)
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 36.09 secs (     36.09 secs)
+Finished: Sun Apr 23 10:13:45 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT PACKING ANALYSIS                        2.8.3 ***
+******************************************************************************************
+
+---------
+ENSEMBLES
+---------
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+-----------------
+ENSEMBLE SYMMETRY
+-----------------
+
+   Ensemble "domains/ensemble_4.pdb" Point Group: 1
+
+   Clash background has been packed at 10.00%
+
+----------------
+PACKING FUNCTION
+----------------
+
+   There is 1 solution to pack
+   Spreading calculation onto 8 threads.
+   Packing analysis
+   0% 100%
+   |==| DONE
+
+   Packing Table
+   -------------
+   Solutions accepted if pairwise clashes less than 10 % of trace atoms
+   #in  #out Clash-% Symm TF-SET  ROT TFpk#        TF    TFZ    SpaceGroup 
+   1    Top1  0      --       1     1    1        105.83  9.27  C 1 2 1    
+
+   1 accepted of 1 solutions
+      1 packs of 1 accepted solution
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 36.19 secs (     36.19 secs)
+Finished: Sun Apr 23 10:13:45 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT REFINEMENT AND PHASING                  2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-------------------------------
+DATA FOR REFINEMENT AND PHASING
+-------------------------------
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+----------
+REFINEMENT
+----------
+
+   Protocol cycle #1 of 1
+   Refinement protocol for this macrocycle:
+   ROTATION:         REFINE
+   TRANSLATION:      REFINE
+   BFACTOR:          REFINE
+   MODEL VRMS:       FIX
+   CELL SCALE:       FIX
+   OCCUPANCY FACTOR: FIX
+   LAST ONLY:        FALSE
+   ROTATION RESTRAINT:    OFF
+   TRANSLATION RESTRAINT: OFF
+
+   There is 1 solution to refine
+   Spreading calculation onto 8 threads.
+   Refining solutions
+   0% 100%
+   |==| DONE
+
+
+   REFINING SET #1 OF 1
+   --------------------
+   Initial Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   26.9   16.3    8.5 FRAC  0.12 -0.00 -0.25 BFAC  0.00
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 6 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+         106.174               144.219                38.044
+
+   Final Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26
+
+
+   Mean and Sigma after Refinement (for Purge)
+   -------------------------------------------
+   Scoring 500 randomly sampled orientations and translations
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0% 100%
+   |==| DONE
+
+   Mean Score for Purge before Refinement:  15.24
+   Mean Score for Purge after Refinement :  28.07
+
+---------------
+FIND DUPLICATES
+---------------
+
+   Check for nearly equivalent solutions
+   Spreading calculation onto 8 threads.
+   Calculating Duplicates for 1 solutions
+   0% 100%
+   |==| DONE
+
+   No duplicate solutions found
+
+---------------------
+FIND TEMPLATE MATCHES
+---------------------
+
+   No Template Solution(s) for comparison
+
+---------------
+PURGE SELECTION
+---------------
+
+   Purge solutions according to highest LLG from Refinement
+   --------------------------------------------------------
+   Top LLG (all) = 144.064
+   Top LLG (packs) = 144.064
+   Mean LLG = 28.0661
+   Percent used for purge = 75%
+      Cutoff for acceptance = 115.1
+   Number used for purge  = 50
+      Cutoff for acceptance = 144.1
+   All Z-scores over 8 retained
+      Number high TFZ retained = 0
+   Overall cutoff for acceptance (excluding high TFZ) = 144.1
+   Number of solutions stored before purge = 1
+   Number of solutions stored (deleted) after purge = 1 (0)
+
+---------------
+TFZ EQUIVALENTS
+---------------
+
+   Refined TFZ equivalents calculated
+   1 top TFZ equivalents calculated
+
+   SOLUTION #1 OF 1
+   ----------------
+   TFZ equivalent calculation #1 of 1
+      TOPFILE
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0%                                                              100%
+   |================================================================| DONE
+
+   Mean Score (Sigma):       28.07   (9.89)
+   Refined TF/TFZ equivalent = 144.06/ 11.7 (Unrefined TF/TFZ=105.83/  9.3)
+
+-------
+RESULTS
+-------
+
+   Refinement Table (Sorted)
+   -------------------------
+   Refinement to full resolution
+   #out =#out #in =T (Start LLG Rval TFZ) (Refined LLG Rval TFZ==) SpaceGroup  Cntrst
+   Top1 ---   1           105.8 57.5  9.3        144.1 57.4 11.7   C 1 2 1       n/a 
+
+   Refinement Table (Variance Ranges)
+   ----------------------------------
+   Range of delta-VRMS and VRMS given over current solution list (1 solution(s))
+   Ensemble               Model#   RMS   Delta-VRMS min/max  (VRMS min/max)
+   domains/ensemble_4.pdb      1   0.489   +0.000/+0.000    ( 0.489/ 0.489 )
+
+------------
+OUTPUT FILES
+------------
+
+   Calculation of Map Coefficients
+   -------------------------------
+   1 top map coefficients calculated
+
+   Map coefficient calculated for top solution #1
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 41.99 secs (     41.99 secs)
+Finished: Sun Apr 23 10:13:48 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Current is Best Solution (first search)
+** Current solution has 1 component
+** New Best LLG = 144.1 (resolution = 2.67)
+** Best Component so far = domains/ensemble_4.pdb 
+
+CPU Time: 0 days 0 hrs 0 mins 42.00 secs (     42.00 secs)
+Finished: Sun Apr 23 10:13:48 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Solution stored for possible reversion if next search fails
+** Number of solutions = 1
+** Solution TOP LLG = 144.1
+** Solution TOP TFZ = 11.7
+
+CPU Time: 0 days 0 hrs 0 mins 42.00 secs (     42.00 secs)
+Finished: Sun Apr 23 10:13:48 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Search: Next component
+** Search Order (next search *) (placed +):
+**    #1   domains/ensemble_4.pdb +
+**    #2   domains/ensemble_4.pdb *
+
+CPU Time: 0 days 0 hrs 0 mins 42.00 secs (     42.00 secs)
+Finished: Sun Apr 23 10:13:48 2023
+
+******************************************************************************************
+*** Phaser Module: EXPECTED LLG OF ENSEMBLES                                     2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+   Resolution of Data (Selected):    2.673 (2.6732)
+   Number of Reflections (Selected): 42806 (42794)
+   Twinning indicated: Target doubled
+   eLLG Target: 450
+
+----------
+ENSEMBLING
+----------
+
+   Guide to eLLG values
+   ---------------------
+   eLLG      Top solution correct?
+   <25       -no 
+   25-36     -unlikely
+   36-49     -possibly
+   49-64     -probably
+   >64       -yes
+
+-----------------
+POLY-ALANINE ELLG
+-----------------
+
+   Resolution = 2.6732
+   Default RMSD = 0.1 0.2 0.4 0.8 1.6 3.2
+   Minimum solvent = 20%
+      Maximum number of polyalanine residues = 2071 (-full-)
+   Alanine residues for eLLG target = 589
+
+   Table of Alanine Residues for eLLG Target
+   -----------------------------------------
+                  ---RMSD--- 
+   eLLG-target |  0.10  0.20  0.40  0.80  1.60  3.20 
+           450 |   589   606   674   990 -full--full-
+           400 |   556   571   636   933 -full--full-
+           361 |   528   542   604   887 -full--full-
+           324 |   500   514   572   840 -full--full-
+           289 |   472   485   540   793 -full--full-
+           256 |   444   457   508   747  2063 -full-
+           225 |   417   428   477   700  1934 -full-
+           196 |   389   400   445   653  1805 -full-
+           169 |   361   371   413   607  1676 -full-
+           144 |   333   342   381   560  1547 -full-
+           121 |   305   314   349   513  1418 -full-
+           100 |   278   285   318   466  1289 -full-
+            81 |   250   257   286   420  1160 -full-
+            64 |   222   228   254   373  1031 -full-
+            49 |   194   200   222   326   902 -full-
+            36 |   166   171   190   280   773 -full-
+            25 |   139   142   159   233   644 -full-
+            16 |   111   114   127   186   515 -full-
+             9 |    83    85    95   140   386 -full-
+             4 |    55    57    63    93   257  1523 
+             1 |    27    28    31    46   128   761 
+
+--------------
+MONOMERIC ELLG
+--------------
+
+   Expected LLG (eLLG)
+   -------------------
+   eLLG: eLLG of ensemble alone
+       eLLG   RMSD frac-scat  Ensemble
+      113.5  0.489   0.14019  domains/ensemble_4.pdb
+
+   Resolution for eLLG target
+   --------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450)
+     eLLG-reso  Ensemble
+   > 2.67(all)  domains/ensemble_4.pdb
+
+   Resolution for eLLG target: data collection
+   -------------------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450) with perfect data
+     eLLG-reso  Ensemble
+         2.060  domains/ensemble_4.pdb
+
+   Expected LLG (eLLG): Chains
+   ---------------------------
+   eLLG: eLLG of chain alone
+       eLLG   RMSD frac-scat chain  Ensemble
+      113.5  0.489   0.14019  " A"  domains/ensemble_4.pdb
+
+   Resolution for eLLG target: Chains
+   ----------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (450)
+     eLLG-reso chain  Ensemble
+   > 2.67(all)  " A"  domains/ensemble_4.pdb
+
+------------------
+ELLG FOR SOLUTIONS
+------------------
+
+   eLLG Table for Addition
+   -----------------------
+   eLLG--: eLLG of already placed components
+   eLLG++: eLLG of ensemble when added to already placed components
+   eLLG-reso: Resolution to achieve target eLLG (450)
+      #   eLLG--   eLLG++   eLLG-reso   RMSD frac-scat  Ensemble
+      1    113.5    454.2 > 2.67(all)  0.489   0.14019  domains/ensemble_4.pdb
+   ----
+
+------------------------------------------------------------------------------------------
+Advisory: 
+eLLG indicates that best placement of ensemble "domains/ensemble_4.pdb" will definitely be
+correct in the context of already correctly placed components
+------------------------------------------------------------------------------------------
+
+--------------------
+HOMO-OLIGOMERIC ELLG
+--------------------
+
+   eLLG calculated with top solution placed
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26
+
+   Number of copies for eLLG target
+   --------------------------------
+   eLLG-target   RMSD frac-scat-known frac-scat   num-copies  Ensemble
+           450  0.489         0.00000   0.14019            1  domains/ensemble_4.pdb
+
+CPU Time: 0 days 0 hrs 0 mins 42.28 secs (     42.28 secs)
+Finished: Sun Apr 23 10:13:48 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT ROTATION FUNCTION                       2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+--------------------------
+DATA FOR ROTATION FUNCTION
+--------------------------
+
+   High resolution limit unaltered by RMS of ensemble
+   High resolution limit unaltered by expected LLG
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+-----------------
+ROTATION FUNCTION
+-----------------
+
+   Ensemble configured to resolution  2.67
+   Elmn for Search Ensemble
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Search Ensemble
+   0%                                            100%
+   |=============================================| DONE
+
+   Target Function: FAST LERF1
+
+-------------------------
+ROTATION FUNCTION #1 OF 1
+-------------------------
+
+   Search Ensemble: domains/ensemble_4.pdb
+
+   ANNOTATION:  RFZ=8.7 TFZ=9.3 PAK=0 LLG=144 TFZ==11.7
+   Sampling:  3.29 degrees
+
+   SOLU SET  RFZ=8.7 TFZ=9.3 PAK=0 LLG=144 TFZ==11.7
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+
+   Spherical Harmonics
+   -------------------
+   Elmn for Data
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Data
+   0%                                            100%
+   |==============================================| DONE
+
+   Scanning the Range of Beta Angles
+   ---------------------------------
+   Spreading calculation onto 8 threads.
+   Clmn Calculation
+   0%      100%
+   |========| DONE
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+      Also store peaks over 52.5% of top
+   There were 1248 sites over 52.5% of top
+   1248 peaks selected
+   The sites over 52.5% are:
+   #     Euler1 Euler2 Euler3    FSS   Z-score
+   1       26.9   16.3    8.5    100.000  5.25
+   2       24.0   17.1   12.4     98.366  5.16
+   3       29.9   15.6    4.3     95.875  5.03
+   #Sites = 1248: output truncated to 3 sites
+
+   Top 1248 rotations before clustering will be rescored
+   Spreading calculation onto 8 threads
+   Calculating Likelihood for RF #1 of 1
+   0%                                                                              100%
+   |===============================================================================| DONE
+
+   Mean and Standard Deviation
+   ---------------------------
+   Scoring 500 randomly sampled rotations
+   Spreading calculation onto 8 threads
+   Generating Statistics for RF #1 of 1
+   0%                                                              100%
+   |================================================================| DONE
+
+   Highest Score (Z-score):  186.272   ( 6.21)
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+      Also store peaks over 60% of top
+   There were 42 sites over 60% of top
+   The sites over 60% are:
+   #     Euler1 Euler2 Euler3    LLG   Z-score Split #Group  FSS-this-ang/FSS-top
+   1       26.9   16.3    8.5     186.27  6.21   0.0     17    100.000/   100.000
+          153.1  163.7  188.5
+   2       25.2    2.6  290.4     164.83  4.53  80.7      1     82.082/    82.082
+          154.8  177.4  110.4
+   3      259.2   33.0   84.5     163.78  4.45  64.4      3     84.050/    84.050
+          280.8  147.0  264.5
+   #SITES = 42: OUTPUT TRUNCATED TO 3 SITES
+
+   Rotation Function Results
+   Top1: ENSEMBLE domains/ensemble_4.pdb EULER 26.864 16.320 8.467 RF=186.3 RFZ=6.21
+
+   Rotation Function Table: domains/ensemble_4.pdb
+   -----------------------------------------------
+   (Z-scores from Fast Rotation Function)
+   #SET        Top    (Z)      Second    (Z)       Third    (Z)
+   1        186.27   6.21      164.83   4.53      163.78   4.45
+
+---------------
+FINAL SELECTION
+---------------
+
+   Select by Percentage of Top value: 75%
+   Top RF = 186.272
+   Purge RF mean = 106.899
+   Number of sets stored before final selection = 1
+   Number of solutions stored before final selection = 42
+   Number of sets stored (deleted) after final selection = 1 (0)
+   Number of solutions stored (deleted) after final selection = 42 (0)
+   Percent used for purge = 60.000%
+      Includes deep search down percent = 15%
+      Number of solutions stored above (below) deep threshold = 1 (41)
+
+   Rotation Function Final Selection Table
+   ---------------------------------------
+   Rotation list length by SET
+   SET#  Start Final Deleted Set (*)   Deep: Start Final Deleted Set (*)
+      1  1     1           -                 42    42          -
+   ALL   1     1                             42    42   
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 1 mins 26.73 secs (     86.73 secs)
+Finished: Sun Apr 23 10:13:55 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT TRANSLATION FUNCTION                    2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+DATA FOR TRANSLATION FUNCTION
+-----------------------------
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+-------------------
+TRANSLATION PACKING
+-------------------
+
+   Translation Packing Cutoff: 50%
+   All solutions have been packed
+
+---------------------
+TRANSLATION FUNCTIONS
+---------------------
+
+   Target Function: FAST LETF1
+   Translation Packing Function applied: top peak will pack
+   Translation Packing Cutoff: 50%
+   Sampling:  0.67 Angstroms
+
+----------------------------
+TRANSLATION FUNCTION #1 OF 1
+----------------------------
+
+   SOLU SET  RFZ=8.7 TFZ=9.3 PAK=0 LLG=144 TFZ==11.7
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   26.864   16.320    8.467 RF  186.3 RFZ  6.21
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   25.177    2.596  290.377 RF  164.8 RFZ  4.53 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  259.246   33.009   84.510 RF  163.8 RFZ  4.45 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  264.106   26.182   80.624 RF  161.5 RFZ  4.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER    9.029   30.528  274.405 RF  161.4 RFZ  4.26 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  312.272   44.553   78.730 RF  160.3 RFZ  4.18 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   18.896   44.901  158.630 RF  160.2 RFZ  4.17 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  259.887   32.061   75.779 RF  160.1 RFZ  4.16 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   22.938   11.851    9.770 RF  160.1 RFZ  4.16 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  305.372   65.906  111.511 RF  159.5 RFZ  4.12 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  296.259   62.218  127.255 RF  159.5 RFZ  4.12 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  113.548   37.217  170.513 RF  159.5 RFZ  4.11 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  334.687   37.146   90.830 RF  159.2 RFZ  4.09 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  204.834   54.150   97.216 RF  159.0 RFZ  4.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   15.026   69.002  137.857 RF  159.0 RFZ  4.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  201.421   88.436  145.715 RF  158.4 RFZ  4.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  313.852   41.096   80.361 RF  158.3 RFZ  4.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  127.435   64.486  107.044 RF  158.2 RFZ  4.01 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  303.557   31.270  131.330 RF  157.9 RFZ  4.00 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  320.506   42.394   75.312 RF  157.8 RFZ  3.98 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  286.669    2.062   31.689 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  110.384   23.895  132.155 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   15.734   33.958  152.423 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   55.421   33.723   92.307 RF  157.2 RFZ  3.93 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  165.674   60.307  128.018 RF  156.8 RFZ  3.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  269.356   29.064   72.760 RF  156.7 RFZ  3.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  112.103   21.533  133.484 RF  156.6 RFZ  3.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  309.413   42.915  108.841 RF  156.3 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  315.751   36.752   88.618 RF  156.2 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  193.613   67.179  157.290 RF  156.2 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  317.732   67.604  157.352 RF  155.8 RFZ  3.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  285.819   59.195  112.223 RF  155.8 RFZ  3.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   77.062   28.693  254.643 RF  155.6 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER    1.176   63.060  138.401 RF  155.6 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  201.510   84.968  146.934 RF  155.5 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   77.430   20.214  170.024 RF  155.5 RFZ  3.80 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  129.957   62.109  108.377 RF  155.4 RFZ  3.79 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  302.506   64.333  109.005 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  206.794   19.985  309.621 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  311.395   39.369  109.148 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  311.833   70.084  150.789 RF  155.1 RFZ  3.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  275.234   35.237   78.170 RF  154.6 RFZ  3.74 # DEEP
+
+   This TF set has 42 trial orientations
+
+   #    Euler                  Rot-LLG      RF     RFZ  Ensemble
+   1      26.9   16.3    8.5      65.9   186.3     6.2 domains/ensemble_4.pdb
+   ----- angles below here for deep search only -----
+   2      25.2    2.6  290.4      11.8   164.8     4.5 domains/ensemble_4.pdb
+   3     259.2   33.0   84.5      10.6   163.8     4.5 domains/ensemble_4.pdb
+   4     264.1   26.2   80.6       6.8   161.5     4.3 domains/ensemble_4.pdb
+   5       9.0   30.5  274.4       8.7   161.4     4.3 domains/ensemble_4.pdb
+   6     312.3   44.6   78.7       8.0   160.3     4.2 domains/ensemble_4.pdb
+   7      18.9   44.9  158.6       7.3   160.2     4.2 domains/ensemble_4.pdb
+   8     259.9   32.1   75.8       8.5   160.1     4.2 domains/ensemble_4.pdb
+   9      22.9   11.9    9.8      17.7   160.1     4.2 domains/ensemble_4.pdb
+   10    305.4   65.9  111.5       5.8   159.5     4.1 domains/ensemble_4.pdb
+   11    296.3   62.2  127.3       9.6   159.5     4.1 domains/ensemble_4.pdb
+   12    113.5   37.2  170.5       4.6   159.5     4.1 domains/ensemble_4.pdb
+   13    334.7   37.1   90.8       9.7   159.2     4.1 domains/ensemble_4.pdb
+   14    204.8   54.1   97.2       6.6   159.0     4.1 domains/ensemble_4.pdb
+   15     15.0   69.0  137.9       8.2   159.0     4.1 domains/ensemble_4.pdb
+   16    201.4   88.4  145.7       7.2   158.4     4.0 domains/ensemble_4.pdb
+   17    313.9   41.1   80.4       4.8   158.3     4.0 domains/ensemble_4.pdb
+   18    127.4   64.5  107.0       6.1   158.2     4.0 domains/ensemble_4.pdb
+   19    303.6   31.3  131.3       6.1   157.9     4.0 domains/ensemble_4.pdb
+   20    320.5   42.4   75.3       6.5   157.8     4.0 domains/ensemble_4.pdb
+   21    286.7    2.1   31.7       4.1   157.3     3.9 domains/ensemble_4.pdb
+   22    110.4   23.9  132.2       6.0   157.3     3.9 domains/ensemble_4.pdb
+   23     15.7   34.0  152.4       2.6   157.3     3.9 domains/ensemble_4.pdb
+   24     55.4   33.7   92.3       3.5   157.2     3.9 domains/ensemble_4.pdb
+   25    165.7   60.3  128.0       5.7   156.8     3.9 domains/ensemble_4.pdb
+   26    269.4   29.1   72.8       6.1   156.7     3.9 domains/ensemble_4.pdb
+   27    112.1   21.5  133.5       5.6   156.6     3.9 domains/ensemble_4.pdb
+   28    309.4   42.9  108.8       1.9   156.3     3.9 domains/ensemble_4.pdb
+   29    315.8   36.8   88.6       5.1   156.2     3.9 domains/ensemble_4.pdb
+   30    193.6   67.2  157.3       4.4   156.2     3.9 domains/ensemble_4.pdb
+   31    317.7   67.6  157.4       2.8   155.8     3.8 domains/ensemble_4.pdb
+   32    285.8   59.2  112.2       4.8   155.8     3.8 domains/ensemble_4.pdb
+   33     77.1   28.7  254.6       5.2   155.6     3.8 domains/ensemble_4.pdb
+   34      1.2   63.1  138.4       3.8   155.6     3.8 domains/ensemble_4.pdb
+   35    201.5   85.0  146.9       5.2   155.5     3.8 domains/ensemble_4.pdb
+   36     77.4   20.2  170.0       4.0   155.5     3.8 domains/ensemble_4.pdb
+   37    130.0   62.1  108.4       3.8   155.4     3.8 domains/ensemble_4.pdb
+   38    302.5   64.3  109.0       1.6   155.2     3.8 domains/ensemble_4.pdb
+   39    206.8   20.0  309.6       0.1   155.2     3.8 domains/ensemble_4.pdb
+   40    311.4   39.4  109.1       1.2   155.2     3.8 domains/ensemble_4.pdb
+   41    311.8   70.1  150.8       2.3   155.1     3.8 domains/ensemble_4.pdb
+   42    275.2   35.2   78.2       1.3   154.6     3.7 domains/ensemble_4.pdb
+      1 trial orientations in initial search
+      41 trial orientations in deep search
+
+   Scoring 504 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0%     100%
+   |=======| DONE
+
+   Mean Score (Sigma):       -93.71   (22.09)
+
+   SET #1 of 1 TRIAL #1 of 1
+   -------------------------
+   Ensemble domains/ensemble_4.pdb Euler  26.86  16.32   8.47 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      125939 peaks
+      500 peaks over 167.006 checked for packing
+      Translation peak 7 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9) at Trial #1
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 424 sites over 67.5% of top
+   424 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.469  0.525  0.867     196.23  5.89
+   2      0.148  0.001  0.774     195.17  5.81
+   3      0.647  0.501  0.774     193.71  5.72
+   #Sites = 424: output truncated to 3 sites
+
+   Top 424 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #1 of 1
+   0%                                                     100%
+   |======================================================| DONE
+
+   Packing LLG Translations: pass 1 of 11...
+      424 peaks
+      1 peaks over 27.7443 checked for packing
+      No translation peaks pack
+      Done
+
+   Packing LLG Translations: pass 2 of 11...
+      423 peaks
+      24 peaks over -1.83718 checked for packing
+      Translation peak 4 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = 11.85 (TFZ=4.9) at Trial #1
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 47 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.002  0.112  0.867     11.853  4.89   0.0      3     181.41/    182.70
+   2      0.607  0.514  0.713     11.679  4.97  67.9      3     182.61/    182.61
+   3      0.100  0.790  0.796      9.824  4.97  32.8      2     182.63/    182.63
+   #SITES = 47: OUTPUT TRUNCATED TO 3 SITES
+
+-------------------------
+DEEP TRANSLATION FUNCTION
+-------------------------
+
+   Best TFZ is NOT over Z-score cutoff for definite solution (8.00)
+   Search deep in trial orientation list
+
+---------------------------------
+DEEP TRANSLATION FUNCTION #1 OF 1
+---------------------------------
+
+   41 trial orientations in deep search
+
+   SOLU SET  RFZ=8.7 TFZ=9.3 PAK=0 LLG=144 TFZ==11.7
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   26.864   16.320    8.467 RF  186.3 RFZ  6.21
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   25.177    2.596  290.377 RF  164.8 RFZ  4.53 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  259.246   33.009   84.510 RF  163.8 RFZ  4.45 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  264.106   26.182   80.624 RF  161.5 RFZ  4.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER    9.029   30.528  274.405 RF  161.4 RFZ  4.26 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  312.272   44.553   78.730 RF  160.3 RFZ  4.18 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   18.896   44.901  158.630 RF  160.2 RFZ  4.17 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  259.887   32.061   75.779 RF  160.1 RFZ  4.16 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   22.938   11.851    9.770 RF  160.1 RFZ  4.16 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  305.372   65.906  111.511 RF  159.5 RFZ  4.12 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  296.259   62.218  127.255 RF  159.5 RFZ  4.12 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  113.548   37.217  170.513 RF  159.5 RFZ  4.11 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  334.687   37.146   90.830 RF  159.2 RFZ  4.09 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  204.834   54.150   97.216 RF  159.0 RFZ  4.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   15.026   69.002  137.857 RF  159.0 RFZ  4.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  201.421   88.436  145.715 RF  158.4 RFZ  4.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  313.852   41.096   80.361 RF  158.3 RFZ  4.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  127.435   64.486  107.044 RF  158.2 RFZ  4.01 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  303.557   31.270  131.330 RF  157.9 RFZ  4.00 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  320.506   42.394   75.312 RF  157.8 RFZ  3.98 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  286.669    2.062   31.689 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  110.384   23.895  132.155 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   15.734   33.958  152.423 RF  157.3 RFZ  3.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   55.421   33.723   92.307 RF  157.2 RFZ  3.93 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  165.674   60.307  128.018 RF  156.8 RFZ  3.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  269.356   29.064   72.760 RF  156.7 RFZ  3.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  112.103   21.533  133.484 RF  156.6 RFZ  3.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  309.413   42.915  108.841 RF  156.3 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  315.751   36.752   88.618 RF  156.2 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  193.613   67.179  157.290 RF  156.2 RFZ  3.86 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  317.732   67.604  157.352 RF  155.8 RFZ  3.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  285.819   59.195  112.223 RF  155.8 RFZ  3.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   77.062   28.693  254.643 RF  155.6 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER    1.176   63.060  138.401 RF  155.6 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  201.510   84.968  146.934 RF  155.5 RFZ  3.81 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER   77.430   20.214  170.024 RF  155.5 RFZ  3.80 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  129.957   62.109  108.377 RF  155.4 RFZ  3.79 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  302.506   64.333  109.005 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  206.794   19.985  309.621 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  311.395   39.369  109.148 RF  155.2 RFZ  3.78 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  311.833   70.084  150.789 RF  155.1 RFZ  3.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE domains/ensemble_4.pdb EULER  275.234   35.237   78.170 RF  154.6 RFZ  3.74 # DEEP
+
+   Scoring 504 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0%     100%
+   |=======| DONE
+
+   Mean Score (Sigma):       -93.71   (22.09)
+
+   SET #1 of 1 TRIAL #2 of 42 (TRIAL #1 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  25.18   2.60 290.38 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 11.85 (TFZ=4.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.588  0.002  0.762     160.84  5.98
+   2      0.087  0.503  0.761     160.32  5.94
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #2 of 42 (TRIAL #1 of 41 deep)
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      2 peaks
+      2 peaks over 11.8526 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = 39.79 (TFZ=5.9) at Trial #2
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.087  0.503  0.761     39.785  5.94   0.0      2     160.32/    160.84
+
+   SET #1 of 1 TRIAL #3 of 42 (TRIAL #2 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 259.25  33.01  84.51 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #4 of 42 (TRIAL #3 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 264.11  26.18  80.62 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #5 of 42 (TRIAL #4 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler   9.03  30.53 274.41 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #6 of 42 (TRIAL #5 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 312.27  44.55  78.73 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #7 of 42 (TRIAL #6 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  18.90  44.90 158.63 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #8 of 42 (TRIAL #7 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 259.89  32.06  75.78 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #9 of 42 (TRIAL #8 of 41 deep)
+   ------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  22.94  11.85   9.77 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 6 sites over 67.5% of top
+   6 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.637  0.546  0.751     185.19  7.84
+   2      0.638  0.481  0.751     183.72  7.74
+   3      0.138  0.981  0.752     182.83  7.68
+   #Sites = 6: output truncated to 3 sites
+
+   Top 6 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #9 of 42 (TRIAL #8 of 41 deep)
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      6 peaks
+      6 peaks over 39.7852 checked for packing
+      No translation peaks pack
+      Done
+
+   SET #1 of 1 TRIAL #10 of 42 (TRIAL #9 of 41 deep)
+   -------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 305.37  65.91 111.51 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #11 of 42 (TRIAL #10 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 296.26  62.22 127.25 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #12 of 42 (TRIAL #11 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 113.55  37.22 170.51 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #13 of 42 (TRIAL #12 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 334.69  37.15  90.83 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #14 of 42 (TRIAL #13 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 204.83  54.15  97.22 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #15 of 42 (TRIAL #14 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  15.03  69.00 137.86 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #16 of 42 (TRIAL #15 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 201.42  88.44 145.71 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.145  0.028  0.042     156.68  6.16
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #16 of 42 (TRIAL #15 of 41 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.145  0.028  0.042     36.261  6.16   0.0      1     156.68/    156.68
+
+   SET #1 of 1 TRIAL #17 of 42 (TRIAL #16 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 313.85  41.10  80.36 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #18 of 42 (TRIAL #17 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 127.43  64.49 107.04 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #19 of 42 (TRIAL #18 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 303.56  31.27 131.33 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #20 of 42 (TRIAL #19 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 320.51  42.39  75.31 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #21 of 42 (TRIAL #20 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 286.67   2.06  31.69 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #22 of 42 (TRIAL #21 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 110.38  23.90 132.16 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #23 of 42 (TRIAL #22 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  15.73  33.96 152.42 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #24 of 42 (TRIAL #23 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  55.42  33.72  92.31 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #25 of 42 (TRIAL #24 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 165.67  60.31 128.02 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #26 of 42 (TRIAL #25 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 269.36  29.06  72.76 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #27 of 42 (TRIAL #26 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 112.10  21.53 133.48 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #28 of 42 (TRIAL #27 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 309.41  42.91 108.84 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #29 of 42 (TRIAL #28 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 315.75  36.75  88.62 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #30 of 42 (TRIAL #29 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 193.61  67.18 157.29 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.732  0.295  0.050     162.84  6.86
+   2      0.231  0.795  0.049     159.60  6.63
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #30 of 42 (TRIAL #29 of 41 deep)
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      2 peaks
+      2 peaks over 39.7852 checked for packing
+      No translation peaks pack
+      Done
+
+   SET #1 of 1 TRIAL #31 of 42 (TRIAL #30 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 317.73  67.60 157.35 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #32 of 42 (TRIAL #31 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 285.82  59.20 112.22 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #33 of 42 (TRIAL #32 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  77.06  28.69 254.64 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #34 of 42 (TRIAL #33 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler   1.18  63.06 138.40 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #35 of 42 (TRIAL #34 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 201.51  84.97 146.93 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #36 of 42 (TRIAL #35 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler  77.43  20.21 170.02 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #37 of 42 (TRIAL #36 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 129.96  62.11 108.38 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #38 of 42 (TRIAL #37 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 302.51  64.33 109.00 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #39 of 42 (TRIAL #38 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 206.79  19.98 309.62 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #40 of 42 (TRIAL #39 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 311.39  39.37 109.15 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #41 of 42 (TRIAL #40 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 311.83  70.08 150.79 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #42 of 42 (TRIAL #41 of 41 deep)
+   --------------------------------------------------
+   Ensemble domains/ensemble_4.pdb Euler 275.23  35.24  78.17 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = 196.23 (TFZ=5.9)
+   Current Top (ML) Packing Translation Function LLG = 39.79 (TFZ=5.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+------------------------------------------------------------------------------------------
+Advisory: The top solution from a FTF did not pack
+------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------
+Advisory: The top solution from a TF rescoring did not pack
+------------------------------------------------------------------------------------------
+
+   Translation Function Results
+   Top1: ENSEMBLE domains/ensemble_4.pdb EULER 25.177 2.596 290.377 FRAC 0.087 0.503 0.761
+   TF=39.8
+
+   Translation Function Table
+   --------------------------
+   SET ROT*deep   Top   (Z)     Second   (Z)      Third   (Z) SpaceGroup  Ensemble
+     1   1       11.9  4.89       11.7  4.97        9.8  4.97 C 1 2 1  domains/   
+     1   2*      39.8  5.94          -     -          -     - C 1 2 1  domains/   
+     1   3*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   4*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   5*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   6*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   7*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   8*         -     -          -     -          -     - C 1 2 1  domains/   
+     1   9*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  10*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  11*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  12*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  13*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  14*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  15*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  16*      36.3  6.16          -     -          -     - C 1 2 1  domains/   
+     1  17*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  18*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  19*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  20*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  21*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  22*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  23*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  24*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  25*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  26*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  27*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  28*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  29*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  30*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  31*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  32*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  33*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  34*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  35*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  36*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  37*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  38*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  39*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  40*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  41*         -     -          -     -          -     - C 1 2 1  domains/   
+     1  42*         -     -          -     -          -     - C 1 2 1  domains/   
+   --- ---
+
+---------------
+FINAL SELECTION
+---------------
+
+   LLG will be used for purge, not FSS
+   Top TF  = 39.79
+   Top TFZ = 6.16
+   Mean TF = -93.71
+   Percent used for purge = 75%
+   Cutoff for acceptance = 6.4
+      TFZ used for final selection = 8
+         Number of solutions over TF final cutoff  = 7
+         Number of solutions over TFZ final cutoff = 0
+         Number of solutions over TF & TFZ cutoff  = 0
+   Number of solutions stored before final selection = 49
+   Number of solutions stored (deleted) after final selection = 7 (42)
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 3.72 secs (    123.72 secs)
+Finished: Sun Apr 23 10:14:18 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT PACKING ANALYSIS                        2.8.3 ***
+******************************************************************************************
+
+---------
+ENSEMBLES
+---------
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+-----------------
+ENSEMBLE SYMMETRY
+-----------------
+
+   Ensemble "domains/ensemble_4.pdb" Point Group: 1
+
+   Clash background has been packed at 10.00%
+
+----------------
+PACKING FUNCTION
+----------------
+
+   There are 7 solutions to pack
+   Spreading calculation onto 8 threads.
+   Packing analysis
+   0% 100%
+   |==| DONE
+
+   Packing Table
+   -------------
+   Solutions accepted if pairwise clashes less than 10 % of trace atoms
+   #in  #out Clash-% Symm TF-SET  ROT TFpk#        TF    TFZ    SpaceGroup 
+   1    ---  >10.39  --       1     2    1         39.79  5.94  C 1 2 1    
+   2    ---  >10.39  --       1    16    1         36.26  6.16  C 1 2 1    
+   3    ---  >10.39  --       1     1    1         11.85  4.89  C 1 2 1    
+   4    ---  >10.39  --       1     1    2         11.68  4.97  C 1 2 1    
+   5    ---  >10.39  --       1     1    3          9.82  4.97  C 1 2 1    
+   6    Top1  9.524  --       1     1    4          9.68  5.45  C 1 2 1    
+   7    ---  >10.39  --       1     1    5          9.12  4.36  C 1 2 1    
+
+   1 accepted of 7 solutions
+      1 packs of 1 accepted solution
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 3.84 secs (    123.84 secs)
+Finished: Sun Apr 23 10:14:18 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Search: Only parameters of last component will be refined
+
+CPU Time: 0 days 0 hrs 2 mins 3.84 secs (    123.84 secs)
+Finished: Sun Apr 23 10:14:18 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT REFINEMENT AND PHASING                  2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-------------------------------
+DATA FOR REFINEMENT AND PHASING
+-------------------------------
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+----------
+REFINEMENT
+----------
+
+   Protocol cycle #1 of 1
+   Refinement protocol for this macrocycle:
+   ROTATION:         REFINE
+   TRANSLATION:      REFINE
+   BFACTOR:          REFINE
+   MODEL VRMS:       FIX
+   CELL SCALE:       FIX
+   OCCUPANCY FACTOR: FIX
+   LAST ONLY:        TRUE
+   ROTATION RESTRAINT:    OFF
+   TRANSLATION RESTRAINT: OFF
+
+   There is 1 solution to refine
+   Spreading calculation onto 8 threads.
+   Refining solutions
+   0% 100%
+   |==| DONE
+
+
+   REFINING SET #1 OF 1
+   --------------------
+   Initial Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  153.1  163.7  188.5 FRAC  0.03  0.02  0.13 BFAC  0.04
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 9 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+           9.492               128.615               119.123
+
+   Final Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  154.8  162.9  189.7 FRAC  0.03  0.02  0.13 BFAC 33.84
+
+
+   Mean and Sigma after Refinement (for Purge)
+   -------------------------------------------
+   Scoring 500 randomly sampled orientations and translations
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0% 100%
+   |==| DONE
+
+   Mean Score for Purge before Refinement:  -93.71
+   Mean Score for Purge after Refinement :  74.81
+
+---------------
+FIND DUPLICATES
+---------------
+
+   Check for nearly equivalent solutions
+   Spreading calculation onto 8 threads.
+   Calculating Duplicates for 1 solutions
+   0% 100%
+   |==| DONE
+
+   No duplicate solutions found
+
+---------------------
+FIND TEMPLATE MATCHES
+---------------------
+
+   No Template Solution(s) for comparison
+
+---------------
+PURGE SELECTION
+---------------
+
+   Purge solutions according to highest LLG from Refinement
+   --------------------------------------------------------
+   Top LLG (all) = 144.444
+   Top LLG (packs) = 144.444
+   Mean LLG = 74.8056
+   Percent used for purge = 75%
+      Cutoff for acceptance = 127.0
+   Number used for purge  = 50
+      Cutoff for acceptance = 144.4
+   Overall cutoff for acceptance (excluding high TFZ) = 144.4
+   Number of solutions stored before purge = 1
+   Number of solutions stored (deleted) after purge = 1 (0)
+
+---------------
+TFZ EQUIVALENTS
+---------------
+
+   Refined TFZ equivalents calculated
+   1 top TFZ equivalents calculated
+
+   SOLUTION #1 OF 1
+   ----------------
+   TFZ equivalent calculation #1 of 1
+      TOPFILE
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0%                                                              100%
+   |================================================================| DONE
+
+   Mean Score (Sigma):       74.81   (15.76)
+   Refined TF/TFZ equivalent = 144.44/  4.4 (Unrefined TF/TFZ=9.68/  5.5)
+
+-------
+RESULTS
+-------
+
+   Refinement Table (Sorted)
+   -------------------------
+   Refinement to full resolution
+   #out =#out #in =T (Start LLG Rval TFZ) (Refined LLG Rval TFZ==) SpaceGroup  Cntrst
+   Top1 ---   1             9.7 60.5  5.5        144.4 59.9  4.4   C 1 2 1       n/a 
+
+   Refinement Table (Variance Ranges)
+   ----------------------------------
+   Range of delta-VRMS and VRMS given over current solution list (1 solution(s))
+   Ensemble               Model#   RMS   Delta-VRMS min/max  (VRMS min/max)
+   domains/ensemble_4.pdb      1   0.489   +0.000/+0.000    ( 0.489/ 0.489 )
+
+------------
+OUTPUT FILES
+------------
+
+   Calculation of Map Coefficients
+   -------------------------------
+   1 top map coefficients calculated
+
+   Map coefficient calculated for top solution #1
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  154.8  162.9  189.7 FRAC  0.03  0.02  0.13 BFAC 33.84 #TFZ==4.4
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 10.32 secs (    130.32 secs)
+Finished: Sun Apr 23 10:14:23 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Current is best for this component
+** New best solution has 2 components
+** New best solution LLG = 144.4 (resolution = 2.67)
+** New best solution component = domains/ensemble_4.pdb
+
+CPU Time: 0 days 0 hrs 2 mins 10.32 secs (    130.32 secs)
+Finished: Sun Apr 23 10:14:23 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** There was only 1 possible ensemble for this component
+** End of possible ensembles for this component
+
+CPU Time: 0 days 0 hrs 2 mins 10.32 secs (    130.32 secs)
+Finished: Sun Apr 23 10:14:23 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Continue without definite solutions
+** Current solution has 1 component
+** Current Partial Result
+** Current Partial Solution: TOP LLG = 144.1
+** Current Partial Solution: TOP TFZ = 11.7
+** Number of partial solutions = 1
+
+CPU Time: 0 days 0 hrs 2 mins 10.32 secs (    130.32 secs)
+Finished: Sun Apr 23 10:14:23 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Solutions will be refined to highest resolution
+**    Resolution for refinement: 2.6732
+** Protocol for MR refinement is DEFAULT
+** VRMS (variances) of ensemble(s) WILL be refined
+
+CPU Time: 0 days 0 hrs 2 mins 10.34 secs (    130.34 secs)
+Finished: Sun Apr 23 10:14:23 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT REFINEMENT AND PHASING                  2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-------------------------------
+DATA FOR REFINEMENT AND PHASING
+-------------------------------
+
+   Outlier Rejection
+   -----------------
+   There were 12 reflections of 42806 (0.0280%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+    -57    1   32   2.73      29.275       0.000   1.933e-13  true   false   
+    -56    4   31   2.75      13.944       0.000   8.798e-07  true   false   
+    -52    4   36   2.82      16.269       0.000   8.596e-08  true   false   
+    -52    6   33   2.84      15.582       0.000   1.710e-07  true   false   
+    -27   23    5   2.90      14.709       0.000   4.093e-07  true   false   
+    -21   25   10   2.83      17.522       0.000   2.457e-08  true   false   
+    -11   23   27   2.85      34.151       0.000   1.473e-15  true   false   
+     -8   16   42   2.85      15.643       0.000   1.608e-07  true   false   
+     -8   22   32   2.79      14.908       0.000   3.353e-07  true   false   
+      2    4   51   2.74      14.875       0.000   3.467e-07  true   false   
+     25   19   21   2.82      14.562       0.000   4.738e-07  true   false   
+     30   22    4   2.82      16.136       0.000   9.818e-08  true   false   
+
+   Resolution of All Data (Number):        2.67  59.87 (42806)
+   Resolution of Selected Data (Number):   2.67  59.87 (42794)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (40631)
+                               - half number of centrics (2163/2)
+                             = -41712
+   With correction for SigF,
+      Wilson log(likelihood) = -332468
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.6732
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    14.0   23.3      1  64.4  0.489  0.000  0.489 domains/ensembl                    
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+----------
+REFINEMENT
+----------
+
+   Protocol cycle #1 of 1
+   Refinement protocol for this macrocycle:
+   ROTATION:         REFINE
+   TRANSLATION:      REFINE
+   BFACTOR:          REFINE
+   MODEL VRMS:       REFINE
+   CELL SCALE:       FIX
+   OCCUPANCY FACTOR: FIX
+   LAST ONLY:        FALSE
+   ROTATION RESTRAINT:    OFF
+   TRANSLATION RESTRAINT: OFF
+
+   There is 1 solution to refine
+   Spreading calculation onto 8 threads.
+   Refining solutions
+   0% 100%
+   |==| DONE
+
+
+   REFINING SET #1 OF 1
+   --------------------
+   Initial Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  154.8  162.9  189.7 FRAC  0.03  0.02  0.13 BFAC 33.84 #TFZ==4.4
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 16 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+         128.614               147.014                18.400
+
+   Final Parameters:
+   SOLU SET 
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   24.1   17.9   10.1 FRAC  0.11 -0.00 -0.25 BFAC -15.24 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  151.1  164.7  184.0 FRAC  0.02  0.01  0.13 BFAC 15.60 #TFZ==4.4
+   SOLU ENSEMBLE domains/ensemble_4.pdb VRMS DELTA +0.7828 #RMSD  0.49 #VRMS  1.01
+
+
+   Mean and Sigma after Refinement (for Purge)
+   -------------------------------------------
+   Scoring 500 randomly sampled orientations and translations
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0% 100%
+   |==| DONE
+
+   Mean Score for Purge before Refinement:  74.81
+   Mean Score for Purge after Refinement :  91.33
+
+---------------
+FIND DUPLICATES
+---------------
+
+   Check for nearly equivalent solutions
+   Spreading calculation onto 8 threads.
+   Calculating Duplicates for 1 solutions
+   0% 100%
+   |==| DONE
+
+   No duplicate solutions found
+
+---------------------
+FIND TEMPLATE MATCHES
+---------------------
+
+   No Template Solution(s) for comparison
+
+---------------
+PURGE SELECTION
+---------------
+
+   Purge solutions according to highest LLG from Refinement
+   --------------------------------------------------------
+   Top LLG (all) = 154.463
+   Top LLG (packs) = 154.463
+   Mean LLG = 91.3345
+   Percent used for purge = 75%
+      Cutoff for acceptance = 138.7
+   Number used for purge  = 50
+      Cutoff for acceptance = 154.5
+   Overall cutoff for acceptance (excluding high TFZ) = 154.5
+   Number of solutions stored before purge = 1
+   Number of solutions stored (deleted) after purge = 1 (0)
+
+---------------
+TFZ EQUIVALENTS
+---------------
+
+   Refined TFZ equivalents calculated
+   1 top TFZ equivalents calculated
+
+   SOLUTION #1 OF 1
+   ----------------
+   TFZ equivalent calculation #1 of 1
+      TOPFILE
+
+   Spreading calculation onto 8 threads.
+   Generating Statistics
+   0%                                                              100%
+   |================================================================| DONE
+
+   Mean Score (Sigma):       91.33   (12.38)
+   Refined TF/TFZ equivalent = 154.46/  5.1 (Unrefined TF/TFZ=144.44/  4.4)
+
+-------
+RESULTS
+-------
+
+   Refinement Table (Sorted)
+   -------------------------
+   Refinement to full resolution
+   #out =#out #in =T (Start LLG Rval TFZ) (Refined LLG Rval TFZ==) SpaceGroup  Cntrst
+   Top1 ---   1           144.4 59.9  4.4        154.5 59.2  5.1   C 1 2 1       n/a 
+
+   Refinement Table (Variance Ranges)
+   ----------------------------------
+   Range of delta-VRMS and VRMS given over current solution list (1 solution(s))
+   Ensemble               Model#   RMS   Delta-VRMS min/max  (VRMS min/max)
+   domains/ensemble_4.pdb      1   0.489   +0.783/+0.783    ( 1.011/ 1.011 )
+
+------------
+OUTPUT FILES
+------------
+
+   Calculation of Map Coefficients
+   -------------------------------
+   1 top map coefficients calculated
+
+   Map coefficient calculated for top solution #1
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   24.1   17.9   10.1 FRAC  0.11 -0.00 -0.25 BFAC -15.24 #TFZ==11.7
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER  151.1  164.7  184.0 FRAC  0.02  0.01  0.13 BFAC 15.60 #TFZ==5.1
+   SOLU ENSEMBLE domains/ensemble_4.pdb VRMS DELTA +0.7828 #RMSD  0.49 #VRMS  1.01
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 18.05 secs (    138.05 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Refinement may have introduced clashes
+** Packing will be checked
+
+CPU Time: 0 days 0 hrs 2 mins 18.06 secs (    138.06 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT PACKING ANALYSIS                        2.8.3 ***
+******************************************************************************************
+
+---------
+ENSEMBLES
+---------
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   domains/ensembl C-alpha        231          3.00          2.00
+
+-----------------
+ENSEMBLE SYMMETRY
+-----------------
+
+   Ensemble "domains/ensemble_4.pdb" Point Group: 1
+
+   Clash background has NOT been packed at 10.00%
+
+----------------
+PACKING FUNCTION
+----------------
+
+   There is 1 solution to pack
+   Spreading calculation onto 8 threads.
+   Packing analysis
+   0% 100%
+   |==| DONE
+
+   Packing Table
+   -------------
+   Solutions accepted if pairwise clashes less than 10 % of trace atoms
+   #in  #out Clash-% Symm  SpaceGroup  Annotation                                                   
+   1    ---  >10.39  --    C 1 2 1     ... TFZ=5.5 PAK=10 LLG=144 TFZ==4.4 LLG=154 TFZ==5.1 PAK>10  
+
+   0 accepted of 1 solutions
+      0 pack of 0 accepted solutions
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 18.15 secs (    138.15 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** No solutions after final packing
+** Solution reverts to previous partial solution
+**    Only packing solutions retained
+**       1 solution(s) retained of 1
+** Number of solutions = 1
+** Solution TOP LLG = 144.1
+** Solution TOP TFZ = 11.7
+
+CPU Time: 0 days 0 hrs 2 mins 18.16 secs (    138.16 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Sorry - No solution with all components
+   You may find a solution with a different search or selection strategy
+
+** Partial Solution #1 written to PDB file:  PHASER.1.pdb
+   Partial Solution #1 annotation (history):
+   SOLU SET  RFZ=8.7 TFZ=9.3 PAK=0 LLG=144 TFZ==11.7
+   SOLU SPAC C 1 2 1
+   SOLU 6DIM ENSE domains/ensemble_4.pdb EULER   25.5   17.4    8.5 FRAC  0.12 -0.01 -0.25 BFAC -0.26 #TFZ==11.7
+
+CPU Time: 0 days 0 hrs 2 mins 18.21 secs (    138.21 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+--------
+ADVISORY
+--------
+
+
+eLLG indicates that placement of a single copy of ensemble "domains/ensemble_4.pdb" could
+be difficult
+
+The top solution from a FTF did not pack
+
+The top solution from a TF rescoring did not pack
+
+--------
+WARNINGS
+--------
+
+------------------------------------------------------------------------------------------
+Warning: Intensity moments suggest possibility of twinning. Tests based on possible twin
+laws will be more definitive.
+------------------------------------------------------------------------------------------
+
+--------------------
+EXIT STATUS: SUCCESS
+--------------------
+
+CPU Time: 0 days 0 hrs 2 mins 18.21 secs (    138.21 secs)
+Finished: Sun Apr 23 10:14:28 2023
+
+</pre>
+</html>

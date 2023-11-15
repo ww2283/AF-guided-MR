@@ -1,0 +1,162 @@
+2023-04-22 12:21:39 - [1;33mWARNING[0m - Skipping colabfold since it has already been run.
+Starting phenix.pdbtools
+on Sat Apr 22 12:21:39 2023 by wei
+===============================================================================
+
+Processing files:
+-------------------------------------------------------------------------------
+
+  Found model, /maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb
+
+Processing PHIL parameters:
+-------------------------------------------------------------------------------
+
+  Adding command-line PHIL:
+  -------------------------
+    remove=element H or bfactor < 40
+    output.filename=step_trimmed/ranked_0_plddt40.pdb
+
+Final processed PHIL parameters:
+-------------------------------------------------------------------------------
+  data_manager {
+    model {
+      file = "/maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb"
+    }
+    default_model = "/maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb"
+  }
+  modify {
+    remove = element H or bfactor < 40
+  }
+  output {
+    filename = step_trimmed/ranked_0_plddt40.pdb
+    file_name = step_trimmed/ranked_0_plddt40.pdb
+  }
+
+
+Starting job
+===============================================================================
+Validating inputs
+Crystal symmetry undefined, creating fake P1 box.
+Performing manipulations
+Size before: 9633 size after: 4699
+Writing output model
+
+===============================================================================
+Job complete
+usr+sys time: 1.54 seconds
+wall clock time: 1.54 seconds
+Starting phenix.pdbtools
+on Sat Apr 22 12:21:41 2023 by wei
+===============================================================================
+
+Processing files:
+-------------------------------------------------------------------------------
+
+  Found model, /maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb
+
+Processing PHIL parameters:
+-------------------------------------------------------------------------------
+
+  Adding command-line PHIL:
+  -------------------------
+    remove=element H or bfactor < 60
+    output.filename=step_trimmed/ranked_0_plddt60.pdb
+
+Final processed PHIL parameters:
+-------------------------------------------------------------------------------
+  data_manager {
+    model {
+      file = "/maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb"
+    }
+    default_model = "/maintank/Wei/automation.colabfold/test45/batch_3/P00734/5EDK/P00734/P00734_relaxed_rank_001_alphafold2_ptm_model_1_seed_000_filtered_filtered.pdb"
+  }
+  modify {
+    remove = element H or bfactor < 60
+  }
+  output {
+    filename = step_trimmed/ranked_0_plddt60.pdb
+    file_name = step_trimmed/ranked_0_plddt60.pdb
+  }
+
+
+Starting job
+===============================================================================
+Validating inputs
+Crystal symmetry undefined, creating fake P1 box.
+Performing manipulations
+Size before: 9633 size after: 4364
+Writing output model
+
+===============================================================================
+Job complete
+usr+sys time: 1.54 seconds
+wall clock time: 1.54 seconds
+/home/wei/anaconda3/envs/colabfold152/lib/python3.7/site-packages/Bio/PDB/PDBParser.py:399: PDBConstructionWarning: Ignoring unrecognized record 'TER' at line 4700
+  PDBConstructionWarning,
+/home/wei/anaconda3/envs/colabfold152/lib/python3.7/site-packages/Bio/PDB/PDBParser.py:399: PDBConstructionWarning: Ignoring unrecognized record 'END' at line 4701
+  PDBConstructionWarning,
+/home/wei/anaconda3/envs/colabfold152/lib/python3.7/site-packages/Bio/PDB/PDBParser.py:399: PDBConstructionWarning: Ignoring unrecognized record 'TER' at line 4365
+  PDBConstructionWarning,
+/home/wei/anaconda3/envs/colabfold152/lib/python3.7/site-packages/Bio/PDB/PDBParser.py:399: PDBConstructionWarning: Ignoring unrecognized record 'END' at line 4366
+  PDBConstructionWarning,
+2023-04-22 12:21:42 - INFO - sequence is : MAHVRGLQLPGCLALAALCSLVHSQHVFLAPQQARSLLQRVRRANTFLEEVRKGNLERECVEETCSYEEAFEALESSTATDVFWAKYTACETARTPRDKLAACLEGNCAEGLGTNYRGHVNITRSGIECQLWRSRYPHKPEINSTTHPGADLQENFCRNPDSSTTGPWCYTTDPTVRRQECSIPVCGQDQVTVAMTPRSEGSSVNLSPPLEQCVPDRGQQYQGRLAVTTHGLPCLAWASAQAKALSKHQDFNSAVQLVENFCRNPDGDEEGVWCYVAGKPGDFGYCDLNYCEEAVEEETGDGLDEDSDRAIEGRTATSEYQTFFNPRTFGSGEADCGLRPLFEKKSLEDKTERELLESYIDGRIVEGSDAEIGMSPWQVMLFRKSPQELLCGASLISDRWVLTAAHCLLYPPWDKNFTENDLLVRIGKHSRTRYERNIEKISMLEKIYIHPRYNWRENLDRDIALMKLKKPVAFSDYIHPVCLPDRETAASLLQAGYKGRVTGWGNLKETWTANVGKGQPSVLQVVNLPIVERPVCKDSTRIRITDNMFCAGYKPDEGKRGDACEGDSGGPFVMKSPFNNRWYQMGIVSWGEGCDRDGKYGFYTHVFRLKKWIQKVIDQFGE
+2023-04-22 12:21:42 - INFO - Number of residues: 622
+2023-04-22 12:21:42 - INFO - Xtriage analysis output:
+
+=================== Solvent content and Matthews coefficient ==================
+
+ Crystallized molecule(s) defined as 622 protein residues
+  -------------------------------------------------------------------
+  | Solvent content analysis                                        |
+  |-----------------------------------------------------------------|
+  | Copies | Solvent content | Matthews coeff. | P(solvent content) |
+  |-----------------------------------------------------------------|
+  | 1      | 0.720           | 4.39            | 0.165              |
+  | 2      | 0.440           | 2.19            | 0.823              |
+  | 3      | 0.159           | 1.46            | 0.013              |
+  -------------------------------------------------------------------
+
+ Best guess :    2 copies in the ASU
+
+ Caution: this estimate is based on the distribution of solvent content across
+ structures in the PDB, but it does not take into account the resolution of
+ the data (which is strongly correlated with solvent content) or the physical
+ properties of the model (such as oligomerization state, et cetera).  If you
+ encounter problems with molecular replacement and/or refinement, you may need
+ to consider the possibility that the ASU contents are different than expected.
+
+
+2023-04-22 12:21:42 - INFO - Most probable solvent content: 43.95%
+2023-04-22 12:21:42 - INFO - Most probable number of molecules: 2
+2023-04-22 12:21:42 - INFO - Data is not twinned
+2023-04-22 12:21:42 - INFO - running phaser molecular replacement with default mode, see parameters used in phaser.params...
+2023-04-22 12:30:14 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (4.9) and may not be reliable. Check log file for details at phaser_output/PHASER.log
+2023-04-22 12:30:14 - [1;33mWARNING[0m - default_phaser_success: False
+2023-04-22 12:30:14 - INFO - Threshold length for a domain to be used: 124.4
+2023-04-22 12:30:14 - INFO - List of adjusted domains: [{'accession': 'IPR038178', 'name': 'Kringle superfamily', 'start': 43, 'end': 198}, {'accession': 'IPR035972', 'name': 'Gamma-carboxyglutamic acid-rich (GLA) domain superfamily', 'start': 199, 'end': 102}, {'accession': 'IPR013806', 'name': 'Kringle-like fold', 'start': 103, 'end': 197}, {'accession': 'IPR038178', 'name': 'Kringle superfamily', 'start': 206, 'end': 295}, {'accession': 'IPR013806', 'name': 'Kringle-like fold', 'start': 296, 'end': 295}, {'accession': 'IPR037111', 'name': 'Thrombin light chain domain superfamily', 'start': 296, 'end': 363}, {'accession': 'IPR009003', 'name': 'Peptidase S1, PA clan', 'start': 364, 'end': 374}, {'accession': 'IPR043504', 'name': 'Peptidase S1, PA clan, chymotrypsin-like fold', 'start': 375, 'end': 614}]
+2023-04-22 12:30:14 - INFO - Domain 1: 43 - 198
+2023-04-22 12:30:14 - INFO - Domain 1 will be used for MR with length: 156
+2023-04-22 12:30:14 - INFO - Domain 2: 199 - 102
+2023-04-22 12:30:14 - INFO - Domain length: -96 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 3: 103 - 197
+2023-04-22 12:30:14 - INFO - Domain length: 95 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 4: 206 - 295
+2023-04-22 12:30:14 - INFO - Domain length: 90 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 5: 296 - 295
+2023-04-22 12:30:14 - INFO - Domain length: 0 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 6: 296 - 363
+2023-04-22 12:30:14 - INFO - Domain length: 68 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 7: 364 - 374
+2023-04-22 12:30:14 - INFO - Domain length: 11 less than 124.4. Skipping this domain.
+2023-04-22 12:30:14 - INFO - Domain 8: 375 - 614
+2023-04-22 12:30:14 - INFO - Domain 8 will be used for MR with length: 240
+2023-04-22 12:30:15 - INFO - the following domains were found and will be used for alternative phaser molecular replacement: ['domains/ensemble_1.pdb', 'domains/ensemble_8.pdb']
+2023-04-22 12:30:15 - INFO - running phaser molecular replacement with alternative mode, see parameters used in alternative_phaser.params...
+2023-04-22 12:40:24 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (5.6) and may not be reliable. Check log file for details at alternative_phaser_output/PHASER.log
+2023-04-22 12:40:24 - [1;32mSUCCESS[0m - Valid partial solutions found with TFZ score: 19.8. Check alternative_phaser_output/PHASER.log for details.
+/home/wei/anaconda3/envs/colabfold152/lib/python3.7/site-packages/Bio/PDB/PDBParser.py:399: PDBConstructionWarning: Ignoring unrecognized record 'END' at line 6362
+  PDBConstructionWarning,
+2023-04-22 12:40:24 - INFO - the mr_solution is alternative_phaser_output/PHASER.1.pdb, which will be used to check for the presence of ssbonds
+2023-04-22 12:40:24 - INFO - ssbonds are present and is: -MR::disulf 391:407 536:550 564:594 391:407 536:550 564:594 60:65 90:103 108:186 129:169 157:181 60:65 90:103 108:186 129:169 157:181
+2023-04-22 12:40:24 - [1;33mWARNING[0m - Data resolution is worse than 2.5 Angstroms. Skipping MR-Rosetta.
+2023-04-22 12:40:24 - INFO - Auto processing is done. You can check the log file for details at automated_structure_solvation.log.

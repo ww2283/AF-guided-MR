@@ -1,0 +1,7 @@
+(
+(handle-read-draw-molecule "working_best.pdb")
+(make-and-draw-map "working_best_denmod_map_coeffs.mtz" "/crystal/dataset/FP" "/crystal/dataset/PHIM" "/crystal/dataset/FOMM" 1 0) 
+(set-go-to-atom-molecule 0)
+(set-rotation-centre    96.5     26.7     8.9)
+(set-run-state-file-status 0)
+)

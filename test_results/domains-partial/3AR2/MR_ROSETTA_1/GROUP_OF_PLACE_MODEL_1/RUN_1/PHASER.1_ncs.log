@@ -1,0 +1,32 @@
+Parameters used for simple_ncs_from_pdb:
+pdb_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/alternative_phaser_output/PHASER.1.pdb"
+temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+ncs_domain_pdb_stem = None
+write_ncs_domain_pdb = False
+show_ncs_phil = True
+show_summary = False
+write_spec_files = False
+ncs_search {
+  enabled = False
+  exclude_selection = element H or element D or water
+  chain_similarity_threshold = 0.85
+  chain_max_rmsd = 2
+  residue_match_radius = 4
+  try_shortcuts = False
+  minimum_number_of_atoms_in_copy = 3
+}
+ncs_group {
+  reference = None
+  selection = None
+}
+
+NCS phil selection written in ncs selection format to: PHASER.1_simple_ncs_from_pdb.phil
+
+
+NCS selection
+ --------------
+ncs_group {
+  reference = chain 'A'
+  selection = chain 'B'
+}
+

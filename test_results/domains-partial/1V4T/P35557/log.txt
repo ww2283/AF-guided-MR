@@ -1,0 +1,34 @@
+2023-04-25 11:19:57,632 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-25 11:19:58,753 Running on GPU
+2023-04-25 11:19:58,962 Found 5 citations for tools or databases
+2023-04-25 11:19:58,962 Query 1/1: P35557 (length 465)
+2023-04-25 11:19:59,542 Sleeping for 7s. Reason: PENDING
+2023-04-25 11:20:07,144 Sleeping for 10s. Reason: RUNNING
+2023-04-25 11:20:17,734 Sleeping for 9s. Reason: RUNNING
+2023-04-25 11:20:27,329 Sleeping for 6s. Reason: RUNNING
+2023-04-25 11:20:33,921 Sleeping for 10s. Reason: RUNNING
+2023-04-25 11:20:44,520 Sleeping for 10s. Reason: RUNNING
+2023-04-25 11:20:55,123 Sleeping for 8s. Reason: RUNNING
+2023-04-25 11:21:03,712 Sleeping for 8s. Reason: RUNNING
+2023-04-25 11:21:12,310 Sleeping for 5s. Reason: RUNNING
+2023-04-25 11:21:17,900 Sleeping for 10s. Reason: RUNNING
+2023-04-25 11:21:28,494 Sleeping for 8s. Reason: RUNNING
+2023-04-25 11:21:37,091 Sleeping for 5s. Reason: RUNNING
+2023-04-25 11:21:42,674 Sleeping for 10s. Reason: RUNNING
+2023-04-25 11:21:55,820 Setting max_seq=512, max_extra_seq=5120
+2023-04-25 11:22:51,496 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=92.6 pTM=0.904
+2023-04-25 11:23:25,981 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=93.1 pTM=0.91 tol=0.432
+2023-04-25 11:24:00,608 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=93.1 pTM=0.911 tol=0.141
+2023-04-25 11:24:35,279 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=93.1 pTM=0.91 tol=0.0586
+2023-04-25 11:25:10,028 alphafold2_ptm_model_1_seed_000 recycle=4 pLDDT=93.1 pTM=0.911 tol=0.0702
+2023-04-25 11:25:44,808 alphafold2_ptm_model_1_seed_000 recycle=5 pLDDT=93.1 pTM=0.911 tol=0.0675
+2023-04-25 11:25:44,809 alphafold2_ptm_model_1_seed_000 took 223.5s (5 recycles)
+2023-04-25 11:25:45,009 reranking models by 'plddt' metric
+2023-04-25 11:25:58,384 Relaxation took 13.4s
+2023-04-25 11:25:58,384 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=93.1 pTM=0.911
+2023-04-25 11:25:59,128 Done
+2023-04-25 11:26:01,357 Running colabfold 1.5.2 (5b3fc193e880cd9599f91cd16fcb1fe69f7759f2)
+2023-04-25 11:26:02,854 Running on GPU
+2023-04-25 11:26:03,085 Found 5 citations for tools or databases
+2023-04-25 11:26:03,085 Skipping P35557 (already done)
+2023-04-25 11:26:03,085 Done

@@ -1,0 +1,51 @@
+2023-04-26 13:24:50 - INFO - Checking for available GPUs...
+2023-04-26 13:24:50 - INFO - Total GPUs: 1
+2023-04-26 13:24:50 - INFO - GPU 0: 269.875 MiB used (1.65% used)
+2023-04-26 13:24:50 - INFO - GPU 0 is available
+2023-04-26 13:24:50 - INFO - Using GPU 0
+2023-04-26 13:24:56 - INFO - sequence is : MSQSNRELVVDFLSYKLSQKGYSWSQFSDVEENRTEAPEGTESEMETPSAINGNPSWHLADSPAVNGATGHSSSLDAREVIPMAAVKQALREAGDEFELRYRRAFSDLTSQLHITPGTAYQSFEQVVNELFRDGVNWGRIVAFFSFGGALCVESVDKEMQVLVSRIAAWMATYLNDHLEPWIQENGGWDTFVELYGNNAAAESRKGQERFNRWFLTGMTVAGVVLLGSLFSRK
+2023-04-26 13:24:56 - INFO - Number of residues: 233
+2023-04-26 13:24:56 - INFO - Xtriage analysis output:
+
+=================== Solvent content and Matthews coefficient ==================
+
+ Crystallized molecule(s) defined as 233 protein residues
+  -------------------------------------------------------------------
+  | Solvent content analysis                                        |
+  |-----------------------------------------------------------------|
+  | Copies | Solvent content | Matthews coeff. | P(solvent content) |
+  |-----------------------------------------------------------------|
+  | 1      | 0.689           | 3.96            | 0.368              |
+  | 2      | 0.378           | 1.98            | 0.627              |
+  | 3      | 0.068           | 1.32            | 0.006              |
+  -------------------------------------------------------------------
+
+ Best guess :    2 copies in the ASU
+
+ Caution: this estimate is based on the distribution of solvent content across
+ structures in the PDB, but it does not take into account the resolution of
+ the data (which is strongly correlated with solvent content) or the physical
+ properties of the model (such as oligomerization state, et cetera).  If you
+ encounter problems with molecular replacement and/or refinement, you may need
+ to consider the possibility that the ASU contents are different than expected.
+
+
+2023-04-26 13:24:56 - INFO - Most probable solvent content: 37.84%
+2023-04-26 13:24:56 - INFO - Most probable number of molecules: 2
+2023-04-26 13:24:56 - [1;33mWARNING[0m - Data is probably twinned, you may want to run twin refinement.
+2023-04-26 13:24:56 - [1;33mWARNING[0m - Twin laws: ['-h,l,k', '-l,-k,-h']
+2023-04-26 13:24:56 - INFO - running phaser molecular replacement with default mode, see parameters used in phaser.params...
+2023-04-26 13:26:28 - [1;33mWARNING[0m - Phaser molecular replacement may have failed because not all output files are present. Check log file for details at phaser_output/PHASER.log
+2023-04-26 13:26:28 - [1;33mWARNING[0m - default_phaser_success: False
+2023-04-26 13:26:29 - INFO - Threshold length for a domain to be used: 46.6
+2023-04-26 13:26:29 - INFO - List of adjusted domains: [{'accession': 'IPR036834', 'name': 'Bcl-2-like superfamily', 'start': 1, 'end': 209}]
+2023-04-26 13:26:29 - INFO - Domain 1: 1 - 209
+2023-04-26 13:26:29 - INFO - Domain 1 will be used for MR with length: 209
+2023-04-26 13:26:29 - INFO - the following domains were found and will be used for alternative phaser molecular replacement: ['domains/ensemble_1.pdb']
+2023-04-26 13:26:29 - INFO - running phaser molecular replacement with alternative mode, see parameters used in alternative_phaser.params...
+2023-04-26 13:27:02 - [1;33mWARNING[0m - Phaser molecular replacement may have failed because not all output files are present. Check log file for details at alternative_phaser_output/PHASER.log
+2023-04-26 13:27:02 - [1;32mSUCCESS[0m - Valid partial solutions found with TFZ score: 10.2. Check alternative_phaser_output/PHASER.log for details.
+2023-04-26 13:27:02 - INFO - the mr_solution is alternative_phaser_output/PHASER.1.pdb, which will be used to check for the presence of ssbonds
+2023-04-26 13:27:02 - INFO - ssbonds are not present in the structure.
+2023-04-26 13:27:02 - [1;33mWARNING[0m - Data resolution is worse than 2.5 Angstroms. Skipping MR-Rosetta.
+2023-04-26 13:27:02 - INFO - Auto processing is done. You can check the log file for details at automated_structure_solvation.log.

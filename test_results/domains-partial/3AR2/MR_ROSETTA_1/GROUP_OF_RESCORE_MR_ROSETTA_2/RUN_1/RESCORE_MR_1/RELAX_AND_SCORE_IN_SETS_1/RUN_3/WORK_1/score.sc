@@ -1,0 +1,3 @@
+SEQUENCE: 
+SCORE: total_score cart_bonded dslf_fa13 elec_dens_window           fa_atr           fa_dun          fa_elec fa_intra_rep fa_intra_sol_xover4              fa_rep              fa_sol hbond_bb_sc hbond_lr_bb    hbond_sc hbond_sr_bb lk_ball_wtd       omega     p_aa_pp rama_prepro         ref yhh_planarity description 
+SCORE:   -1948.511     273.467     0.000        -1700.398        -1169.341          262.002         -352.017        2.866              41.152             153.742             734.311     -38.330     -51.739     -29.237     -82.987     -30.819       4.863     -46.231       0.407      79.740         0.038 S_PHASE_0001_14_ed_one_0001

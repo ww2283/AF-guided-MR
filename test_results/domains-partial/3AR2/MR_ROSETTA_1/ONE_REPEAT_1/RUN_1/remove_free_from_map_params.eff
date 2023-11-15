@@ -1,0 +1,22 @@
+remove_free_from_map {
+  input_files {
+    free_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/3AR2-sf.mtz"
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1.mtz"
+    labin_map_coeffs = "FP=FAVG PHIB=PHIFAVG"
+    labin_free = ""
+    test_flag_value = None
+  }
+  output_files {
+    mtz_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/averaged_map_coeffs_1_nf.mtz"
+    params_out = "remove_free_from_map_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1"
+  }
+  control {
+    verbose = True
+    raise_sorry = False
+    debug = False
+    dry_run = False
+  }
+}

@@ -1,0 +1,4165 @@
+<pre>
+<B><FONT COLOR="#FF0000">
+<html><!-- PHENIX HTML LOGFILE -->
+
+##########################################################################################
+##########################################################################################
+##########################################################################################
+### PHENIX: Phaser                                                               2.8.3 ###
+##########################################################################################
+User:         wei
+Run time:     Wed May 24 23:25:51 2023
+Version:      2.8.3
+Release Date: Thu Feb 25 22:33:09 2021 (git 7516, ba341152b... )
+
+If you use this software please cite:
+"Phaser Crystallographic Software"
+A.J. McCoy, R.W. Grosse-Kunstleve, P.D. Adams, M.D. Winn, L.C. Storoni & R.J. Read
+J. Appl. Cryst. (2007). 40, 658-674
+<a href="http://journals.iucr.org/j/issues/2007/04/00/he5368/he5368.pdf">PDF</a>
+
+<!--END--></FONT></B>
+
+******************************************************************************************
+*** Phaser Module: PREPROCESSOR                                                  2.8.3 ***
+******************************************************************************************
+
+CELL 48.169 72.75 65.276 90 98.624 90
+COMPOSITION BY SOLVENT
+COMPOSITION PERCENTAGE 50
+ELLG HIRES ON
+ENSEMBLE ensemble_0 PDB "step_trimmed/ranked_0_plddt40.pdb" ID 0.9 
+ENSEMBLE ensemble_0 ESTIMATOR oeffner
+HKLOUT ON
+INFORMATION OFF
+JOBS 8
+KEYWORDS OFF
+LABIN F = F SIGF = SIGF
+PEAKS ROT SELECT PERCENT CUTOFF 75
+PEAKS TRA SELECT PERCENT CUTOFF 75
+PURGE ROT PERCENT 75
+PURGE TRA PERCENT 75
+PURGE RNP PERCENT 75
+RESHARPEN PERCENTAGE 100
+SEARCH ENSEMBLE ensemble_0 
+SGALT BASE  P 2yb
+SPACEGROUP P 1 21 1
+TNCS RLIST ADD ON
+XYZOUT ON
+
+CPU Time: 0 days 0 hrs 0 mins 1.42 secs (      1.42 secs)
+Finished: Wed May 24 23:25:51 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Steps:
+**    Cell Content Analysis
+**    Anisotropy correction
+**    Translational NCS correction
+**    Rotation Function
+**    Translation Function
+**    Packing
+**    Refinement
+**    Final Refinement (if data higher resolution than search resolution)
+** Number of search ensembles = 1
+** Search Method: FAST
+** Input Search Order:
+**    #1   ensemble_0  
+** Automatic (best predicted) search order WILL be used
+
+CPU Time: 0 days 0 hrs 0 mins 1.98 secs (      1.98 secs)
+Finished: Wed May 24 23:25:51 2023
+
+******************************************************************************************
+*** Phaser Module: CELL CONTENT ANALYSIS                                         2.8.3 ***
+******************************************************************************************
+
+   Space-Group Name (Hall Symbol): P 1 21 1 ( P 2yb)
+   Space-Group Number: 4
+   Unit Cell:   48.17   72.75   65.28   90.00   98.62   90.00
+
+--------------------
+SPACE GROUP ANALYSIS
+--------------------
+
+   Input Space Group: P 1 21 1
+
+   (a) Space groups derived by translation (screw) symmetry
+   --------------------------------------------------------
+   Z   Space Group    Hall Symbol
+   ----
+   2   P 1 21 1       P 2yb
+       P 1 2 1        P 2y
+   ----
+
+   (b) Subgroups of space group for perfect twinning expansions
+   ------------------------------------------------------------
+   R: Reindexing operation required (*)
+   Only subgroups related by rotational symmetry are reported
+   Z   Space Group   R Hall Symbol
+   ----
+   1   P 1             P 1
+   ---
+   2   P 1 21 1        P 2yb
+       P 1 2 1         P 2y
+   ----
+
+   Composition is of type: PROTEIN
+   MW to which Matthews applies: 45967
+   Resolution for Matthews calculation:  2.30
+
+   Z       MW         VM    % solvent  rel. freq.
+   1       45967      2.46  50.00      1.000       <== most probable
+
+   Z is the number of multiples of the total composition
+   In most cases the most probable Z value should be 1
+   If it is not 1, you may need to consider other compositions
+
+   Histogram of relative frequencies of VM values
+   ----------------------------------------------
+   Frequency of most common VM value normalized to 1
+   VM values plotted in increments of 1/VM (0.02)
+
+        <--- relative frequency --->
+        0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.0  
+        |    |    |    |    |    |    |    |    |    |    |    
+   10.00 -
+    8.33 -
+    7.14 -
+    6.25 -
+    5.56 -
+    5.00 -
+    4.55 -
+    4.17 -
+    3.85 --
+    3.57 ----
+    3.33 -------
+    3.12 -----------
+    2.94 ----------------
+    2.78 -----------------------
+    2.63 -------------------------------
+    2.50 ---------------------------------------
+    2.38 ********************************************** (COMPOSITION*1)
+    2.27 --------------------------------------------------
+    2.17 -------------------------------------------------
+    2.08 -------------------------------------------
+    2.00 --------------------------------
+    1.92 ---------------------
+    1.85 -----------
+    1.79 -----
+    1.72 --
+    1.67 -
+    1.61 -
+    1.56 -
+    1.52 -
+    1.47 -
+    1.43 -
+    1.39 -
+    1.35 -
+    1.32 -
+    1.28 -
+    1.25 -
+
+   Most probable VM for resolution = 2.24226
+   Most probable MW of protein in asu for resolution = 50431.3
+
+CPU Time: 0 days 0 hrs 0 mins 2.07 secs (      2.07 secs)
+Finished: Wed May 24 23:25:51 2023
+
+******************************************************************************************
+*** Phaser Module: ANISOTROPY CORRECTION                                         2.8.3 ***
+******************************************************************************************
+
+------------------------------
+DATA FOR ANISOTROPY CORRECTION
+------------------------------
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19850)
+
+   Outlier Rejection
+   -----------------
+   There were 2 reflections of 19852 (0.0101%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+     -3   27    2   2.65      14.004       0.000   8.283e-07  true   false   
+     15    8    0   3.00      18.412       0.000   1.009e-08  true   false   
+
+---------------------
+ANISOTROPY CORRECTION
+---------------------
+
+   Protocol cycle #1 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Protocol cycle #2 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Protocol cycle #3 of 3
+   Refinement protocol for this macrocycle:
+   BIN SCALES: REFINE
+   ANISOTROPY: REFINE
+   SOLVENT K:  FIX
+   SOLVENT B:  FIX
+
+   Outlier Rejection
+   -----------------
+   There were 2 reflections of 19852 (0.0101%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+     -3   27    2   2.65      14.004       0.000   8.283e-07  true   false   
+     15    8    0   3.00      18.412       0.000   1.009e-08  true   false   
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 5 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -202863.666           -201113.969              1749.698
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+        15.899             -0.1384   0.0000   0.9904
+        -5.569              0.0000   1.0000   0.0000
+       -10.330              0.9904   0.0000   0.1384
+   Anisotropic deltaB (i.e. range of principal components):  26.228
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 1 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -201155.096           -201154.904                 0.192
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+        15.939             -0.1384   0.0000   0.9904
+        -5.602              0.0000   1.0000   0.0000
+       -10.337              0.9904   0.0000   0.1384
+   Anisotropic deltaB (i.e. range of principal components):  26.276
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Performing Optimization...
+      Done
+   --- Convergence before iteration limit (50) at cycle 1 ---
+   Start-this-macrocycle End-this-macrocycle Change-this-macrocycle
+     -201154.904           -201154.904                 0.000
+
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+        15.939             -0.1384   0.0000   0.9904
+        -5.602              0.0000   1.0000   0.0000
+       -10.337              0.9904   0.0000   0.1384
+   Anisotropic deltaB (i.e. range of principal components):  26.276
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Refined Anisotropy Parameters
+   -----------------------------
+   Principal components of anisotropic part of B affecting observed amplitudes:
+     eigenB (A^2)     direction cosines (orthogonal coordinates)
+        15.939             -0.1384   0.0000   0.9904
+        -5.602              0.0000   1.0000   0.0000
+       -10.337              0.9904   0.0000   0.1384
+   Anisotropic deltaB (i.e. range of principal components):  26.276
+
+--------------
+ABSOLUTE SCALE
+--------------
+
+   Scale factor to put input Fs on absolute scale
+   Wilson Scale:    1.07206
+   Wilson B-factor: 49.9216
+
+--------------------------------
+DATA AFTER ANISOTROPY CORRECTION
+--------------------------------
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19852)
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 2.84 secs (      2.84 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: TRANSLATIONAL NON-CRYSTALLOGRAPHIC SYMMETRY                   2.8.3 ***
+******************************************************************************************
+
+   Unit Cell:   48.17   72.75   65.28   90.00   98.62   90.00
+
+---------------------
+MAXIMUM NMOL ANALYSIS
+---------------------
+
+   Stoichiometry of search components:
+      "ensemble_0"
+
+   Molecular weight of components:  54856.8
+   Volume of asymmetric unit:       113080
+   Packing to solvent content:      20%
+   Maximum automatic NMOL number:   1
+
+-------------------------------------
+DATA FOR TRANSLATIONAL NCS CORRECTION
+-------------------------------------
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19850)
+
+   Outlier Rejection
+   -----------------
+   There were 2 reflections of 19852 (0.0101%) rejected as outliers
+      - outliers with a Wilson probability less than 1e-06
+      - measurements expected to contain fewer than 0.01 bits of information
+
+      H    K    L   reso        Eo^2       sigma probability  wilson low-info
+     -3   27    2   2.65      14.004       0.000   8.283e-07  true   false   
+     15    8    0   3.00      18.412       0.000   1.009e-08  true   false   
+
+   Weighted Intensity Moments for Data
+   -----------------------------------
+   Inverse variance-weighted 2nd Moment = <wE^4>/<wE^2>^2 == <wJ^2>/<wJ>^2
+                        Untwinned   Perfect Twin
+   2nd Moment  Centric:    3.0          2.0
+   2nd Moment Acentric:    2.0          1.5
+                               Measured
+   2nd Moment  Centric:             2.05
+   2nd Moment Acentric:             2.16
+
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.06A (HiRes= 2.30A)
+
+---------------------
+ANISOTROPY CORRECTION
+---------------------
+
+   Weighted Intensity Moments after Anisotropy Correction
+   ------------------------------------------------------
+   Inverse variance-weighted 2nd Moment = <wE^4>/<wE^2>^2 == <wJ^2>/<wJ>^2
+                        Untwinned   Perfect Twin
+   2nd Moment  Centric:    3.0          2.0
+   2nd Moment Acentric:    2.0          1.5
+                               Measured
+   2nd Moment  Centric:             2.12
+   2nd Moment Acentric:             2.06
+
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.06A (HiRes= 2.30A)
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS vector not set
+   Space Group (without translational symmetry):P 1 2 1
+   Patterson Symmetry: P 1 2/m 1
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Patterson (Number):       5.00   9.98 (1731)
+
+   Raw Patterson Peaks Table
+   -------------------------
+   Sorted by Height
+   Height Vector
+   100.0%:   FRAC -0.0000 -0.0000 -0.0000   (ORTH   -0.0    0.0    0.0)
+
+   Patterson Top (All) = 9.14%
+      There were 145 peaks
+
+   Patterson Top (Non-origin) = 7.20%
+      Patterson Origin Vector Distance = 15
+      There were 137 non-origin peaks
+
+   Patterson Top (Cutoff) = 0.00%
+      Patterson cutoff = 20%
+      There were 0 non-origin peaks over cutoff
+
+   Patterson Top (Large Cell) = 0.00%
+      Unit Cell dimension was not smaller than origin Patterson vector distance
+      There were 0 non-origin and large cell peaks over cutoff
+
+   Patterson Top (Analysis) = 0.00%
+      Peaks within minimum Patterson vector distance of one another were deleted
+      There were 0 widely separated non-origin peaks over cutoff
+
+   There were no interesting non-origin Patterson peaks
+
+   No tNCS found in Patterson
+
+--------
+TWINNING
+--------
+
+   tNCS/Twin Detection Table
+   -------------------------
+                                 -Second Moments-             --P-values--
+                                 Centric Acentric       untwinned  twin frac < 5%
+   Theoretical for untwinned      3.00    2.00    
+     including measurement error  3.00    2.00    
+   Theoretical for perfect twin   2.00    1.50    
+   Initial (data as input)        2.05    2.16+/-0.050  1          1         
+   After Anisotropy Correction    2.12    2.06+/-0.050  1          1         
+   After Anisotropy and tNCS         ---n/a---
+
+   P-value < 0.01 for < 5% twinned is considered worth investigating
+   Resolution for Twin Analysis (85% I/SIGI > 3):  3.06A (HiRes= 2.30A)
+
+---------------------------------------
+DATA AFTER TRANSLATIONAL NCS CORRECTION
+---------------------------------------
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19852)
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 2.97 secs (      2.97 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Z-score test for definite solution is ON
+** Z-score test for stopping search is OFF
+** Deep search is ON
+
+CPU Time: 0 days 0 hrs 0 mins 2.97 secs (      2.97 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+   Composition Table
+   -----------------
+   Total Scattering = 149890
+   Search occupancy factor = 1 (default)
+   Ensemble                       Frac.Scat. (Search Frac.Scat.) 
+   ensemble_0                        114.96%             114.96%
+
+------------------------------------------------------------------------------------------
+Warning: Total search request exceeds scattering specified in composition. Composition
+increased to resolve the discrepancy.
+------------------------------------------------------------------------------------------
+
+** Composition increased
+       from 149890
+         to 174060
+
+   Composition Table
+   -----------------
+   Total Scattering = 174060
+   Search occupancy factor = 1 (default)
+   Ensemble                       Frac.Scat. (Search Frac.Scat.) 
+   ensemble_0                         99.00%              99.00%
+
+CPU Time: 0 days 0 hrs 0 mins 2.97 secs (      2.97 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: CELL CONTENT ANALYSIS                                         2.8.3 ***
+******************************************************************************************
+
+   Space-Group Name (Hall Symbol): P 1 21 1 ( P 2yb)
+   Space-Group Number: 4
+   Unit Cell:   48.17   72.75   65.28   90.00   98.62   90.00
+
+--------------------
+SPACE GROUP ANALYSIS
+--------------------
+
+   Input Space Group: P 1 21 1
+
+   (a) Space groups derived by translation (screw) symmetry
+   --------------------------------------------------------
+   Z   Space Group    Hall Symbol
+   ----
+   2   P 1 21 1       P 2yb
+       P 1 2 1        P 2y
+   ----
+
+   (b) Subgroups of space group for perfect twinning expansions
+   ------------------------------------------------------------
+   R: Reindexing operation required (*)
+   Only subgroups related by rotational symmetry are reported
+   Z   Space Group   R Hall Symbol
+   ----
+   1   P 1             P 1
+   ---
+   2   P 1 21 1        P 2yb
+       P 1 2 1         P 2y
+   ----
+
+   Composition is of type: PROTEIN
+   MW to which Matthews applies: 53380
+   Resolution for Matthews calculation:  2.30
+
+   Z       MW         VM    % solvent  rel. freq.
+   1       53380      2.12  41.94      1.000       <== most probable
+
+   Z is the number of multiples of the total composition
+   In most cases the most probable Z value should be 1
+   If it is not 1, you may need to consider other compositions
+
+   Histogram of relative frequencies of VM values
+   ----------------------------------------------
+   Frequency of most common VM value normalized to 1
+   VM values plotted in increments of 1/VM (0.02)
+
+        <--- relative frequency --->
+        0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.0  
+        |    |    |    |    |    |    |    |    |    |    |    
+   10.00 -
+    8.33 -
+    7.14 -
+    6.25 -
+    5.56 -
+    5.00 -
+    4.55 -
+    4.17 -
+    3.85 --
+    3.57 ----
+    3.33 -------
+    3.12 -----------
+    2.94 ----------------
+    2.78 -----------------------
+    2.63 -------------------------------
+    2.50 ---------------------------------------
+    2.38 ----------------------------------------------
+    2.27 --------------------------------------------------
+    2.17 -------------------------------------------------
+    2.08 ******************************************* (COMPOSITION*1)
+    2.00 --------------------------------
+    1.92 ---------------------
+    1.85 -----------
+    1.79 -----
+    1.72 --
+    1.67 -
+    1.61 -
+    1.56 -
+    1.52 -
+    1.47 -
+    1.43 -
+    1.39 -
+    1.35 -
+    1.32 -
+    1.28 -
+    1.25 -
+
+   Most probable VM for resolution = 2.24226
+   Most probable MW of protein in asu for resolution = 50431.3
+
+CPU Time: 0 days 0 hrs 0 mins 2.99 secs (      2.99 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: EXPERIMENTAL ERROR CORRECTION PREPARATION                     2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+EXPERIMENTAL ERROR CORRECTION
+-----------------------------
+
+   Calculate Luzzati D factors accounting for observational error...
+
+   Data have been provided as French-Wilson amplitudes
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 3.06 secs (      3.06 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: EXPECTED LLG OF ENSEMBLES                                     2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+   Resolution of Data (Selected):    2.300 (2.29951)
+   Number of Reflections (Selected): 19852 (19852)
+   eLLG Target: 225
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble: ensemble_0
+   --------------------
+   PDB file # 1: ranked_0_plddt40.pdb
+      This file contains 1 model
+      The input RmsD of model #1 with respect to the real structure is 0.575
+
+   Guide to eLLG values
+   ---------------------
+   eLLG      Top solution correct?
+   <25       -no 
+   25-36     -unlikely
+   36-49     -possibly
+   49-64     -probably
+   >64       -yes
+
+-----------------
+POLY-ALANINE ELLG
+-----------------
+
+   Resolution = 2.29951
+   Default RMSD = 0.1 0.2 0.4 0.8 1.6 3.2
+   Minimum solvent = 20%
+      Maximum number of polyalanine residues = 616 (-full-)
+   Alanine residues for eLLG target = 123
+
+   Table of Alanine Residues for eLLG Target
+   -----------------------------------------
+                  ---RMSD--- 
+   eLLG-target |  0.10  0.20  0.40  0.80  1.60  3.20 
+           225 |   123   128   152   269 -full--full-
+           196 |   115   120   142   251 -full--full-
+           169 |   106   111   132   233 -full--full-
+           144 |    98   103   122   215 -full--full-
+           121 |    90    94   111   197 -full--full-
+           100 |    82    85   101   179   602 -full-
+            81 |    74    77    91   161   542 -full-
+            64 |    65    68    81   143   482 -full-
+            49 |    57    60    71   125   421 -full-
+            36 |    49    51    61   107   361 -full-
+            25 |    41    42    50    89   301 -full-
+            16 |    32    34    40    71   241 -full-
+             9 |    24    25    30    53   180 -full-
+             4 |    16    17    20    35   120 -full-
+             1 |     8     8    10    17    60   397 
+
+--------------
+MONOMERIC ELLG
+--------------
+
+   Expected LLG (eLLG)
+   -------------------
+   eLLG: eLLG of ensemble alone
+       eLLG   RMSD frac-scat  Ensemble
+     3605.2  0.575   0.99000  ensemble_0
+
+   Resolution for eLLG target
+   --------------------------
+   eLLG-reso: Resolution to achieve target eLLG (225)
+     eLLG-reso  Ensemble
+         6.132  ensemble_0
+
+   Resolution for eLLG target: data collection
+   -------------------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (225) with perfect data
+     eLLG-reso  Ensemble
+         6.136  ensemble_0
+
+   eLLG indicates that placement of a single copy of ensemble "ensemble_0" should be easy
+
+   Expected LLG (eLLG): Chains
+   ---------------------------
+   eLLG: eLLG of chain alone
+       eLLG   RMSD frac-scat chain  Ensemble
+     3605.2  0.575   0.99000  " A"  ensemble_0
+
+   Resolution for eLLG target: Chains
+   ----------------------------------
+   eLLG-reso: Resolution to achieve target eLLG (225)
+     eLLG-reso chain  Ensemble
+         6.132  " A"  ensemble_0
+
+--------------------
+HOMO-OLIGOMERIC ELLG
+--------------------
+
+   Number of copies for eLLG target
+   --------------------------------
+   eLLG-target   RMSD frac-scat-known frac-scat   num-copies  Ensemble
+           225  0.575         0.00000   0.99000            1  ensemble_0
+
+CPU Time: 0 days 0 hrs 0 mins 3.25 secs (      3.25 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Search Order (next search *) (placed +):
+**    #1   ensemble_0 *
+
+CPU Time: 0 days 0 hrs 0 mins 3.25 secs (      3.25 secs)
+Finished: Wed May 24 23:25:52 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT ROTATION FUNCTION                       2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+--------------------------
+DATA FOR ROTATION FUNCTION
+--------------------------
+
+   High resolution limit unaltered by RMS of ensemble
+   High resolution limit lowered by expected LLG =  6.13
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   6.13  48.28 (1077)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (950)
+                               - half number of centrics (127/2)
+                             = -1013
+   With correction for SigF,
+      Wilson log(likelihood) = -1025.77
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation: ensemble_0
+   -------------------------------
+   Ensemble configured for structure factor interpolation
+   Ensemble configured to resolution  6.13
+
+   Electron Density Calculation
+   0%      100%
+   |=======| DONE
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 6.13237
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    99.0   33.6      1  85.7  0.575  0.000  0.575 ensemble_0                         
+
+-----------------
+ROTATION FUNCTION
+-----------------
+
+   Ensemble configured to resolution  6.13
+   Elmn for Search Ensemble
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Search Ensemble
+   0%                                                                                100%
+   |==================================================================================| DONE
+
+   Target Function: FAST LERF1
+
+-------------------------
+ROTATION FUNCTION #1 OF 1
+-------------------------
+
+   Search Ensemble: ensemble_0
+
+   Sampling:  5.22 degrees
+
+
+   Spherical Harmonics
+   -------------------
+   Elmn for Data
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Data
+   0%                                                  100%
+   |====================================================| DONE
+
+   Scanning the Range of Beta Angles
+   ---------------------------------
+   Spreading calculation onto 8 threads.
+   Clmn Calculation
+   0%    100%
+   |======| DONE
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+      Also store peaks over 52.5% of top
+   There were 412 sites over 52.5% of top
+   412 peaks selected
+   The sites over 52.5% are:
+   #     Euler1 Euler2 Euler3    FSS   Z-score
+   1      230.2   65.7  317.7    100.000  5.22
+   2      229.8   76.2  319.1     94.887  4.95
+   3      107.7   35.1  140.1     89.459  4.67
+   #Sites = 412: output truncated to 3 sites
+
+   Top 412 rotations before clustering will be rescored
+   Spreading calculation onto 8 threads
+   Calculating Likelihood for RF #1 of 1
+   0%                                                   100%
+   |=====================================================| DONE
+
+   Mean and Standard Deviation
+   ---------------------------
+   Scoring 500 randomly sampled rotations
+   Spreading calculation onto 8 threads
+   Generating Statistics for RF #1 of 1
+   0%                                                              100%
+   |================================================================| DONE
+
+   Highest Score (Z-score):  -100.938   ( 4.41)
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+      Also store peaks over 60% of top
+   There were 95 sites over 60% of top
+   The sites over 60% are:
+   #     Euler1 Euler2 Euler3    LLG   Z-score Split #Group  FSS-this-ang/FSS-top
+   1      230.2   65.7  317.7    -100.94  4.41   0.0      2    100.000/   100.000
+          309.8  114.3  137.7
+   2      114.0   47.1   79.3    -101.43  4.39  96.7      2     77.269/    77.269
+           66.0  132.9  259.3
+   3      329.4   84.1  116.9    -108.09  4.12  42.8      2     66.598/    66.598
+          210.6   95.9  296.9
+   #SITES = 95: OUTPUT TRUNCATED TO 3 SITES
+
+   Rotation Function Results
+   Top1: ENSEMBLE ensemble_0 EULER 230.153 65.723 317.744 RF=-100.9 RFZ=4.41
+
+   Rotation Function Table: ensemble_0
+   -----------------------------------
+   (Z-scores from Fast Rotation Function)
+   #SET        Top    (Z)      Second    (Z)       Third    (Z)
+   1       -100.94   4.41     -101.43   4.39     -108.09   4.12
+
+---------------
+FINAL SELECTION
+---------------
+
+   Select by Percentage of Top value: 75%
+   Top RF = -100.938
+   Purge RF mean = -209.042
+   Number of sets stored before final selection = 1
+   Number of solutions stored before final selection = 95
+   Number of sets stored (deleted) after final selection = 1 (0)
+   Number of solutions stored (deleted) after final selection = 95 (0)
+   Percent used for purge = 60.000%
+      Includes deep search down percent = 15%
+      Number of solutions stored above (below) deep threshold = 25 (70)
+
+   Rotation Function Final Selection Table
+   ---------------------------------------
+   Rotation list length by SET
+   SET#  Start Final Deleted Set (*)   Deep: Start Final Deleted Set (*)
+      1  25    25          -                 95    95          -
+   ALL   25    25                            95    95   
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 7.37 secs (      7.37 secs)
+Finished: Wed May 24 23:25:53 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT TRANSLATION FUNCTION                    2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+DATA FOR TRANSLATION FUNCTION
+-----------------------------
+
+   High Resolution Limit imposed by RF list =  6.13
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   6.13  48.28 (1077)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (950)
+                               - half number of centrics (127/2)
+                             = -1013
+   With correction for SigF,
+      Wilson log(likelihood) = -1025.77
+
+------------------------
+ALTERNATIVE SPACE GROUPS
+------------------------
+
+   Space Group(s) to be tested:
+     P 1 21 1
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 6.13237
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    99.0   33.6      1  85.7  0.575  0.000  0.575 ensemble_0                         
+
+   Trace Generation: ensemble_0
+   ----------------------------
+      This trace is from coordinates
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   ensemble_0      C-alpha        482          3.00          2.00
+
+---------------------
+TRANSLATION FUNCTIONS
+---------------------
+
+   Target Function: FAST LETF1
+   Translation Packing Function applied: top peak will pack
+   Translation Packing Cutoff: 50%
+   Sampling:  1.53 Angstroms
+
+----------------------------
+TRANSLATION FUNCTION #1 OF 1
+----------------------------
+
+   SOLU SET 
+   SOLU SPAC P 1 21 1
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  230.153   65.723  317.744 RF -100.9 RFZ  4.41
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  114.039   47.076   79.305 RF -101.4 RFZ  4.39
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  329.393   84.112  116.917 RF -108.1 RFZ  4.12
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  171.060   15.945   93.294 RF -108.9 RFZ  4.09
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  107.734   35.072  140.112 RF -113.3 RFZ  3.91
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  337.270   83.786   51.799 RF -115.0 RFZ  3.84
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  265.117   31.613  192.676 RF -115.3 RFZ  3.83
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.237   32.617   55.818 RF -115.4 RFZ  3.82
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  291.412   84.137  136.530 RF -115.5 RFZ  3.82
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  110.976   36.896  188.221 RF -117.2 RFZ  3.75
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  259.894   84.412  130.552 RF -118.3 RFZ  3.70
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   62.410   70.536   85.645 RF -122.0 RFZ  3.55
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  327.795   54.708  150.845 RF -122.5 RFZ  3.53
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   86.372   65.473  214.981 RF -123.3 RFZ  3.50
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   94.957   44.372  216.245 RF -123.4 RFZ  3.49
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  345.924   74.164   81.606 RF -123.7 RFZ  3.48
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  300.845   83.780  168.053 RF -124.4 RFZ  3.45
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  270.360   68.196  119.698 RF -124.8 RFZ  3.44
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  273.137   75.507  335.009 RF -125.0 RFZ  3.43
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   85.516   28.573  160.867 RF -125.5 RFZ  3.41
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  287.953   82.931  114.444 RF -125.8 RFZ  3.40
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   92.049   73.236  270.169 RF -127.0 RFZ  3.35
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  103.377   46.023  191.172 RF -127.2 RFZ  3.34
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   37.424   30.098  224.758 RF -127.7 RFZ  3.32
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  266.446   83.656  326.462 RF -127.8 RFZ  3.32
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  157.311   88.704  230.841 RF -128.0 RFZ  3.31 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  256.234   78.341  339.274 RF -128.1 RFZ  3.30 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   29.237   42.351   29.856 RF -128.5 RFZ  3.29 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  229.753   76.177  319.081 RF -128.5 RFZ  3.29 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  182.730   67.614  339.240 RF -128.9 RFZ  3.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  212.617   68.473  334.127 RF -129.0 RFZ  3.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.301   57.714  120.037 RF -129.9 RFZ  3.23 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  302.522   64.927  293.135 RF -130.3 RFZ  3.21 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   40.535   71.511  151.201 RF -130.4 RFZ  3.21 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  134.012   19.719  146.930 RF -130.5 RFZ  3.20 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  122.070   40.622  184.833 RF -131.1 RFZ  3.18 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  133.338   74.619  138.594 RF -131.4 RFZ  3.17 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  109.753   56.600  137.123 RF -133.0 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  233.705   76.945  323.707 RF -133.1 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  188.496   68.647  209.082 RF -133.1 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  267.418   74.970   92.881 RF -133.2 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  162.940   53.535  271.489 RF -133.4 RFZ  3.09 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    0.916   43.310  241.397 RF -133.6 RFZ  3.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   98.326   80.640    7.661 RF -133.8 RFZ  3.07 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  350.251   86.001   90.551 RF -134.1 RFZ  3.06 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   23.435   87.019   54.996 RF -134.2 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  166.836   17.832   84.127 RF -134.3 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   96.400   76.455  246.229 RF -134.4 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   92.513   55.152  158.682 RF -134.5 RFZ  3.04 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  232.187   83.251  306.707 RF -134.6 RFZ  3.04 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  214.672   82.344  318.017 RF -134.7 RFZ  3.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  257.802   83.086  311.105 RF -134.8 RFZ  3.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  144.357   88.538  223.977 RF -135.0 RFZ  3.02 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  103.455   50.442  244.928 RF -135.3 RFZ  3.01 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   50.860   44.999  252.344 RF -135.7 RFZ  2.99 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  340.642   34.174   98.744 RF -135.9 RFZ  2.99 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  124.285   42.720  130.110 RF -136.1 RFZ  2.98 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  170.599   61.160  256.585 RF -136.6 RFZ  2.96 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  106.253   74.507  239.918 RF -136.6 RFZ  2.96 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  279.131   57.886  119.101 RF -136.8 RFZ  2.95 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   97.795   45.039  171.604 RF -136.9 RFZ  2.95 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  295.109   30.137  272.275 RF -137.0 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  128.764   69.216   48.749 RF -137.0 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.111   75.620  315.215 RF -137.1 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   82.066   77.956  193.151 RF -137.4 RFZ  2.93 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  252.586   80.238  310.858 RF -137.5 RFZ  2.92 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  286.487   61.501  116.358 RF -137.6 RFZ  2.92 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  248.525   73.968  306.946 RF -137.8 RFZ  2.91 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    7.490   44.145  240.320 RF -137.9 RFZ  2.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   33.569   86.381   55.343 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  257.761   53.574  116.295 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.782   43.720  209.113 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  198.594   57.172  338.920 RF -138.4 RFZ  2.88 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   93.286   70.157  187.769 RF -138.5 RFZ  2.88 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  278.423   57.670  337.053 RF -138.7 RFZ  2.87 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   63.521   67.759   76.893 RF -139.2 RFZ  2.85 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   78.341   81.905   61.173 RF -139.2 RFZ  2.85 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   31.498   61.494   10.980 RF -139.4 RFZ  2.84 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.784   65.089  135.466 RF -139.8 RFZ  2.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  343.418   26.359   79.217 RF -139.9 RFZ  2.82 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  266.383   67.163  318.553 RF -140.0 RFZ  2.82 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    8.923   37.088  231.973 RF -140.3 RFZ  2.80 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  162.456   42.218  150.311 RF -140.8 RFZ  2.79 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  258.573   79.171  306.633 RF -141.2 RFZ  2.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    8.899   44.371  233.387 RF -141.2 RFZ  2.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  275.077   54.477  124.808 RF -141.5 RFZ  2.76 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  200.817   37.524   29.978 RF -141.6 RFZ  2.75 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  227.726   80.656  327.560 RF -142.8 RFZ  2.70 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.794   63.721  235.702 RF -142.9 RFZ  2.70 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.193   20.784  260.573 RF -143.3 RFZ  2.69 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  242.212   60.572  221.968 RF -143.5 RFZ  2.68 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   89.717   69.647  195.617 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  101.171   39.670  190.648 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   79.039   84.111   18.151 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  270.328   73.295  323.015 RF -144.0 RFZ  2.65 # DEEP
+
+   This TF set has 95 trial orientations
+
+   #    Euler                  Rot-LLG      RF     RFZ  Ensemble
+   1     230.2   65.7  317.7    -100.9  -100.9     4.4 ensemble_0
+   2     114.0   47.1   79.3    -101.4  -101.4     4.4 ensemble_0
+   3     329.4   84.1  116.9    -108.1  -108.1     4.1 ensemble_0
+   4     171.1   15.9   93.3    -108.9  -108.9     4.1 ensemble_0
+   5     107.7   35.1  140.1    -113.3  -113.3     3.9 ensemble_0
+   6     337.3   83.8   51.8    -115.0  -115.0     3.8 ensemble_0
+   7     265.1   31.6  192.7    -115.3  -115.3     3.8 ensemble_0
+   8       2.2   32.6   55.8    -115.4  -115.4     3.8 ensemble_0
+   9     291.4   84.1  136.5    -115.5  -115.5     3.8 ensemble_0
+   10    111.0   36.9  188.2    -117.2  -117.2     3.7 ensemble_0
+   11    259.9   84.4  130.6    -118.3  -118.3     3.7 ensemble_0
+   12     62.4   70.5   85.6    -122.0  -122.0     3.6 ensemble_0
+   13    327.8   54.7  150.8    -122.5  -122.5     3.5 ensemble_0
+   14     86.4   65.5  215.0    -123.3  -123.3     3.5 ensemble_0
+   15     95.0   44.4  216.2    -123.4  -123.4     3.5 ensemble_0
+   16    345.9   74.2   81.6    -123.7  -123.7     3.5 ensemble_0
+   17    300.8   83.8  168.1    -124.4  -124.4     3.5 ensemble_0
+   18    270.4   68.2  119.7    -124.8  -124.8     3.4 ensemble_0
+   19    273.1   75.5  335.0    -125.0  -125.0     3.4 ensemble_0
+   20     85.5   28.6  160.9    -125.5  -125.5     3.4 ensemble_0
+   21    288.0   82.9  114.4    -125.8  -125.8     3.4 ensemble_0
+   22     92.0   73.2  270.2    -127.0  -127.0     3.3 ensemble_0
+   23    103.4   46.0  191.2    -127.2  -127.2     3.3 ensemble_0
+   24     37.4   30.1  224.8    -127.7  -127.7     3.3 ensemble_0
+   25    266.4   83.7  326.5    -127.8  -127.8     3.3 ensemble_0
+   ----- angles below here for deep search only -----
+   26    157.3   88.7  230.8    -128.0  -128.0     3.3 ensemble_0
+   27    256.2   78.3  339.3    -128.1  -128.1     3.3 ensemble_0
+   28     29.2   42.4   29.9    -128.5  -128.5     3.3 ensemble_0
+   29    229.8   76.2  319.1    -128.5  -128.5     3.3 ensemble_0
+   30    182.7   67.6  339.2    -128.9  -128.9     3.3 ensemble_0
+   31    212.6   68.5  334.1    -129.0  -129.0     3.3 ensemble_0
+   32    262.3   57.7  120.0    -129.9  -129.9     3.2 ensemble_0
+   33    302.5   64.9  293.1    -130.3  -130.3     3.2 ensemble_0
+   34     40.5   71.5  151.2    -130.4  -130.4     3.2 ensemble_0
+   35    134.0   19.7  146.9    -130.5  -130.5     3.2 ensemble_0
+   36    122.1   40.6  184.8    -131.1  -131.1     3.2 ensemble_0
+   37    133.3   74.6  138.6    -131.4  -131.4     3.2 ensemble_0
+   38    109.8   56.6  137.1    -133.0  -133.0     3.1 ensemble_0
+   39    233.7   76.9  323.7    -133.1  -133.1     3.1 ensemble_0
+   40    188.5   68.6  209.1    -133.1  -133.1     3.1 ensemble_0
+   41    267.4   75.0   92.9    -133.2  -133.2     3.1 ensemble_0
+   42    162.9   53.5  271.5    -133.4  -133.4     3.1 ensemble_0
+   43      0.9   43.3  241.4    -133.6  -133.6     3.1 ensemble_0
+   44     98.3   80.6    7.7    -133.8  -133.8     3.1 ensemble_0
+   45    350.3   86.0   90.6    -134.1  -134.1     3.1 ensemble_0
+   46     23.4   87.0   55.0    -134.2  -134.2     3.1 ensemble_0
+   47    166.8   17.8   84.1    -134.3  -134.3     3.1 ensemble_0
+   48     96.4   76.5  246.2    -134.4  -134.4     3.0 ensemble_0
+   49     92.5   55.2  158.7    -134.5  -134.5     3.0 ensemble_0
+   50    232.2   83.3  306.7    -134.6  -134.6     3.0 ensemble_0
+   51    214.7   82.3  318.0    -134.7  -134.7     3.0 ensemble_0
+   52    257.8   83.1  311.1    -134.8  -134.8     3.0 ensemble_0
+   53    144.4   88.5  224.0    -135.0  -135.0     3.0 ensemble_0
+   54    103.5   50.4  244.9    -135.3  -135.3     3.0 ensemble_0
+   55     50.9   45.0  252.3    -135.7  -135.7     3.0 ensemble_0
+   56    340.6   34.2   98.7    -135.9  -135.9     3.0 ensemble_0
+   57    124.3   42.7  130.1    -136.1  -136.1     3.0 ensemble_0
+   58    170.6   61.2  256.6    -136.6  -136.6     3.0 ensemble_0
+   59    106.3   74.5  239.9    -136.6  -136.6     3.0 ensemble_0
+   60    279.1   57.9  119.1    -136.8  -136.8     2.9 ensemble_0
+   61     97.8   45.0  171.6    -136.9  -136.9     2.9 ensemble_0
+   62    295.1   30.1  272.3    -137.0  -137.0     2.9 ensemble_0
+   63    128.8   69.2   48.7    -137.0  -137.0     2.9 ensemble_0
+   64    262.1   75.6  315.2    -137.1  -137.1     2.9 ensemble_0
+   65     82.1   78.0  193.2    -137.4  -137.4     2.9 ensemble_0
+   66    252.6   80.2  310.9    -137.5  -137.5     2.9 ensemble_0
+   67    286.5   61.5  116.4    -137.6  -137.6     2.9 ensemble_0
+   68    248.5   74.0  306.9    -137.8  -137.8     2.9 ensemble_0
+   69      7.5   44.1  240.3    -137.9  -137.9     2.9 ensemble_0
+   70     33.6   86.4   55.3    -138.3  -138.3     2.9 ensemble_0
+   71    257.8   53.6  116.3    -138.3  -138.3     2.9 ensemble_0
+   72      2.8   43.7  209.1    -138.3  -138.3     2.9 ensemble_0
+   73    198.6   57.2  338.9    -138.4  -138.4     2.9 ensemble_0
+   74     93.3   70.2  187.8    -138.5  -138.5     2.9 ensemble_0
+   75    278.4   57.7  337.1    -138.7  -138.7     2.9 ensemble_0
+   76     63.5   67.8   76.9    -139.2  -139.2     2.9 ensemble_0
+   77     78.3   81.9   61.2    -139.2  -139.2     2.9 ensemble_0
+   78     31.5   61.5   11.0    -139.4  -139.4     2.8 ensemble_0
+   79    262.8   65.1  135.5    -139.8  -139.8     2.8 ensemble_0
+   80    343.4   26.4   79.2    -139.9  -139.9     2.8 ensemble_0
+   81    266.4   67.2  318.6    -140.0  -140.0     2.8 ensemble_0
+   82      8.9   37.1  232.0    -140.3  -140.3     2.8 ensemble_0
+   83    162.5   42.2  150.3    -140.8  -140.8     2.8 ensemble_0
+   84    258.6   79.2  306.6    -141.2  -141.2     2.8 ensemble_0
+   85      8.9   44.4  233.4    -141.2  -141.2     2.8 ensemble_0
+   86    275.1   54.5  124.8    -141.5  -141.5     2.8 ensemble_0
+   87    200.8   37.5   30.0    -141.6  -141.6     2.8 ensemble_0
+   88    227.7   80.7  327.6    -142.8  -142.8     2.7 ensemble_0
+   89      2.8   63.7  235.7    -142.9  -142.9     2.7 ensemble_0
+   90    262.2   20.8  260.6    -143.3  -143.3     2.7 ensemble_0
+   91    242.2   60.6  222.0    -143.5  -143.5     2.7 ensemble_0
+   92     89.7   69.6  195.6    -143.8  -143.8     2.7 ensemble_0
+   93    101.2   39.7  190.6    -143.8  -143.8     2.7 ensemble_0
+   94     79.0   84.1   18.2    -143.8  -143.8     2.7 ensemble_0
+   95    270.3   73.3  323.0    -144.0  -144.0     2.7 ensemble_0
+      25 trial orientations in initial search
+      70 trial orientations in deep search
+
+   Scoring 570 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0%           100%
+   |=============| DONE
+
+   Mean Score (Sigma):       -477.20   (37.31)
+
+   SET #1 of 1 TRIAL #1 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 230.15  65.72 317.74 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      56 peaks
+      All peaks checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = -155.87 (TFZ=3.3) at Trial #1
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 8 sites over 67.5% of top
+   8 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.244  0.000  0.218    -155.87  3.33
+   2      0.337 -0.000  0.968    -165.33  3.00
+   3      0.275  0.000  0.156    -177.24  2.58
+   #Sites = 8: output truncated to 3 sites
+
+   Top 8 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #1 of 25
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 11...
+      8 peaks
+      1 peaks over -329.508 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = -329.51 (TFZ=3.3) at Trial #1
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 4 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.244  0.000  0.218    -329.51  3.33   0.0      1    -155.87/   -155.87
+   2      0.275  0.000  0.156    -350.38  2.58   4.6      1    -177.24/   -177.24
+   3      0.056  0.000  0.343    -353.08  2.43  13.0      1    -181.47/   -181.47
+   #SITES = 4: OUTPUT TRUNCATED TO 3 SITES
+
+   SET #1 of 1 TRIAL #2 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 114.04  47.08  79.30 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -155.87 (TFZ=3.3)
+   Current Top (ML) Packing Translation Function LLG = -329.51 (TFZ=3.3)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.009 -0.000  0.260    -190.32  2.91
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #2 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.009 -0.000  0.260    -365.43  2.91   0.0      1    -190.32/   -190.32
+
+   SET #1 of 1 TRIAL #3 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 329.39  84.11 116.92 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -155.87 (TFZ=3.3)
+   Current Top (ML) Packing Translation Function LLG = -329.51 (TFZ=3.3)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.206  0.000  0.268    -191.84  2.97
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #3 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.206  0.000  0.268    -377.17  2.97   0.0      1    -191.84/   -191.84
+
+   SET #1 of 1 TRIAL #4 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 171.06  15.94  93.29 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      51 peaks
+      1 peaks over -155.874 checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = -146.76 (TFZ=3.6) at Trial #4
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.202  0.000  0.044    -146.76  3.63
+   2      0.077  0.000  0.128    -173.81  2.72
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #4 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.202  0.000  0.044    -334.33  3.63   0.0      1    -146.76/   -146.76
+
+   SET #1 of 1 TRIAL #5 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 107.73  35.07 140.11 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -146.76 (TFZ=3.6)
+   Current Top (ML) Packing Translation Function LLG = -329.51 (TFZ=3.3)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 3 sites over 67.5% of top
+   3 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.222  0.000  0.038    -156.81  3.26
+   2      0.254  0.000  0.996    -162.72  3.07
+   3      0.254  0.000  0.434    -172.54  2.77
+
+   Top 3 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #5 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 3 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.222  0.000  0.038    -341.04  3.26   0.0      1    -156.81/   -156.81
+   2      0.254  0.000  0.996    -361.52  3.07   3.3      1    -162.72/   -162.72
+   3      0.254  0.000  0.434    -361.88  2.77  25.7      1    -172.54/   -172.54
+
+   SET #1 of 1 TRIAL #6 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 337.27  83.79  51.80 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      51 peaks
+      1 peaks over -146.762 checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8) at Trial #6
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.235  0.000  0.074    -138.06  3.84
+   2      0.110  0.000  0.283    -172.99  2.61
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #6 of 25
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      2 peaks
+      1 peaks over -329.508 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = -316.89 (TFZ=3.8) at Trial #6
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.235  0.000  0.074    -316.89  3.84   0.0      1    -138.06/   -138.06
+
+   SET #1 of 1 TRIAL #7 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 265.12  31.61 192.68 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.89 (TFZ=3.8)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.450  0.000  0.430    -176.07  2.90
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #7 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.450  0.000  0.430    -379.64  2.90   0.0      1    -176.07/   -176.07
+
+   SET #1 of 1 TRIAL #8 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler   2.24  32.62  55.82 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.89 (TFZ=3.8)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #9 of 25
+   --------------------------
+   Ensemble ensemble_0 Euler 291.41  84.14 136.53 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.89 (TFZ=3.8)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #10 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 110.98  36.90 188.22 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.89 (TFZ=3.8)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.094  0.000  0.121    -169.32  2.98
+   2      0.219  0.000  0.454    -172.59  2.87
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #10 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 2 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.094  0.000  0.121    -357.95  2.98   0.0      1    -169.32/   -169.32
+   2      0.219  0.000  0.454    -361.30  2.87  21.7      1    -172.59/   -172.59
+
+   SET #1 of 1 TRIAL #11 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 259.89  84.41 130.55 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.89 (TFZ=3.8)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.369  0.000  0.501    -154.21  3.95
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #11 of 25
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      1 peaks
+      1 peaks over -316.889 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = -316.11 (TFZ=3.9) at Trial #11
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.369  0.000  0.501    -316.11  3.95   0.0      1    -154.21/   -154.21
+
+   SET #1 of 1 TRIAL #12 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  62.41  70.54  85.65 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #13 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 327.80  54.71 150.85 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.216  0.000  0.238    -181.68  3.40
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #13 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.216  0.000  0.238    -361.10  3.40   0.0      1    -181.68/   -181.68
+
+   SET #1 of 1 TRIAL #14 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  86.37  65.47 214.98 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #15 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  94.96  44.37 216.24 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.032  0.000  0.139    -170.63  3.11
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #15 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.032  0.000  0.139    -360.99  3.11   0.0      1    -170.63/   -170.63
+
+   SET #1 of 1 TRIAL #16 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 345.92  74.16  81.61 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #17 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 300.85  83.78 168.05 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.388 -0.000  0.190    -180.37  3.32
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #17 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.388 -0.000  0.190    -368.10  3.32   0.0      1    -180.37/   -180.37
+
+   SET #1 of 1 TRIAL #18 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 270.36  68.20 119.70 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.398  0.000  0.116    -180.59  3.32
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #18 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.398  0.000  0.116    -353.73  3.32   0.0      1    -180.59/   -180.59
+
+   SET #1 of 1 TRIAL #19 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 273.14  75.51 335.01 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #20 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  85.52  28.57 160.87 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #21 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 287.95  82.93 114.44 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #22 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  92.05  73.24 270.17 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.498 -0.000  0.296    -185.48  3.13
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #22 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.498 -0.000  0.296    -378.91  3.13   0.0      1    -185.48/   -185.48
+
+   SET #1 of 1 TRIAL #23 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 103.38  46.02 191.17 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.185  0.000  0.333    -185.55  3.23
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #23 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.185  0.000  0.333    -370.99  3.23   0.0      1    -185.55/   -185.55
+
+   SET #1 of 1 TRIAL #24 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler  37.42  30.10 224.76 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.309  0.000  0.236    -175.30  3.37
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #24 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.309  0.000  0.236    -347.34  3.37   0.0      1    -175.30/   -175.30
+
+   SET #1 of 1 TRIAL #25 of 25
+   ---------------------------
+   Ensemble ensemble_0 Euler 266.45  83.66 326.46 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.990  0.000  0.097    -181.88  3.07
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #25 of 25
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.990  0.000  0.097    -374.38  3.07   0.0      1    -181.88/   -181.88
+
+-------------------------
+DEEP TRANSLATION FUNCTION
+-------------------------
+
+   Best TFZ is NOT over Z-score cutoff for definite solution (8.00)
+   Search deep in trial orientation list
+
+---------------------------------
+DEEP TRANSLATION FUNCTION #1 OF 1
+---------------------------------
+
+   70 trial orientations in deep search
+
+   SOLU SET 
+   SOLU SPAC P 1 21 1
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  230.153   65.723  317.744 RF -100.9 RFZ  4.41
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  114.039   47.076   79.305 RF -101.4 RFZ  4.39
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  329.393   84.112  116.917 RF -108.1 RFZ  4.12
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  171.060   15.945   93.294 RF -108.9 RFZ  4.09
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  107.734   35.072  140.112 RF -113.3 RFZ  3.91
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  337.270   83.786   51.799 RF -115.0 RFZ  3.84
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  265.117   31.613  192.676 RF -115.3 RFZ  3.83
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.237   32.617   55.818 RF -115.4 RFZ  3.82
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  291.412   84.137  136.530 RF -115.5 RFZ  3.82
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  110.976   36.896  188.221 RF -117.2 RFZ  3.75
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  259.894   84.412  130.552 RF -118.3 RFZ  3.70
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   62.410   70.536   85.645 RF -122.0 RFZ  3.55
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  327.795   54.708  150.845 RF -122.5 RFZ  3.53
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   86.372   65.473  214.981 RF -123.3 RFZ  3.50
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   94.957   44.372  216.245 RF -123.4 RFZ  3.49
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  345.924   74.164   81.606 RF -123.7 RFZ  3.48
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  300.845   83.780  168.053 RF -124.4 RFZ  3.45
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  270.360   68.196  119.698 RF -124.8 RFZ  3.44
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  273.137   75.507  335.009 RF -125.0 RFZ  3.43
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   85.516   28.573  160.867 RF -125.5 RFZ  3.41
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  287.953   82.931  114.444 RF -125.8 RFZ  3.40
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   92.049   73.236  270.169 RF -127.0 RFZ  3.35
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  103.377   46.023  191.172 RF -127.2 RFZ  3.34
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   37.424   30.098  224.758 RF -127.7 RFZ  3.32
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  266.446   83.656  326.462 RF -127.8 RFZ  3.32
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  157.311   88.704  230.841 RF -128.0 RFZ  3.31 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  256.234   78.341  339.274 RF -128.1 RFZ  3.30 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   29.237   42.351   29.856 RF -128.5 RFZ  3.29 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  229.753   76.177  319.081 RF -128.5 RFZ  3.29 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  182.730   67.614  339.240 RF -128.9 RFZ  3.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  212.617   68.473  334.127 RF -129.0 RFZ  3.27 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.301   57.714  120.037 RF -129.9 RFZ  3.23 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  302.522   64.927  293.135 RF -130.3 RFZ  3.21 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   40.535   71.511  151.201 RF -130.4 RFZ  3.21 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  134.012   19.719  146.930 RF -130.5 RFZ  3.20 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  122.070   40.622  184.833 RF -131.1 RFZ  3.18 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  133.338   74.619  138.594 RF -131.4 RFZ  3.17 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  109.753   56.600  137.123 RF -133.0 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  233.705   76.945  323.707 RF -133.1 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  188.496   68.647  209.082 RF -133.1 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  267.418   74.970   92.881 RF -133.2 RFZ  3.10 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  162.940   53.535  271.489 RF -133.4 RFZ  3.09 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    0.916   43.310  241.397 RF -133.6 RFZ  3.08 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   98.326   80.640    7.661 RF -133.8 RFZ  3.07 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  350.251   86.001   90.551 RF -134.1 RFZ  3.06 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   23.435   87.019   54.996 RF -134.2 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  166.836   17.832   84.127 RF -134.3 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   96.400   76.455  246.229 RF -134.4 RFZ  3.05 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   92.513   55.152  158.682 RF -134.5 RFZ  3.04 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  232.187   83.251  306.707 RF -134.6 RFZ  3.04 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  214.672   82.344  318.017 RF -134.7 RFZ  3.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  257.802   83.086  311.105 RF -134.8 RFZ  3.03 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  144.357   88.538  223.977 RF -135.0 RFZ  3.02 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  103.455   50.442  244.928 RF -135.3 RFZ  3.01 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   50.860   44.999  252.344 RF -135.7 RFZ  2.99 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  340.642   34.174   98.744 RF -135.9 RFZ  2.99 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  124.285   42.720  130.110 RF -136.1 RFZ  2.98 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  170.599   61.160  256.585 RF -136.6 RFZ  2.96 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  106.253   74.507  239.918 RF -136.6 RFZ  2.96 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  279.131   57.886  119.101 RF -136.8 RFZ  2.95 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   97.795   45.039  171.604 RF -136.9 RFZ  2.95 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  295.109   30.137  272.275 RF -137.0 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  128.764   69.216   48.749 RF -137.0 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.111   75.620  315.215 RF -137.1 RFZ  2.94 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   82.066   77.956  193.151 RF -137.4 RFZ  2.93 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  252.586   80.238  310.858 RF -137.5 RFZ  2.92 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  286.487   61.501  116.358 RF -137.6 RFZ  2.92 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  248.525   73.968  306.946 RF -137.8 RFZ  2.91 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    7.490   44.145  240.320 RF -137.9 RFZ  2.90 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   33.569   86.381   55.343 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  257.761   53.574  116.295 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.782   43.720  209.113 RF -138.3 RFZ  2.89 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  198.594   57.172  338.920 RF -138.4 RFZ  2.88 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   93.286   70.157  187.769 RF -138.5 RFZ  2.88 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  278.423   57.670  337.053 RF -138.7 RFZ  2.87 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   63.521   67.759   76.893 RF -139.2 RFZ  2.85 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   78.341   81.905   61.173 RF -139.2 RFZ  2.85 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   31.498   61.494   10.980 RF -139.4 RFZ  2.84 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.784   65.089  135.466 RF -139.8 RFZ  2.83 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  343.418   26.359   79.217 RF -139.9 RFZ  2.82 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  266.383   67.163  318.553 RF -140.0 RFZ  2.82 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    8.923   37.088  231.973 RF -140.3 RFZ  2.80 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  162.456   42.218  150.311 RF -140.8 RFZ  2.79 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  258.573   79.171  306.633 RF -141.2 RFZ  2.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    8.899   44.371  233.387 RF -141.2 RFZ  2.77 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  275.077   54.477  124.808 RF -141.5 RFZ  2.76 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  200.817   37.524   29.978 RF -141.6 RFZ  2.75 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  227.726   80.656  327.560 RF -142.8 RFZ  2.70 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER    2.794   63.721  235.702 RF -142.9 RFZ  2.70 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  262.193   20.784  260.573 RF -143.3 RFZ  2.69 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  242.212   60.572  221.968 RF -143.5 RFZ  2.68 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   89.717   69.647  195.617 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  101.171   39.670  190.648 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER   79.039   84.111   18.151 RF -143.8 RFZ  2.66 # DEEP
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  270.328   73.295  323.015 RF -144.0 RFZ  2.65 # DEEP
+
+   Scoring 570 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0%           100%
+   |=============| DONE
+
+   Mean Score (Sigma):       -477.20   (37.31)
+
+   SET #1 of 1 TRIAL #26 of 95 (TRIAL #1 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 157.31  88.70 230.84 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.167  0.000  0.069    -169.46  3.74
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #26 of 95 (TRIAL #1 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.167  0.000  0.069    -358.29  3.74   0.0      1    -169.46/   -169.46
+
+   SET #1 of 1 TRIAL #27 of 95 (TRIAL #2 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 256.23  78.34 339.27 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #28 of 95 (TRIAL #3 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler  29.24  42.35  29.86 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #29 of 95 (TRIAL #4 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 229.75  76.18 319.08 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.375 -0.000  0.033    -167.02  3.79
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #29 of 95 (TRIAL #4 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.375 -0.000  0.033    -359.36  3.79   0.0      1    -167.02/   -167.02
+
+   SET #1 of 1 TRIAL #30 of 95 (TRIAL #5 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 182.73  67.61 339.24 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #31 of 95 (TRIAL #6 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 212.62  68.47 334.13 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #32 of 95 (TRIAL #7 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 262.30  57.71 120.04 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.246  0.000  0.089    -178.85  3.37
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #32 of 95 (TRIAL #7 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.246  0.000  0.089    -381.82  3.37   0.0      1    -178.85/   -178.85
+
+   SET #1 of 1 TRIAL #33 of 95 (TRIAL #8 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler 302.52  64.93 293.14 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #34 of 95 (TRIAL #9 of 70 deep)
+   -------------------------------------------------
+   Ensemble ensemble_0 Euler  40.54  71.51 151.20 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #35 of 95 (TRIAL #10 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 134.01  19.72 146.93 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.398  0.000  0.425    -184.70  3.35
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #35 of 95 (TRIAL #10 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.398  0.000  0.425    -366.72  3.35   0.0      1    -184.70/   -184.70
+
+   SET #1 of 1 TRIAL #36 of 95 (TRIAL #11 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 122.07  40.62 184.83 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #37 of 95 (TRIAL #12 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 133.34  74.62 138.59 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #38 of 95 (TRIAL #13 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 109.75  56.60 137.12 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.412  0.000  0.363    -178.96  3.26
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #38 of 95 (TRIAL #13 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.412  0.000  0.363    -396.90  3.26   0.0      1    -178.96/   -178.96
+
+   SET #1 of 1 TRIAL #39 of 95 (TRIAL #14 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 233.70  76.95 323.71 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #40 of 95 (TRIAL #15 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 188.50  68.65 209.08 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #41 of 95 (TRIAL #16 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 267.42  74.97  92.88 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #42 of 95 (TRIAL #17 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 162.94  53.54 271.49 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #43 of 95 (TRIAL #18 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   0.92  43.31 241.40 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #44 of 95 (TRIAL #19 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  98.33  80.64   7.66 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #45 of 95 (TRIAL #20 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 350.25  86.00  90.55 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #46 of 95 (TRIAL #21 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  23.43  87.02  55.00 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #47 of 95 (TRIAL #22 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 166.84  17.83  84.13 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.226  0.000  0.044    -185.35  3.33
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #47 of 95 (TRIAL #22 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.226  0.000  0.044    -362.00  3.33   0.0      1    -185.35/   -185.35
+
+   SET #1 of 1 TRIAL #48 of 95 (TRIAL #23 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  96.40  76.46 246.23 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #49 of 95 (TRIAL #24 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  92.51  55.15 158.68 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #50 of 95 (TRIAL #25 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 232.19  83.25 306.71 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #51 of 95 (TRIAL #26 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 214.67  82.34 318.02 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #52 of 95 (TRIAL #27 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 257.80  83.09 311.10 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #53 of 95 (TRIAL #28 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 144.36  88.54 223.98 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #54 of 95 (TRIAL #29 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 103.46  50.44 244.93 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #55 of 95 (TRIAL #30 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  50.86  45.00 252.34 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.293  0.000  0.461    -174.85  3.58
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #55 of 95 (TRIAL #30 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.293  0.000  0.461    -357.50  3.58   0.0      1    -174.85/   -174.85
+
+   SET #1 of 1 TRIAL #56 of 95 (TRIAL #31 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 340.64  34.17  98.74 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #57 of 95 (TRIAL #32 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 124.28  42.72 130.11 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #58 of 95 (TRIAL #33 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 170.60  61.16 256.59 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.494  0.000  0.423    -173.48  3.46
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #58 of 95 (TRIAL #33 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.494  0.000  0.423    -355.15  3.46   0.0      1    -173.48/   -173.48
+
+   SET #1 of 1 TRIAL #59 of 95 (TRIAL #34 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 106.25  74.51 239.92 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #60 of 95 (TRIAL #35 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 279.13  57.89 119.10 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.360  0.000  0.214    -182.78  3.41
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #60 of 95 (TRIAL #35 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.360  0.000  0.214    -384.55  3.41   0.0      1    -182.78/   -182.78
+
+   SET #1 of 1 TRIAL #61 of 95 (TRIAL #36 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  97.80  45.04 171.60 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #62 of 95 (TRIAL #37 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 295.11  30.14 272.27 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #63 of 95 (TRIAL #38 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 128.76  69.22  48.75 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.986  0.000  0.151    -162.57  3.73
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #63 of 95 (TRIAL #38 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.986  0.000  0.151    -336.35  3.73   0.0      1    -162.57/   -162.57
+
+   SET #1 of 1 TRIAL #64 of 95 (TRIAL #39 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 262.11  75.62 315.21 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #65 of 95 (TRIAL #40 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  82.07  77.96 193.15 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #66 of 95 (TRIAL #41 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 252.59  80.24 310.86 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #67 of 95 (TRIAL #42 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 286.49  61.50 116.36 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #68 of 95 (TRIAL #43 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 248.52  73.97 306.95 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #69 of 95 (TRIAL #44 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   7.49  44.14 240.32 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #70 of 95 (TRIAL #45 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  33.57  86.38  55.34 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.143  0.000  0.202    -173.38  3.51
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #70 of 95 (TRIAL #45 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.143  0.000  0.202    -367.33  3.51   0.0      1    -173.38/   -173.38
+
+   SET #1 of 1 TRIAL #71 of 95 (TRIAL #46 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 257.76  53.57 116.29 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #72 of 95 (TRIAL #47 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   2.78  43.72 209.11 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #73 of 95 (TRIAL #48 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 198.59  57.17 338.92 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.468  0.000  0.383    -178.52  3.28
+   2      0.124  0.000  0.216    -178.95  3.27
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #73 of 95 (TRIAL #48 of 70 deep)
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 2 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.468  0.000  0.383    -347.69  3.28   0.0      1    -178.52/   -178.52
+   2      0.124  0.000  0.216    -377.39  3.27  18.4      1    -178.95/   -178.95
+
+   SET #1 of 1 TRIAL #74 of 95 (TRIAL #49 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  93.29  70.16 187.77 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #75 of 95 (TRIAL #50 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 278.42  57.67 337.05 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #76 of 95 (TRIAL #51 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  63.52  67.76  76.89 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #77 of 95 (TRIAL #52 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  78.34  81.91  61.17 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #78 of 95 (TRIAL #53 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  31.50  61.49  10.98 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #79 of 95 (TRIAL #54 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 262.78  65.09 135.47 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #80 of 95 (TRIAL #55 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 343.42  26.36  79.22 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #81 of 95 (TRIAL #56 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 266.38  67.16 318.55 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #82 of 95 (TRIAL #57 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   8.92  37.09 231.97 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #83 of 95 (TRIAL #58 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 162.46  42.22 150.31 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #84 of 95 (TRIAL #59 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 258.57  79.17 306.63 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #85 of 95 (TRIAL #60 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   8.90  44.37 233.39 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #86 of 95 (TRIAL #61 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 275.08  54.48 124.81 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #87 of 95 (TRIAL #62 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 200.82  37.52  29.98 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #88 of 95 (TRIAL #63 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 227.73  80.66 327.56 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #89 of 95 (TRIAL #64 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler   2.79  63.72 235.70 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #90 of 95 (TRIAL #65 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 262.19  20.78 260.57 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #91 of 95 (TRIAL #66 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 242.21  60.57 221.97 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #92 of 95 (TRIAL #67 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  89.72  69.65 195.62 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #93 of 95 (TRIAL #68 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 101.17  39.67 190.65 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #94 of 95 (TRIAL #69 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler  79.04  84.11  18.15 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   SET #1 of 1 TRIAL #95 of 95 (TRIAL #70 of 70 deep)
+   --------------------------------------------------
+   Ensemble ensemble_0 Euler 270.33  73.30 323.02 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -138.06 (TFZ=3.8)
+   Current Top (ML) Packing Translation Function LLG = -316.11 (TFZ=3.9)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   No peaks within selection criteria
+   No translations within selection criteria for rescoring
+
+   Translation Function Results
+   Top1: ENSEMBLE ensemble_0 EULER 259.894 84.412 130.552 FRAC 0.369 0.000 0.501 TF=-316.1
+
+   Translation Function Table
+   --------------------------
+   SET ROT*deep   Top   (Z)     Second   (Z)      Third   (Z) SpaceGroup  Ensemble
+     1   1     -329.5  3.33     -350.4  2.58     -353.1  2.43 P 1 21 1 ensemble   
+     1   2     -365.4  2.91          -     -          -     - P 1 21 1 ensemble   
+     1   3     -377.2  2.97          -     -          -     - P 1 21 1 ensemble   
+     1   4     -334.3  3.63          -     -          -     - P 1 21 1 ensemble   
+     1   5     -341.0  3.26     -361.5  3.07     -361.9  2.77 P 1 21 1 ensemble   
+     1   6     -316.9  3.84          -     -          -     - P 1 21 1 ensemble   
+     1   7     -379.6  2.90          -     -          -     - P 1 21 1 ensemble   
+     1   8          -     -          -     -          -     - P 1 21 1 ensemble   
+     1   9          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  10     -358.0  2.98     -361.3  2.87          -     - P 1 21 1 ensemble   
+     1  11     -316.1  3.95          -     -          -     - P 1 21 1 ensemble   
+     1  12          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  13     -361.1  3.40          -     -          -     - P 1 21 1 ensemble   
+     1  14          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  15     -361.0  3.11          -     -          -     - P 1 21 1 ensemble   
+     1  16          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  17     -368.1  3.32          -     -          -     - P 1 21 1 ensemble   
+     1  18     -353.7  3.32          -     -          -     - P 1 21 1 ensemble   
+     1  19          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  20          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  21          -     -          -     -          -     - P 1 21 1 ensemble   
+     1  22     -378.9  3.13          -     -          -     - P 1 21 1 ensemble   
+     1  23     -371.0  3.23          -     -          -     - P 1 21 1 ensemble   
+     1  24     -347.3  3.37          -     -          -     - P 1 21 1 ensemble   
+     1  25     -374.4  3.07          -     -          -     - P 1 21 1 ensemble   
+     1  26*    -358.3  3.74          -     -          -     - P 1 21 1 ensemble   
+     1  27*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  28*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  29*    -359.4  3.79          -     -          -     - P 1 21 1 ensemble   
+     1  30*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  31*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  32*    -381.8  3.37          -     -          -     - P 1 21 1 ensemble   
+     1  33*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  34*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  35*    -366.7  3.35          -     -          -     - P 1 21 1 ensemble   
+     1  36*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  37*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  38*    -396.9  3.26          -     -          -     - P 1 21 1 ensemble   
+     1  39*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  40*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  41*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  42*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  43*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  44*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  45*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  46*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  47*    -362.0  3.33          -     -          -     - P 1 21 1 ensemble   
+     1  48*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  49*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  50*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  51*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  52*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  53*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  54*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  55*    -357.5  3.58          -     -          -     - P 1 21 1 ensemble   
+     1  56*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  57*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  58*    -355.1  3.46          -     -          -     - P 1 21 1 ensemble   
+     1  59*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  60*    -384.5  3.41          -     -          -     - P 1 21 1 ensemble   
+     1  61*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  62*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  63*    -336.3  3.73          -     -          -     - P 1 21 1 ensemble   
+     1  64*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  65*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  66*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  67*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  68*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  69*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  70*    -367.3  3.51          -     -          -     - P 1 21 1 ensemble   
+     1  71*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  72*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  73*    -347.7  3.28     -377.4  3.27          -     - P 1 21 1 ensemble   
+     1  74*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  75*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  76*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  77*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  78*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  79*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  80*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  81*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  82*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  83*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  84*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  85*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  86*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  87*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  88*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  89*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  90*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  91*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  92*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  93*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  94*         -     -          -     -          -     - P 1 21 1 ensemble   
+     1  95*         -     -          -     -          -     - P 1 21 1 ensemble   
+   --- ---
+
+---------------
+FINAL SELECTION
+---------------
+
+   LLG will be used for purge, not FSS
+   Top TF  = -316.11
+   Top TFZ = 3.95
+   Mean TF = -477.20
+   Percent used for purge = 75%
+   Cutoff for acceptance = -356.4
+      TFZ used for final selection = 8
+         Number of solutions over TF final cutoff  = 12
+         Number of solutions over TFZ final cutoff = 0
+         Number of solutions over TF & TFZ cutoff  = 0
+   Number of solutions stored before final selection = 36
+   Number of solutions stored (deleted) after final selection = 12 (24)
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 15.35 secs (     15.35 secs)
+Finished: Wed May 24 23:25:55 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT PACKING ANALYSIS                        2.8.3 ***
+******************************************************************************************
+
+---------
+ENSEMBLES
+---------
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   ensemble_0      C-alpha        482          3.00          2.00
+
+-----------------
+ENSEMBLE SYMMETRY
+-----------------
+
+   Ensemble "ensemble_0" Point Group: 1
+
+   Clash background has been packed at 10.00%
+
+----------------
+PACKING FUNCTION
+----------------
+
+   There are 12 solutions to pack
+   Spreading calculation onto 8 threads.
+   Packing analysis
+   0% 100%
+   |===| DONE
+
+   Packing Table
+   -------------
+   Solutions accepted if pairwise clashes less than 10 % of trace atoms
+   #in  #out Clash-% Symm TF-SET  ROT TFpk#        TF    TFZ    SpaceGroup 
+   1    ---  >10.17  --       1    11    1       -316.11  3.95  P 1 21 1   
+   2    ---  >10.17  --       1     6    1       -316.89  3.84  P 1 21 1   
+   3    ---  >10.17  --       1     1    1       -329.51  3.33  P 1 21 1   
+   4    ---  >10.17  --       1     4    1       -334.33  3.63  P 1 21 1   
+   5    ---  >10.17  --       1    63    1       -336.35  3.73  P 1 21 1   
+   6    ---  >10.17  --       1     5    1       -341.04  3.26  P 1 21 1   
+   7    ---  >10.17  --       1    24    1       -347.34  3.37  P 1 21 1   
+   8    ---  >10.17  --       1    73    1       -347.69  3.28  P 1 21 1   
+   9    ---  >10.17  --       1     1    2       -350.38  2.58  P 1 21 1   
+   10   ---  >10.17  --       1     1    3       -353.08  2.43  P 1 21 1   
+   11   ---  >10.17  --       1    18    1       -353.73  3.32  P 1 21 1   
+   12   ---  >10.17  --       1    58    1       -355.15  3.46  P 1 21 1   
+
+   0 accepted of 12 solutions
+      0 pack of 0 accepted solutions
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 0 mins 16.61 secs (     16.61 secs)
+Finished: Wed May 24 23:25:55 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** First component
+** Use higher resolution for search
+
+CPU Time: 0 days 0 hrs 0 mins 16.61 secs (     16.61 secs)
+Finished: Wed May 24 23:25:55 2023
+
+** Solutions cleared
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Search Order (next search *) (placed +):
+**    #1   ensemble_0 *
+
+CPU Time: 0 days 0 hrs 0 mins 16.61 secs (     16.61 secs)
+Finished: Wed May 24 23:25:55 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT ROTATION FUNCTION                       2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+--------------------------
+DATA FOR ROTATION FUNCTION
+--------------------------
+
+   High resolution limit unaltered by RMS of ensemble
+   High resolution limit unaltered by expected LLG
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19852)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (18935)
+                               - half number of centrics (917/2)
+                             = -19393
+   With correction for SigF,
+      Wilson log(likelihood) = -19283.3
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation: ensemble_0
+   -------------------------------
+   Ensemble configured for structure factor interpolation
+   Ensemble configured to resolution  2.30
+
+   Electron Density Calculation
+   0%      100%
+   |=======| DONE
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.29951
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    99.0   33.6      1  31.7  0.575  0.000  0.575 ensemble_0                         
+
+-----------------
+ROTATION FUNCTION
+-----------------
+
+   Ensemble configured to resolution  2.30
+   Elmn for Search Ensemble
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Search Ensemble
+   0%                                              100%
+   |===============================================| DONE
+
+   Target Function: FAST LERF1
+
+-------------------------
+ROTATION FUNCTION #1 OF 1
+-------------------------
+
+   Search Ensemble: ensemble_0
+
+   Sampling:  1.96 degrees
+
+
+   Spherical Harmonics
+   -------------------
+   Elmn for Data
+   Spreading calculation onto 8 threads.
+   Elmn Calculation for Data
+   0%                                            100%
+   |=============================================| DONE
+
+   Scanning the Range of Beta Angles
+   ---------------------------------
+   Spreading calculation onto 8 threads.
+   Clmn Calculation
+   0%           100%
+   |=============| DONE
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+      Also store peaks over 52.5% of top
+   There were 100 sites over 52.5% of top
+   100 peaks selected
+   The sites over 52.5% are:
+   #     Euler1 Euler2 Euler3    FSS   Z-score
+   1      225.0   70.2  320.8    100.000 13.02
+   2      225.4   70.2  319.7     96.458 12.56
+   3      224.6   70.1  321.8     94.146 12.26
+   #Sites = 100: output truncated to 3 sites
+
+   Top 100 rotations before clustering will be rescored
+   Spreading calculation onto 8 threads
+   Calculating Likelihood for RF #1 of 1
+   0%            100%
+   |==============| DONE
+
+   Mean and Standard Deviation
+   ---------------------------
+   Scoring 500 randomly sampled rotations
+   Spreading calculation onto 8 threads
+   Generating Statistics for RF #1 of 1
+   0%                                                              100%
+   |================================================================| DONE
+
+   Highest Score (Z-score):  -1918.169   ( 9.78)
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+      Also store peaks over 60% of top
+   There were 3 sites over 60% of top
+   The sites over 60% are:
+   #     Euler1 Euler2 Euler3    LLG   Z-score Split #Group  FSS-this-ang/FSS-top
+   1      224.6   70.1  321.8    -1918.2  9.78   0.0     10     94.146/   100.000
+          315.4  109.9  141.8
+   2      223.0   71.6  321.2    -1929.7  9.66   2.5     24     89.474/    89.508
+          317.0  108.4  141.2
+   3      226.0   68.4  318.0    -1965.1  9.29   4.0     24     77.755/    89.343
+          314.0  111.6  138.0
+
+   Rotation Function Results
+   Top1: ENSEMBLE ensemble_0 EULER 224.638 70.096 321.819 RF=-1918.2 RFZ=9.78
+
+   Rotation Function Table: ensemble_0
+   -----------------------------------
+   (Z-scores from Fast Rotation Function)
+   #SET        Top    (Z)      Second    (Z)       Third    (Z)
+   1      -1918.17   9.78    -1929.71   9.66    -1965.07   9.29
+
+---------------
+FINAL SELECTION
+---------------
+
+   Select by Percentage of Top value: 75%
+   Top RF = -1918.169
+   Purge RF mean = -2839.435
+   Number of sets stored before final selection = 1
+   Number of solutions stored before final selection = 3
+   Number of sets stored (deleted) after final selection = 1 (0)
+   Number of solutions stored (deleted) after final selection = 3 (0)
+   Percent used for purge = 60.000%
+      Includes deep search down percent = 15%
+      Number of solutions stored above (below) deep threshold = 3 (0)
+
+   Rotation Function Final Selection Table
+   ---------------------------------------
+   Rotation list length by SET
+   SET#  Start Final Deleted Set (*)   Deep: Start Final Deleted Set (*)
+      1  3     3           -                 3     3           -
+   ALL   3     3                             3     3    
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 1 mins 54.80 secs (    114.80 secs)
+Finished: Wed May 24 23:26:34 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT TRANSLATION FUNCTION                    2.8.3 ***
+******************************************************************************************
+
+-----------------
+TRANSLATIONAL NCS
+-----------------
+
+   tNCS not present
+
+-----------------------------
+DATA FOR TRANSLATION FUNCTION
+-----------------------------
+
+   Outlier Rejection
+   -----------------
+   No reflections are outliers
+
+   Resolution of All Data (Number):        2.30  48.28 (19852)
+   Resolution of Selected Data (Number):   2.30  48.28 (19852)
+
+-------------------
+WILSON DISTRIBUTION
+-------------------
+
+   Parameters set for Wilson log-likelihood calculation
+   E = 0 and variance 1 for each reflection
+   Without correction for SigF to the variances,
+      Wilson log(likelihood) = - number of acentrics (18935)
+                               - half number of centrics (917/2)
+                             = -19393
+   With correction for SigF,
+      Wilson log(likelihood) = -19283.3
+
+------------------------
+ALTERNATIVE SPACE GROUPS
+------------------------
+
+   Space Group(s) to be tested:
+     P 1 21 1
+
+----------
+ENSEMBLING
+----------
+
+   Ensemble Generation
+   -------------------
+   Resolution of Ensembles: 2.29951
+   Scat% Radius Model# Rel-B    RMS   DRMS   VRMS Ensemble                           
+    99.0   33.6      1  31.7  0.575  0.000  0.575 ensemble_0                         
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   ensemble_0      C-alpha        482          3.00          2.00
+
+---------------------
+TRANSLATION FUNCTIONS
+---------------------
+
+   Target Function: FAST LETF1
+   Translation Packing Function applied: top peak will pack
+   Translation Packing Cutoff: 50%
+   Sampling:  0.57 Angstroms
+
+----------------------------
+TRANSLATION FUNCTION #1 OF 1
+----------------------------
+
+   SOLU SET 
+   SOLU SPAC P 1 21 1
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  224.638   70.096  321.819 RF -1918.2 RFZ  9.78
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  222.951   71.606  321.186 RF -1929.7 RFZ  9.66
+
+   SOLU TRIAL ENSEMBLE ensemble_0 EULER  226.000   68.391  318.003 RF -1965.1 RFZ  9.29
+
+   This TF set has 3 trial orientations
+
+   #    Euler                  Rot-LLG      RF     RFZ  Ensemble
+   1     224.6   70.1  321.8   -1918.2 -1918.2     9.8 ensemble_0
+   2     223.0   71.6  321.2   -1929.7 -1929.7     9.7 ensemble_0
+   3     226.0   68.4  318.0   -1965.1 -1965.1     9.3 ensemble_0
+
+   Scoring 501 randomly sampled orientations and translations
+   Spreading calculation onto 8 threads.
+   Generating Statistics for TF SET #1 of 1
+   0% 100%
+   |==| DONE
+
+   Mean Score (Sigma):       -6352.53   (134.35)
+
+   SET #1 of 1 TRIAL #1 of 3
+   -------------------------
+   Ensemble ensemble_0 Euler 224.64  70.10 321.82 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      234 peaks
+      All peaks checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = -3208.50 (TFZ=4.4) at Trial #1
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 5 sites over 67.5% of top
+   5 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.432 -0.000  0.369    -3208.5  4.40
+   2      0.299  0.000  0.327    -3290.0  3.66
+   3      0.244  0.000  0.085    -3305.7  3.52
+   #Sites = 5: output truncated to 3 sites
+
+   Top 5 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #1 of 3
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 11...
+      5 peaks
+      1 peaks over -5712.92 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = -5712.92 (TFZ=4.4) at Trial #1
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There were 3 sites over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.432 -0.000  0.369    -5712.9  4.40   0.0      1    -3208.5/   -3208.5
+   2      0.299  0.000  0.327    -5858.9  3.66   6.6      1    -3290.0/   -3290.0
+   3      0.066  0.000  0.335    -5868.1  3.28  17.5      1    -3331.2/   -3331.2
+
+   SET #1 of 1 TRIAL #2 of 3
+   -------------------------
+   Ensemble ensemble_0 Euler 222.95  71.61 321.19 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Packing Fast Search Translations...
+      210 peaks
+      1 peaks over -3208.5 checked for packing
+      Translation peak 1 first to be kept
+      Done
+
+   New Top Packing Fast Translation Function FSS = -3123.24 (TFZ=5.0) at Trial #2
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There were 2 sites over 67.5% of top
+   2 peaks selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.423  0.000  0.361    -3123.2  5.01
+   2      0.334  0.000  0.302    -3282.4  3.65
+
+   Top 2 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #2 of 3
+   0% 100%
+   |==| DONE
+
+   Packing LLG Translations: pass 1 of 1...
+      2 peaks
+      1 peaks over -5712.92 checked for packing
+      Translation peak 1 first to be kept
+      Done
+      Exit: found a peak that packs
+
+   New Top (ML) Translation Function LLG = -5692.42 (TFZ=5.0) at Trial #2
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.423  0.000  0.361    -5692.4  5.01   0.0      1    -3123.2/   -3123.2
+
+   SET #1 of 1 TRIAL #3 of 3
+   -------------------------
+   Ensemble ensemble_0 Euler 226.00  68.39 318.00 
+
+   Doing Fast Translation Function FFT...
+      Done
+
+   Current Top Packing Fast Translation Function FSS = -3123.24 (TFZ=5.0)
+   Current Top (ML) Packing Translation Function LLG = -5692.42 (TFZ=5.0)
+
+   Top Peaks Without Clustering
+   Select peaks over 67.5% of top (i.e. 0.675*(top-mean)+mean)
+   There was 1 site over 67.5% of top
+   1 peak selected
+   The sites over 67.5% are:
+   #     Frac X Frac Y Frac Z    FSS   Z-score
+   1      0.441  0.000  0.369    -3330.8  4.34
+
+   Top 1 translations before clustering will be rescored
+   Spreading calculation onto 8 threads.
+   Calculating Likelihood for TF SET #1 of 1 TRIAL #3 of 3
+   0% 100%
+   |==| DONE
+
+   Top Peaks With Clustering
+   Select peaks over 75% of top (i.e. 0.75*(top-mean)+mean)
+   There was 1 site over 75% of top
+   The sites over 75% are:
+   #     Frac X Frac Y Frac Z    LLG   Z-score Split #Group  FSS-this-xyz/FSS-top
+   1      0.441  0.000  0.369    -5956.3  4.34   0.0      1    -3330.8/   -3330.8
+
+   Translation Function Results
+   Top1: ENSEMBLE ensemble_0 EULER 222.951 71.606 321.186 FRAC 0.423 0.000 0.361
+   TF=-5692.4
+
+   Translation Function Table
+   --------------------------
+   SET ROT*deep   Top   (Z)     Second   (Z)      Third   (Z) SpaceGroup  Ensemble
+     1   1    -5712.9  4.40    -5858.9  3.66    -5868.1  3.28 P 1 21 1 ensemble   
+     1   2    -5692.4  5.01          -     -          -     - P 1 21 1 ensemble   
+     1   3    -5956.3  4.34          -     -          -     - P 1 21 1 ensemble   
+   --- ---
+
+---------------
+FINAL SELECTION
+---------------
+
+   LLG will be used for purge, not FSS
+   Top TF  = -5692.42
+   Top TFZ = 5.01
+   Mean TF = -6352.53
+   Percent used for purge = 75%
+   Cutoff for acceptance = -5857.4
+      TFZ used for final selection = 8
+         Number of solutions over TF final cutoff  = 2
+         Number of solutions over TFZ final cutoff = 0
+         Number of solutions over TF & TFZ cutoff  = 0
+   Number of solutions stored before final selection = 5
+   Number of solutions stored (deleted) after final selection = 2 (3)
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 1 mins 59.83 secs (    119.83 secs)
+Finished: Wed May 24 23:26:36 2023
+
+******************************************************************************************
+*** Phaser Module: MOLECULAR REPLACEMENT PACKING ANALYSIS                        2.8.3 ***
+******************************************************************************************
+
+---------
+ENSEMBLES
+---------
+
+   Trace Generation
+   ----------------
+   Ensemble        Trace-type  Length      Sampling Close-contact
+   ensemble_0      C-alpha        482          3.00          2.00
+
+-----------------
+ENSEMBLE SYMMETRY
+-----------------
+
+   Ensemble "ensemble_0" Point Group: 1
+
+   Clash background has been packed at 10.00%
+
+----------------
+PACKING FUNCTION
+----------------
+
+   There are 2 solutions to pack
+   Spreading calculation onto 8 threads.
+   Packing analysis
+   0% 100%
+   |==| DONE
+
+   Packing Table
+   -------------
+   Solutions accepted if pairwise clashes less than 10 % of trace atoms
+   #in  #out Clash-% Symm TF-SET  ROT TFpk#        TF    TFZ    SpaceGroup 
+   1    ---  >10.17  --       1     2    1      -5692.42  5.01  P 1 21 1   
+   2    ---  >10.17  --       1     1    1      -5712.92  4.40  P 1 21 1   
+
+   0 accepted of 2 solutions
+      0 pack of 0 accepted solutions
+
+------------
+OUTPUT FILES
+------------
+
+   No files output
+
+CPU Time: 0 days 0 hrs 2 mins 0.10 secs (    120.10 secs)
+Finished: Wed May 24 23:26:36 2023
+
+******************************************************************************************
+*** Phaser Module: AUTOMATED MOLECULAR REPLACEMENT                               2.8.3 ***
+******************************************************************************************
+
+** Sorry - No solution
+   You may find a solution with a different search or selection strategy
+
+CPU Time: 0 days 0 hrs 2 mins 0.10 secs (    120.10 secs)
+Finished: Wed May 24 23:26:36 2023
+
+--------
+WARNINGS
+--------
+
+------------------------------------------------------------------------------------------
+Warning: Total search request exceeds scattering specified in composition. Composition
+increased to resolve the discrepancy.
+------------------------------------------------------------------------------------------
+
+--------------------
+EXIT STATUS: SUCCESS
+--------------------
+
+CPU Time: 0 days 0 hrs 2 mins 0.14 secs (    120.14 secs)
+Finished: Wed May 24 23:26:36 2023
+
+</pre>
+</html>

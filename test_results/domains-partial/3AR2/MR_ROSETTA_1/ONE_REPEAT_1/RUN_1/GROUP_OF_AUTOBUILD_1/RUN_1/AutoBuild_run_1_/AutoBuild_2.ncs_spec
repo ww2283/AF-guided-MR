@@ -1,0 +1,39 @@
+
+Summary of NCS information
+Sun Apr 23 07:55:44 2023
+/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_1
+
+
+
+
+
+new_ncs_group
+NCS_CC 0.38
+new_operator
+
+rota_matrix    1.0000   -0.0000    0.0000
+rota_matrix    0.0000    1.0000   -0.0000
+rota_matrix    0.0000    0.0000    1.0000
+tran_orth     0.0000   -0.0000   -0.0000
+
+center_orth   27.2041  -12.8985    0.6064
+CHAIN A
+RMSD 0
+MATCHING 231
+  RESSEQ 356:586
+
+new_operator
+
+rota_matrix   -0.3704   -0.8108   -0.4531
+rota_matrix   -0.8808    0.1517    0.4485
+rota_matrix   -0.2949    0.5652   -0.7704
+tran_orth    36.3505  -22.6834   17.6784
+
+center_orth   -0.1958   -0.7492   21.6863
+CHAIN B
+RMSD 0.000493925095477
+MATCHING 231
+  RESSEQ 356:586
+
+
+

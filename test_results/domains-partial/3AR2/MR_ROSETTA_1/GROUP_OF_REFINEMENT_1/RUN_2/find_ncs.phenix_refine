@@ -1,0 +1,4 @@
+refinement.pdb_interpretation.ncs_group {
+  reference = chain 'A' and (resseq 356:367 or resseq  369:402 or resseq  404:411 or resseq  413:459 or resseq  461:484 or resseq  486:555 or resseq  557:572 or resseq  574:586 ) 
+  selection = chain 'B' and (resseq 356:367 or resseq  369:402 or resseq  404:411 or resseq  413:459 or resseq  461:484 or resseq  486:555 or resseq  557:572 or resseq  574:586 ) 
+}

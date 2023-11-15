@@ -1,0 +1,30 @@
+
+Summary of NCS information
+Sun Apr 23 00:53:23 2023
+/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_2
+
+source_info AutoBuild_run_1_/TEMP0/pseudo_ha.pdb
+
+
+
+
+new_ncs_group
+NCS_CC 0.37
+new_operator
+
+rota_matrix    1.0000   -0.0000    0.0000
+rota_matrix    0.0000    1.0000   -0.0000
+rota_matrix    0.0000    0.0000    1.0000
+tran_orth    -0.0000    0.0000    0.0000
+
+center_orth   31.1990  -16.2160    1.5123
+new_operator
+
+rota_matrix   -0.3745   -0.8124   -0.4469
+rota_matrix   -0.8796    0.1588    0.4483
+rota_matrix   -0.2932    0.5610   -0.7742
+tran_orth    36.2221  -22.6400   17.7541
+
+center_orth    0.9921   -4.0100   17.6980
+
+

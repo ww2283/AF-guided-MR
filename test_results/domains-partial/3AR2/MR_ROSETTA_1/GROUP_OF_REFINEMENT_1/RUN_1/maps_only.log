@@ -1,0 +1,839 @@
+Splitting output to  AutoBuild_run_1_/AutoBuild_run_1_1.log
+
+
+               PHENIX autobuild  Sat Apr 22 23:34:42 2023
+ 
+ 
+Phenix developers include:
+
+  Paul Adams, Pavel Afonine, Vincent Chen, Ian Davis, Nathaniel Echols,
+  Kreshna Gopal, Ralf Grosse-Kunstleve, Jeff Headd, Li-Wei Hung,
+  Robert Immormino, Tom Ioerger, Airlie McCoy, Erik McKee, Nigel Moriarty,
+  Reetal Pai, Randy Read, Jane Richardson, David Richardson, Tod Romo,
+  Jim Sacchettini, Nicholas Sauter, Jacob Smith, Laurent Storoni,
+  Tom Terwilliger, Peter Zwart
+
+Phenix home page:
+  http://www.phenix-online.org/
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Phenix components are copyrighted by:
+  - Lawrence Berkeley National Laboratory
+  - Los Alamos National Laboratory
+  - University of Cambridge
+  - Duke University
+  - Texas Agricultural Experiment Station &
+    Texas Engineering Experiment Station
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Major third-party components of Phenix include:
+    Python, wxwidgets, wxPython, Boost, SCons, Clipper, PULCHRA,
+    CCP4 Monomer Library, CCP4 I/O libraries, PyCifRW, FFTPACK, L-BFGS
+  Enter phenix.acknowledgments for details.
+
+               If you use PHENIX please cite:
+
+Adams, P.D., Afonine, P.V., Chen, V., Echols, N., Headd, J. J., Hung, L.-W.,
+Grosse-Kunstleve, R.W., McCoy, A.J., Moriarty, N.W., Read, R.J.,
+Richardson, D.C., Richardson, J.S., Terwilliger, T.C. and Zwart, P. H. (2010)
+PHENIX - A Comprehensive Python-based System for Macromolecular Structure
+Solution. Acta Cryst. D66, 213-221.
+
+
+For help type:
+phenix.doc
+
+      
+ 
+For access to full documentation please type: phenix.doc
+
+
+------------------------------------------------------------ 
+Starting AutoBuild with the command:
+
+phenix.autobuild   \
+data=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz   \
+top_output_dir=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1   \
+nproc=4 run_command='sh ' background=True ignore_errors_in_subprocess=True   \
+seq_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta   \
+space_group='C 1 2 1' ncs_copies=2 skip_clash_guard=True chain_type=PROTEIN   \
+add_double_quotes_in_condor=True condor=None condor_universe=vanilla   \
+refine_eff_file_list=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params   \
+clean_up=True remove_residues_on_special_positions=True maps_only=True   \
+refine=False   \
+map_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz   \
+model=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.pdb   \
+require_nonzero=False 
+
+autobuild {
+  data = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz"
+  model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.pdb"
+  seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+  map_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz"
+  refinement_file = Auto
+  hires_file = Auto
+  crystal_info {
+    unit_cell = None
+    space_group = "C 1 2 1"
+    solvent_fraction = None
+    chain_type = Auto *PROTEIN DNA RNA
+    resolution = 0
+    dmax = 500
+    overall_resolution = 0
+    sequence = None
+  }
+  input_files {
+    input_labels = None
+    input_hires_labels = None
+    input_map_labels = None
+    input_refinement_labels = None
+    input_ha_file = None
+    force_input_ha = False
+    include_ha_in_model = True
+    cif_def_file_list = None
+    input_lig_file_list = None
+    keep_input_ligands = True
+    keep_input_waters = False
+    keep_pdb_atoms = True
+    remove_residues_on_special_positions = True
+    refine_eff_file_list = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params"
+    map_file_is_density_modified = True
+    map_file_fom = None
+    use_constant_input_map = False
+    use_map_file_as_hklstart = None
+    use_map_in_resolve_with_model = False
+    identity_from_remark = True
+    input_data_type = None
+  }
+  aniso {
+    remove_aniso = True
+    b_iso = None
+    max_b_iso = 40
+    target_b_ratio = 10
+  }
+  decision_making {
+    acceptable_r = 0.25
+    r_switch = 0.4
+    semi_acceptable_r = 0.3
+    reject_weak = False
+    min_weak_z = 0.2
+    min_cc_res_rebuild = 0.4
+    min_seq_identity_percent = 50
+    dist_close = None
+    dist_close_overlap = 1.5
+    loop_cc_min = 0.4
+    group_ca_length = 4
+    group_length = 2
+    include_molprobity = False
+    ok_molp_score = None
+    scale_molp_score = None
+  }
+  density_modification {
+    add_classic_denmod = None
+    skip_classic_if_worse_fom = True
+    skip_ncs_in_add_classic = True
+    thorough_denmod = *Auto True False
+    hl = False
+    mask_type = *histograms probability wang classic
+    mask_from_pdb = None
+    mask_type_extreme_dm = histograms probability *wang classic
+    mask_cycles_extreme_dm = 1
+    minor_cycles_extreme_dm = 4
+    wang_radius_extreme_dm = 20
+    precondition = False
+    minimum_ncs_cc = 0.3
+    extreme_dm = False
+    fom_for_extreme_dm_rebuild = 0.1
+    fom_for_extreme_dm = 0.35
+    rad_mask_from_pdb = 2
+    modify_outside_delta_solvent = 0.05
+    modify_outside_model = False
+    truncate_ha_sites_in_resolve = *Auto True False
+    rad_mask = None
+    s_step = None
+    res_start = None
+    map_dmin_start = None
+    map_dmin_incr = 0.25
+    use_resolve_fragments = True
+    use_resolve_pattern = True
+    use_hl_anom_in_denmod = False
+    use_hl_anom_in_denmod_with_model = False
+    mask_as_mtz = False
+    protein_output_mask_file = None
+    ncs_output_mask_file = None
+    omit_output_mask_file = None
+  }
+  maps {
+    maps_only = True
+    n_xyz_list = None
+  }
+  model_building {
+    build_type = *RESOLVE RESOLVE_AND_BUCCANEER
+    allow_negative_residues = False
+    highest_resno = None
+    semet = False
+    use_met_in_align = *Auto True False
+    base_model = None
+    consider_main_chain_list = None
+    dist_connect_max_helices = None
+    edit_pdb = True
+    helices_strands_only = False
+    resolution_helices_strands = 3.1
+    helices_strands_start = False
+    cc_helix_min = None
+    cc_strand_min = None
+    loop_lib = False
+    standard_loops = True
+    trace_loops = False
+    refine_trace_loops = True
+    density_of_points = None
+    a_cut_min = None
+    max_density_of_points = None
+    cutout_model_radius = None
+    max_cutout_model_radius = 20
+    padding = 1
+    cut_out_density = True
+    max_span = 30
+    max_c_ca_dist = None
+    max_overlap_rmsd = 2
+    max_overlap = None
+    min_overlap = None
+    include_input_model = True
+    input_compare_file = None
+    merge_models = False
+    morph = False
+    morph_main = False
+    dist_cut_base = 3
+    morph_cycles = 2
+    morph_rad = 7
+    n_ca_enough_helices = None
+    delta_phi = 20
+    offsets_list = 53 7 23
+    all_maps_in_rebuild = False
+    ps_in_rebuild = False
+    use_ncs_in_ps = False
+    remove_outlier_segments_z_cut = 3
+    refine = False
+    refine_final_model_vs_orig_data = True
+    reference_model = None
+    resolution_build = None
+    restart_cycle_after_morph = 5
+    retrace_before_build = False
+    reuse_chain_prev_cycle = True
+    richardson_rotamers = *Auto True False
+    rms_random_frag = None
+    rms_random_loop = None
+    start_chains_list = None
+    trace_as_lig = False
+    track_libs = False
+    two_fofc_denmod_in_rebuild = False
+    rebuild_from_fragments = False
+    two_fofc_in_rebuild = False
+    refine_map_coeff_labels = "2FOFCWT PH2FOFCWT"
+    filled_2fofc_maps = True
+    map_phasing = False
+    use_any_side = True
+    truncate_missing_side_chains = None
+    use_cc_in_combine_extend = False
+    sort_hetatms = False
+    map_to_object = None
+  }
+  multiple_models {
+    combine_only = False
+    multiple_models = False
+    multiple_models_first = 1
+    multiple_models_group_number = 5
+    multiple_models_last = 20
+    multiple_models_number = 20
+    multiple_models_starting = True
+    multiple_models_starting_resolution = 4
+    place_waters_in_combine = None
+  }
+  ncs {
+    find_ncs = *Auto True False
+    input_ncs_file = None
+    ncs_copies = 2
+    ncs_refine_coord_sigma_from_rmsd = False
+    ncs_refine_coord_sigma_from_rmsd_ratio = 1
+    no_merge_ncs_copies = False
+    optimize_ncs = True
+    use_ncs_in_build = True
+    ncs_in_refinement = *torsion cartesian None
+  }
+  omit {
+    composite_omit_type = *None simple_omit refine_omit sa_omit \
+                          iterative_build_omit
+    n_box_target = None
+    n_cycle_image_min = 3
+    n_cycle_rebuild_omit = 10
+    offset_boundary = 2
+    omit_boundary = 2
+    omit_box_start = 0
+    omit_box_end = 0
+    omit_box_pdb_list = None
+    omit_chain_list = None
+    omit_offset_list = 0 0 0 0 0 0
+    omit_on_rebuild = False
+    omit_selection = None
+    omit_region_specification = *composite_omit omit_around_pdb \
+                                omit_selection
+    omit_res_start_list = None
+    omit_res_end_list = None
+  }
+  rebuild_in_place {
+    min_seq_identity_percent_rebuild_in_place = 95
+    n_cycle_rebuild_in_place = None
+    n_rebuild_in_place = 1
+    rebuild_chain_list = None
+    rebuild_in_place = *Auto True False
+    rebuild_near_chain = None
+    rebuild_near_dist = 7.5
+    rebuild_near_res = None
+    rebuild_res_end_list = None
+    rebuild_res_start_list = None
+    rebuild_side_chains = False
+    redo_side_chains = True
+    replace_existing = True
+    delete_bad_residues_only = False
+    touch_up = False
+    touch_up_extra_residues = None
+    worst_percent_res_rebuild = 2
+    smooth_range = None
+    smooth_minimum_length = None
+  }
+  refinement {
+    refine_b = True
+    refine_se_occ = True
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    use_mlhl = True
+    generate_hl_if_missing = False
+    place_waters = True
+    refinement_resolution = 0
+    ordered_solvent_low_resolution = None
+    link_distance_cutoff = 3
+    r_free_flags_fraction = 0.1
+    r_free_flags_max_free = 2000
+    r_free_flags_use_lattice_symmetry = True
+    r_free_flags_lattice_symmetry_max_delta = 5
+    allow_overlapping = None
+    fix_ligand_occupancy = None
+    remove_outlier_segments = True
+    twin_law = None
+    max_occ = None
+    refine_before_rebuild = True
+    refine_with_ncs = True
+    refine_xyz = True
+    s_annealing = False
+    skip_hexdigest = False
+    use_hl_anom_in_refinement = False
+    use_hl_if_present = True
+  }
+  thoroughness {
+    build_outside = True
+    connect = True
+    extensive_build = False
+    fit_loops = True
+    insert_helices = True
+    n_cycle_build = None
+    n_cycle_build_max = 6
+    n_cycle_build_min = 1
+    n_cycle_rebuild_max = 15
+    n_cycle_rebuild_min = 1
+    n_mini = 10
+    n_random_frag = 0
+    n_random_loop = 3
+    n_try_rebuild = 2
+    ncycle_refine = 3
+    number_of_models = None
+    number_of_parallel_models = 0
+    skip_combine_extend = False
+    fully_skip_combine_extend = False
+    thorough_loop_fit = True
+  }
+  general {
+    coot_name = "coot"
+    i_ran_seed = 72432
+    raise_sorry = False
+    background = True
+    check_wait_time = 1
+    max_wait_time = 1
+    wait_between_submit_time = 1
+    cache_resolve_libs = True
+    resolve_size = "12"
+    check_run_command = False
+    run_command = "sh"
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    last_process_is_local = True
+    skip_r_factor = False
+    test_flag_value = Auto
+    skip_xtriage = False
+    base_path = None
+    temp_dir = None
+    local_temp_directory = None
+    clean_up = True
+    print_citations = True
+    solution_output_pickle_file = None
+    job_title = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    wizard_directory_number = None
+    verbose = False
+    extra_verbose = False
+    debug = False
+    require_nonzero = False
+    remove_path_word_list = None
+    fill = False
+    res_fill = None
+    check_only = False
+    keep_files = "overall_best*" "AutoBuild_run_*.log"
+    after_autosol = False
+    nbatch = 3
+    nproc = 4
+    quick = False
+    resolve_command_list = None
+    resolve_pattern_command_list = None
+    ignore_errors_in_subprocess = True
+    send_notification = False
+    notify_email = None
+  }
+  special_keywords {
+    write_run_directory_to_file = None
+  }
+  run_control {
+    coot = None
+    ignore_blanks = None
+    stop = None
+    display_facts = None
+    display_summary = None
+    carry_on = None
+    run = None
+    copy_run = None
+    display_runs = None
+    delete_runs = None
+    display_labels = None
+    dry_run = False
+    params_only = False
+    display_all = False
+  }
+  non_user_parameters {
+    gui_output_dir = None
+    background_map = None
+    boundary_background_map = None
+    extend_try_list = True
+    force_combine_extend = False
+    model_list = None
+    oasis_cnos = None
+    offset_boundary_background_map = None
+    skip_refine = False
+    sg = None
+    input_data_file = None
+    input_map_file = Auto
+    input_refinement_file = Auto
+    input_pdb_file = None
+    input_seq_file = Auto
+    super_quick = None
+    require_test_set = False
+  }
+}
+Sending output to  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/maps_only.log 
+
+
+Working directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_ 
+
+USER = wei
+PID = 580826
+
+
+************************************************************
+          PHENIX AutoBuild  Sat Apr 22 23:34:42 2023
+************************************************************
+
+Working directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1 
+
+
+AutoBuild_start  AutoBuild  Run 1 Sat Apr 22 23:34:42 2023
+
+Setting default value of  True  for  thorough_denmod
+Setting default value of  True  for  find_ncs
+Setting default value of  False  for  use_met_in_align
+Setting default value of  True  for  truncate_ha_sites_in_resolve
+
+Using /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for refinement
+
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Setting use_map_file_as_hklstart=True as   the input_map_file
+ /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz  has been specified and maps_only=True
+Using  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz  for starting phase information in density modification
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for input data file
+Resolution from datafile: 2.49999443302
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Input labels: ['FOBS', 'SIGFOBS', 'PHIFC', 'FOM', 'None', 'None', 'None', 'None']
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for refinement data file
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+
+
+Refinement file program labels: ['FP', 'SIGFP', 'FreeR_flag']
+
+
+Refinement file input labels: ['FOBS', 'SIGFOBS', 'R-free-flags']
+
+
+Refinement file all input labels: ['FC', 'PHIFC', 'FOBS', 'SIGFOBS', 'FOM', 'R-free-flags', 'None']
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz for input map file
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Map input labels: ['2FOFCWT', 'PH2FOFCWT', 'None']
+
+Input sequence file is  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat
+Copied  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/sequence_autobuild.dat
+
+AutoBuild_set_overall_params  AutoBuild  Run 1 Sat Apr 22 23:34:47 2023
+
+Setting rebuild_in_place=False as maps_only=True
+Saving all but water and ligands in  AutoBuild_run_1_/TEMP0/NO_LIG_NO_WAT_S_PHASE_0001_14_ed_ref_001.pdb
+model id="" #chains=2
+  chain id="A" #conformers=1
+  chain id="B" #conformers=1
+
+Getting NCS copies from chains used...
+Copies of chain  1 : 2 : ['A', 'B']
+Using model without ligands or waters as work_pdb_file.
+Ligands will be added back just before refinement
+Finding NCS from  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.pdb  and  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz
+
+Overall best score (cc*sqrt(n_op)):    0.58
+NCS operators: 2  Average NCS correlation:  0.41
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+NCS found from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.pdb and /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+ID of chain/residue where these apply: [['A', 'B'], [[[356, 459], [461, 555], [557, 559], [561, 571], [573, 586]], [[356, 459], [461, 555], [557, 559], [561, 571], [573, 586]]]]
+RMSD (A) from chain A:  0.0  1.07
+Number of residues matching chain A:[227, 227]
+Correlation of NCS: 0.41
+
+OPERATOR 1
+CENTER:   27.1948  -12.9792    0.7288
+
+ROTA 1:    1.0000   -0.0000    0.0000
+ROTA 2:    0.0000    1.0000   -0.0000
+ROTA 3:    0.0000    0.0000    1.0000
+TRANS:    -0.0000    0.0000    0.0000
+
+OPERATOR 2
+CENTER:   -0.0760   -0.5965   21.4081
+
+ROTA 1:   -0.3731   -0.8122   -0.4485
+ROTA 2:   -0.8761    0.1494    0.4583
+ROTA 3:   -0.3053    0.5639   -0.7674
+TRANS:    36.2831  -22.7686   17.4701
+
+
+NCS with 2 groups found from  ncs_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.pdb map_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz
+Number of ncs_copies from this file ignored.
+
+AutoBuild_datafile_info_inputs  AutoBuild  Run 1 Sat Apr 22 23:44:25 2023
+
+Number of residues in unique chains in seq file: 1001
+Cell volume: 1748274.55
+Equivalent positions:4
+Testing NCS copies value of  2
+Best guess of number of NCS copies: 2
+Estimate of solvent fraction: 0.38
+
+Merging refinement file  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz  with data file  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz  to create  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FOBS', 'SIGFOBS'] ['R-free-flags'] 
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FC', 'PHIFC'] The label  ['FOBS']  is already used...skipping ['FOBS', 'SIGFOBS']
+['FOM'] 
+Output space group: C 1 2 1 (No. 5)
+Columns of data in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz:
+H K L FOBS SIGFOBS R-free-flags FC PHIFC FOM 
+H H H F Q I F P F 
+Unit cell: (161.995, 75.306, 151.541, 90, 108.97, 90)
+Space group: C 1 2 1 (No. 5)
+Using /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz for refinement
+
+Correcting data file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz 
+for anisotropy and sharpening and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+
+Getting overall aniso B from datafile...
+
+Aniso-corrected data to be written to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+Max b_iso target allowed is   40.00 A**2
+Target aniso B set based on resolution to   25.00 A**2
+
+Removing anisotropy from data file now
+
+
+
+#                       remove_aniso
+#
+# Correct columns in MTZ file for anisotropy
+
+
+# Type phenix.doc for help
+Values of all params:
+remove_aniso {
+  input_files {
+    mtz_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz"
+    obs_labels = None
+  }
+  output_files {
+    mtz_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz"
+    log = "remove_aniso.log"
+    extension = None
+    params_out = "remove_aniso_params.eff"
+  }
+  directories {
+    temp_dir = "AutoBuild_run_1_/TEMP0"
+    output_dir = "AutoBuild_run_1_"
+  }
+  crystal_info {
+    resolution = None
+  }
+  aniso {
+    b_iso = 24.99994433
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+}
+
+Correction for anisotropy
+
+Arrays in input file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz:
+['FC', 'PHIFC'] ['FOBS', 'SIGFOBS'] ['FOM'] ['R-free-flags'] 
+Columns for anisotropy correction:  FOBS,SIGFOBS
+
+Trace of aniso B:   79.25    44.12    83.29 A**2. 
+Minimum:   44.12    Mean:   68.89
+
+Applying aniso correction now with target B set with b_iso=  25.00
+Offset in B will be:   -43.89 (negative is sharpening)
+
+Aniso-corrected data to be written to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+Intermediate data file (for everything but refinement): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+Intermediate data file (for refinement): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz
+
+Merging input map file with data file to have consistent reflection set
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_1/REBUILD_IN_SETS_1/RUN_4/WORK_1/S_PHASE_0001_14_ed_ref_001.mtz : ['2FOFCWT', 'PH2FOFCWT'] 
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FC', 'PHIFC'] ['FOBS', 'SIGFOBS'] ['FOM'] 
+Output space group: C 1 2 1 (No. 5)
+Columns of data in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz:
+H K L 2FOFCWT PH2FOFCWT FC PHIFC FOBS SIGFOBS FOM 
+H H H F P F P F Q F 
+Ready with merged map file in  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz
+Unit cell: (161.995, 75.306, 151.541, 90, 108.97, 90)
+Space group: C 1 2 1 (No. 5)
+Program labels set to  ['FP=', 'PHIB=']  as only 2 input labels present
+
+AutoBuild_general_params  AutoBuild  Run 1 Sat Apr 22 23:44:34 2023
+
+Setting truncate_missing_side_chains=True as rebuild_in_place is False
+Resolution for model-building: 2.5  A
+Setting n_cycle_build=1 as nbatch >1 (nbatch =3)
+Setting number_of_models=1 as nbatch >1 (nbatch =3)
+
+AutoBuild_uncommon_inputs  AutoBuild  Run 1 Sat Apr 22 23:44:34 2023
+
+
+AutoBuild_check_params  AutoBuild  Run 1 Sat Apr 22 23:44:34 2023
+
+Resolution for model-building set to  2.5
+
+AutoBuild_set_up_build  AutoBuild  Run 1 Sat Apr 22 23:44:34 2023
+
+
+Using data from  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz  for density modification as:  exptl_phases_for_dm_aniso.mtz
+Columns used:  FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM 
+Running xtriage on  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz . Output:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz_xtriage.log
+Copying  refinement_PHX.mtz  to  exptl_fobs_phases_freeR_flags.mtz
+Columns used:  FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM FreeR_flag=R-free-flags 
+
+Checking for HL coeffs in  exptl_fobs_phases_freeR_flags.mtz False
+
+NOTE: no HL coeffs present, ignoring phase information
+
+Removing columns of data with all zeroes (if any)
+All columns of data have non-zero values
+
+Refinement file with freeR flags is in  AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz
+Using default test_flag_value of 0 from 
+AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz
+
+Removing anisotropy and sharpening refinement file 
+(AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz)  to b_iso=  25.00...
+yielding AutoBuild_run_1_/TEMP0/aniso_refinement_data_PHX.mtz
+Aniso-corrected data to be written to AutoBuild_run_1_/TEMP0/aniso_refinement_data_PHX.mtz
+Aniso B offset for refinement file:  -43.89
+
+NOTE: Not using phase information from input files in refinement and 
+density modification
+
+
+Refinement file with free R flags (not aniso corrected): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/exptl_fobs_phases_freeR_flags.mtz
+
+Copying  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz  to  map_coeffs.mtz as input map coeffs
+Columns used: LABIN  FP=2FOFCWT PHIB=PH2FOFCWT
+Input map file is FWT PHWT or equiv
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sat Apr 22 23:44:43 2023
+
+Build cycle 1 of 2   method:rebuild
+Initial rebuild cycle: just combining previous models or copying 
+over initial PDB file
+
+Using NO_LIG_NO_WAT_S_PHASE_0001_14_ed_ref_001.pdb for rebuild, copied to unrefined.pdb_1
+Getting R for model:  unrefined.pdb_1
+Using test_flag_value of 0 in refinement 
+Model: refine.pdb_1  R/Rfree=0.50/0.53
+
+Made copy of refined model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/TEMP0/refine.pdb_1  to  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/TEMP0/refined_pdb_in.pdb
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_001.mtz to AutoBuild_run_1_/TEMP0/refine_pdb_in.mtz
+Copying refine map file  AutoBuild_run_1_/TEMP0/refine_pdb_in.mtz  to  dummy_map_coeffs.mtz
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sat Apr 22 23:45:41 2023
+
+Build cycle 2 of 2   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.58
+NCS operators: 2  Average NCS correlation:  0.41
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Using input map as source of starting phases in density modification
+Re-using input PDB coordinates in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_1 ->resolve_denmod_2.log
+Skipping model-building as 'maps_only' is set
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+NOTE: Nothing to score...
+
+Cycle 2  R/Rfree=999.90/999.90  Built=0  Placed=0 Resolution=2.5 A
+Copying files:  cycle_best.pdb ->  working_best.pdb (etc.)
+Copied  cycle_best_denmod_map_coeffs.mtz to working_best_denmod_map_coeffs.mtz
+Copied  cycle_best.log_denmod to working_best.log_denmod
+
+New best overall: AutoBuild_run_1_/working_best.pdb
+
+Model obtained on cycle 2
+R (work): 999.9 
+R (free): 999.9
+Residues built: 0
+Residues placed: 0
+Model-map CC: 0.0 
+Chains: 0 
+
+Creating overall_best files ...
+
+
+Copying files to overall_best
+
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/AutoBuild_2.ncs_spec to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_ncs_file.ncs_spec
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/exptl_fobs_phases_freeR_flags.mtz to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_refine_data.mtz
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/cycle_best_2.log_denmod to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best.log_denmod
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/cycle_best_2.mtz to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 00:00:57 2023
+
+
+Ending these rebuild cycles as the limit is reached
+All done with build cycles in this region
+
+AutoBuild_set_up_build  AutoBuild  Run 1 Sun Apr 23 00:00:57 2023
+
+All omit/non-omit regions completed
+
+finished  AutoBuild  Run 1 Sun Apr 23 00:00:57 2023
+
+Finishing  AutoBuild Run 1
+Facts written to AutoBuild_run_1_/AutoBuild_Facts.dat
+AutoBuild Run 1
+
+Summary of model-building for run 1  Sun Apr 23 00:00:57 2023
+Files are in the directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/
+
+
+Starting mtz file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz
+Sequence file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat
+
+Summary of output files for Solution 1 from rebuild cycle 2
+
+---  NCS information file ---
+ncs_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_ncs_file.ncs_spec
+
+---  Data for refinement FP SIGFP PHIM FOMM HLAM HLBM HLCM HLDM FreeR_flag ---
+refine_data: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_refine_data.mtz
+
+---  Density-modification log file ---
+log_denmod: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best.log_denmod
+
+---  Density-modified map coefficients FWT PHWT ---
+denmod_map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+
+Citations for AutoBuild:
+
+Afonine PV, Grosse-Kunstleve RW, Echols N, Headd JJ, Moriarty NW, Mustyakimov
+M, Terwilliger TC, Urzhumtsev A, Zwart PH, Adams PD. (2012) Towards automated
+crystallographic structure refinement with phenix.refine. Acta Crystallogr D
+Biol Crystallogr 68:352-67.
+
+DiMaio F, Terwilliger TC, Read RJ, Wlodawer A, Oberdorfer G, Wagner U, Valkov
+E, Alon A, Fass D, Axelrod HL, Das D, Vorobiev SM, Iwaï H, Pokkuluri PR, Baker
+D. (2011) Improved molecular replacement by density- and energy-guided protein
+structure optimization. Nature 473:540-3.
+
+Liebschner D, Afonine PV, Baker ML, Bunkóczi G, Chen VB, Croll TI, Hintze B,
+Hung LW, Jain S, McCoy AJ, Moriarty NW, Oeffner RD, Poon BK, Prisant MG, Read
+RJ, Richardson JS, Richardson DC, Sammito MD, Sobolev OV, Stockwell DH,
+Terwilliger TC, Urzhumtsev AG, Videau LL, Williams CJ, Adams PD. (2019)
+Macromolecular structure determination using X-rays, neutrons and electrons:
+recent developments in Phenix. Acta Cryst. D75:861-877.
+
+Söding J. (2005) Protein homology detection by HMM-HMM comparison.
+Bioinformatics 21:951-60.
+
+Terwilliger T. (2003) SOLVE and RESOLVE: automated structure solution, density
+modification and model building. J Synchrotron Radiat 11:49-52.
+
+Terwilliger TC. (2002) Rapid automatic NCS identification using heavy-atom
+substructures. Acta Crystallogr D Biol Crystallogr 58:2213-5.
+
+Terwilliger TC, Grosse-Kunstleve RW, Afonine PV, Moriarty NW, Zwart PH, Hung
+L-W, Read RJ, Adams PD. (2008) Iterative model building, structure refinement
+and density modification with the PHENIX AutoBuild wizard. Acta Cryst.
+D64:61-69.
+
+Zwart PH, Grosse-Kunstleve RW, Adams PD. (2005) Xtriage and Fest: automatic
+assessment of X-ray data and substructure structure factor estimation. CCP4
+Newsletter Winter:Contribution 7.
+
+
+
+Cleaning up AutoBuild_run_1_/TEMP0 now...
+Done cleaning up ...

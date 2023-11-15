@@ -1,0 +1,1647 @@
+Splitting output to  AutoBuild_run_1_/AutoBuild_run_1_1.log
+
+
+               PHENIX autobuild  Sun Apr 23 00:45:42 2023
+ 
+ 
+Phenix developers include:
+
+  Paul Adams, Pavel Afonine, Vincent Chen, Ian Davis, Nathaniel Echols,
+  Kreshna Gopal, Ralf Grosse-Kunstleve, Jeff Headd, Li-Wei Hung,
+  Robert Immormino, Tom Ioerger, Airlie McCoy, Erik McKee, Nigel Moriarty,
+  Reetal Pai, Randy Read, Jane Richardson, David Richardson, Tod Romo,
+  Jim Sacchettini, Nicholas Sauter, Jacob Smith, Laurent Storoni,
+  Tom Terwilliger, Peter Zwart
+
+Phenix home page:
+  http://www.phenix-online.org/
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Phenix components are copyrighted by:
+  - Lawrence Berkeley National Laboratory
+  - Los Alamos National Laboratory
+  - University of Cambridge
+  - Duke University
+  - Texas Agricultural Experiment Station &
+    Texas Engineering Experiment Station
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Major third-party components of Phenix include:
+    Python, wxwidgets, wxPython, Boost, SCons, Clipper, PULCHRA,
+    CCP4 Monomer Library, CCP4 I/O libraries, PyCifRW, FFTPACK, L-BFGS
+  Enter phenix.acknowledgments for details.
+
+               If you use PHENIX please cite:
+
+Adams, P.D., Afonine, P.V., Chen, V., Echols, N., Headd, J. J., Hung, L.-W.,
+Grosse-Kunstleve, R.W., McCoy, A.J., Moriarty, N.W., Read, R.J.,
+Richardson, D.C., Richardson, J.S., Terwilliger, T.C. and Zwart, P. H. (2010)
+PHENIX - A Comprehensive Python-based System for Macromolecular Structure
+Solution. Acta Cryst. D66, 213-221.
+
+
+For help type:
+phenix.doc
+
+      
+ 
+For access to full documentation please type: phenix.doc
+
+
+------------------------------------------------------------ 
+Starting AutoBuild with the command:
+
+phenix.autobuild   \
+data=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz   \
+top_output_dir=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1   \
+nproc=4 run_command='sh ' background=True ignore_errors_in_subprocess=True   \
+seq_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta   \
+space_group='C 1 2 1' ncs_copies=2 skip_clash_guard=True chain_type=PROTEIN   \
+add_double_quotes_in_condor=True condor=None condor_universe=vanilla   \
+refine_eff_file_list=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params   \
+clean_up=True remove_residues_on_special_positions=True   \
+model=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_15_ed_one_0001_ed.pdb   \
+rebuild_in_place=False   \
+map_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz   \
+input_map_labels='FAVG PHIFAVG' require_nonzero=False 
+
+autobuild {
+  data = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz"
+  model = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_15_ed_one_0001_ed.pdb"
+  seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/P04191/P04191.fasta"
+  map_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz"
+  refinement_file = Auto
+  hires_file = Auto
+  crystal_info {
+    unit_cell = None
+    space_group = "C 1 2 1"
+    solvent_fraction = None
+    chain_type = Auto *PROTEIN DNA RNA
+    resolution = 0
+    dmax = 500
+    overall_resolution = 0
+    sequence = None
+  }
+  input_files {
+    input_labels = None
+    input_hires_labels = None
+    input_map_labels = FAVG PHIFAVG
+    input_refinement_labels = None
+    input_ha_file = None
+    force_input_ha = False
+    include_ha_in_model = True
+    cif_def_file_list = None
+    input_lig_file_list = None
+    keep_input_ligands = True
+    keep_input_waters = False
+    keep_pdb_atoms = True
+    remove_residues_on_special_positions = True
+    refine_eff_file_list = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params"
+    map_file_is_density_modified = True
+    map_file_fom = None
+    use_constant_input_map = False
+    use_map_file_as_hklstart = None
+    use_map_in_resolve_with_model = False
+    identity_from_remark = True
+    input_data_type = None
+  }
+  aniso {
+    remove_aniso = True
+    b_iso = None
+    max_b_iso = 40
+    target_b_ratio = 10
+  }
+  decision_making {
+    acceptable_r = 0.25
+    r_switch = 0.4
+    semi_acceptable_r = 0.3
+    reject_weak = False
+    min_weak_z = 0.2
+    min_cc_res_rebuild = 0.4
+    min_seq_identity_percent = 50
+    dist_close = None
+    dist_close_overlap = 1.5
+    loop_cc_min = 0.4
+    group_ca_length = 4
+    group_length = 2
+    include_molprobity = False
+    ok_molp_score = None
+    scale_molp_score = None
+  }
+  density_modification {
+    add_classic_denmod = None
+    skip_classic_if_worse_fom = True
+    skip_ncs_in_add_classic = True
+    thorough_denmod = *Auto True False
+    hl = False
+    mask_type = *histograms probability wang classic
+    mask_from_pdb = None
+    mask_type_extreme_dm = histograms probability *wang classic
+    mask_cycles_extreme_dm = 1
+    minor_cycles_extreme_dm = 4
+    wang_radius_extreme_dm = 20
+    precondition = False
+    minimum_ncs_cc = 0.3
+    extreme_dm = False
+    fom_for_extreme_dm_rebuild = 0.1
+    fom_for_extreme_dm = 0.35
+    rad_mask_from_pdb = 2
+    modify_outside_delta_solvent = 0.05
+    modify_outside_model = False
+    truncate_ha_sites_in_resolve = *Auto True False
+    rad_mask = None
+    s_step = None
+    res_start = None
+    map_dmin_start = None
+    map_dmin_incr = 0.25
+    use_resolve_fragments = True
+    use_resolve_pattern = True
+    use_hl_anom_in_denmod = False
+    use_hl_anom_in_denmod_with_model = False
+    mask_as_mtz = False
+    protein_output_mask_file = None
+    ncs_output_mask_file = None
+    omit_output_mask_file = None
+  }
+  maps {
+    maps_only = False
+    n_xyz_list = None
+  }
+  model_building {
+    build_type = *RESOLVE RESOLVE_AND_BUCCANEER
+    allow_negative_residues = False
+    highest_resno = None
+    semet = False
+    use_met_in_align = *Auto True False
+    base_model = None
+    consider_main_chain_list = None
+    dist_connect_max_helices = None
+    edit_pdb = True
+    helices_strands_only = False
+    resolution_helices_strands = 3.1
+    helices_strands_start = False
+    cc_helix_min = None
+    cc_strand_min = None
+    loop_lib = False
+    standard_loops = True
+    trace_loops = False
+    refine_trace_loops = True
+    density_of_points = None
+    a_cut_min = None
+    max_density_of_points = None
+    cutout_model_radius = None
+    max_cutout_model_radius = 20
+    padding = 1
+    cut_out_density = True
+    max_span = 30
+    max_c_ca_dist = None
+    max_overlap_rmsd = 2
+    max_overlap = None
+    min_overlap = None
+    include_input_model = True
+    input_compare_file = None
+    merge_models = False
+    morph = False
+    morph_main = False
+    dist_cut_base = 3
+    morph_cycles = 2
+    morph_rad = 7
+    n_ca_enough_helices = None
+    delta_phi = 20
+    offsets_list = 53 7 23
+    all_maps_in_rebuild = False
+    ps_in_rebuild = False
+    use_ncs_in_ps = False
+    remove_outlier_segments_z_cut = 3
+    refine = True
+    refine_final_model_vs_orig_data = True
+    reference_model = None
+    resolution_build = None
+    restart_cycle_after_morph = 5
+    retrace_before_build = False
+    reuse_chain_prev_cycle = True
+    richardson_rotamers = *Auto True False
+    rms_random_frag = None
+    rms_random_loop = None
+    start_chains_list = None
+    trace_as_lig = False
+    track_libs = False
+    two_fofc_denmod_in_rebuild = False
+    rebuild_from_fragments = False
+    two_fofc_in_rebuild = False
+    refine_map_coeff_labels = "2FOFCWT PH2FOFCWT"
+    filled_2fofc_maps = True
+    map_phasing = False
+    use_any_side = True
+    truncate_missing_side_chains = None
+    use_cc_in_combine_extend = False
+    sort_hetatms = False
+    map_to_object = None
+  }
+  multiple_models {
+    combine_only = False
+    multiple_models = False
+    multiple_models_first = 1
+    multiple_models_group_number = 5
+    multiple_models_last = 20
+    multiple_models_number = 20
+    multiple_models_starting = True
+    multiple_models_starting_resolution = 4
+    place_waters_in_combine = None
+  }
+  ncs {
+    find_ncs = *Auto True False
+    input_ncs_file = None
+    ncs_copies = 2
+    ncs_refine_coord_sigma_from_rmsd = False
+    ncs_refine_coord_sigma_from_rmsd_ratio = 1
+    no_merge_ncs_copies = False
+    optimize_ncs = True
+    use_ncs_in_build = True
+    ncs_in_refinement = *torsion cartesian None
+  }
+  omit {
+    composite_omit_type = *None simple_omit refine_omit sa_omit \
+                          iterative_build_omit
+    n_box_target = None
+    n_cycle_image_min = 3
+    n_cycle_rebuild_omit = 10
+    offset_boundary = 2
+    omit_boundary = 2
+    omit_box_start = 0
+    omit_box_end = 0
+    omit_box_pdb_list = None
+    omit_chain_list = None
+    omit_offset_list = 0 0 0 0 0 0
+    omit_on_rebuild = False
+    omit_selection = None
+    omit_region_specification = *composite_omit omit_around_pdb \
+                                omit_selection
+    omit_res_start_list = None
+    omit_res_end_list = None
+  }
+  rebuild_in_place {
+    min_seq_identity_percent_rebuild_in_place = 95
+    n_cycle_rebuild_in_place = None
+    n_rebuild_in_place = 1
+    rebuild_chain_list = None
+    rebuild_in_place = Auto True *False
+    rebuild_near_chain = None
+    rebuild_near_dist = 7.5
+    rebuild_near_res = None
+    rebuild_res_end_list = None
+    rebuild_res_start_list = None
+    rebuild_side_chains = False
+    redo_side_chains = True
+    replace_existing = True
+    delete_bad_residues_only = False
+    touch_up = False
+    touch_up_extra_residues = None
+    worst_percent_res_rebuild = 2
+    smooth_range = None
+    smooth_minimum_length = None
+  }
+  refinement {
+    refine_b = True
+    refine_se_occ = True
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    use_mlhl = True
+    generate_hl_if_missing = False
+    place_waters = True
+    refinement_resolution = 0
+    ordered_solvent_low_resolution = None
+    link_distance_cutoff = 3
+    r_free_flags_fraction = 0.1
+    r_free_flags_max_free = 2000
+    r_free_flags_use_lattice_symmetry = True
+    r_free_flags_lattice_symmetry_max_delta = 5
+    allow_overlapping = None
+    fix_ligand_occupancy = None
+    remove_outlier_segments = True
+    twin_law = None
+    max_occ = None
+    refine_before_rebuild = True
+    refine_with_ncs = True
+    refine_xyz = True
+    s_annealing = False
+    skip_hexdigest = False
+    use_hl_anom_in_refinement = False
+    use_hl_if_present = True
+  }
+  thoroughness {
+    build_outside = True
+    connect = True
+    extensive_build = False
+    fit_loops = True
+    insert_helices = True
+    n_cycle_build = None
+    n_cycle_build_max = 6
+    n_cycle_build_min = 1
+    n_cycle_rebuild_max = 15
+    n_cycle_rebuild_min = 1
+    n_mini = 10
+    n_random_frag = 0
+    n_random_loop = 3
+    n_try_rebuild = 2
+    ncycle_refine = 3
+    number_of_models = None
+    number_of_parallel_models = 0
+    skip_combine_extend = False
+    fully_skip_combine_extend = False
+    thorough_loop_fit = True
+  }
+  general {
+    coot_name = "coot"
+    i_ran_seed = 72432
+    raise_sorry = False
+    background = True
+    check_wait_time = 1
+    max_wait_time = 1
+    wait_between_submit_time = 1
+    cache_resolve_libs = True
+    resolve_size = "12"
+    check_run_command = False
+    run_command = "sh"
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    last_process_is_local = True
+    skip_r_factor = False
+    test_flag_value = Auto
+    skip_xtriage = False
+    base_path = None
+    temp_dir = None
+    local_temp_directory = None
+    clean_up = True
+    print_citations = True
+    solution_output_pickle_file = None
+    job_title = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1"
+    wizard_directory_number = None
+    verbose = False
+    extra_verbose = False
+    debug = False
+    require_nonzero = False
+    remove_path_word_list = None
+    fill = False
+    res_fill = None
+    check_only = False
+    keep_files = "overall_best*" "AutoBuild_run_*.log"
+    after_autosol = False
+    nbatch = 3
+    nproc = 4
+    quick = False
+    resolve_command_list = None
+    resolve_pattern_command_list = None
+    ignore_errors_in_subprocess = True
+    send_notification = False
+    notify_email = None
+  }
+  special_keywords {
+    write_run_directory_to_file = None
+  }
+  run_control {
+    coot = None
+    ignore_blanks = None
+    stop = None
+    display_facts = None
+    display_summary = None
+    carry_on = None
+    run = None
+    copy_run = None
+    display_runs = None
+    delete_runs = None
+    display_labels = None
+    dry_run = False
+    params_only = False
+    display_all = False
+  }
+  non_user_parameters {
+    gui_output_dir = None
+    background_map = None
+    boundary_background_map = None
+    extend_try_list = True
+    force_combine_extend = False
+    model_list = None
+    oasis_cnos = None
+    offset_boundary_background_map = None
+    skip_refine = False
+    sg = None
+    input_data_file = None
+    input_map_file = Auto
+    input_refinement_file = Auto
+    input_pdb_file = None
+    input_seq_file = Auto
+    super_quick = None
+    require_test_set = False
+  }
+}
+Sending output to  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/autobuild.log 
+
+
+Working directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_ 
+
+USER = wei
+PID = 1249880
+
+
+************************************************************
+          PHENIX AutoBuild  Sun Apr 23 00:45:42 2023
+************************************************************
+
+Working directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1 
+
+
+AutoBuild_start  AutoBuild  Run 1 Sun Apr 23 00:45:42 2023
+
+Setting default value of  True  for  thorough_denmod
+Setting default value of  True  for  find_ncs
+Setting default value of  False  for  use_met_in_align
+Setting default value of  True  for  truncate_ha_sites_in_resolve
+
+Using /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for refinement
+
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Using  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz  instead of a density-modified map or 2FoFc map on first cycle
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for input data file
+Resolution from datafile: 2.49999443302
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Input labels: ['FOBS', 'SIGFOBS', 'PHIFC', 'FOM', 'None', 'None', 'None', 'None']
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz for refinement data file
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+
+
+Refinement file program labels: ['FP', 'SIGFP', 'FreeR_flag']
+
+
+Refinement file input labels: ['FOBS', 'SIGFOBS', 'R-free-flags']
+
+
+Refinement file all input labels: ['FC', 'PHIFC', 'FOBS', 'SIGFOBS', 'FOM', 'R-free-flags', 'None']
+
+Getting column labels from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz for input map file
+SG: C 1 2 1
+Cell: [161.995, 75.306, 151.541, 90.0, 108.97, 90.0]
+Map input labels: ['FAVG', 'PHIFAVG']
+
+Input sequence file is  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat
+Copied  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/sequence_autobuild.dat
+
+AutoBuild_set_overall_params  AutoBuild  Run 1 Sun Apr 23 00:45:44 2023
+
+Saving all but water and ligands in  AutoBuild_run_1_/TEMP0/NO_LIG_NO_WAT_S_PHASE_0001_15_ed_one_0001_ed_ed.pdb
+model id="" #chains=2
+  chain id="A" #conformers=1
+  chain id="B" #conformers=1
+
+Getting NCS copies from chains used...
+Copies of chain  1 : 2 : ['A', 'B']
+Using model without ligands or waters as work_pdb_file.
+Ligands will be added back just before refinement
+Finding NCS from  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_15_ed_one_0001_ed.pdb  and  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz
+
+Overall best score (cc*sqrt(n_op)):    0.52
+NCS operators: 2  Average NCS correlation:  0.37
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+NCS found from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_15_ed_one_0001_ed.pdb and /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz
+
+
+GROUP 1
+Summary of NCS group with 2 operators:
+ID of chain/residue where these apply: [[None, None], [[], []]]
+RMSD (A) from chain None:  0.0  0.0
+Number of residues matching chain None:[None, None]
+Source of NCS info: AutoBuild_run_1_/TEMP0/pseudo_ha.pdb
+Correlation of NCS: 0.37
+
+OPERATOR 1
+CENTER:   31.1990  -16.2160    1.5123
+
+ROTA 1:    1.0000   -0.0000    0.0000
+ROTA 2:    0.0000    1.0000   -0.0000
+ROTA 3:    0.0000    0.0000    1.0000
+TRANS:    -0.0000    0.0000    0.0000
+
+OPERATOR 2
+CENTER:    0.9921   -4.0100   17.6980
+
+ROTA 1:   -0.3745   -0.8124   -0.4469
+ROTA 2:   -0.8796    0.1588    0.4483
+ROTA 3:   -0.2932    0.5610   -0.7742
+TRANS:    36.2221  -22.6400   17.7541
+
+
+NCS with 2 groups found from  ncs_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_2/RESCORE_MR_1/RELAX_AND_SCORE_IN_SETS_1/RUN_1/WORK_1/S_PHASE_0001_15_ed_one_0001_ed.pdb map_file=/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz
+Number of ncs_copies from this file ignored.
+
+AutoBuild_datafile_info_inputs  AutoBuild  Run 1 Sun Apr 23 00:53:24 2023
+
+Number of residues in unique chains in seq file: 1001
+Cell volume: 1748274.55
+Equivalent positions:4
+Testing NCS copies value of  2
+Best guess of number of NCS copies: 2
+Estimate of solvent fraction: 0.38
+
+Merging refinement file  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz  with data file  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz  to create  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FOBS', 'SIGFOBS'] ['R-free-flags'] 
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FC', 'PHIFC'] The label  ['FOBS']  is already used...skipping ['FOBS', 'SIGFOBS']
+['FOM'] 
+Output space group: C 1 2 1 (No. 5)
+Columns of data in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz:
+H K L FOBS SIGFOBS R-free-flags FC PHIFC FOM 
+H H H F Q I F P F 
+Unit cell: (161.995, 75.306, 151.541, 90, 108.97, 90)
+Space group: C 1 2 1 (No. 5)
+Using /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz for refinement
+
+Correcting data file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz 
+for anisotropy and sharpening and writing to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+
+Getting overall aniso B from datafile...
+
+Aniso-corrected data to be written to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+Max b_iso target allowed is   40.00 A**2
+Target aniso B set based on resolution to   25.00 A**2
+
+Removing anisotropy from data file now
+
+
+
+#                       remove_aniso
+#
+# Correct columns in MTZ file for anisotropy
+
+
+# Type phenix.doc for help
+Values of all params:
+remove_aniso {
+  input_files {
+    mtz_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz"
+    obs_labels = None
+  }
+  output_files {
+    mtz_out = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz"
+    log = "remove_aniso.log"
+    extension = None
+    params_out = "remove_aniso_params.eff"
+  }
+  directories {
+    temp_dir = "AutoBuild_run_1_/TEMP0"
+    output_dir = "AutoBuild_run_1_"
+  }
+  crystal_info {
+    resolution = None
+  }
+  aniso {
+    b_iso = 24.99994433
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+}
+
+Correction for anisotropy
+
+Arrays in input file /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz:
+['FC', 'PHIFC'] ['FOBS', 'SIGFOBS'] ['FOM'] ['R-free-flags'] 
+Columns for anisotropy correction:  FOBS,SIGFOBS
+
+Trace of aniso B:   79.25    44.12    83.29 A**2. 
+Minimum:   44.12    Mean:   68.89
+
+Applying aniso correction now with target B set with b_iso=  25.00
+Offset in B will be:   -43.89 (negative is sharpening)
+
+Aniso-corrected data to be written to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+
+Intermediate data file (for everything but refinement): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz
+Intermediate data file (for refinement): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz
+
+Merging input map file with data file to have consistent reflection set
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/averaged_map_coeffs_1.mtz : ['FAVG', 'PHIFAVG'] 
+Selecting arrays from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz : ['FC', 'PHIFC'] ['FOBS', 'SIGFOBS'] ['FOM'] 
+Output space group: C 1 2 1 (No. 5)
+Columns of data in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz:
+H K L FAVG PHIFAVG FC PHIFC FOBS SIGFOBS FOM 
+H H H F P F P F Q F 
+Ready with merged map file in  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz
+Unit cell: (161.995, 75.306, 151.541, 90, 108.97, 90)
+Space group: C 1 2 1 (No. 5)
+Program labels set to  ['FP=', 'PHIB=']  as only 2 input labels present
+
+AutoBuild_general_params  AutoBuild  Run 1 Sun Apr 23 00:53:30 2023
+
+Setting truncate_missing_side_chains=True as rebuild_in_place is False
+Resolution for model-building: 2.5  A
+Setting n_cycle_build=1 as nbatch >1 (nbatch =3)
+Setting number_of_models=1 as nbatch >1 (nbatch =3)
+
+AutoBuild_uncommon_inputs  AutoBuild  Run 1 Sun Apr 23 00:53:31 2023
+
+
+Setting number_of_parallel_models to  3  as it  is not 
+set and nbatch= 3 
+ and neither multiple_models nor omit is set...
+
+
+AutoBuild_check_params  AutoBuild  Run 1 Sun Apr 23 00:53:31 2023
+
+Resolution for model-building set to  2.5
+
+AutoBuild_set_up_build  AutoBuild  Run 1 Sun Apr 23 00:53:31 2023
+
+
+Using data from  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/aniso_data_PHX.mtz  for density modification as:  exptl_phases_for_dm_aniso.mtz
+Columns used:  FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM 
+Running xtriage on  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz . Output:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/refinement_PHX.mtz_xtriage.log
+Copying  refinement_PHX.mtz  to  exptl_fobs_phases_freeR_flags.mtz
+Columns used:  FP=FOBS SIGFP=SIGFOBS PHIB=PHIFC FOM=FOM FreeR_flag=R-free-flags 
+
+Checking for HL coeffs in  exptl_fobs_phases_freeR_flags.mtz False
+
+NOTE: no HL coeffs present, ignoring phase information
+
+Removing columns of data with all zeroes (if any)
+All columns of data have non-zero values
+
+Refinement file with freeR flags is in  AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz
+Using default test_flag_value of 0 from 
+AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz
+
+Removing anisotropy and sharpening refinement file 
+(AutoBuild_run_1_/TEMP0/exptl_fobs_phases_freeR_flags.mtz)  to b_iso=  25.00...
+yielding AutoBuild_run_1_/TEMP0/aniso_refinement_data_PHX.mtz
+Aniso-corrected data to be written to AutoBuild_run_1_/TEMP0/aniso_refinement_data_PHX.mtz
+Aniso B offset for refinement file:  -43.89
+
+NOTE: Not using phase information from input files in refinement and 
+density modification
+
+
+Refinement file with free R flags (not aniso corrected): /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/exptl_fobs_phases_freeR_flags.mtz
+
+Copying  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/map_PHX.mtz  to  map_coeffs.mtz as input map coeffs
+Columns used: LABIN  FP=FAVG PHIB=PHIFAVG
+Input map file is FWT PHWT or equiv
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 00:53:40 2023
+
+Build cycle 1 of 16   method:rebuild
+Initial rebuild cycle: just combining previous models or copying 
+over initial PDB file
+
+Using NO_LIG_NO_WAT_S_PHASE_0001_15_ed_one_0001_ed_ed.pdb for rebuild, copied to unrefined.pdb_1
+Refining model:  unrefined.pdb_1
+Using test_flag_value of 0 in refinement 
+Model: refine.pdb_1  R/Rfree=0.49/0.53
+
+Made copy of refined model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/refine.pdb_1  to  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/refined_pdb_in.pdb
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_001.mtz to AutoBuild_run_1_/TEMP0/refine_pdb_in.mtz
+Copying refine map file  AutoBuild_run_1_/TEMP0/refine_pdb_in.mtz  to  dummy_map_coeffs.mtz
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 01:00:40 2023
+
+Build cycle 2 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using input PDB coordinates in build this cycle
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_1 
+This is the first try at building this model
+Try:  1 building 1 model
+Try:  2 building 1 model
+Try:  3 building 1 model
+Running up to  4  jobs in parallel... with total of  3  jobs
+
+Splitting work into 3 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_1.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_2.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_3.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_1  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_1 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_1.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_2  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_2 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_2.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_3  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_3 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_3.log
+Calling method:  autobuild 3
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.49
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+Saving sample refinement log file in  AutoBuild_run_1_/sample_refinement_log_from_subprocess.log
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.49
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.49
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_3_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_3_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_3_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_3_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_3.pdb  to cycle_best.pdb
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb']
+Starting with current best model of  refine.pdb_1 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb']
+Model 1: Residues built=352  placed=181  Chains=20  Model-map CC=0.31 (Build_combine_extend_1.pdb)
+This is new best model with score =  493
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.48/0.50
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Total of 914 residues+ligand+waters written out and 0 skipped
+
+
+New overall best saved:
+
+Current working_best model and map  Sun Apr 23 01:33:15 2023
+Working directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_
+Model (working_best.pdb) from: AutoBuild_run_1_/TEMP0/refine_1.pdb
+Cycle: 2
+R and R-free: 0.48 0.50
+Map-model CC: 0.31
+Model-building logfile (working_best.log) from: Build_combine_extend_1.log
+Map coeffs used for build (working_best_denmod_map_coeffs.mtz)
+from: resolve_work.mtz
+SigmaA map coeffs (working_best_refine_map_coeffs.mtz) 
+from: refine_map_coeffs_1.mtz
+
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  724  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=345  placed=179  Chains=20  Model-map CC=0.30 (Build_combine_extend_3.pdb)
+Not the best model so far (previous score is 493.00, current score is 484.00) 
+Total of 914 residues+ligand+waters written out and 0 skipped
+
+
+New overall best saved:
+
+Current working_best model and map  Sun Apr 23 01:33:36 2023
+Working directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_
+Model (working_best.pdb) from: AutoBuild_run_1_/TEMP0/refine_1.pdb
+Cycle: 2
+R and R-free: 0.48 0.50
+Map-model CC: 0.31
+Model-building logfile (working_best.log) from: Build_combine_extend_1.log
+Model evaluation (working_best.log_eval) from: refine_1.pdb.log_eval
+Map coeffs used for build (working_best_denmod_map_coeffs.mtz)
+from: resolve_work.mtz
+SigmaA map coeffs (working_best_refine_map_coeffs.mtz) 
+from: refine_map_coeffs_1.mtz
+
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+
+Cycle 2  R/Rfree=0.48/0.51  Built=486  Placed=270 Resolution=2.5 A
+Copying files:  cycle_best.pdb ->  working_best.pdb (etc.)
+Copied  cycle_best.pdb to working_best.pdb
+Copied  cycle_best_denmod_map_coeffs.mtz to working_best_denmod_map_coeffs.mtz
+Copied  cycle_best_refine_map_coeffs.mtz to working_best_refine_map_coeffs.mtz
+
+New best overall: AutoBuild_run_1_/working_best.pdb
+
+Model obtained on cycle 2
+R (work): 0.477988852257 
+R (free): 0.51222968663
+Residues built: 486
+Residues placed: 270
+Model-map CC: 0.32 
+Chains: 31 
+Total of 1190 residues+ligand+waters written out and 0 skipped
+
+
+New overall best saved:
+
+Current working_best model and map  Sun Apr 23 01:33:36 2023
+Working directory: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_
+Model (working_best.pdb) from: AutoBuild_run_1_/TEMP0/working_best.pdb
+Cycle: 2
+R and R-free: 0.48 0.51
+Map-model CC: 0.32
+Map coeffs used for build (working_best_denmod_map_coeffs.mtz)
+from: working_best_denmod_map_coeffs.mtz
+SigmaA map coeffs (working_best_refine_map_coeffs.mtz) 
+from: working_best_refine_map_coeffs.mtz
+
+
+Creating overall_best files ...
+
+Refining AutoBuild_run_1_/cycle_best_2.pdb against original data in AutoBuild_run_1_/exptl_fobs_phases_freeR_flags.mtz 
+Refining with information in  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/mr_rosetta_phenix.params 
+Setting refinement resolution to 2.5
+Using test_flag_value of 0 in refinement 
+After refinement of AutoBuild_run_1_/cycle_best_2.pdb against original data, new file is /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_final_refine_001.pdb
+CIF version of model written to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_final_refine_001.cif
+New values of R/Rfree:    0.48/   0.51
+Saved PDB file refined against original data in PDS as  overall_best_final_refine_001.pdb
+Saved PDB file refined against original data in PDS as CIF in  overall_best_final_refine_001.cif
+
+Copying files to overall_best
+
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_final_refine_001.pdb to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb
+Total of 1190 residues+ligand+waters written out and 0 skipped
+
+Copying placed residues from /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_final_refine_001.pdb to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_placed.pdb 
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_final_refine_001.cif to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.cif
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/AutoBuild_2.ncs_spec to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_ncs_file.ncs_spec
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/cycle_best_refine_map_coeffs_2.mtz to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_refine_map_coeffs.mtz
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/exptl_fobs_phases_freeR_flags.mtz to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_refine_data.mtz
+
+Copying /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/cycle_best_2.mtz to /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 01:34:50 2023
+
+Build cycle 3 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using coordinates from previous cycle in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_2 ->resolve_denmod_3.log
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_2  and  ['working_best.pdb'] 
+Try:  1 building 1 model fit_loops=True
+Try:  2 building 1 model connect=True
+Try:  3 building 1 model build_outside=True
+Try:  4 building 1 model insert_helices=True
+Running up to  4  jobs in parallel... with total of  4  jobs
+
+Splitting work into 4 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_4.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_5.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_6.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_7.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_4  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_4 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_4.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_5  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_5 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_5.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_6  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_6 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_6.log
+Calling method:  autobuild 3
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_7  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_7 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_7.log
+Calling method:  autobuild 4
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.49
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  4 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.49
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_4_/overall_best.pdb  as  MODEL_4.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting with current best model of  refine.pdb_2 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Model 1: Residues built=408  placed=84  Chains=40  Model-map CC=0.28 (Build_combine_extend_1.pdb)
+This is new best model with score =  412
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.48/0.52
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  336  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=363  placed=50  Chains=39  Model-map CC=0.26 (Build_combine_extend_3.pdb)
+Not the best model so far (previous score is 412.00, current score is 335.00) 
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+Copied  refine_1.pdb  to cycle_best.pdb
+
+Cycle 3  R/Rfree=0.48/0.52  Built=408  Placed=84 Resolution=2.5 A
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 02:26:14 2023
+
+
+Deciding if we should continue...
+Recent R change per cycle:  -0.0
+Build cycle 4 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using coordinates from previous cycle in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_3 ->resolve_denmod_4.log
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_3  and  ['working_best.pdb'] 
+Try:  1 building 1 model fit_loops=True
+Try:  2 building 1 model connect=True
+Try:  3 building 1 model build_outside=True
+Try:  4 building 1 model insert_helices=True
+Running up to  4  jobs in parallel... with total of  4  jobs
+
+Splitting work into 4 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_8.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_9.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_10.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_11.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_8  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_8 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_8.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_9  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_9 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_9.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_10  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_10 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_10.log
+Calling method:  autobuild 3
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_11  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_11 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_11.log
+Calling method:  autobuild 4
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  4 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_4_/overall_best.pdb  as  MODEL_4.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting with current best model of  refine.pdb_3 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Model 1: Residues built=449  placed=111  Chains=46  Model-map CC=0.27 (Build_combine_extend_1.pdb)
+This is new best model with score =  468
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.49/0.52
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  444  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=394  placed=85  Chains=45  Model-map CC=0.26 (Build_combine_extend_3.pdb)
+Not the best model so far (previous score is 468.00, current score is 389.00) 
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+
+Cycle 4  R/Rfree=0.48/0.52  Built=505  Placed=82 Resolution=2.5 A
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 03:22:34 2023
+
+
+Deciding if we should continue...
+Recent R change per cycle:  -0.005
+Build cycle 5 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using coordinates from previous cycle in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_4 ->resolve_denmod_5.log
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_4  and  ['working_best.pdb'] 
+Try:  1 building 1 model fit_loops=True
+Try:  2 building 1 model connect=True
+Try:  3 building 1 model build_outside=True
+Try:  4 building 1 model insert_helices=True
+Running up to  4  jobs in parallel... with total of  4  jobs
+
+Splitting work into 4 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_12.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_13.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_14.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_15.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_12  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_12 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_12.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_13  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_13 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_13.log
+Calling method:  autobuild 3
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_14  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_14 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_14.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_15  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_15 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_15.log
+Calling method:  autobuild 4
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.49
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_2_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_2_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_2_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_2_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_2.pdb  to cycle_best.pdb
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_3_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_3_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_3_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_3_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_3.pdb  to cycle_best.pdb
+
+Solution for try :  4 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_4_/overall_best.pdb  as  MODEL_4.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting with current best model of  refine.pdb_4 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Model 1: Residues built=464  placed=129  Chains=47  Model-map CC=0.26 (Build_combine_extend_1.pdb)
+This is new best model with score =  499
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.48/0.53
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  516  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=377  placed=12  Chains=49  Model-map CC=0.26 (Build_combine_extend_3.pdb)
+Not the best model so far (previous score is 499.00, current score is 291.00) 
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+
+Cycle 5  R/Rfree=0.48/0.52  Built=456  Placed=76 Resolution=2.5 A
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 04:35:42 2023
+
+
+Deciding if we should continue...
+Recent R change per cycle:  0.0
+Build cycle 6 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using coordinates from previous cycle in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_5 ->resolve_denmod_6.log
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_5  and  ['working_best.pdb'] 
+Try:  1 building 1 model fit_loops=True
+Try:  2 building 1 model connect=True
+Try:  3 building 1 model build_outside=True
+Try:  4 building 1 model insert_helices=True
+Running up to  4  jobs in parallel... with total of  4  jobs
+
+Splitting work into 4 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_16.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_17.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_18.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_19.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_16  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_16 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_16.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_17  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_17 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_17.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_18  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_18 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_18.log
+Calling method:  autobuild 3
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_19  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_19 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_19.log
+Calling method:  autobuild 4
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_3_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_3_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_3_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_3_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+
+Solution for try :  4 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_4_/overall_best.pdb  as  MODEL_4.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting with current best model of  refine.pdb_5 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Model 1: Residues built=424  placed=17  Chains=49  Model-map CC=0.27 (Build_combine_extend_1.pdb)
+This is new best model with score =  343
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.48/0.51
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  68  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=418  placed=71  Chains=49  Model-map CC=0.26 (Build_combine_extend_3.pdb)
+This is new best model with score =  391
+Refining model:  Build_combine_extend_3.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_3_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_3.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_3.pdb  R/Rfree=0.48/0.52
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_3.mtz
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+
+Cycle 6  R/Rfree=0.48/0.52  Built=472  Placed=110 Resolution=2.5 A
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 05:33:30 2023
+
+
+Deciding if we should continue...
+Recent R change per cycle:  0.0
+Build cycle 7 of 16   method:rebuild
+Trying density after ha as copies >1
+
+Overall best score (cc*sqrt(n_op)):    0.45
+NCS operators: 2  Average NCS correlation:  0.32
+Overall best ncs_spec_file in  AutoBuild_run_1_/TEMP0/find_ncs_from_density.ncs_spec
+Re-using coordinates from previous cycle in build this cycle
+Density modifying image of refine.pdb_1 - refine.pdb_6 ->resolve_denmod_7.log
+
+Running parallel build jobs 
+
+Standard build in parallel  starting with  refine.pdb_6  and  ['working_best.pdb'] 
+Try:  1 building 1 model fit_loops=True
+Try:  2 building 1 model connect=True
+Try:  3 building 1 model build_outside=True
+Try:  4 building 1 model insert_helices=True
+Running up to  4  jobs in parallel... with total of  4  jobs
+
+Splitting work into 4 jobs and running with 4 processors using sh
+background=True in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0
+Final job will be run with sh  with background=True
+Starting job 1...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_20.log
+Starting job 2...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_21.log
+Starting job 3...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_22.log
+Starting job 4...Log will be: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_23.log
+Collecting all runs now
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_20  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_20 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_20.log
+Calling method:  autobuild 1
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_21  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_21 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_21.log
+Calling method:  autobuild 2
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_22  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_22 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_22.log
+Calling method:  autobuild 3
+
+Collecting run_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_23  
+info_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/INFO_FILE_23 
+method: autobuild 
+logfile: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/RUN_FILE_23.log
+Calling method:  autobuild 4
+Collecting models....
+
+Solution for try :  1 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_1_/overall_best.pdb  as  MODEL_1.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_1_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_1_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_1_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_1_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+Copied  MODEL_1.pdb  to cycle_best.pdb
+
+Solution for try :  2 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_2_/overall_best.pdb  as  MODEL_2.pdb  in  AutoBuild_run_1_/TEMP0
+This sub-process solution is the best so far...
+Saving  overall_best.log  as  MODEL_2_overall_best.log  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_refine  as  MODEL_2_overall_best.log_refine  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best_refine_map_coeffs.mtz  as  MODEL_2_overall_best_refine_map_coeffs.mtz  in  AutoBuild_run_1_/TEMP0
+Saving  overall_best.log_eval  as  MODEL_2_overall_best.log_eval  in  AutoBuild_run_1_/TEMP0
+
+Solution for try :  3 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_3_/overall_best.pdb  as  MODEL_3.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Solution for try :  4 overall_best.pdb
+Solution 1 from build cycle 1 R= 0.48
+Saving  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/TEMP0/AutoBuild_run_4_/overall_best.pdb  as  MODEL_4.pdb  in  AutoBuild_run_1_/TEMP0
+This is not the best as existing r is   0.48
+
+Removing directories where subprocesses were run...
+
+Done with  3 parallel build jobs...
+Running standard build to merge and extend these models now.
+
+
+Running standard build/extend
+Starting model list:  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting with current best model of  refine.pdb_6 ...setting it to  starting_model.pdb
+Including parts of this model if best...
+Using starting models from  ['MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Starting best model from  starting_model.pdb
+Model list:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+
+Model completion cycle 1
+Models to combine and extend:  ['working_best.pdb', 'starting_model.pdb', 'MODEL_1.pdb', 'MODEL_2.pdb', 'MODEL_3.pdb', 'MODEL_4.pdb']
+Model 1: Residues built=449  placed=55  Chains=47  Model-map CC=0.25 (Build_combine_extend_1.pdb)
+This is new best model with score =  410
+Refining model:  Build_combine_extend_1.pdb
+Using test_flag_value of 0 in refinement 
+Moving refinement file AutoBuild_run_1_/TEMP0/refine_1_001.mtz to AutoBuild_run_1_/TEMP0/refine_map_coeffs_1.mtz
+Model: AutoBuild_run_1_/TEMP0/refine_1.pdb  R/Rfree=0.48/0.51
+
+Maps from refinement will be filled (2FOFCWT PH2FOFCWT)
+Set refine map coeffs file  best_refine_map_coeffs  to  refine_map_coeffs_1.mtz
+Extending placed portion of model from:  refine_1.pdb
+
+
+Total of  220  atoms from sequence-assigned residues written to  AutoBuild_run_1_/TEMP0/all.pdb
+Models to combine and extend:  ['Build_extend_ends_2.pdb', 'refine_1.pdb']
+Model 3: Residues built=391  placed=86  Chains=45  Model-map CC=0.25 (Build_combine_extend_3.pdb)
+Not the best model so far (previous score is 410.00, current score is 387.00) 
+Done with running standard build
+Recovering fact  n_cycle_build  of  1
+Recovering fact  number_of_models  of  1
+Copied  refine_1.pdb  to cycle_best.pdb
+
+Cycle 7  R/Rfree=0.48/0.51  Built=449  Placed=55 Resolution=2.5 A
+
+AutoBuild_build_cycle  AutoBuild  Run 1 Sun Apr 23 06:22:57 2023
+
+
+Deciding if we should continue...
+Recent R change per cycle:  0.0
+
+Ending these build cycles as the recent change in R per cycle has been 
+0.0 and the required value of change  is  -0.005
+and 4 extra cycles have been carried out
+All done with build cycles in this region
+
+AutoBuild_set_up_build  AutoBuild  Run 1 Sun Apr 23 06:22:57 2023
+
+All omit/non-omit regions completed
+
+finished  AutoBuild  Run 1 Sun Apr 23 06:22:58 2023
+
+Finishing  AutoBuild Run 1
+Facts written to AutoBuild_run_1_/AutoBuild_Facts.dat
+AutoBuild Run 1
+
+Summary of model-building for run 1  Sun Apr 23 06:22:58 2023
+Files are in the directory:  /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/
+
+
+Starting mtz file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_1/PHASER.1_data.mtz
+Sequence file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/seq_from_file.dat
+
+Best solution on cycle: 2    R/Rfree=0.48/0.51
+
+Summary of output files for Solution 1 from rebuild cycle 2
+
+---  Model (PDB file)  ---
+pdb_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb
+
+---  Model (CIF file)  ---
+cif_pdb_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.cif
+
+---  NCS information file ---
+ncs_file: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_ncs_file.ncs_spec
+
+---  2FoFc and FoFc map coefficients from refinement 2FOFCWT PH2FOFCWT FOFCWT PHFOFCWT ---
+refine_map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_refine_map_coeffs.mtz
+
+---  Data for refinement FP SIGFP PHIM FOMM HLAM HLBM HLCM HLDM FreeR_flag ---
+refine_data: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_refine_data.mtz
+
+---  Density-modified map coefficients FWT PHWT ---
+denmod_map_coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz
+
+
+SOLUTION  CYCLE     R        RFREE     BUILT   PLACED 
+ 1         2      0.48        0.51      486       270
+ 2         3      0.48        0.52      408       84
+ 3         4      0.48        0.52      505       82
+ 4         5      0.48        0.52      456       76
+ 5         6      0.48        0.52      472       110
+ 6         7      0.48        0.51      449       55
+
+Citations for AutoBuild:
+
+Afonine PV, Grosse-Kunstleve RW, Echols N, Headd JJ, Moriarty NW, Mustyakimov
+M, Terwilliger TC, Urzhumtsev A, Zwart PH, Adams PD. (2012) Towards automated
+crystallographic structure refinement with phenix.refine. Acta Crystallogr D
+Biol Crystallogr 68:352-67.
+
+DiMaio F, Terwilliger TC, Read RJ, Wlodawer A, Oberdorfer G, Wagner U, Valkov
+E, Alon A, Fass D, Axelrod HL, Das D, Vorobiev SM, Iwaï H, Pokkuluri PR, Baker
+D. (2011) Improved molecular replacement by density- and energy-guided protein
+structure optimization. Nature 473:540-3.
+
+Liebschner D, Afonine PV, Baker ML, Bunkóczi G, Chen VB, Croll TI, Hintze B,
+Hung LW, Jain S, McCoy AJ, Moriarty NW, Oeffner RD, Poon BK, Prisant MG, Read
+RJ, Richardson JS, Richardson DC, Sammito MD, Sobolev OV, Stockwell DH,
+Terwilliger TC, Urzhumtsev AG, Videau LL, Williams CJ, Adams PD. (2019)
+Macromolecular structure determination using X-rays, neutrons and electrons:
+recent developments in Phenix. Acta Cryst. D75:861-877.
+
+Söding J. (2005) Protein homology detection by HMM-HMM comparison.
+Bioinformatics 21:951-60.
+
+Terwilliger T. (2003) SOLVE and RESOLVE: automated structure solution, density
+modification and model building. J Synchrotron Radiat 11:49-52.
+
+Terwilliger TC. (2002) Rapid automatic NCS identification using heavy-atom
+substructures. Acta Crystallogr D Biol Crystallogr 58:2213-5.
+
+Terwilliger TC, Grosse-Kunstleve RW, Afonine PV, Moriarty NW, Zwart PH, Hung
+L-W, Read RJ, Adams PD. (2008) Iterative model building, structure refinement
+and density modification with the PHENIX AutoBuild wizard. Acta Cryst.
+D64:61-69.
+
+Zwart PH, Grosse-Kunstleve RW, Adams PD. (2005) Xtriage and Fest: automatic
+assessment of X-ray data and substructure structure factor estimation. CCP4
+Newsletter Winter:Contribution 7.
+
+
+
+Cleaning up AutoBuild_run_1_/TEMP0 now...
+Done cleaning up ...

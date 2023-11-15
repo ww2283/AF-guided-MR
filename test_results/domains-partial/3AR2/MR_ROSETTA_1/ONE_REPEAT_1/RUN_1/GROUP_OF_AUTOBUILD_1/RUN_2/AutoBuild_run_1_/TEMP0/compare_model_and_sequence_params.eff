@@ -1,0 +1,22 @@
+compare_model_and_sequence {
+  input_files {
+    pdb_in = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/overall_best.pdb"
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_2/AutoBuild_run_1_/seq_from_file.dat"
+  }
+  output_files {
+    log = "compare_model_and_sequence.log"
+    params_out = "AutoBuild_run_1_/TEMP0/compare_model_and_sequence_params.eff"
+  }
+  comparison {
+    chain_type = "PROTEIN"
+    all_assigned = False
+    group_ca_length = 4
+  }
+  control {
+    verbose = False
+    raise_sorry = False
+    debug = False
+    dry_run = False
+    resolve_command_list = None
+  }
+}

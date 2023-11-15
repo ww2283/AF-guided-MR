@@ -1,0 +1,227 @@
+2023-04-22 21:26:47 - [1;33mWARNING[0m - Skipping colabfold since it has already been run.
+2023-04-22 21:26:53 - INFO - sequence is : MEAAHSKSTEECLAYFGVSETTGLTPDQVKRHLEKYGHNELPAEEGKSLWELVIEQFEDLLVRILLLAACISFVLAWFEEGEETITAFVEPFVILLILIANAIVGVWQERNAENAIEALKEYEPEMGKVYRADRKSVQRIKARDIVPGDIVEVAVGDKVPADIRILSIKSTTLRVDQSILTGESVSVIKHTEPVPDPRAVNQDKKNMLFSGTNIAAGKALGIVATTGVSTEIGKIRDQMAATEQDKTPLQQKLDEFGEQLSKVISLICVAVWLINIGHFNDPVHGGSWIRGAIYYFKIAVALAVAAIPEGLPAVITTCLALGTRRMAKKNAIVRSLPSVETLGCTSVICSDKTGTLTTNQMSVCKMFIIDKVDGDFCSLNEFSITGSTYAPEGEVLKNDKPIRSGQFDGLVELATICALCNDSSLDFNETKGVYEKVGEATETALTTLVEKMNVFNTEVRNLSKVERANACNSVIRQLMKKEFTLEFSRDRKSMSVYCSPAKSSRAAVGNKMFVKGAPEGVIDRCNYVRVGTTRVPMTGPVKEKILSVIKEWGTGRDTLRCLALATRDTPPKREEMVLDDSSRFMEYETDLTFVGVVGMLDPPRKEVMGSIQLCRDAGIRVIMITGDNKGTAIAICRRIGIFGENEEVADRAYTGREFDDLPLAEQREACRRACCFARVEPSHKSKIVEYLQSYDEITAMTGDGVNDAPALKKAEIGIAMGSGTAVAKTASEMVLADDNFSTIVAAVEEGRAIYNNMKQFIRYLISSNVGEVVCIFLTAALGLPEALIPVQLLWVNLVTDGLPATALGFNPPDLDIMDRPPRSPKEPLISGWLFFRYMAIGGYVGAATVGAAAWWFMYAEDGPGVTYHQLTHFMQCTEDHPHFEGLDCEIFEAPEPMTMALSVLVTIEMCNALNSLSENQSLMRMPPWVNIWLLGSICLSMSLHFLILYVDPLPMIFKLKALDLTQWLMVLKISLPVIGLDEILKFIARNYLEDPEDERRK
+2023-04-22 21:26:53 - INFO - Number of residues: 1001
+2023-04-22 21:26:53 - INFO - Xtriage analysis output:
+
+=================== Solvent content and Matthews coefficient ==================
+
+ Crystallized molecule(s) defined as 1001 protein residues
+  -------------------------------------------------------------------
+  | Solvent content analysis                                        |
+  |-----------------------------------------------------------------|
+  | Copies | Solvent content | Matthews coeff. | P(solvent content) |
+  |-----------------------------------------------------------------|
+  | 1      | 0.683           | 3.88            | 0.425              |
+  | 2      | 0.367           | 1.94            | 0.568              |
+  | 3      | 0.050           | 1.29            | 0.006              |
+  -------------------------------------------------------------------
+
+ Best guess :    2 copies in the ASU
+
+ Caution: this estimate is based on the distribution of solvent content across
+ structures in the PDB, but it does not take into account the resolution of
+ the data (which is strongly correlated with solvent content) or the physical
+ properties of the model (such as oligomerization state, et cetera).  If you
+ encounter problems with molecular replacement and/or refinement, you may need
+ to consider the possibility that the ASU contents are different than expected.
+
+
+2023-04-22 21:26:53 - INFO - Most probable solvent content: 36.66%
+2023-04-22 21:26:53 - INFO - Most probable number of molecules: 2
+2023-04-22 21:26:53 - INFO - Data is not twinned
+2023-04-22 21:26:53 - INFO - running phaser molecular replacement with default mode, see parameters used in phaser.params...
+2023-04-22 22:11:16 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (3.9) and may not be reliable. Check log file for details at phaser_output/PHASER.log
+2023-04-22 22:11:16 - [1;33mWARNING[0m - default_phaser_success: False
+2023-04-22 22:11:17 - INFO - Threshold length for a domain to be used: 200.20000000000002
+2023-04-22 22:11:17 - INFO - List of adjusted domains: [{'accession': 'IPR023298', 'name': 'P-type ATPase, transmembrane domain superfamily', 'start': 2, 'end': 131}, {'accession': 'IPR008250', 'name': 'P-type ATPase, A domain superfamily', 'start': 132, 'end': 237}, {'accession': 'IPR023214', 'name': 'HAD superfamily', 'start': 346, 'end': 355}, {'accession': 'IPR023299', 'name': 'P-type ATPase, cytoplasmic domain N', 'start': 356, 'end': 586}, {'accession': 'IPR036412', 'name': 'HAD-like superfamily', 'start': 587, 'end': 749}]
+2023-04-22 22:11:17 - INFO - Domain 1: 2 - 131
+2023-04-22 22:11:17 - INFO - Domain length: 130 less than 200.20000000000002. Skipping this domain.
+2023-04-22 22:11:17 - INFO - Domain 2: 132 - 237
+2023-04-22 22:11:17 - INFO - Domain length: 106 less than 200.20000000000002. Skipping this domain.
+2023-04-22 22:11:17 - INFO - Domain 3: 346 - 355
+2023-04-22 22:11:17 - INFO - Domain length: 10 less than 200.20000000000002. Skipping this domain.
+2023-04-22 22:11:17 - INFO - Domain 4: 356 - 586
+2023-04-22 22:11:17 - INFO - Domain 4 will be used for MR with length: 231
+2023-04-22 22:11:17 - INFO - Domain 5: 587 - 749
+2023-04-22 22:11:17 - INFO - Domain length: 163 less than 200.20000000000002. Skipping this domain.
+2023-04-22 22:11:17 - INFO - the following domains were found and will be used for alternative phaser molecular replacement: ['domains/ensemble_4.pdb']
+2023-04-22 22:11:17 - INFO - running phaser molecular replacement with alternative mode, see parameters used in alternative_phaser.params...
+2023-04-22 22:27:48 - [1;33mWARNING[0m - Phaser molecular replacement has low tfz (5.5) and may not be reliable. Check log file for details at alternative_phaser_output/PHASER.log
+2023-04-22 22:27:48 - [1;32mSUCCESS[0m - Valid partial solutions found with TFZ score: 16.3. Check alternative_phaser_output/PHASER.log for details.
+2023-04-22 22:27:48 - INFO - the mr_solution is alternative_phaser_output/PHASER.1.pdb, which will be used to check for the presence of ssbonds
+2023-04-22 22:27:48 - INFO - ssbonds are not present in the structure.
+2023-04-22 22:27:48 - INFO - Data resolution is 2.4999943236082407. Running MR-Rosetta with alternative_phaser_output/PHASER.1.pdb.
+2023-04-22 22:27:53 - INFO - Found 1 job logs in the most recent block:
+2023-04-22 22:27:53 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log
+2023-04-22 22:27:53 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_PLACE_MODEL_1 as the INFO_FILE_? count is less or equal than 1.
+2023-04-22 23:09:34 - INFO - Found 1 job logs in the most recent block:
+2023-04-22 23:09:34 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_FILE_1.log
+2023-04-22 23:09:34 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_ROSETTA_REBUILD_1 as the INFO_FILE_? count is less or equal than 1.
+2023-04-22 23:29:25 - INFO - Found 2 job logs in the most recent block:
+2023-04-22 23:29:25 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log
+2023-04-22 23:29:25 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log
+2023-04-22 23:29:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log with PID 580872 has CPU usage 97.1%. Monitored for 0 seconds.
+2023-04-22 23:29:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log with PID 580826 has CPU usage 95.5%. Monitored for 0 seconds.
+2023-04-22 23:39:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log with PID 580826 has CPU usage 97.8%. Monitored for 0 seconds.
+2023-04-22 23:39:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log with PID 580872 has CPU usage 97.8%. Monitored for 0 seconds.
+2023-04-22 23:49:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log with PID 580826 has CPU usage 98.6%. Monitored for 0 seconds.
+2023-04-22 23:49:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log with PID 580872 has CPU usage 98.8%. Monitored for 0 seconds.
+2023-04-22 23:59:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log with PID 580826 has CPU usage 99.0%. Monitored for 0 seconds.
+2023-04-22 23:59:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log with PID 580872 has CPU usage 99.0%. Monitored for 0 seconds.
+2023-04-23 00:09:26 - INFO - Could not find PID for job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_1.log in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1
+2023-04-23 00:09:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log with PID 580872 has CPU usage 99.2%. Monitored for 0 seconds.
+2023-04-23 00:19:26 - INFO - Could not find PID for job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1/RUN_FILE_2.log in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_REFINEMENT_1
+2023-04-23 00:21:25 - INFO - Found 2 job logs in the most recent block:
+2023-04-23 00:21:25 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_2.log
+2023-04-23 00:21:25 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2/RUN_FILE_1.log
+2023-04-23 00:21:25 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2 as it contains 'GROUP_OF_RESCORE_'.
+2023-04-23 00:21:25 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_RESCORE_MR_ROSETTA_2 as it contains 'GROUP_OF_RESCORE_'.
+2023-04-23 00:49:13 - INFO - Found 2 job logs in the most recent block:
+2023-04-23 00:49:13 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log
+2023-04-23 00:49:13 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log
+2023-04-23 00:49:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 99.6%. Monitored for 0 seconds.
+2023-04-23 00:49:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 99.7%. Monitored for 0 seconds.
+2023-04-23 00:59:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 98.8%. Monitored for 0 seconds.
+2023-04-23 00:59:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 98.7%. Monitored for 0 seconds.
+2023-04-23 01:09:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 94.6%. Monitored for 0 seconds.
+2023-04-23 01:09:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 95.0%. Monitored for 0 seconds.
+2023-04-23 01:19:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 66.4%. Monitored for 0 seconds.
+2023-04-23 01:19:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 66.7%. Monitored for 0 seconds.
+2023-04-23 01:29:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 55.9%. Monitored for 0 seconds.
+2023-04-23 01:29:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 55.9%. Monitored for 0 seconds.
+2023-04-23 01:39:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 63.7%. Monitored for 0 seconds.
+2023-04-23 01:39:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 63.8%. Monitored for 0 seconds.
+2023-04-23 01:49:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 66.9%. Monitored for 0 seconds.
+2023-04-23 01:49:13 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 65.3%. Monitored for 0 seconds.
+2023-04-23 01:59:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 57.8%. Monitored for 0 seconds.
+2023-04-23 01:59:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 56.4%. Monitored for 0 seconds.
+2023-04-23 02:09:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 50.9%. Monitored for 0 seconds.
+2023-04-23 02:09:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 49.7%. Monitored for 0 seconds.
+2023-04-23 02:19:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 45.4%. Monitored for 0 seconds.
+2023-04-23 02:19:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 46.0%. Monitored for 0 seconds.
+2023-04-23 02:29:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 41.1%. Monitored for 0 seconds.
+2023-04-23 02:29:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 51.1%. Monitored for 0 seconds.
+2023-04-23 02:39:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 55.0%. Monitored for 0 seconds.
+2023-04-23 02:39:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.6%. Monitored for 0 seconds.
+2023-04-23 02:49:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 43.4%. Monitored for 0 seconds.
+2023-04-23 02:49:14 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 50.5%. Monitored for 0 seconds.
+2023-04-23 02:59:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 46.7%. Monitored for 0 seconds.
+2023-04-23 02:59:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 46.7%. Monitored for 0 seconds.
+2023-04-23 03:09:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 43.5%. Monitored for 0 seconds.
+2023-04-23 03:09:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 43.4%. Monitored for 0 seconds.
+2023-04-23 03:19:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 42.3%. Monitored for 0 seconds.
+2023-04-23 03:19:15 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 40.6%. Monitored for 0 seconds.
+2023-04-23 03:29:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 45.6%. Monitored for 0 seconds.
+2023-04-23 03:29:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.1%. Monitored for 0 seconds.
+2023-04-23 03:39:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.6%. Monitored for 0 seconds.
+2023-04-23 03:39:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 46.1%. Monitored for 0 seconds.
+2023-04-23 03:49:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 41.5%. Monitored for 0 seconds.
+2023-04-23 03:49:16 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 43.6%. Monitored for 0 seconds.
+2023-04-23 03:59:17 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 41.9%. Monitored for 0 seconds.
+2023-04-23 03:59:17 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 41.3%. Monitored for 0 seconds.
+2023-04-23 04:09:17 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 39.8%. Monitored for 0 seconds.
+2023-04-23 04:09:17 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 39.3%. Monitored for 0 seconds.
+2023-04-23 04:19:23 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 37.6%. Monitored for 0 seconds.
+2023-04-23 04:19:23 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 37.9%. Monitored for 0 seconds.
+2023-04-23 04:29:24 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 36.2%. Monitored for 0 seconds.
+2023-04-23 04:29:24 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 36.2%. Monitored for 0 seconds.
+2023-04-23 04:39:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 36.9%. Monitored for 0 seconds.
+2023-04-23 04:39:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 38.5%. Monitored for 0 seconds.
+2023-04-23 04:49:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 39.5%. Monitored for 0 seconds.
+2023-04-23 04:49:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 40.2%. Monitored for 0 seconds.
+2023-04-23 04:59:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 38.6%. Monitored for 0 seconds.
+2023-04-23 04:59:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.8%. Monitored for 0 seconds.
+2023-04-23 05:09:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 37.3%. Monitored for 0 seconds.
+2023-04-23 05:09:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 37.1%. Monitored for 0 seconds.
+2023-04-23 05:19:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 35.9%. Monitored for 0 seconds.
+2023-04-23 05:19:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 35.8%. Monitored for 0 seconds.
+2023-04-23 05:29:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 36.0%. Monitored for 0 seconds.
+2023-04-23 05:29:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 36.9%. Monitored for 0 seconds.
+2023-04-23 05:39:25 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.2%. Monitored for 0 seconds.
+2023-04-23 05:39:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 39.0%. Monitored for 0 seconds.
+2023-04-23 05:49:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 38.1%. Monitored for 0 seconds.
+2023-04-23 05:49:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 39.7%. Monitored for 0 seconds.
+2023-04-23 05:59:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 36.9%. Monitored for 0 seconds.
+2023-04-23 05:59:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 38.5%. Monitored for 0 seconds.
+2023-04-23 06:09:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 35.7%. Monitored for 0 seconds.
+2023-04-23 06:09:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 37.3%. Monitored for 0 seconds.
+2023-04-23 06:19:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 1249918 has CPU usage 34.7%. Monitored for 0 seconds.
+2023-04-23 06:19:26 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 1249880 has CPU usage 36.8%. Monitored for 0 seconds.
+2023-04-23 06:29:26 - INFO - Could not find PID for job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1
+2023-04-23 06:29:26 - INFO - Could not find PID for job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1
+2023-04-23 06:31:25 - INFO - Found 1 job logs in the most recent block:
+2023-04-23 06:31:25 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_FILE_1.log
+2023-04-23 06:31:25 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1 as the INFO_FILE_? count is less or equal than 1.
+2023-04-23 06:37:23 - INFO - Found 1 job logs in the most recent block:
+2023-04-23 06:37:23 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_FILE_1.log
+2023-04-23 06:37:23 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1 as the INFO_FILE_? count is less or equal than 1.
+2023-04-23 07:11:07 - INFO - Found 1 job logs in the most recent block:
+2023-04-23 07:11:07 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1/RUN_FILE_1.log
+2023-04-23 07:11:07 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_ROSETTA_REBUILD_1 as the INFO_FILE_? count is less or equal than 1.
+2023-04-23 07:27:00 - INFO - Found 2 job logs in the most recent block:
+2023-04-23 07:27:00 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_FILE_2.log
+2023-04-23 07:27:00 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1/RUN_FILE_1.log
+2023-04-23 07:27:00 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1 as it contains 'GROUP_OF_RESCORE_'.
+2023-04-23 07:27:00 - INFO - Skipping group_directory /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_RESCORE_MR_RELAX_1 as it contains 'GROUP_OF_RESCORE_'.
+2023-04-23 07:52:48 - INFO - Found 2 job logs in the most recent block:
+2023-04-23 07:52:48 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log
+2023-04-23 07:52:48 - INFO -   - /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log
+2023-04-23 07:52:48 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 99.8%. Monitored for 0 seconds.
+2023-04-23 07:52:48 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 99.7%. Monitored for 0 seconds.
+2023-04-23 08:02:48 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 98.6%. Monitored for 0 seconds.
+2023-04-23 08:02:48 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 98.6%. Monitored for 0 seconds.
+2023-04-23 08:12:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 77.8%. Monitored for 0 seconds.
+2023-04-23 08:12:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 77.7%. Monitored for 0 seconds.
+2023-04-23 08:22:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 56.7%. Monitored for 0 seconds.
+2023-04-23 08:22:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 57.1%. Monitored for 0 seconds.
+2023-04-23 08:32:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 66.2%. Monitored for 0 seconds.
+2023-04-23 08:32:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 66.5%. Monitored for 0 seconds.
+2023-04-23 08:42:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 65.7%. Monitored for 0 seconds.
+2023-04-23 08:42:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 65.0%. Monitored for 0 seconds.
+2023-04-23 08:52:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 55.4%. Monitored for 0 seconds.
+2023-04-23 08:52:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 54.8%. Monitored for 0 seconds.
+2023-04-23 09:02:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 47.9%. Monitored for 0 seconds.
+2023-04-23 09:02:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 47.4%. Monitored for 0 seconds.
+2023-04-23 09:12:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 43.2%. Monitored for 0 seconds.
+2023-04-23 09:12:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 49.2%. Monitored for 0 seconds.
+2023-04-23 09:22:49 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 49.1%. Monitored for 0 seconds.
+2023-04-23 09:22:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 52.8%. Monitored for 0 seconds.
+2023-04-23 09:32:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 49.3%. Monitored for 0 seconds.
+2023-04-23 09:32:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 47.7%. Monitored for 0 seconds.
+2023-04-23 09:42:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 45.0%. Monitored for 0 seconds.
+2023-04-23 09:42:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 43.6%. Monitored for 0 seconds.
+2023-04-23 09:52:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 41.4%. Monitored for 0 seconds.
+2023-04-23 09:52:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 43.6%. Monitored for 0 seconds.
+2023-04-23 10:02:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 38.3%. Monitored for 0 seconds.
+2023-04-23 10:02:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 47.8%. Monitored for 0 seconds.
+2023-04-23 10:12:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 40.9%. Monitored for 0 seconds.
+2023-04-23 10:12:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 44.6%. Monitored for 0 seconds.
+2023-04-23 10:22:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 43.6%. Monitored for 0 seconds.
+2023-04-23 10:22:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 41.8%. Monitored for 0 seconds.
+2023-04-23 10:32:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 41.0%. Monitored for 0 seconds.
+2023-04-23 10:32:50 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 40.4%. Monitored for 0 seconds.
+2023-04-23 10:42:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 38.6%. Monitored for 0 seconds.
+2023-04-23 10:42:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 43.7%. Monitored for 0 seconds.
+2023-04-23 10:52:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 36.5%. Monitored for 0 seconds.
+2023-04-23 10:52:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 42.9%. Monitored for 0 seconds.
+2023-04-23 11:02:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 36.8%. Monitored for 0 seconds.
+2023-04-23 11:02:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 40.7%. Monitored for 0 seconds.
+2023-04-23 11:12:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 38.7%. Monitored for 0 seconds.
+2023-04-23 11:12:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 39.9%. Monitored for 0 seconds.
+2023-04-23 11:22:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 40.6%. Monitored for 0 seconds.
+2023-04-23 11:22:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 38.7%. Monitored for 0 seconds.
+2023-04-23 11:32:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 41.5%. Monitored for 0 seconds.
+2023-04-23 11:32:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 37.0%. Monitored for 0 seconds.
+2023-04-23 11:42:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 39.7%. Monitored for 0 seconds.
+2023-04-23 11:42:51 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 35.4%. Monitored for 0 seconds.
+2023-04-23 11:52:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log with PID 192789 has CPU usage 38.7%. Monitored for 0 seconds.
+2023-04-23 11:52:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 34.8%. Monitored for 0 seconds.
+2023-04-23 12:02:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 37.3%. Monitored for 0 seconds.
+2023-04-23 12:02:52 - INFO - Could not find PID for job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_1.log in /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1
+2023-04-23 12:12:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 37.3%. Monitored for 0 seconds.
+2023-04-23 12:22:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 36.0%. Monitored for 0 seconds.
+2023-04-23 12:32:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 34.7%. Monitored for 0 seconds.
+2023-04-23 12:42:52 - INFO - Job /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_FILE_2.log with PID 192809 has CPU usage 33.5%. Monitored for 0 seconds.
+2023-04-23 12:51:04 - [1;32mSUCCESS[0m - MR-Rosetta was successful. Model: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best.pdb, Map Coeffs: /maintank/Wei/automation.colabfold/test45/batch_4/P04191/3AR2/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz.
+2023-04-23 12:51:04 - INFO - You can check the log file at mr_rosetta.out for details.
+2023-04-23 12:51:04 - INFO - Auto processing is done. You can check the log file for details at automated_structure_solvation.log.

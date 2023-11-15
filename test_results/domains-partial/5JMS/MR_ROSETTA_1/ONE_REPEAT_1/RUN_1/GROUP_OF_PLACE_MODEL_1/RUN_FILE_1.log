@@ -1,0 +1,319 @@
+Parameters taken from: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/PARAMS_1.eff
+
+
+#                       mr_rosetta
+#
+# Run automr/autobuild/rosetta together 
+
+
+# Type phenix.doc for help
+
+usage: phenix.mr_rosetta mtzfile.mtz sequence.dat [pdbfile.pdb] [labin='FP=FP PHIB=PHIM FOM=FOMM'] 
+
+Values of all params:
+mr_rosetta {
+  input_files {
+    data = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/5jms-sf.mtz"
+    data_labels = None
+    free_r_data = ""
+    free_r_labels = None
+    remove_free = True
+    labin = None
+    seq_file = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/Q9BJF5/Q9BJF5.fasta"
+    search_models = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb"
+    copies_in_search_models = None
+    hhr_files = None
+    alignment_files = None
+    model_info_file = ""
+    mr_rosetta_solutions = None
+    ids_to_load = None
+    map_coeffs = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_AUTOBUILD_1/RUN_1/AutoBuild_run_1_/overall_best_denmod_map_coeffs.mtz"
+    labin_map_coeffs = "FP=FWT PHIB=PHWT"
+    map = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/averaged_map_coeffs_1_nf.map"
+    refinement_params = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/mr_rosetta_phenix.params"
+    display_solutions = False
+    fragment_files = None
+    fragment_files_chain_list = None
+    fragment_files_9_mer_by_chain = None
+    fragment_files_3_mer_by_chain = None
+    use_dummy_fragment_files = False
+    sort_fragment_files = True
+  }
+  output_files {
+    log = "mr_rosetta.log"
+    sort_score_type = None
+    params_out = "mr_rosetta_params.eff"
+  }
+  directories {
+    temp_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+    workdir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+    output_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1"
+    gui_output_dir = None
+    top_output_dir = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1"
+    rosetta_path = "/home/wei/Software/rosetta_src_2021.16.61629_bundle"
+    rosetta_binary_dir = "main/source/bin"
+    rosetta_binary_name = "mr_protocols.linuxgccrelease"
+    rosetta_script_dir = "main/source/src/apps/public/electron_density"
+    rosetta_database_dir = "main/database"
+  }
+  read_hhpred {
+    number_of_models = 1
+    number_of_models_to_skip = 0
+    copies_to_extract = None
+    only_extract_proper_symmetry = False
+  }
+  place_model {
+    run_place_model = True
+    prerefine {
+      run_prerefine = False
+      number_of_prerefine_models = 1000
+      number_of_models_in_ensemble = 1
+    }
+    model_already_placed = True
+    model_already_aligned = True
+    force_alignment = False
+    number_of_output_models = 5
+    align_with_sculptor = True
+    identity = None
+    identity_for_scoring_only = 25
+    use_all_plausible_sg = False
+    overlap_allowed = 10
+    selection_criteria_rot_value = 75
+    fast_search_mode = True
+    peak_rota_down = 25
+    mr_resolution = None
+    refine_after_mr = True
+    denmod_after_refine = True
+    ps_in_rebuild = False
+    find_ncs_after_mr = True
+    fixed_model = ""
+    fixed_model_identity = None
+    sufficient_number_finished = None
+    fixed_ensembles {
+      fixed_ensembleID_list = None
+      fixed_euler_list = 0 0 0
+      fixed_frac_list = 0 0 0
+      fixed_frac_list_is_fractional = True
+    }
+    copies_of_search_model_to_place = None
+  }
+  rescore_mr {
+    run_rescore_mr = False
+    nstruct = 5
+    relax = False
+    include_unrelaxed_in_scoring = False
+    align = True
+    edit_model = False
+    stage_to_rescore = "mr_solution"
+  }
+  rosetta_rebuild {
+    run_rosetta_rebuild = True
+    stage_to_rebuild = "rescored_mr_solution"
+    max_solutions_to_rebuild = 5
+    min_solutions_to_rebuild = 1
+    llg_percent_of_max_to_keep = 50
+    rosetta_models = 8
+    chunk_size = 1
+    edit_model = True
+    superpose_model = False
+  }
+  rosetta_rescore {
+    run_rosetta_rescore = True
+    percentage_to_rescore = 20
+    min_solutions_to_rescore = 2
+  }
+  similarity {
+    run_similarity = False
+    required_cc = 0.2
+    number_of_required_cc = 5
+  }
+  refine_top_models {
+    run_refine_top_models = False
+    stage_to_refine = "rescored_rosetta_solution"
+    sort_score_type = "MR_LLG"
+    percent_to_refine = 20
+    denmod_after_refine = True
+    remove_clashing_residues = None
+    clash_cutoff = 1.5
+  }
+  average_density_top_models {
+    run_average_density_top_models = True
+    percent_to_average = 100
+  }
+  relax_top_models {
+    run_relax_top_models = True
+    stage_to_relax = None
+    number_to_relax = 2
+    nstruct = 5
+    sort_score_type = None
+  }
+  autobuild_top_models {
+    run_autobuild_top_models = True
+    number_to_autobuild = 2
+    quick = False
+    phase_and_build = False
+    macro_cycles = None
+    remove_residues_on_special_positions = True
+    morph = False
+    edit_model = True
+    use_map_coeffs = True
+  }
+  setup_repeat_mr_rosetta {
+    run_setup_repeat_mr_rosetta = True
+    repeats = 0
+    template_repeats = 0
+    morph_repeats = 0
+    number_to_repeat = 1
+    acceptable_r = 0.25
+    minimum_delta_r = None
+  }
+  repeat_mr_rosetta {
+    run_repeat_mr_rosetta = True
+    copies_in_new_search_group = 1
+    update_map_coeffs_with_autobuild = True
+  }
+  rosetta_modeling {
+    map_resolution = 3
+    map_grid_spacing = 1.5
+    map_weight = 1
+    map_window = 5
+    include_solvation_energy = True
+    weights_file = ""
+  }
+  crystal_info {
+    resolution = 0
+    space_group = "P 1 21 1"
+    chain_type = *PROTEIN DNA RNA
+    ncs_copies = 1
+  }
+  control {
+    job_title = None
+    verbose = False
+    debug = False
+    raise_sorry = False
+    dry_run = False
+    nproc = 8
+    group_run_command = "sh "
+    queue_commands = None
+    condor_universe = "vanilla"
+    add_double_quotes_in_condor = True
+    condor = None
+    one_subprocess_level = None
+    single_run_command = "sh "
+    last_process_is_local = True
+    background = True
+    ignore_errors_in_subprocess = True
+    check_run_command = False
+    max_wait_time = 100
+    check_wait_time = 10
+    wait_between_submit_time = 1
+    wizard_directory_number = None
+    n_dir_max = 100000
+    number_to_print = 5
+    write_run_directory_to_file = "/maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/INFO_FILE_1"
+    rosetta_command = None
+    rosetta_3_6_or_later = True
+    fast = None
+    generate_fragment_files = True
+    resolve_command_list = None
+    start_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                  similarity refine_top_models average_density_top_models \
+                  relax_top_models autobuild_top_models \
+                  setup_repeat_mr_rosetta repeat_mr_rosetta
+    stop_point = place_model rescore_mr rosetta_rebuild rosetta_rescore \
+                 similarity refine_top_models average_density_top_models \
+                 relax_top_models autobuild_top_models \
+                 setup_repeat_mr_rosetta repeat_mr_rosetta
+    clean_up = True
+    add_id = True
+    test_flag_value = None
+    real_space_optimize = None
+    set_real_space_optimize = None
+  }
+  non_user_params {
+    file_base = None
+    print_citations = False
+    highest_id = 38
+    is_sub_process = True
+    dummy_autobuild = False
+    dummy_refinement = False
+    dummy_rosetta = False
+    prerefine_only = False
+    skip_clash_guard = True
+    correct_special_position_tolerance = None
+    ncs_in_refinement = *torsion cartesian None
+    comparison_mtz = ""
+    labin_comparison_mtz = None
+    write_local_files = False
+    rosetta_fixed_seed = None
+  }
+}
+
+Starting mr_rosetta
+Date: Thu May 25 04:00:12 2023 
+Directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1
+
+Changing to work directory: /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1
+
+Log file will be /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/mr_rosetta.log 
+Splitting output to  /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/mr_rosetta.log
+Checking rosetta paths:
+  rosetta binary: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/bin/mr_protocols.linuxgccrelease 
+  database_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/database 
+  script_dir: /home/wei/Software/rosetta_src_2021.16.61629_bundle/main/source/src/apps/public/electron_density
+
+Running mr_rosetta with inputs for Rosetta 3.6 or later
+
+ ================================================================================
+Setting up reflection file and labels
+================================================================================
+LABIN LINE TO BE USED: FP=FP SIGFP=SIGFP FreeR_flag=FreeR_flag  
+
+Methods to be run:
+
+place_model : True
+rescore_mr : False
+rosetta_rebuild : True
+rosetta_rescore : True
+similarity : False
+refine_top_models : False
+average_density_top_models : True
+relax_top_models : True
+autobuild_top_models : True
+setup_repeat_mr_rosetta : True
+repeat_mr_rosetta : True
+
+
+Note: fragment files will be generated by Rosetta
+ (Requires version 2013wk35 or later of Rosetta)
+
+
+MODEL IS ALREADY ALIGNED TO SEQUENCE FILE
+
+================================================================================
+Reading model from /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb 
+================================================================================
+
+SETTING CRYSTAL SYMMETRY FROM /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/GROUP_OF_SETUP_REPEAT_1/RUN_1/overall_best_tr_ref_001.pdb
+CRYST1   48.169   72.750   65.276  90.00  98.62  90.00 P 1 21 1
+Wrote dummy alignment to /maintank/Wei/automation.colabfold/test45/batch_13/Q9BJF5/5JMS/MR_ROSETTA_1/ONE_REPEAT_1/RUN_1/GROUP_OF_PLACE_MODEL_1/RUN_1/alignment.ali
+ALIGNMENT LINES: 
+## TARGET overa 
+# hhsearch
+scores_from_program: 0 1.00
+0 MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+0 MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+--
+
+Trying to adjust the PDB sequence from alignment file:
+MGQQESTLGGAAGEPRSRGHAAGTSGGPGDHLHATPGMFVQHSTAIFSDRYKGQRVLGKGSFGEVILCKDKITGQECAVKVISKRQVKQKTDKESLLREVQLLKQLDHPNIMKLYEFFEDKGYFYLVGEVYTGGELFDEIISRKRFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQTYTKEQISVDVPSLDNAILNIRQFQGTQKLAQAALLYMGSKLTSQDETKELTAIFHKMDKNGDGQLDRAELIEGYKELMRMKGQDASMLDASAVEHEVDQVLDAVDFDKNGYIEYSEFVTVAMDRKTLLSRERLERAFRMFDSDNSGKISSTELATIFGVSDVDSETWKSVLSEVDKNNDGEVDFDEFQQMLLKLCGN
+to match the actual PDB sequence:
+VILCKDKITGQECAVKVVQLLKQLDHPNIMKLYEFFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQNIRQFQGTQKLAQAALLYMTELATIFGEVDFDEFQQMLLKLCG
+New alignment line 4 for PDB: 
+0 -------------------------------------------------------------------------------------------------------------------------GQECAVKVVQLLKQLDHPNIMKLYFSEVDAARIIRQVLSGITYMHKNKIVHRDLKPENLLLESKSKDANIRIIDFGLSTHFEASKKMKDKIGTAYYIAPEVLHGTYDEKCDVWSTGVILYILLSGCPPFNGANEYDILKKVEKGKYTFELPQWKKVSESAKDLIRKMLTYVPSMRISARDALDHEWIQNIRQFQGTQKLAQLYMTELATIFGEVDFDEFQQMLL------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sorry: Sorry, please supply an alignment file for this job.
+Also specify force_alignment.
+mr_rosetta cannot automatically generate alignments where there
+are deletions required from the PDB file
