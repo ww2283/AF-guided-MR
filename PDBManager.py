@@ -514,7 +514,7 @@ class PDBManager:
                     if "** SINGLE solution" in line:
                         single_solution = True
                         # print("*** Single solution found ***")
-                        print(log_file_path)                
+                        # print(log_file_path)                
                 elif first_solution_block_found:
                     if 'SOLU SET' in line:
                         in_solu_set = True
@@ -525,14 +525,14 @@ class PDBManager:
                     if 'Solution #' in line:
                         break
         solu_set_combined = ' '.join(solu_set_lines)
-        print(f"solu_set_combined: {solu_set_combined}")
+        # print(f"solu_set_combined: {solu_set_combined}")
         # Extract all LLG and TFZ values from the line
         llg_tfz_pairs_found = re.findall(r'LLG=(\d+) TFZ==(\d+\.\d+)', solu_set_combined)    
         if llg_tfz_pairs_found:
             llg_tfz_pairs.extend(llg_tfz_pairs_found)                   
         if '+TNCS' in solu_set_combined:
             tncs_present = True
-        print(f"llg_tfz_pairs: {llg_tfz_pairs}")
+        logging.info(f"llg_tfz_pairs: {llg_tfz_pairs}")
 
         solutions = []
         first_solution_block_found = False
