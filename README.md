@@ -11,18 +11,25 @@ The tool consists of a series of Python scripts:
 
 ### Prerequisites
 
-You'll need to have the following installed:
-- conda
-- Python 3.7 (preferably within a Conda environment)
-- PHENIX (Python-based Hierarchical ENvironment for Integrated Xtallography)
-- Rosetta software suite (optional)
+You'll need to have the following installed on a Linux machine (preferably Ubuntu) with Nvidia GPU to run the scripts:
+- conda (or mamba)
+- Python 3.10 (preferably within a Conda environment)
+- PHENIX (Python-based Hierarchical ENvironment for Integrated Xtallography) (https://www.phenix-online.org/)
 
-### Installation (for pre Ada Lovelace cards)
-#### first install conda
+### Installation
+#### Install PHENIX
+You can follow the [official PHENIX installation guide](https://www.phenix-online.org/download/) for detailed instructions. The installation process is straightforward and should be completed within a few minutes.
+
+#### Install Nvidia GPU drivers with CUDA support
+You can follow the [official Nvidia installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) for detailed instructions, if this is the first time you are installing Nvidia GPU drivers with CUDA support.
+#### Install Conda
 You can follow the [official Conda installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) for detailed instructions.
-After installing Conda, create a new Conda environment with Python 3.7:
+[Optionally, you can install and use mamba for faster environment management: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html. This is not necessary and will require some additional configuration but can be helpful for faster environment management.]
+
+After installing Conda, create a new Conda environment with Python 3.10:
 ```
-conda create -n automatemr python=3.7
+conda create -n automatemr python=3.10
+# mamba create -n automatemr python=3.10 if you use mamba, similar to following commands, details: https://mamba.readthedocs.io/en/latest/user_guide/mamba.html
 ```
 you can choose other names for your environment.
 Activate your newly created Conda environment:
@@ -30,53 +37,47 @@ Activate your newly created Conda environment:
 conda activate automatemr
 ```
 #### install ColabFold
-Although local-colabfold should work as well, I would recommend the default ColabFold, as this python function was tested with the default version.
+Although local-colabfold should work as well, I would recommend the default ColabFold, as this python function was tested with the default version. The following installation process consulted the ColabFold installation guide and local-colabfold installation guide. 
 ```
-pip install "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold"
-pip install "jax[cuda]>=0.3.8,<0.4" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html"
-conda install -c conda-forge -c bioconda kalign2=2.04 hhsuite=3.3.0
-conda install -c conda-forge openmm=7.5.1 pdbfixer
-```
-The version I tested was giving stable results so if there's difficulty getting the colabfold to work on your machine, you can consider replace the default colabofld install with:
-```
-pip install "colabfold[alphafold] @ git+https://github.com/sokrypton/ColabFold@5b3fc193e880cd9599f91cd16fcb1fe69f7759f2"
-
-```
-### Installation (for Ada Lovelace cards) update 09-16-2023
-I recently encountered problem with above installation method after I upgrade my cards from RTX 5000 16GB to RTX 6000 Ada. After some troubleshooting I traced down the errors are due to the upgraded needs for Ada Lovelace cards. So you will probably face similar issues if you use RTX 4080 or 4090 cards.
-
-First you need to upgrade CUDA to 11.8 or later so that your Ada Lovelace cards can use CUDA. Then you will need to upgrade python from 3.7 to at least 3.9 and jax with the right CUDA support.
-
-There are two possible ways to solve this issue after upgrading CUDA. You can either upgrade python with `conda install --upgrade python==3.9`, which I didn't have the luck of success. You may get away if you use mamba solver, but I haven't installed mamba so I'm not sure.
-
-The other way is to use a new conda env. so after you upgraded your CUDA to 11.8 or later (I use 11.8):
-```
-conda create -n automatemr python=3.9
-pip install "colabfold[alphafold-minus-jax] @ git+https://github.com/sokrypton/ColabFold"
+conda install -c conda-forge -c bioconda openmm==7.7.0 pdbfixer kalign2=2.04 hhsuite=3.3.0 cctbx-base 
+# cctbx-base can be installed later but doesn't hurt to install it now
+pip install --no-warn-conflicts "colabfold[alphafold-without-jax] @ git+https://github.com/sokrypton/ColabFold"
 pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-conda install -c conda-forge -c bioconda kalign2=2.04 hhsuite=3.3.0
-conda install -c conda-forge openmm=7.7.0 pdbfixer
-pip install --upgrade dm-haiku
+pip install "colabfold[alphafold]"
 ```
+When you use pip, make sure you are in the right conda environment, otherwise you are just using the system python and pip, not the conda environment you just created. You can check your pip and python version by `which pip` and `which python`. 
+
+One word on Ada Lovelace cards: if you use e.g. RTX 4080, 4090 or ADA6000 cards, you will need to upgrade CUDA to 11.8 or later so that your Ada Lovelace cards can use CUDA. Then your python will need to be at least 3.9 and jax with the right CUDA support. Above installation process should work for Ada Lovelace cards but if you run into problems, check your CUDA version and python version.
+
 If you encounter problem when running colabfold because of pdbfixer, like `ModuleNotFoundError: No module named 'simtk.openmm.app.internal'`, then you may need to do the following:
 use a text editor, like nano or vim, open your pdbfixer.py, e.g.
 `nano ~/anaconda3/envs/automatemr/lib/python3.9/site-packages/pdbfixer/pdbfixer.py`
 then replace every instance of `simtk.openmm` with just `openmm`.
 
 ## Usage
-
-The main script, MolecularReplacementMaster.py, requires the protein sequence and data path as input. These can be designated by the --csv_path and --mtz_path flags, respectively. The csv format follows the instructions from ColabFold in the 'id,sequence' format. Optional inputs include the UniProt ID (--uniprot_id) and the number of processors to use (--nproc).
+First, clone the repository and optionally add the main script to your bash_aliases for easy access. Then, install the required packages and you are ready to go. For example, you can do the following in your terminal to install and use the main script:
+```
+git clone https://github.com/ww2283/AF-guided-MR
+nano ~/.bash_aliases
+alias mr='python /home/wei/Software/AF-guided-MR/main.py'
+source ~/.bash_aliases
+```
+next, install the required packages:
+```
+conda install -c conda-forge cctbx-base # if you haven't installed cctbx-base from the previous step
+pip install nvidia-ml-py3 gemmi mdtraj polyleven pandarallel scikit-learn hdbscan colorama biopython
+```
+The main script requires the protein sequence and data path as input. These can be designated by the --csv_path and --mtz_path flags, respectively. The csv format follows the instructions from ColabFold in the 'id,sequence' format. Optional but highly recommended inputs include the UniProt ID (--uniprot_id) and copy numbers for the protein component you wish to search (--copy_numbers). For a full list of options and input format, run the script with the --help or -h flag.
 
 The script, if needed, will invoke AF_cluster.py. This script clusters the MSA from ColabFold and sorts the resulting structures according to their RMSD to the top-ranked ColabFold model. This ensures that when Phaser runs on these models, it always tests with the order of high RMSD first.
 
-The AF_cluster script here draws upon the work done by the authors of the original AF_Cluster project (https://github.com/HWaymentSteele/AF_Cluster). I have constructed a modified version to fit my specific needs, focusing on the DBSCAN clustering of MSA from ColabFold and subsequent model sorting. I deeply appreciate their contribution to the scientific community, which has enabled us to further advance in the field of automated molecular replacement.
+The AF_cluster script here draws upon the work done by the authors of the original AF_Cluster project (https://github.com/HWaymentSteele/AF_Cluster). I have constructed a modified version to fit my specific needs, focusing on the DBSCAN clustering of MSA from ColabFold and subsequent model sorting. I deeply appreciate their fabulous work.
 
 For example:
 ```
-python MolecularReplacementMaster.py --csv_path your_protein_sequence.csv --mtz_path your_xray_data.mtz --uniprot_id P12345 --nproc 8
+python main.py --csv_path your_protein_sequence.csv --mtz_path your_xray_data.mtz --uniprot_id P12345,P23456 --copy_numbers 2:2 --nproc 8
 ```
 Replace your_protein_sequence.csv and your_xray_data.mtz with your actual input files, P12345 with your actual UniProt ID, and 8 with your desired number of processors.
 
 ## NOTE
-some works to be done:
-- Google Colab integration
+This tool has been benchmarked on 372 PDB entries that are deemed hard problems for MR and has shown a 92% success rate at identifying the right solution (R-factors for AutoBuild/refine in reasonable range), or 97% success rate at finding a significant solution but require further human evaluation. It is designed to handle difficult cases where the predicted structure varies significantly from the final solution. It is not a replacement for human evaluation, however, it is a proper tool to greatly speed up the process of MR. 
