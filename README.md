@@ -81,3 +81,7 @@ Replace your_protein_sequence.csv and your_xray_data.mtz with your actual input 
 
 ## NOTE
 This tool has been benchmarked on 372 PDB entries that are deemed hard problems for MR and has shown a 92% success rate at identifying the right solution (R-factors for AutoBuild/refine in reasonable range), or 97% success rate at finding a significant solution but require further human evaluation. It is designed to handle difficult cases where the predicted structure varies significantly from the final solution. It is not a replacement for human evaluation, however, it is a proper tool to greatly speed up the process of MR. 
+
+The full tested entry list is at resources/tested_cases.txt. Test cases results are available upon request, because the size of the results are too large to be uploaded here. 
+
+If you experience difficulty with the tool, or simply want to try your case but does not want to work with the full installation process, feel free to contact me at: af.guided.mr at gmail.com. I am happy to help you with your case and improve the tool.
