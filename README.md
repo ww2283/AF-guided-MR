@@ -59,7 +59,7 @@ First, clone the repository and optionally add the main script to your bash_alia
 ```
 git clone https://github.com/ww2283/AF-guided-MR
 nano ~/.bash_aliases
-alias mr='python /home/wei/Software/AF-guided-MR/main.py'
+alias mr='python /your/path/to/AF-guided-MR/main.py'
 source ~/.bash_aliases
 ```
 next, install the required packages:
