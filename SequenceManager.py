@@ -32,7 +32,7 @@ class SequenceManager:
 
     def get_uniprot_id_with_timeout(self, sequence, timeout=200):
         result_queue = Queue()
-        process = Process(target=self.fetch_uniprot_id, args=(self, sequence, result_queue))
+        process = Process(target=self.fetch_uniprot_id, args=(sequence, result_queue))
         process.start()
         process.join(timeout)
         if process.is_alive():
