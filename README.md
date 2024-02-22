@@ -1,7 +1,7 @@
 # AF-guided MR
 A Python tool that automates molecular replacement using protein sequences and x-ray diffraction data, designed especially to handle difficult cases.
 
-This tool uses protein sequences and reduced x-ray diffraction data to automate the process of molecular replacement. It leverages the power of ColabFold for initial structure prediction and then refines the structure based on predefined modes. For high-resolution cases better than 3.5 angstroms, it uses AutoBuild to enhance and build the model. For low-resolution cases worse than 3.5 angstroms, it uses phenix.refine to run default refinement cycles for a brief and quick assessment of the molecular replacement correctness. It is specifically designed to handle difficult cases where the predicted structure varies significantly from the final solution.
+This tool uses protein sequences and reduced x-ray diffraction data to automate the process of molecular replacement. It leverages the power of ColabFold for initial structure prediction and Phaser for MR based on various predefined modes. For high-resolution cases better than 3.5 angstroms, it uses AutoBuild to enhance and build the model. For low-resolution cases worse than 3.5 angstroms, it uses phenix.refine to run default refinement cycles for a brief and quick assessment of the molecular replacement correctness. It is specifically designed to handle difficult cases where the predicted structure varies significantly from the final solution.
 
 ## Getting Started
 
