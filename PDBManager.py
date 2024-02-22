@@ -505,41 +505,71 @@ class PDBManager:
         # Store LLG and TFZ pairs
         llg_tfz_pairs = []
         single_solution = False
+        solu_set_lines = []
+
         with open(log_file_path, 'r') as file:
             for line in file:
                 if '** SINGLE solution' in line or 'Solution annotation (history):' in line or 'Solution #1 annotation (history):' in line or 'Partial Solution #1 annotation (history):' in line:
                     first_solution_block_found = True
                     if "** SINGLE solution" in line:
                         single_solution = True
-                        logging.info("*** Single solution present in the log file. ***")                    
+                        # print("*** Single solution found ***")
+                        print(log_file_path)                
                 elif first_solution_block_found:
                     if 'SOLU SET' in line:
                         in_solu_set = True
                     elif "SOLU SPAC" in line:
                         in_solu_set = False
-                    if in_solu_set and "LLG" in line:
-                        # Extract all LLG and TFZ values from the line
-                        llg_tfz_pairs_found = re.findall(r'LLG=(\d+) TFZ==(\d+\.\d+)', line)    
-                        if llg_tfz_pairs_found:
-                            llg_tfz_pairs.extend(llg_tfz_pairs_found)                   
-                        if '+TNCS' in line:
-                            tncs_present = True
+                    if in_solu_set:
+                        solu_set_lines.append(line.strip())
+                    if 'Solution #' in line:
+                        break
+        solu_set_combined = ' '.join(solu_set_lines)
+        print(f"solu_set_combined: {solu_set_combined}")
+        # Extract all LLG and TFZ values from the line
+        llg_tfz_pairs_found = re.findall(r'LLG=(\d+) TFZ==(\d+\.\d+)', solu_set_combined)    
+        if llg_tfz_pairs_found:
+            llg_tfz_pairs.extend(llg_tfz_pairs_found)                   
+        if '+TNCS' in solu_set_combined:
+            tncs_present = True
+        print(f"llg_tfz_pairs: {llg_tfz_pairs}")
+
+        solutions = []
+        first_solution_block_found = False
+        have_pre_placed_chains = False
+        in_solu_set = False
+        with open(log_file_path, 'r') as file:
+            for line in file:
+                if '** SINGLE solution' in line or 'Solution annotation (history):' in line or 'Solution #1 annotation (history):' in line or 'Partial Solution #1 annotation (history):' in line:
+                    first_solution_block_found = True
+                    if "** SINGLE solution" in line:
+                        single_solution = True
+                        # print("*** Single solution found ***")
+                        # print(log_file_path)                
+                elif first_solution_block_found:
+                    if 'SOLU SET' in line:
+                        in_solu_set = True
+                    elif "SOLU SPAC" in line:
+                        in_solu_set = False
                     if not in_solu_set and 'SOLU 6DIM ENSE' in line:
                         if 'EULER    0.0    0.0    0.0' in line:
                             have_pre_placed_chains = True
                         else:
-                            ensemble_id = re.search(r'\w+_ensemble_\d+', line)
+                            ensemble_id = re.search(r'ensemble_\d+', line)
                             if ensemble_id:
                                 ensemble_id = ensemble_id.group(0)
                                 keep = False
+                                llg = 0
+                                tfz_score = 0
                                 if tncs_present:
                                     keep = True
-                                    self.logger.warning("TNCS present in solution - treating all SOLU 6DIM ENSE ensembles as valid solutions.")
+                                    print("TNCS present in solution - treating all SOLU 6DIM ENSE ensembles as valid solutions.")
                                 else:
                                     tfz_match = re.search(r'TFZ==(\d+\.\d+)', line)
                                     if tfz_match:
                                         tfz_score = float(tfz_match.group(1))
                                         if single_solution:
+                                            # print(f"Single solution found with TFZ {tfz_score}")
                                             llg_threshold = int(tfz_score) ** 1.8
                                         else:
                                             if tfz_score >= 20.0 and tfz_score < 25.0:
@@ -552,6 +582,7 @@ class PDBManager:
                                             if float(tfz) == tfz_score:
                                                 if int(llg) >= int(llg_threshold) and float(tfz) >= 8.0:
                                                     keep = True
+                                                    # if (ensemble_id, keep, llg, tfz_score) not in solutions:
                                 solutions.append((ensemble_id, keep))
                     if 'Solution #' in line:
                         break  # Stop processing after the first solution block
