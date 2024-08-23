@@ -69,14 +69,7 @@ class MolecularReplacement:
                     content = open(f"{output_dir}/PHASER.log", "r").read()
                     if "** SINGLE solution" in content:
                         logging.success("Single solution found in the log file")
-                        llg_threshold = int(tfz) ** 1.8
-                    else:
-                        if tfz >= 20.0 and tfz < 25.0:
-                            llg_threshold = int(tfz) ** 1.9
-                        elif tfz >= 25.0:
-                            llg_threshold = int(tfz) ** 1.8
-                        else:
-                            llg_threshold = int(tfz) ** 2.0
+                    llg_threshold = 40
                     logging.info(f"LLG threshold: {llg_threshold:.1f}")
                     # Check if tfz is not none and greater than 8.0
                     if tfz is not None and float(tfz) >= 8.0 and float(llg) >= llg_threshold:
