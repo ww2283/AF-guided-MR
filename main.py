@@ -31,7 +31,10 @@ def parse_args():
     parser.add_argument("--solvent_content", type=float, required=False, help="Solvent content of the crystal (default: 0.5).")
     parser.add_argument("--output_path", type=str, required=False, help="Base directory for all output files. If not specified, uses the current directory.")
     parser.add_argument("--nproc", type=int, required=False, default=8, help="Number of processors to use (default: 8).")
-    parser.add_argument("--force_af_cluster", action="store_true", help="Force running AF_cluster.py even if the output directory already exists.")
+    parser.add_argument("--force_af_cluster", action="store_true", help="Force running AF_cluster.py even if the output directory already exists, or for those shorter than 50 residue sequences.")
+    parser.add_argument("--skip_af_cluster", action="store_true", help="Skip running AF_cluster.py, while using the models from pre-existing AF_cluster runs.")
+    parser.add_argument("--reference_model", type=str, required=False, help="Developing use: Path to the reference model for optional map-reference correlation.")
+    parser.add_argument("--reference_map", type=str, required=False, help="Developing use: Path to the reference map in mtz format for optional map-reference correlation.")
     # ... include other existing arguments as required ...
     return parser.parse_args()
 
@@ -73,7 +76,7 @@ def main():
 
         protein_info[sequence_id]["mr_models"][f"mr_model_path_{domain_recognition_method}_mode"] = processed_ensemble_paths
     
-    utilities.setup_custom_logger()
+
 
     args = parse_args()
     # Resolve output directory to an absolute path
@@ -81,7 +84,8 @@ def main():
         output_root = os.path.abspath(args.output_path)
     else:
         output_root = os.path.abspath(os.getcwd())  # Current directory as default
-        
+
+    utilities.setup_custom_logger(output_root)        
     protein_info = {}
 
     # Read sequences and UniProt IDs from CSV
@@ -95,14 +99,16 @@ def main():
             uniprot_id = uniprot_ids[idx]
         else:
             uniprot_id = None
-        output_dir = utilities.create_structure_directory(sequence_id)
+        # output_dir = utilities.create_structure_directory(sequence_id)
+        output_dir = os.path.join(output_root, sequence_id)
+        os.makedirs(output_dir, exist_ok=True)
         protein_info[sequence_id] = {
             "sequence": sequence,
             "uniprot_id": uniprot_id,
             "uniprot_start": None, # starting position of the input sequence relative to UniProt sequence
             "start": None, # starting position of the input sequence relative to alphafold model
             "bfactor_cutoff": 60, # default bfactor cutoff
-            "output_dir": os.path.join(output_root, output_dir),
+            "output_dir": output_dir, #os.path.join(output_root, output_dir),
             # Initialize other fields as None or default values
             "af": {
                 "alphafold_model_path": None,
@@ -128,7 +134,10 @@ def main():
             "best_model_path": None,
             "mr_models": {
                 "mr_model_folder_default_mode": os.path.join(output_root, "mr_models", sequence_id, "default_mode"),
-                "mr_model_path_default_mode": None,
+                "mr_model_path_default_mode": {
+                    "best": None,
+                    "second_best": None
+                },
                 "mr_model_folder_interpro_mode": os.path.join(output_root, "mr_models", sequence_id, "interpro_mode"),
                 "mr_model_path_interpro_mode": None,
                 "mr_model_folder_pae_mode": os.path.join(output_root, "mr_models", sequence_id, "pae_mode"),
@@ -150,7 +159,8 @@ def main():
             logging.info(f"Processing sequence {sequence_id} with UniProt ID {uniprot_id}...")
         else:
             logging.error(f"Could not process sequence {sequence_id} because no UniProt ID was supplied.")
-        output_dir = utilities.create_structure_directory(sequence_id)
+        output_dir = os.path.join(output_root, sequence_id)
+        os.makedirs(output_dir, exist_ok=True)
 
         # Fetch the Uniprot ID if it's not supplied
         if not uniprot_id and len(protein_info[sequence_id]['sequence']) > 100:
@@ -167,7 +177,7 @@ def main():
         if uniprot_id:
             try:
                 interpro_domains = pdb_manager.get_prioritized_domains(uniprot_id)
-                logging.info(f"Interpro domains for sequence {sequence_id}: {interpro_domains}")
+                # logging.info(f"Interpro domains for sequence {sequence_id}: {interpro_domains}")
                 if interpro_domains: #and "entry_protein_locations" in interpro_domains:
                     protein_info[sequence_id]["interpro_domains"] = interpro_domains
                     uniprot_start, uniprot_end = sequence_manager.get_absolute_positions(protein_info[sequence_id]['sequence'], uniprot_id)
@@ -233,12 +243,14 @@ def main():
         
         colabfold_marker = False
         best_model_path = None
+        second_best_model_path = None
         if colabfold_model_path:
             print(f"Sequence {sequence_id}: ColabFold model: {colabfold_model_path}")
             protein_info[sequence_id]["cf"]["colabfold_pae_json_path"] = colabfold_pae_json_path
             # renumber colabfold model
             offset = uniprot_start if uniprot_start is not None else (start if start is not None else 1)
             best_model_path = pdb_manager.renumber_colabfold_model(colabfold_model_path, offset)
+            second_best_model_path = alphafold_model_path
             colabfold_marker = True
             
             print(f"AlphaFold model path: {alphafold_model_path}")
@@ -251,7 +263,9 @@ def main():
                 colabfold_plddt = utilities.calculate_mean_plddt(colabfold_model_path)
                 print(f"Sequence {sequence_id}: ColabFold pLDDT: {colabfold_plddt}")
                 if alphafold_plddt > colabfold_plddt:
+                    second_best_model_path = best_model_path                   
                     best_model_path = protein_info[sequence_id]["af"]["alphafold_model_path"]
+
                     colabfold_marker = False
         else:
             logging.warning(f"No ColabFold model found for sequence {sequence_id}.")
@@ -277,7 +291,11 @@ def main():
             base_name = os.path.basename(best_model_path)         
             output_pdb_path = os.path.join(mr_model_folder_default_mode, f"{base_name}_plddt{b_factor_cutoff}.pdb")
 
-            protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"] = pdb_manager.process_pdb_file(best_model_path, b_factor_cutoff, output_pdb_path)
+            protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["best"] = pdb_manager.process_pdb_file(best_model_path, b_factor_cutoff, output_pdb_path)
+            if second_best_model_path is not None:
+                base_name = os.path.basename(second_best_model_path)
+                output_pdb_path = os.path.join(mr_model_folder_default_mode, f"{base_name}_plddt{b_factor_cutoff}.pdb")
+                protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["second_best"] = pdb_manager.process_pdb_file(second_best_model_path, b_factor_cutoff, output_pdb_path)
             if len(protein_info[sequence_id]["sequence"]) > 100:
                 if colabfold_marker == True:
                     protein_info[sequence_id]["cf"]["colabfold_adjusted_interpro_domains"] = protein_info[sequence_id]["interpro_domains"]
@@ -323,6 +341,7 @@ def main():
             logging.warning(f"No suitable model found for sequence {sequence_id}. Skipping this sequence.")
     
     sequence_ids = list(protein_info.keys())
+    updated_copy_numbers = None
     if args.copy_numbers:
         copy_numbers_list = args.copy_numbers.split(':')
         # sequence_ids = list(protein_info.keys())  # Extract sequence IDs from protein_info dictionary
@@ -365,7 +384,7 @@ def main():
     for sequence_id in protein_info:
         protein_info[sequence_id]['copy_number'] = copy_numbers_favorable.get(sequence_id, 1)
 
-    mr_model_paths = {sequence_id: protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"] for sequence_id in protein_info}
+    mr_model_paths = {sequence_id: protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["best"] for sequence_id in protein_info}
     copy_numbers = {sequence_id: protein_info[sequence_id]["copy_number"] for sequence_id in protein_info}
     print(f"final checking copy_numbers: {copy_numbers}")
 
@@ -399,8 +418,8 @@ def main():
         },
         "pae_mode": {
             "success": False,
-            "output_dir": os.path.join("pae_phaser_output"),
-            "params_file": os.path.join("pae_phaser_output", "pae_phaser.params"),
+            "output_dir": os.path.join(output_root, "pae_phaser_output"),
+            "params_file": os.path.join(output_root, "pae_phaser_output", "pae_phaser.params"),
             "tfz_score": 0,
             "pae_switch": "off"
         },
@@ -418,7 +437,7 @@ def main():
     }
 
     """
-    Phaser default mode 1st attempt
+    Phaser default mode 1st attempt with best models
     """
     total_copies_to_search = copy_numbers
 
@@ -427,6 +446,13 @@ def main():
     total_missing_copies = total_copies_to_search
     partial_pdb_path = None
 
+    # Calculate the total sequence length based on copy numbers
+    total_sequence_length = 0
+    found_sequence_length = 0
+    for sequence_id, copy_number in copy_numbers.items():
+        total_sequence_length += len(protein_info[sequence_id]["sequence"]) * copy_number
+        found_sequence_length += len(protein_info[sequence_id]["sequence"]) * total_found_copies[sequence_id]
+    logging.info(f"Phaser default mode 1st attempt-Total sequence length: {total_sequence_length}, found sequence length: {found_sequence_length}")
     if os.path.exists(phaser_info["default_mode"]["output_dir"]['01']):
         logging.info("default phaser output directory already exists. default phaser mode won't be run.")
         logging.warning(f"if you want to run default phaser mode, please delete the directory {phaser_info['default_mode']['output_dir']['01']} and rerun the script.")
@@ -442,10 +468,53 @@ def main():
         molecular_replacement.generate_phaser_params_multimer(phaser_info["default_mode"]["params_file"]['01'], 
             args.mtz_path, solvent_content, space_group, mr_model_paths, 
             copy_numbers, phaser_info, nproc=args.nproc)        
-        molecular_replacement.run_phaser_molecular_replacement(phaser_info["default_mode"]["params_file"]['01'])
+        molecular_replacement.run_phaser_molecular_replacement_async(phaser_info["default_mode"]["params_file"]['01'], phaser_info["default_mode"]["output_dir"]['01'])
         
     phaser_info["default_mode"]["success"]['01'] = molecular_replacement.handle_phaser_output(phaser_info["default_mode"]["output_dir"]['01'])
 
+    """
+    Phaser default mode 1st attempt with second best models [optional]
+    """
+
+    if not phaser_info["default_mode"]["success"]['01'] and protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["second_best"] is not None:
+        logging.warning("default phaser molecular replacement 1st attempt with pLDDT best model(s) not yielding useful result.")
+        logging.info(f"Testing default phaser molecular replacement 1st attempt with pLDDT second best model(s): {protein_info[sequence_id]['mr_models']['mr_model_path_default_mode']['second_best']}")
+        mr_model_paths = {
+            sequence_id: (
+                protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["second_best"]
+                if protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["second_best"] is not None
+                else protein_info[sequence_id]["mr_models"]["mr_model_path_default_mode"]["best"]
+            )
+            for sequence_id in protein_info
+        }
+        save_folder = os.path.join(phaser_info["default_mode"]["output_dir"]['01'], 'save')
+        save_00_folder = os.path.join(phaser_info["default_mode"]["output_dir"]['01'], 'save_00')
+        if os.path.exists(save_folder) and os.listdir(save_folder):
+            # Remove all contents in the phaser output dir except for the 'save' folder
+            for item in os.listdir(phaser_info["default_mode"]["output_dir"]['01']):
+                item_path = os.path.join(phaser_info["default_mode"]["output_dir"]['01'], item)
+                if item != 'save':
+                    if os.path.isdir(item_path):
+                        shutil.rmtree(item_path)
+                    else:
+                        os.remove(item_path)
+            
+            # Rename 'save' folder to 'save_00'
+            os.rename(save_folder, save_00_folder)
+        elif not os.path.exists(save_folder):
+            os.makedirs(save_folder, exist_ok=True)
+            # move all contents in the phaser output dir to the 'save' folder
+            for item in os.listdir(phaser_info["default_mode"]["output_dir"]['01']):
+                item_path = os.path.join(phaser_info["default_mode"]["output_dir"]['01'], item)
+                if item != 'save':
+                    shutil.move(item_path, save_folder)
+
+        molecular_replacement.generate_phaser_params_multimer(phaser_info["default_mode"]["params_file"]['01'],
+            args.mtz_path, solvent_content, space_group, mr_model_paths,
+            copy_numbers, phaser_info, nproc=args.nproc)
+        molecular_replacement.run_phaser_molecular_replacement_async(phaser_info["default_mode"]["params_file"]['01'], phaser_info["default_mode"]["output_dir"]['01'])
+        phaser_info["default_mode"]["success"]['01'] = molecular_replacement.handle_phaser_output(phaser_info["default_mode"]["output_dir"]['01'])
+        
     if phaser_info["default_mode"]['success']['01']:
         phaser_info["default_mode"]['tfz_score'], LLG = molecular_replacement.get_final_tfz(phaser_info["default_mode"]["output_dir"]['01'])
         logging.success(f"TFZ score for default phaser run: {phaser_info['default_mode']['tfz_score']}, LLG: {LLG}")
@@ -474,6 +543,7 @@ def main():
                 updated_copy_numbers = copy_numbers
                 updated_solvent_content = solvent_content
 
+            # Calculate the total sequence length based on updated_copy_numbers
             # print(f"Sequence IDs with more than 50 residues: {sequence_ids_over_50}")
             all_sequences_found = all(seq_id in found_copies and found_copies[seq_id] > 0 for seq_id in sequence_ids_over_50) # a boolean indicating whether each sequence ID in sequence_ids_over_50 has at least one chain found in the first Phaser attempt.
             # print(f"status of all_sequences_found: {all_sequences_found}")
@@ -518,7 +588,7 @@ def main():
                                 phaser_info["default_mode"]["params_file"]['02'], args.mtz_path, updated_solvent_content, 
                                 space_group, partial_pdb_path, mr_model_paths, missing_copies, phaser_info, nproc=args.nproc
                             ) 
-                            molecular_replacement.run_phaser_molecular_replacement(phaser_info["default_mode"]["params_file"]['02'])
+                            molecular_replacement.run_phaser_molecular_replacement_async(phaser_info["default_mode"]["params_file"]['02'], phaser_info["default_mode"]["output_dir"]['02'])
                             
                         phaser_info["default_mode"]['success']['02'] = molecular_replacement.handle_phaser_output(phaser_info["default_mode"]["output_dir"]['02'])
                         default_2nd_output_pdb = os.path.join(phaser_info["default_mode"]["output_dir"]['02'], "PHASER.1.pdb")  # Path to Phaser's output PDB
@@ -634,7 +704,7 @@ def main():
                     space_group, partial_pdb_path, interpro_mr_models, interpro_copy_numbers, phaser_info, nproc=args.nproc
                 )
 
-            molecular_replacement.run_phaser_molecular_replacement(interpro_params_file)
+            molecular_replacement.run_phaser_molecular_replacement_async(interpro_params_file, interpro_mode_dir)
 
         # Handle the output of the Interpro mode
         phaser_info["interpro_mode"]['success'] = molecular_replacement.handle_phaser_output(interpro_mode_dir)
@@ -643,7 +713,7 @@ def main():
             logging.success(f"TFZ score for interpro phaser run: {phaser_info['interpro_mode']['tfz_score']}, LLG: {LLG}")
             logging.success("Interpro phaser molecular replacement successful.")
             logging.info(f"After interpro mode, all combinations of copy numbers are {all_combinations}")
-            logging.info(f"phaser_info is {phaser_info}")
+            # logging.info(f"phaser_info is {phaser_info}")
             _, _, new_found_copies = molecular_replacement.deduce_missing_copies(interpro_log_file, phaser_info, all_combinations, mean_matthews_coeff, top_switch=False)
             logging.info(f"Newly found copies during interpro phaser attempt: {new_found_copies}")
             total_found_copies = {protein_id: total_found_copies.get(protein_id, 0) + new_found_copies.get(protein_id, 0) for protein_id in total_found_copies}
@@ -716,7 +786,7 @@ def main():
                     pae_params_file, args.mtz_path, updated_solvent_content,
                     space_group, pae_partial_pdb_path, pae_mr_models, pae_copy_numbers, phaser_info, nproc=args.nproc
                 )
-            molecular_replacement.run_phaser_molecular_replacement(pae_params_file)
+            molecular_replacement.run_phaser_molecular_replacement_async(pae_params_file, pae_mode_dir)
 
         # Handle the output of the pae mode
         phaser_info["pae_mode"]['success'] = molecular_replacement.handle_phaser_output(pae_mode_dir)
@@ -750,13 +820,35 @@ def main():
             # since the pae mode failed, use the same partial pdb as in the pae mode
 
     """
+    Check for found sequence total length before heading to AF_cluster mode
+    """
+    if updated_copy_numbers is not None:
+        total_sequence_length = 0
+        for protein_id in updated_copy_numbers:
+            total_sequence_length += len(protein_info[protein_id]["sequence"]) * updated_copy_numbers[protein_id]
+        logging.info(f"Total sequence length after interpro/pae mode: {total_sequence_length}")
+
+    # get the found_sequence_length from the partial_pdb_path file
+    if phaser_info['AF_cluster_mode']['af_cluster_switch'] == 'on':
+        if partial_pdb_path is not None:
+            found_sequence_length = pdb_manager.get_sequence_length_from_pdb(partial_pdb_path)
+            logging.info(f"Found sequence length from partial pdb: {found_sequence_length}")
+
+        # Check if the found sequence length is at least 70% of the total sequence length
+        found_ratio = 0
+        found_ratio = found_sequence_length / total_sequence_length
+        if found_ratio >= 0.7:
+            phaser_info['AF_cluster_mode']['af_cluster_switch'] = 'off'
+            logging.info(f"Found sequence length is at least 70% of the total sequence length: {found_sequence_length}/{total_sequence_length} = {found_ratio}. AF_cluster mode will not be run to save time.")
+
+    """
     AF_cluster mode
     """
 
     if phaser_info['AF_cluster_mode']['af_cluster_switch'] == 'on':
         # Set up the paths and parameters for AF_cluster mode
         AF_cluster_mode_root = os.path.join(output_root, "AF_cluster_root")
-        if os.path.exists(AF_cluster_mode_root):
+        if os.path.exists(AF_cluster_mode_root) and not args.skip_af_cluster:
             logging.info("AF_cluster mode output directory already exists. AF_cluster mode won't be run.")
             logging.warning(f"if you want to run AF_cluster mode, please delete the directory {AF_cluster_mode_root} and rerun the script.")
         else:
@@ -780,10 +872,13 @@ def main():
             for protein_id in sorted_proteins_for_AF_cluster:
                 AF_cluster_mode_dir = os.path.join(AF_cluster_mode_root, protein_id) 
                 os.makedirs(AF_cluster_mode_dir, exist_ok=True)                       
-                af_cluster_reference_pdb_path = protein_info[protein_id]["mr_models"]["mr_model_path_default_mode"]
-                logging.info(f"Calling run_af_cluster with arguments: {protein_info[protein_id]['cf']['colabfold_msa']}, {af_cluster_reference_pdb_path}")
-                af_cluster_process = subprocess.Popen([sys.executable, af_cluster_script_path, protein_info[protein_id]['cf']['colabfold_msa'], af_cluster_reference_pdb_path, str(40)], cwd=AF_cluster_mode_dir)
-
+                af_cluster_reference_pdb_path = protein_info[protein_id]["mr_models"]["mr_model_path_default_mode"]["best"]
+                if not args.skip_af_cluster:
+                    logging.info(f"Calling run_af_cluster with arguments: {protein_info[protein_id]['cf']['colabfold_msa']}, {af_cluster_reference_pdb_path}")
+                    af_cluster_process = subprocess.Popen([sys.executable, af_cluster_script_path, protein_info[protein_id]['cf']['colabfold_msa'], af_cluster_reference_pdb_path, str(40)], cwd=AF_cluster_mode_dir)
+                elif args.skip_af_cluster:
+                    logging.info("Skipping running new AF_cluster; using pre-existing AF_cluster models.")
+                    af_cluster_process = None
                 AF_cluster_phaser_output_dir = phaser_info['AF_cluster_mode']['output_dir']
 
                 predictions_folder = os.path.join(AF_cluster_mode_dir, "predictions")
@@ -841,16 +936,7 @@ def main():
                                 )
                             
                             logging.info(f"phaser params file for cluster {cluster_number} is generated and run.")
-                            phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename)
-                            phaser_log_path = f"PHASER.log"
-                            while phaser_process.poll() is None:
-                                if os.path.exists(phaser_log_path):
-                                    log_size_mb = os.path.getsize(phaser_log_path) / (1024 * 1024)
-                                    if log_size_mb > 5:
-                                        logging.warning("Terminating phaser run due to an abnormally long time.")
-                                        phaser_process.terminate()
-                                        break
-                                time.sleep(20)  # Adjust the sleep time as needed
+                            phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename, mr_cluster_dir)
 
                             AF_cluster_mr_success = molecular_replacement.handle_phaser_output(mr_cluster_dir)
                             AF_cluster_tmp_tfz_score, LLG = molecular_replacement.get_final_tfz(mr_cluster_dir)
@@ -876,12 +962,15 @@ def main():
                                 partial_pdb_path = AF_cluster_partial_pdb_path
                                 logging.info(f"***partial_pdb_path updated as: {partial_pdb_path}***")
                                 logging.info(f"Current missing copy for {protein_id}: {total_missing_copies[protein_id]}")
-                                if total_missing_copies[protein_id] <= 0:
+                                if total_missing_copies[protein_id] <= 0 and not args.skip_af_cluster:
                                     logging.info(f"Thus the AF_cluster for {protein_id} will be stopped.")
                                     halt_file_path = os.path.join(predictions_folder, 'HALT')
                                     with open(halt_file_path, 'w') as f:
                                         f.write("HALT")
                                     af_cluster_process.terminate
+                                    AF_cluster_success = True
+                                elif total_missing_copies[protein_id] <= 0 and args.skip_af_cluster:
+                                    logging.info(f"Skipping rest Phaser runs for {protein_id} due to success.")
                                     AF_cluster_success = True
                                 # break
                             # elif not AF_cluster_mr_success and AF_cluster_tmp_tfz_score > 6:
@@ -890,7 +979,7 @@ def main():
                                 
                                 mr_cluster_enemble_dir = os.path.join(mr_cluster_dir, "mr_cluster_ensemble")
                                 cf_adjusted_pae_domains = pdb_manager.get_domain_definitions_from_pae(cluster_cf_pae_path, offset, primary_pae_cutoff=15)
-                                logging.info(f"cf_adjusted_pae_domains for {cluster_number}: {cf_adjusted_pae_domains}")
+                                # logging.info(f"cf_adjusted_pae_domains for {cluster_number}: {cf_adjusted_pae_domains}")
                                 cluster_ensemble_files = pdb_manager.prepare_domain_ensembles(
                                     best_model_path,
                                     cf_adjusted_pae_domains, mr_cluster_enemble_dir, len(protein_info[protein_id]["sequence"])
@@ -915,16 +1004,8 @@ def main():
                                         space_group, partial_pdb_path, processed_ensemble_paths, {protein_id: total_missing_copies[protein_id]}, phaser_info, nproc=args.nproc
                                     )
                                 logging.info(f"phaser params file for cluster {cluster_number} in pae mode is generated and run.")
-                                phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename)
-                                phaser_log_path = f"PHASER.log"
-                                while phaser_process.poll() is None:
-                                    if os.path.exists(phaser_log_path):
-                                        log_size_mb = os.path.getsize(phaser_log_path) / (1024 * 1024)
-                                        if log_size_mb > 5:
-                                            logging.warning("Terminating phaser run due to an abnormally long time.")
-                                            phaser_process.terminate()
-                                            break
-                                    time.sleep(20)
+                                phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename, mr_cluster_enemble_dir)
+
                                 AF_cluster_pae_success = molecular_replacement.handle_phaser_output(mr_cluster_enemble_dir)
                                 if AF_cluster_pae_success:
                                     AF_cluster_tfz_score, LLG = molecular_replacement.get_final_tfz(mr_cluster_enemble_dir)
@@ -945,22 +1026,27 @@ def main():
                                     partial_pdb_path = AF_cluster_partial_pdb_path
                                     logging.info(f"***partial_pdb_path updated as: {partial_pdb_path}***")
                                     logging.info(f"Current missing copy for {protein_id}: {total_missing_copies[protein_id]}")
-                                    if total_missing_copies[protein_id] <= 0:
+                                    if total_missing_copies[protein_id] <= 0 and not args.skip_af_cluster:
                                         logging.info(f"Thus the AF_cluster for {protein_id} will be stopped.")
                                         halt_file_path = os.path.join(predictions_folder, 'HALT')
                                         with open(halt_file_path, 'w') as f:
                                             f.write("HALT")
                                         af_cluster_process.terminate
-                                        AF_cluster_success = True    
+                                        AF_cluster_success = True
+                                    elif total_missing_copies[protein_id] <= 0 and args.skip_af_cluster:
+                                        logging.info(f"Skipping rest Phaser runs for {protein_id} due to success.")
+                                        AF_cluster_success = True   
                                 else:
                                     logging.warning(f"AF_cluster phaser run {cluster_number} failed.")
                                     AF_cluster_tfz_score = None
                     if AF_cluster_success:
                         phaser_info["AF_cluster_mode"]['success'] = True
+                        phaser_info['AF_cluster_mode']['output_dir'] = AF_cluster_phaser_output_dir
                         break
                     if os.path.exists(f"{predictions_folder}/HALT"):
                         logging.warning("AF_cluster mode halted.")
-                        af_cluster_process.terminate()
+                        if af_cluster_process is not None:
+                            af_cluster_process.terminate()
                         break
 
                     time.sleep(100)
@@ -983,49 +1069,43 @@ def main():
     stop_monitoring = True
     successful_phaser = None
     successful_phaser_output_dir = None
-    if phaser_info["default_mode"]["success"]['01'] and not phaser_info["default_mode"]["success"]['02']:
-        successful_phaser = "default_mode_1st_attempt"
-        successful_phaser_output_dir = phaser_info["default_mode"]["output_dir"]['01']
-    elif phaser_info["default_mode"]["success"]['02']:
-        successful_phaser = "default_mode_2nd_attempt"
-        successful_phaser_output_dir = phaser_info["default_mode"]["output_dir"]['02']
-    else:
-        # Check for success in other modes
-        for mode, info in phaser_info.items():
-            if mode != "default_mode" and isinstance(info, dict):
-                # Check if 'success' is a dictionary
-                if isinstance(info.get("success"), dict):
-                    if any(info["success"].values()):
-                        successful_phaser = mode
-                        successful_phaser_output_dir = info["output_dir"]
-                        break
-                else:
-                    # Handle boolean 'success'
-                    if info.get("success", False):
-                        successful_phaser = mode
-                        successful_phaser_output_dir = info["output_dir"]
-                        break
+    # Loop through phaser_info to check success, keeping the last success
+    for mode, info in phaser_info.items():
+        # logging.info(f"TEST-Mode: {mode}, Info: {info}")
+        # Skip non-dict entries and entries without 'success'
+        if not isinstance(info, dict) or 'success' not in info:
+            continue
+
+        if mode == "default_mode":
+            # For default_mode, check both attempts
+            if info["success"]['01']:
+                successful_phaser = f"{mode}_1st_attempt"
+                successful_phaser_output_dir = info["output_dir"]['01']
+            if info["success"]['02']:
+                successful_phaser = f"{mode}_2nd_attempt"
+                successful_phaser_output_dir = info["output_dir"]['02']
+        else:
+            # Handle success as either a boolean or a dictionary
+            success = info["success"]
+            if isinstance(success, dict):
+                if any(success.values()):
+                    successful_phaser = mode
+                    successful_phaser_output_dir = info["output_dir"]
+            elif isinstance(success, bool):
+                if success:
+                    successful_phaser = mode
+                    successful_phaser_output_dir = info["output_dir"]
 
     tfz_score = phaser_info["best_tfz_score"]
     resolution = data_manager.get_high_resolution(args.mtz_path)
-    mr_rosetta_success = phaser_info["is_successful"] if phaser_info["mr_solution"] and phaser_info["high_resolution"] <= 2.5 else None
+
     # number of sequences
     num_sequences = len(sequences)
     # total sequence length added up from all sequences
     sequence_length = sum([len(sequence) for sequence_id, sequence in sequences])
-
-    utilities.save_csv_report(
-        "report.csv",
-        num_sequences, 
-        sequence_length, 
-        run_time, 
-        resolution, 
-        tfz_score, 
-        successful_phaser, 
-        successful_phaser_output_dir, 
-        mr_rosetta_success
-    )
-    
+    """
+    prepare for autobuild or refine
+    """    
     autobuild_input_model, successful_phaser_map = molecular_replacement.find_autobuild_inputs(output_root)
     data_path = os.path.abspath(args.mtz_path)
 
@@ -1057,7 +1137,8 @@ def main():
             f"n_cycle_rebuild_max=5", 
             f"crystal_info.solvent_fraction={solvent_content}", 
             "use_hl_if_present=False",
-            f"nproc={args.nproc}"
+            f"nproc={args.nproc}",
+            # "general.clean_up=True" # remove the TEMP folder when finished
         ]
 
         formatted_cmd = ' '.join(phenix_autobuild_cmd)
@@ -1071,15 +1152,30 @@ def main():
         phenix_autobuild_process = subprocess.Popen(phenix_autobuild_cmd)
         autobuild_log_path = os.path.join(autobuild_folder, "AutoBuild_run_1_/AutoBuild_run_1_1.log")
         # Start the monitoring in a separate thread, passing autobuild_log_path and autobuild_process
-        monitor_thread = threading.Thread(target=job_monitor.monitor_and_resolve_hangs, args=(autobuild_log_path, phenix_autobuild_process))
-        monitor_thread.start()
+        while not os.path.exists(autobuild_log_path):
+            time.sleep(10) 
+        monitor_autobuild_hanging_thread = threading.Thread(target=job_monitor.monitor_and_resolve_hangs, args=(autobuild_log_path, phenix_autobuild_process))
+        monitor_autobuild_hanging_thread.start()
 
-        logging.info(f"Monitoring thread started for {autobuild_log_path}.")
+        logging.info(f"Monitoring autobuild hanging thread started for {autobuild_log_path}.")
+
+        monitor_autobuild_memory_leaking_thread = threading.Thread(target=job_monitor.monitor_and_resolve_memory_leaks, args=(autobuild_log_path, phenix_autobuild_process))
+        monitor_autobuild_memory_leaking_thread.start()
+
+        logging.info(f"Monitoring autobuild memory leaking thread started for {autobuild_log_path}.")
 
         phenix_autobuild_process.wait()
+        autobuild_temp_dir = os.path.join(autobuild_folder, "AutoBuild_run_1_/TEMP0")
+        time.sleep(60) # wait for the settlement of the TEMP0 folder
+        if os.path.exists(autobuild_temp_dir):
+            shutil.rmtree(autobuild_temp_dir, onerror=utilities.remove_readonly)
         os.chdir(output_root)
 
         logging.info("Autobuild process finished.")
+        autobuild_working_path = os.path.join(autobuild_folder, "AutoBuild_run_1_")
+        cc_input_pdb, cc_input_map_coeffs = utilities.get_autobuild_results_paths(autobuild_working_path)
+        logging.info(f"Overall best pdb [Autobuild]: {cc_input_pdb}")
+        logging.info(f"Overall best refine map coeffs [Autobuild]: {cc_input_map_coeffs}")
     else:
         logging.info("The resolution is worse than 3.5, will use phenix.refine to refine the model.")
         logging.info(f"refinement input model: {autobuild_input_model}")
@@ -1093,7 +1189,9 @@ def main():
             data_path, 
             f"strategy=rigid_body+individual_sites+individual_adp", 
             f"main.number_of_macro_cycles=3", 
-            f"nproc={args.nproc}"
+            f"nproc={args.nproc}",
+            f"pdb_interpretation.allow_polymer_cross_special_position=True",
+            f"pdb_interpretation.clash_guard.nonbonded_distance_threshold=None"
         ]
 
         formatted_cmd = ' '.join(phenix_refine_cmd)
@@ -1110,6 +1208,57 @@ def main():
         os.chdir(output_root)
 
         logging.info("Refinement process finished.")
+        cc_input_pdb, cc_input_map_coeffs = utilities.get_refined_pdb_and_map(refinement_folder)
+        logging.info(f"Refined model [Refinement]: {cc_input_pdb}")
+        logging.info(f"Refined map coeffs [Refinement]: {cc_input_map_coeffs}")
+
+    """
+    extract r_work, r_free values
+    """
+    r_work, r_free = utilities.extract_rfactors(output_root)
+    logging.info(f"R_work: {r_work}, R_free: {r_free}")
+
+    """
+    calculate map model correlation values
+    """
+    cc_working_folder = os.path.join(output_root, "cc_working")
+    os.makedirs(cc_working_folder, exist_ok=True)
+    os.chdir(cc_working_folder)
+    if cc_input_pdb is None:
+        cc_input_pdb = autobuild_input_model
+    if cc_input_map_coeffs is None:
+        cc_input_map_coeffs = successful_phaser_map
+    phaser_model_map_cc = utilities.calculate_map_model_correlation(cc_input_pdb, args.mtz_path, cc_input_map_coeffs, solvent_content, cc_working_folder)
+    logging.info(f"Phaser model map correlation: {phaser_model_map_cc}")
+    reference_model_map_cc = None
+    reference_pdb = args.reference_model if args.reference_model is not None else None
+    reference_map = args.reference_map if args.reference_map is not None else None
+    if args.reference_model is not None or args.reference_map is not None:
+        reference_model_map_cc = utilities.calculate_map_model_correlation(cc_input_pdb, args.mtz_path, cc_input_map_coeffs, solvent_content, cc_working_folder, reference_pdb, reference_map)
+        logging.info(f"Reference model map correlation: {reference_model_map_cc}")
+    os.chdir(output_root)
+    # remove the cc_working_folder
+    shutil.rmtree(cc_working_folder)
+    """
+    prepare report.csv
+    """
+
+    utilities.save_csv_report(
+        "report.csv",
+        num_sequences, 
+        sequence_length, 
+        run_time, 
+        resolution, 
+        tfz_score, 
+        successful_phaser, 
+        successful_phaser_output_dir, 
+        reference_model_map_cc,
+        phaser_model_map_cc,
+        r_work,
+        r_free
+    )
+
+    utilities.create_clean_log_copy()
 
 if __name__ == "__main__":
     main()

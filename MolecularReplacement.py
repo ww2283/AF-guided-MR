@@ -6,6 +6,7 @@ import shutil
 import csv
 import itertools
 import logging
+import time
 from iotbx import file_reader
 from mmtbx.scaling.matthews import matthews_rupp, p_solc_calc
 from mmtbx.scaling.twin_analyses import get_twin_laws
@@ -20,18 +21,31 @@ class MolecularReplacement:
         self.pdb_manager = PDBManager.PDBManager()
 
     # Add this function after the generate_phaser_params() function
-    def run_phaser_molecular_replacement(self, params_filename):
+    def run_phaser_molecular_replacement(self, working_dir, params_filename, root_dir):
         try:
+            os.chdir(working_dir)
             cmd = f"phenix.phaser {params_filename}"
             with open(os.devnull, "w") as devnull:
                 subprocess.run(cmd, stdout=devnull, stderr=subprocess.STDOUT, shell=True, text=True)
+            os.chdir(root_dir)
         except Exception as e:
             self.logger.error(f"Error in run_phaser_molecular_replacement: {e}")
 
-    def run_phaser_molecular_replacement_async(self, params_filename):
+    def run_phaser_molecular_replacement_async(self, params_filename, working_dir):
         try:
             phaser_cmd = ["phenix.phaser", f"{params_filename}"]
-            phaser_process = subprocess.Popen(phaser_cmd)
+            phaser_process = subprocess.Popen(phaser_cmd, cwd=working_dir)
+            
+            phaser_log_path = os.path.join(working_dir, "PHASER.log")
+            while phaser_process.poll() is None:
+                if os.path.exists(phaser_log_path):
+                    log_size_mb = os.path.getsize(phaser_log_path) / (1024 * 1024)
+                    if log_size_mb > 4:
+                        logging.warning("Terminating phaser run due to an abnormally long time.")
+                        phaser_process.terminate()
+                        break
+                time.sleep(20)  # Adjust the sleep time as needed
+            
             return phaser_process
         except Exception as e:
             self.logger.error(f"Error in run_phaser_molecular_replacement_async: {e}")
@@ -55,7 +69,7 @@ class MolecularReplacement:
     def handle_phaser_output(self, output_dir, ensemble_pdbs=None):
         try:
             success = False
-            if all(os.path.exists(file) for file in ["PHASER.log", "PHASER.1.pdb"]) or all(os.path.exists(os.path.join(output_dir, file)) for file in ["PHASER.log", "PHASER.1.pdb"]):
+            if all(os.path.exists(file) for file in ["PHASER.log", "PHASER.1.pdb", "PHASER.1.mtz"]) or all(os.path.exists(os.path.join(output_dir, file)) for file in ["PHASER.log", "PHASER.1.pdb", "PHASER.1.mtz"]):
                 for file in glob.glob("PHASER.*"):
                     shutil.move(file, f"{output_dir}/{file}")
                 for file in glob.glob("alternative_phaser.params"):
@@ -82,11 +96,11 @@ class MolecularReplacement:
                         # move the files into a save folder
                         save_dir = os.path.join(output_dir, "save")
                         os.makedirs(save_dir, exist_ok=True)
-                        for file in glob.glob(f"{output_dir}/PHASER.*"):
+                        for file in itertools.chain(glob.glob(f"{output_dir}/PHASER.*"), glob.glob(f"{output_dir}/*.params")):
                             name_base = os.path.basename(file)
                             shutil.copy(file, f"{save_dir}/{name_base}")
                         logging.warning(f"Phaser molecular replacement has low llg ({llg}) but with acceptable tfz {tfz} and may not be reliable. Check log file for details at {save_dir}/PHASER.log")
-                    elif tfz is not None and float(tfz) >= 8.0 and "** SINGLE solution" in content and int(llg) == 0:
+                    elif (tfz is not None and float(tfz) >= 8.0 and "** SINGLE solution" in content and int(llg) == 0) or (tfz is not None and float(tfz) >= 8.0 and (int(llg) == 0 or float(llg) == 0.0)):
                         # move the files into a save folder
                         save_dir = os.path.join(output_dir, "save")
                         os.makedirs(save_dir, exist_ok=True)

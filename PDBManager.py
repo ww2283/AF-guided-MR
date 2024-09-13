@@ -432,15 +432,15 @@ class PDBManager:
             # if threshold_length > 100, then set it to 100
             if threshold_length > 80:
                 threshold_length = 80
-            logging.info(f"Threshold length for a domain to be used: {int(round(threshold_length))}")
+            # logging.info(f"Threshold length for a domain to be used: {int(round(threshold_length))}")
             sorted_domains = sorted(domains, key=lambda x: x['end'] - x['start'], reverse=True)
             # Adjust domain boundaries
             adjusted_domains = seq_manager.adjust_domain_boundaries(sorted_domains, sequence_length)
-            logging.info(f"List of adjusted domains: {adjusted_domains}")
+            # logging.info(f"List of adjusted domains: {adjusted_domains}")
             
             ensemble_files = []
             input_seq_start, input_seq_end = self.get_pdb_sequence_range(input_pdb)
-            logging.info(f"Input sequence range: {input_seq_start} - {input_seq_end}")
+            # logging.info(f"Input sequence range: {input_seq_start} - {input_seq_end}")
             # Extract the domains from the PDB file and save them as ensembles
             for i, domain in enumerate(adjusted_domains):
                 domain_start, domain_end = max(domain['start'], input_seq_start), min(domain['end'], input_seq_end)
@@ -449,17 +449,17 @@ class PDBManager:
 
                 # Check if the domain length is greater than or equal to 20% of the input sequence length
                 if domain_length >= threshold_length and domain_start <= domain_end:
-                    logging.info(f"Defined Domain {i+1}: {domain['start']} - {domain['end']}")
-                    logging.info(f"Domain {i+1} boundary: {domain_start} - {domain_end}")
+                    # logging.info(f"Defined Domain {i+1}: {domain['start']} - {domain['end']}")
+                    # logging.info(f"Domain {i+1} boundary: {domain_start} - {domain_end}")
                     logging.info(f"Domain {i+1} will be used for MR with length: {domain_length}")
                     output_file = os.path.join(domain_output_dir, f"ensemble_{i+1}.pdb")
                     ensemble_files.append(output_file)
                     self.extract_domain_from_pdb(input_pdb, domain_start, domain_end, output_file)
                 else:
                     # If the domain length is less than 20% of the input sequence length, stop processing further domains
-                    logging.info(f"Defined Domain {i+1}: {domain['start']} - {domain['end']}")
-                    logging.info(f"Domain {i+1} boundary: {domain_start} - {domain_end}")
-                    logging.info(f"Domain length: {domain_length} less than {int(round(threshold_length))}. Skipping this domain.")
+                    # logging.info(f"Defined Domain {i+1}: {domain['start']} - {domain['end']}")
+                    # logging.info(f"Domain {i+1} boundary: {domain_start} - {domain_end}")
+                    # logging.info(f"Domain length: {domain_length} less than {int(round(threshold_length))}. Skipping this domain.")
                     continue
         else:
             ensemble_files = [input_pdb]
@@ -489,6 +489,29 @@ class PDBManager:
                 if pdb not in used_pdbs:
                     return pdb
         return None  
+
+    def get_sequence_length_from_pdb(self, pdb_path):
+        sequence_length = 0
+        residues = set()
+        
+        try:
+            with open(pdb_path, 'r') as pdb_file:
+                for line in pdb_file:
+                    if line.startswith("SEQRES"):
+                        parts = line.split()
+                        sequence_length += len(parts) - 4
+                    elif line.startswith("ATOM"):
+                        residue_id = line[17:26]  # Extract residue name, chain identifier, and residue sequence number
+                        residues.add(residue_id)
+            
+            if sequence_length == 0:
+                sequence_length = len(residues)
+        except FileNotFoundError:
+            logging.error(f"PDB file not found: {pdb_path}")
+        except Exception as e:
+            logging.error(f"An error occurred while reading the PDB file: {e}")
+        
+        return sequence_length
 
     """
     This part is for multiple sequences input cases
@@ -555,7 +578,7 @@ class PDBManager:
                         if 'EULER    0.0    0.0    0.0' in line:
                             have_pre_placed_chains = True
                         else:
-                            ensemble_id = re.search(r'ensemble_\d+', line)
+                            ensemble_id = re.search(r'\b\w*ensemble_\d+\b', line)
                             if ensemble_id:
                                 ensemble_id = ensemble_id.group(0)
                                 keep = False
@@ -569,15 +592,9 @@ class PDBManager:
                                     if tfz_match:
                                         tfz_score = float(tfz_match.group(1))
                                         if single_solution:
-                                            # print(f"Single solution found with TFZ {tfz_score}")
-                                            llg_threshold = int(tfz_score) ** 1.8
+                                            llg_threshold = 40.0
                                         else:
-                                            if tfz_score >= 20.0 and tfz_score < 25.0:
-                                                llg_threshold = int(tfz_score) ** 1.9
-                                            elif tfz_score >= 25.0:
-                                                llg_threshold = int(tfz_score) ** 1.8
-                                            else:
-                                                llg_threshold = int(tfz_score) ** 2
+                                            llg_threshold = 40.0
                                         for llg, tfz in llg_tfz_pairs:
                                             if float(tfz) == tfz_score:
                                                 if int(llg) >= int(llg_threshold) and float(tfz) >= 8.0:
@@ -591,6 +608,7 @@ class PDBManager:
         if have_pre_placed_chains:
             solutions = self.adjust_for_pre_placed_chains(pdb_file_path, solutions)
 
+        logging.info(f"PHASER solutions: {solutions}")
         return solutions
     
     def adjust_for_pre_placed_chains(self, pdb_file_path, solutions):
