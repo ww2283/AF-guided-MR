@@ -516,14 +516,18 @@ class PDBManager:
     """
     This part is for multiple sequences input cases
     """
-    def parse_phaser_log(self, log_file_path):
-        """Parse the PHASER log file to find the first solution block and extract relevant solutions."""
+    def parse_phaser_log(self, log_file_path: str) -> list:
+        """Parse the PHASER log file to find the first solution block, extract relevant solutions,
+        calculate CC per chain, and adjust the keep flags based on CC values."""
+
         solutions = []
         first_solution_block_found = False
         tncs_present = False
         have_pre_placed_chains = False
         in_solu_set = False
+
         pdb_file_path = os.path.join(os.path.dirname(log_file_path), "PHASER.1.pdb")
+        mtz_file_path = os.path.join(os.path.dirname(log_file_path), "PHASER.1.mtz")
 
         # Store LLG and TFZ pairs
         llg_tfz_pairs = []
@@ -536,8 +540,6 @@ class PDBManager:
                     first_solution_block_found = True
                     if "** SINGLE solution" in line:
                         single_solution = True
-                        # print("*** Single solution found ***")
-                        # print(log_file_path)                
                 elif first_solution_block_found:
                     if 'SOLU SET' in line:
                         in_solu_set = True
@@ -547,15 +549,69 @@ class PDBManager:
                         solu_set_lines.append(line.strip())
                     if 'Solution #' in line:
                         break
+
         solu_set_combined = ' '.join(solu_set_lines)
-        # print(f"solu_set_combined: {solu_set_combined}")
-        # Extract all LLG and TFZ values from the line
-        llg_tfz_pairs_found = re.findall(r'LLG=(\d+) TFZ==(\d+\.\d+)', solu_set_combined)    
-        if llg_tfz_pairs_found:
-            llg_tfz_pairs.extend(llg_tfz_pairs_found)                   
+
+        # Custom parser for the SOLU SET line
+        def parse_solu_set_line(solu_set_line):
+            # Preprocess the line to normalize it
+            line = solu_set_line.replace('(&', '&')
+            line = line.replace(')', '')
+            line = line.replace('(', '')
+            line = line.replace('&', ' & ')
+            line = re.sub(r'\s+', ' ', line)  # Replace multiple spaces with a single space
+            # print(f"Preprocessed line: {line}")
+
+            tokens = line.strip().split(' ')
+            # print(f"Tokens: {tokens}")  # Debug print to check tokens
+
+            LLG_TFZ_pairs = []
+            current_LLGs = []
+            idx = 0
+            while idx < len(tokens):
+                token = tokens[idx]
+                if token.startswith('LLG=') or token.startswith('LLG+='):
+                    # Extract LLG value(s)
+                    llg_values = []
+                    llg_str = token.split('=')[1]
+                    llg_parts = [llg_str]
+                    idx += 1
+                    while idx < len(tokens) and (tokens[idx].isdigit() or tokens[idx] == '&'):
+                        if tokens[idx] != '&':
+                            llg_parts.append(tokens[idx])
+                        idx += 1
+                    for llg_part in llg_parts:
+                        if llg_part.isdigit():
+                            llg_values.append(int(llg_part))
+                    current_LLGs = llg_values
+                    # print(f"Current LLGs: {current_LLGs}")  # Debug print to check current LLGs
+                elif token.startswith('TFZ=='):
+                    # Extract TFZ value(s)
+                    tfz_values = []
+                    tfz_str = token.split('==')[1]
+                    tfz_parts = [tfz_str]
+                    idx += 1
+                    while idx < len(tokens) and (re.match(r'^\d+\.?\d*$', tokens[idx]) or tokens[idx] == '&'):
+                        if tokens[idx] != '&':
+                            tfz_parts.append(tokens[idx])
+                        idx += 1
+                    for tfz_part in tfz_parts:
+                        if re.match(r'^\d+\.?\d*$', tfz_part):
+                            tfz_values.append(float(tfz_part))
+                    # print(f"TFZ values: {tfz_values}")  # Debug print to check TFZ values
+                    for tfz in tfz_values:
+                        for llg in current_LLGs:
+                            LLG_TFZ_pairs.append((llg, tfz))
+                            # print(f"Added pair: {(llg, tfz)}")  # Debug print to check added pairs
+                else:
+                    idx += 1
+            return LLG_TFZ_pairs
+        # Use the custom parser to extract LLG and TFZ pairs
+        llg_tfz_pairs = parse_solu_set_line(solu_set_combined)
+
         if '+TNCS' in solu_set_combined:
             tncs_present = True
-        logging.info(f"llg_tfz_pairs: {llg_tfz_pairs}")
+        # logging.info(f"llg_tfz_pairs: {llg_tfz_pairs}")
 
         solutions = []
         first_solution_block_found = False
@@ -567,8 +623,6 @@ class PDBManager:
                     first_solution_block_found = True
                     if "** SINGLE solution" in line:
                         single_solution = True
-                        # print("*** Single solution found ***")
-                        # print(log_file_path)                
                 elif first_solution_block_found:
                     if 'SOLU SET' in line:
                         in_solu_set = True
@@ -578,28 +632,26 @@ class PDBManager:
                         if 'EULER    0.0    0.0    0.0' in line:
                             have_pre_placed_chains = True
                         else:
-                            ensemble_id = re.search(r'\b\w*ensemble_\d+\b', line)
-                            if ensemble_id:
-                                ensemble_id = ensemble_id.group(0)
+                            ensemble_id_match = re.search(r'ENSE\s+(\S+)', line)
+                            if ensemble_id_match:
+                                ensemble_id = ensemble_id_match.group(1)
                                 keep = False
-                                llg = 0
-                                tfz_score = 0
+                                tfz_match = re.search(r'#TFZ==(\d+\.\d+)', line)
                                 if tncs_present:
                                     keep = True
-                                    print("TNCS present in solution - treating all SOLU 6DIM ENSE ensembles as valid solutions.")
                                 else:
-                                    tfz_match = re.search(r'TFZ==(\d+\.\d+)', line)
                                     if tfz_match:
                                         tfz_score = float(tfz_match.group(1))
                                         if single_solution:
                                             llg_threshold = 40.0
                                         else:
                                             llg_threshold = 40.0
+                                        # Check if any pair meets the condition int(llg) >= int(llg_threshold) and float(tfz) >= 8.0
+                                        valid_pair_exists = any(int(llg) >= int(llg_threshold) and float(tfz) >= 8.0 for llg, tfz in llg_tfz_pairs)
                                         for llg, tfz in llg_tfz_pairs:
                                             if float(tfz) == tfz_score:
-                                                if int(llg) >= int(llg_threshold) and float(tfz) >= 8.0:
+                                                if (int(llg) >= int(llg_threshold) and float(tfz) >= 8.0) or (single_solution and float(tfz) >= 6.0 and not valid_pair_exists):
                                                     keep = True
-                                                    # if (ensemble_id, keep, llg, tfz_score) not in solutions:
                                 solutions.append((ensemble_id, keep))
                     if 'Solution #' in line:
                         break  # Stop processing after the first solution block
@@ -607,11 +659,35 @@ class PDBManager:
         # Adjust for any pre-placed chains by comparing the number of chains in PHASER.1.pdb
         if have_pre_placed_chains:
             solutions = self.adjust_for_pre_placed_chains(pdb_file_path, solutions)
+        print(f"PHASER solutions before CC filtering: {solutions}")
 
-        logging.info(f"PHASER solutions: {solutions}")
+        # Now, if PHASER.1.pdb and PHASER.1.mtz exist, calculate CC per chain and adjust keep flags
+        if os.path.exists(pdb_file_path) and os.path.exists(mtz_file_path):
+            # Calculate CC per chain
+            cc_per_chain, _ = self.calculate_cc_per_chain(pdb_file_path, mtz_file_path)
+
+            # Build a mapping from chain_id to cc value
+            cc_per_chain_dict = {chain_cc['chain_id']: chain_cc['cc'] for chain_cc in cc_per_chain}
+            print(f"cc_per_chain_dict: {cc_per_chain_dict}")
+            # Get chain IDs from the PDB file
+            chain_ids = self.get_chain_ids_from_pdb(pdb_file_path)
+
+            # Adjust solutions based on CC values
+            for i, (ensemble_id, keep) in enumerate(solutions):
+                print(f"Checking chain {i} with ensemble_id {ensemble_id}")
+                if i < len(chain_ids):
+                    chain_id = chain_ids[i]
+                    cc = cc_per_chain_dict.get(chain_id)
+                    if cc is not None and cc < 0.45:
+                        solutions[i] = (ensemble_id, False)
+                else:
+                    # If chain IDs are fewer than solutions, keep as is or handle accordingly
+                    pass
+
+        logging.info(f"PHASER solutions after CC filtering: {solutions}")
         return solutions
     
-    def adjust_for_pre_placed_chains(self, pdb_file_path, solutions):
+    def adjust_for_pre_placed_chains(self, pdb_file_path: str, solutions: list) -> list:
         """Adjust the solutions list based on the number of chains in PHASER.1.pdb."""
         with open(pdb_file_path, 'r') as pdb_file:
             chains_in_pdb = set()
@@ -629,7 +705,7 @@ class PDBManager:
 
 
     def process_pdb_file_for_phaser(self, pdb_file_path, keep_chains, output_file_path, partial_pdb_path=None):
-        """Process the PDB file to keep only the relevant chains and reassign chain identifiers."""
+        """Process the PDB file to keep only the relevant chains, reassign chain identifiers, and remove residues with any atom occupancy less than 1."""
         print(f"kept chains: {keep_chains}")
         with open(pdb_file_path, 'r') as pdb_file, open(output_file_path, 'w') as output_file:
             chain_map = {}
@@ -643,7 +719,6 @@ class PDBManager:
                         if line.startswith("ATOM") or line.startswith("HETATM"):
                             existing_chains.add(line[21])
                     if existing_chains:
-                        # Update next_chain_id to continue from the last chain identifier in partial_pdb_path
                         last_chain_id = sorted(existing_chains)[-1]
                         if last_chain_id.upper() < 'Z':
                             next_chain_id = ord(last_chain_id.upper()) + 1
@@ -657,16 +732,203 @@ class PDBManager:
             if partial_pdb_path is not None:
                 output_file.write(open(partial_pdb_path).read())
 
+            # Build a set of residues to delete based on cc_per_residue
+            mtz_file_path = os.path.join(os.path.dirname(pdb_file_path), "PHASER.1.mtz")
+            _, cc_per_residue = self.calculate_cc_per_chain(pdb_file_path, mtz_file_path)
+            residues_to_delete = set()
+            if cc_per_residue is not None:
+                for res in cc_per_residue:
+                    chain_id = res['chain_id']
+                    resseq = res['resseq'].strip()
+                    residues_to_delete.add((chain_id, resseq))
+
+            residue_lines = []
+            current_residue_id = None
+
             for line in pdb_file:
                 if line.startswith("ATOM") or line.startswith("HETATM"):
                     chain = line[21]
                     chain_index = ord(chain) - ord('A')
+                    resseq = line[22:27].strip()  # Include insertion codes
+                    residue_id = (resseq, chain)  # (resseq, chain_id)
+
+                    if residue_id != current_residue_id:
+                        # Before processing new residue, write out the previous one if needed
+                        if residue_lines and all(float(l[54:60].strip()) >= 1.0 for l in residue_lines):
+                            previous_resseq = current_residue_id[0]
+                            previous_chain = current_residue_id[1]
+                            res_tuple = (previous_chain, previous_resseq)
+                            if res_tuple not in residues_to_delete:
+                                for l in residue_lines:
+                                    output_file.write(l)
+                        residue_lines = []
+                        current_residue_id = residue_id
+
                     if chain_index < len(keep_flags) and keep_flags[chain_index]:
                         if chain not in chain_map:
                             chain_map[chain] = chr(next_chain_id)
                             next_chain_id += 1
                         new_chain = chain_map[chain]
-                        output_file.write(line[:21] + new_chain + line[22:])
+                        # Update the chain ID in the line to new_chain
+                        new_line = line[:21] + new_chain + line[22:]
+                        residue_lines.append(new_line)
                 else:
+                    # Non-ATOM/HETATM lines
+                    if residue_lines and all(float(l[54:60].strip()) >= 1.0 for l in residue_lines):
+                        previous_resseq = current_residue_id[0]
+                        previous_chain = current_residue_id[1]
+                        res_tuple = (previous_chain, previous_resseq)
+                        if res_tuple not in residues_to_delete:
+                            for l in residue_lines:
+                                output_file.write(l)
+                    residue_lines = []
+                    current_residue_id = None
                     output_file.write(line)
 
+            # Write any remaining residue
+            if residue_lines and all(float(l[54:60].strip()) >= 1.0 for l in residue_lines):
+                previous_resseq = current_residue_id[0]
+                previous_chain = current_residue_id[1]
+                res_tuple = (previous_chain, previous_resseq)
+                if res_tuple not in residues_to_delete:
+                    for l in residue_lines:
+                        output_file.write(l)
+
+    def get_chain_ids_from_pdb(self, pdb_file_path: str) -> list:
+        """Extract chain IDs from a PDB file in the order they appear."""
+        chain_ids = []
+        with open(pdb_file_path, 'r') as pdb_file:
+            for line in pdb_file:
+                if line.startswith('ATOM') or line.startswith('HETATM'):
+                    chain_id = line[21]
+                    if chain_id not in chain_ids:
+                        chain_ids.append(chain_id)
+        return chain_ids
+    
+    def calculate_cc_per_chain(self, pdb_file_path, mtz_file_path, d_min=None):
+        """Calculate map-model CC for each chain in the PDB file."""
+        from iotbx import reflection_file_reader, pdb
+        from cctbx import miller
+        from mmtbx.maps.map_model_cc import map_model_cc, master_params
+
+        def identify_map_coefficients(miller_arrays):
+            amplitude_labels = ['FWT', '2FOFCWT', 'FOBS', 'FP', 'F', 'F_ML', 'FOBS(+)', 'F-OBS', 'F-MODEL', '2FOFCWT_NO_FILL', 'FOFCWT']
+            phase_labels = ['PHWT', 'PH2FOFCWT', 'PHIB', 'PHI', 'PHIM', 'PHASE', 'PHIF-MODEL', 'PHFOFCWT', 'PH2FOFCWT_NO_FILL']
+
+            label_to_array = {}
+            for ma in miller_arrays:
+                labels = ma.info().labels
+                for label in labels:
+                    label_upper = label.upper()
+                    label_to_array[label_upper] = ma
+
+            amplitude_arrays = []
+            phase_arrays = []
+            for label in amplitude_labels:
+                if label in label_to_array:
+                    amplitude_arrays.append((label, label_to_array[label]))
+            for label in phase_labels:
+                if label in label_to_array:
+                    phase_arrays.append((label, label_to_array[label]))
+
+            for amp_label, amp_array in amplitude_arrays:
+                for phase_label, phase_array in phase_arrays:
+                    if amp_array.indices().all_eq(phase_array.indices()):
+                        return amp_array, phase_array, amp_label, phase_label
+            return None, None, None, None
+
+        # Read PDB and MTZ files
+        pdb_inp = pdb.input(file_name=pdb_file_path)
+        pdb_hierarchy = pdb_inp.construct_hierarchy()
+        xray_structure = pdb_inp.xray_structure_simple()
+        cs = xray_structure.crystal_symmetry()
+
+        reflection_file = reflection_file_reader.any_reflection_file(mtz_file_path)
+        miller_arrays = reflection_file.as_miller_arrays(crystal_symmetry=cs)
+
+        # Identify amplitude and phase arrays
+        f_obs, phases, f_label, phi_label = identify_map_coefficients(miller_arrays)
+
+        if f_obs is None or phases is None:
+            print("Available labels in the MTZ file:")
+            for ma in miller_arrays:
+                print(ma.info().labels)
+            raise ValueError("Could not automatically identify amplitude and phase labels in the MTZ file.")
+
+        # Ensure f_obs is an amplitude array
+        if not f_obs.is_xray_amplitude_array():
+            if f_obs.is_complex_array():
+                f_obs = f_obs.amplitudes()
+            elif f_obs.is_xray_intensity_array():
+                f_obs = f_obs.f_sq_as_f()
+            elif f_obs.is_real_array():
+                pass
+            else:
+                raise ValueError(f"Array {f_label} is not an amplitude array and cannot be converted.")
+
+        # Ensure phases are real
+        if not phases.is_real_array():
+            if phases.is_complex_array():
+                phases = phases.phases()
+            elif phases.is_real_array():
+                phases = miller.array(miller_set=phases.set(), data=phases.data(), sigmas=None)
+                phases.set_observation_type_xray_phase_deg()
+            else:
+                raise ValueError(f"Array {phi_label} is not a phase array and cannot be converted.")
+
+        # Generate map coefficients from observed amplitudes and phases
+        map_coeffs = f_obs.phase_transfer(phase_source=phases)
+
+        # If d_min is not provided, use the resolution from the data
+        if d_min is None:
+            d_min = f_obs.d_min()
+
+        if d_min is not None:
+            map_coeffs = map_coeffs.resolution_filter(d_min=d_min)
+
+        # Generate real-space map from map coefficients
+        fft_map = map_coeffs.fft_map(resolution_factor=0.25)
+        fft_map.apply_sigma_scaling()
+        map_data = fft_map.real_map_unpadded()
+
+        # Compute Map-Model CC using mmtbx.maps.map_model_cc
+        params = master_params().extract().map_model_cc
+        if d_min is not None:
+            params.resolution = d_min
+        params.compute.cc_mask = False
+        params.compute.cc_volume = False
+        params.compute.cc_peaks = False
+        params.compute.cc_box = False
+        params.compute.cc_per_chain = True
+        params.compute.cc_per_residue = True
+        cc_calculator = map_model_cc(
+            map_data=map_data,
+            pdb_hierarchy=pdb_hierarchy,
+            crystal_symmetry=cs,
+            params=params
+        )
+        cc_calculator.validate()
+        cc_calculator.run()
+        results = cc_calculator.get_results()
+
+        # Store results in a list
+        cc_per_chain = []
+        for chain in results.cc_per_chain:
+            cc_per_chain.append({
+                "chain_id": chain.chain_id,
+                "cc": chain.cc,
+                "n_atoms": chain.n_atoms,
+                "b_iso_mean": chain.b_iso_mean,
+                "occ_mean": chain.occ_mean
+            })
+
+        cc_per_residue = []
+        for residue in results.cc_per_residue:
+            if residue.cc < 0.6:
+                
+                cc_per_residue.append({
+                    "chain_id": residue.chain_id,
+                    "resseq": residue.resseq,            
+                    "cc": residue.cc,
+                })
+        return cc_per_chain, cc_per_residue

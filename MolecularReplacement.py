@@ -30,27 +30,78 @@ class MolecularReplacement:
             os.chdir(root_dir)
         except Exception as e:
             self.logger.error(f"Error in run_phaser_molecular_replacement: {e}")
-
-    def run_phaser_molecular_replacement_async(self, params_filename, working_dir):
+    
+    def run_phaser_molecular_replacement_async(self, params_filename, working_dir, ignore_timeout=False):
         try:
             phaser_cmd = ["phenix.phaser", f"{params_filename}"]
             phaser_process = subprocess.Popen(phaser_cmd, cwd=working_dir)
             
             phaser_log_path = os.path.join(working_dir, "PHASER.log")
+            start_time = time.time()
+            timeout_seconds = 1800  # 30 minutes
+            found_good_tfz = False  # Flag to check if TFZ condition is met
+            
             while phaser_process.poll() is None:
                 if os.path.exists(phaser_log_path):
+                    # Always check log size
                     log_size_mb = os.path.getsize(phaser_log_path) / (1024 * 1024)
                     if log_size_mb > 4:
-                        logging.warning("Terminating phaser run due to an abnormally long time.")
+                        self.logger.warning("Terminating phaser run due to log file size exceeding 4MB.")
                         phaser_process.terminate()
                         break
+
+                    if not found_good_tfz:
+                        # Read the last part of the log file to check for the TFZ condition
+                        try:
+                            with open(phaser_log_path, 'rb') as log_file:
+                                log_file.seek(0, os.SEEK_END)
+                                file_size = log_file.tell()
+                                buffer_size = 1024 * 10  # Read last 10KB
+                                if file_size > buffer_size:
+                                    log_file.seek(-buffer_size, os.SEEK_END)
+                                else:
+                                    log_file.seek(0)
+                                bytes_content = log_file.read()
+                                # Decode the binary content to text
+                                text_content = bytes_content.decode('utf-8', errors='ignore')
+                                lines = text_content.splitlines()
+                        except Exception as e:
+                            self.logger.error(f"Error reading PHASER.log: {e}")
+                            lines = []
+                        # Check for the desired pattern in the log lines
+                        for line in reversed(lines):
+                            if 'SOLU 6DIM ENSE' in line:
+                                match = re.search(r'#TFZ==(\d+\.\d+)', line)
+                                if match:
+                                    tfz_value = float(match.group(1))
+                                    if tfz_value >= 8.0:
+                                        found_good_tfz = True
+                                        self.logger.info(f"Found TFZ value {tfz_value} >= 8.0. Allowing process to continue.")
+                                        break
+                        if not found_good_tfz:
+                            # Check if elapsed time exceeds limit, only if ignore_timeout is False
+                            if not ignore_timeout:
+                                elapsed_time = time.time() - start_time
+                                if elapsed_time > timeout_seconds:
+                                    self.logger.warning("Terminating phaser run due to exceeding the 30 minutes time limit.")
+                                    phaser_process.terminate()
+                                    break
+                        else:
+                            # TFZ condition met, continue without checking time limit
+                            pass
+                    else:
+                        # TFZ condition already met, continue but still check log size
+                        pass  # Log size already checked at the beginning
+                else:
+                    # Log file does not exist yet; wait and retry
+                    pass
                 time.sleep(20)  # Adjust the sleep time as needed
             
             return phaser_process
         except Exception as e:
             self.logger.error(f"Error in run_phaser_molecular_replacement_async: {e}")
             return None
-
+    
     def is_phaser_successful(self, phaser_output_dir):
         try:
             log_files = ["PHASER.log", os.path.join(phaser_output_dir, "PHASER.log")]
@@ -79,12 +130,10 @@ class MolecularReplacement:
                     logging.info(f"Phaser molecular replacement was successful. Check log file for details at {output_dir}/PHASER.log")
                     tfz, llg = self.get_final_tfz(output_dir)
                     logging.info(f"Final TFZ score: {tfz}, LLG score: {llg}")
-                    # check if "** SINGLE solution" is present in the log file
+
                     content = open(f"{output_dir}/PHASER.log", "r").read()
-                    if "** SINGLE solution" in content:
-                        logging.success("Single solution found in the log file")
                     llg_threshold = 40
-                    logging.info(f"LLG threshold: {llg_threshold:.1f}")
+                    # logging.info(f"LLG threshold: {llg_threshold:.1f}")
                     # Check if tfz is not none and greater than 8.0
                     if tfz is not None and float(tfz) >= 8.0 and float(llg) >= llg_threshold:
                         success = True
@@ -108,6 +157,14 @@ class MolecularReplacement:
                             name_base = os.path.basename(file)
                             shutil.copy(file, f"{save_dir}/{name_base}")
                         logging.success(f"Phaser molecular replacement may have TNCS present but with acceptable tfz {tfz}. Check log file for details at {save_dir}/PHASER.log")
+                        success = True
+                    elif tfz is not None and 6.0 <= float(tfz) < 8.0 and "** SINGLE solution" in content:
+                        save_dir = os.path.join(output_dir, "save")
+                        os.makedirs(save_dir, exist_ok=True)
+                        for file in glob.glob(f"{output_dir}/PHASER.*"):
+                            name_base = os.path.basename(file)
+                            shutil.copy(file, f"{save_dir}/{name_base}")
+                        logging.warning(f"Phaser molecular replacement has moderate tfz ({tfz}) with a single solution. Check log file for details at {save_dir}/PHASER.log.\nTesting a refinement with the current solution.")
                         success = True
 
                     else:
@@ -162,7 +219,7 @@ class MolecularReplacement:
                                         llg_tfz_pairs_found = re.findall(r'LLG=(\d+) TFZ==(\d+\.\d+)', sol_line)
                                         if llg_tfz_pairs_found:
                                             llg_tfz_pairs.extend(llg_tfz_pairs_found)
-                                        logging.info(f"llg_tfz_pairs: {llg_tfz_pairs}")
+                                        # logging.info(f"llg_tfz_pairs: {llg_tfz_pairs}")
 
                                 if "SOLU 6DIM ENSE" in sol_line and not tncs_present:
                                     tfz_part = sol_line.split("#")[-1]
@@ -177,7 +234,7 @@ class MolecularReplacement:
                                                     highest_llg_tfz_pair = (llg, tfz_scores)
                                             if highest_llg_tfz_pair:
                                                 highest_llg = highest_llg_tfz_pair[0]
-                                                logging.info(f"highest_llg_tfz_pair: {highest_llg_tfz_pair}")
+                                                # logging.info(f"highest_llg_tfz_pair: {highest_llg_tfz_pair}")
                                             else:
                                                 highest_llg = 0.0
 
@@ -414,20 +471,46 @@ class MolecularReplacement:
     def deduce_missing_copies(self, phaser_log_path, phaser_info, all_combinations, mean_matthews_coeff, top_switch=True):
         found_copies = defaultdict(int)
         ensemble_keeps = self.pdb_manager.parse_phaser_log(phaser_log_path)
-        protein_ensemble_keeps = defaultdict(dict)
+        protein_ensemble_keeps = defaultdict(lambda: defaultdict(int))
 
-        # Aggregate keeps by ensemble_id
+        # Regular expression to extract protein_id, ensemble_number, and optional copy_number
+        # Examples:
+        # 'protein01_ensemble_0' -> protein_id='protein01', ensemble_number='0', copy_number=None
+        # 'protein01_ensemble_0[1]' -> protein_id='protein01', ensemble_number='0', copy_number='1'
+        ensemble_pattern = re.compile(r"^(.*?)_ensemble_(\d+)(?:\[(\d+)\])?$")
+
+        # Aggregate keeps by protein_id and ensemble_number (domain)
         for ensemble_id, keep in ensemble_keeps:
-            if ensemble_id and keep == True:
-                protein_id = ensemble_id.split("_ensemble_")[0]
-                protein_ensemble_keeps[protein_id].setdefault(ensemble_id, 0)
-                protein_ensemble_keeps[protein_id][ensemble_id] += 1
+            if ensemble_id and keep:
+                match = ensemble_pattern.match(ensemble_id)
+                if match:
+                    protein_id = match.group(1)
+                    ensemble_number = match.group(2)
+                    copy_number = match.group(3)
 
+                    # If copy_number is specified, use it; otherwise, treat each occurrence as a separate copy
+                    if copy_number:
+                        # Using the copy_number as a key to ensure each copy is counted once
+                        domain_id = f"{ensemble_number}[{copy_number}]"
+                        protein_ensemble_keeps[protein_id][ensemble_number] += 1
+                    else:
+                        # Treat each occurrence as a separate copy of the domain
+                        protein_ensemble_keeps[protein_id][ensemble_number] += 1
+                else:
+                    # Handle unexpected ensemble_id formats if necessary
+                    print(f"Warning: Unrecognized ensemble_id format '{ensemble_id}'")
+        
         print(f"Protein ensemble keeps: {protein_ensemble_keeps}")
-        # Update each protein_id's found copies, let it be the largest number of the found copies of corresponding ensemble_ids
-        for protein_id, ensemble_counts in protein_ensemble_keeps.items():
-            found_copies[protein_id] = max(ensemble_counts.values())
 
+        # Calculate found_copies as the minimum count across all domains for each protein
+        for protein_id, ensemble_counts in protein_ensemble_keeps.items():
+            # If a protein has multiple domains, take the minimum count across domains
+            if len(ensemble_counts) > 1:
+                found_copies[protein_id] = min(ensemble_counts.values())
+            else:
+                # If only one domain, take its count
+                found_copies[protein_id] = next(iter(ensemble_counts.values()))
+        
         print(f"Actual found copies: {found_copies}")
 
         # Filter combinations to find those that match the found copies

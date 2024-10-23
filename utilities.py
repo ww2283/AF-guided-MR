@@ -105,8 +105,8 @@ def get_available_gpu():
         used_memory_fraction = info.used / info.total
         logging.info(f"GPU {device_id}: {info.used / (1024**2)} MiB used ({used_memory_fraction * 100:.2f}% used)")
 
-        if used_memory_fraction <= 1/20:
-            logging.info(f"GPU {device_id} is available")
+        if info.used <= 1000 * 1024 * 1024:
+            logging.info(f"GPU {device_id} is available with {info.used / (1024**2)} MiB in use.")
             return device_id
 
     logging.info("No available GPUs found")
@@ -157,11 +157,15 @@ def calculate_mean_plddt(pdb_file):
 
 import re
 
+
+
 def extract_rfactors(sub_folder_path):
 
     """
     This extract_rfactors is used to extract R-factors from refinement logs and autobuild logs.
-    The input is a parent folder containing subfolders with refinement logs and autobuild logs.
+    The input is a folder containing subfolders with refinement logs and/or autobuild logs.
+    *For autobuild folders, this sub_folder_path is ./autobuild/AutoBuild_run_?_, 
+    *and for refinement folders, this sub_folder_path is ./refine/refine_???.
     """
     def find_refinement_log_file(autobuild_log_path):
         try:
@@ -212,10 +216,10 @@ def extract_rfactors(sub_folder_path):
 
     r_work, r_free, extracted = 0.00, 0.00, False  # Default values
     """
-    end of function definitions; start of main code
+    end of function definitions; start of main logic for extract_rfactors
     """
     # Check for autobuild log
-    autobuild_log_path = os.path.join(sub_folder_path, 'autobuild', 'AutoBuild_run_1_', 'AutoBuild_run_1_1.log')
+    autobuild_log_path = os.path.join(sub_folder_path, 'AutoBuild_run_1_1.log')
     if os.path.exists(autobuild_log_path):
         log_refine_path = find_refinement_log_file(autobuild_log_path)
         if log_refine_path:
@@ -225,10 +229,146 @@ def extract_rfactors(sub_folder_path):
     
     # Check for refinement log
     if not extracted:
-        refine_folder_path = os.path.join(sub_folder_path, 'refine')
+        refine_folder_path = os.path.join(sub_folder_path)
         r_work, r_free, extracted = extract_rfactors_from_refine_log(refine_folder_path)
     
     return r_work, r_free    
+
+def rfactors_from_phenix_refine(pdb_path, data_path, refine_output_root, nproc):
+    # *refine_output_root is output_root + "/refine"
+    # List all existing folders in the refine_output_root directory
+    existing_folders = [f for f in os.listdir(refine_output_root) if os.path.isdir(os.path.join(refine_output_root, f))]
+
+    # Filter out folders that match the pattern refine_???
+    refine_folders = [f for f in existing_folders if re.match(r'refine_\d{3}', f)]
+
+    # Extract the numeric part of the folder names and find the maximum number
+    max_num = 0
+    for folder in refine_folders:
+        num = int(folder.split('_')[1])
+        if num > max_num:
+            max_num = num
+
+    # Increment the maximum number by 1 to get the next folder number
+    next_num = max_num + 1
+
+    # Format the new folder number to be three digits
+    new_folder_name = f"refine_{next_num:03d}"
+
+    # Create the new folder
+    refinement_folder = os.path.join(refine_output_root, new_folder_name)
+    os.makedirs(refinement_folder, exist_ok=True)
+
+    # check for the existence of the refinement_data.mtz file in the refine_output_root
+    if os.path.exists(os.path.join(refine_output_root, "refinement_data.mtz")):
+        data_path = os.path.join(refine_output_root, "refinement_data.mtz")
+
+    # Initialize the phenix_refine_cmd with base parameters
+    phenix_refine_cmd = [
+        "phenix.refine",
+        pdb_path,
+        data_path,
+        "strategy=rigid_body+individual_sites+individual_adp",
+        "main.number_of_macro_cycles=8",
+        f"nproc={nproc}",
+        "tncs_correction=True",
+        "ncs_search.enabled=True",
+        "pdb_interpretation.allow_polymer_cross_special_position=True",
+        "pdb_interpretation.clash_guard.nonbonded_distance_threshold=None",
+        "output.write_eff_file=False",
+        "output.write_def_file=False",
+        "output.write_geo_file=False",
+    ]
+
+    def run_phenix_refine(cmd):
+        formatted_cmd = " ".join(cmd)
+        logging.info(f"Running Phenix refine with the following command into {refinement_folder}: {formatted_cmd}")
+        # Verify that none of the elements in the command are None
+        if any(elem is None for elem in cmd):
+            raise ValueError("One or more elements in phenix_refine_cmd are None.")
+        process = subprocess.Popen(cmd, cwd=refinement_folder, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        stdout, stderr = process.communicate()
+        return process.returncode, stdout, stderr
+
+    fixed_errors = set()
+    max_iterations = 5
+
+    for iteration in range(max_iterations):
+        returncode, stdout, stderr = run_phenix_refine(phenix_refine_cmd)
+
+        if returncode == 0:
+            # Success
+            break
+
+        re_run = False
+
+        # Check for errors and adjust the command accordingly
+        combined_output = stdout + stderr
+
+        if ("Multiple equally suitable arrays of observed xray data found" in combined_output) and ('multiple_arrays' not in fixed_errors):
+            logging.warning("Multiple equally suitable arrays of observed X-ray data found. Extracting the first possible choice.")
+            match = re.search(r'Possible choices:\s*(.*)', combined_output, re.DOTALL)
+            if match:
+                first_choice = match.group(1).split('\n')[0].strip()
+                phenix_refine_cmd.append(f"refinement.input.xray_data.labels={first_choice}")
+                fixed_errors.add('multiple_arrays')
+                re_run = True
+            else:
+                logging.error("Could not extract array choice.")
+                raise RuntimeError("Phenix refine failed due to multiple arrays issue.")
+
+        if ("Atoms at special positions are within rigid groups" in combined_output) and ('atoms_special_positions' not in fixed_errors):
+            logging.warning("Atoms at special positions are within rigid groups. Changing strategy to individual_sites+individual_adp and adding --overwrite.")
+            # Modify the strategy argument
+            for i, arg in enumerate(phenix_refine_cmd):
+                if arg.startswith("strategy="):
+                    phenix_refine_cmd[i] = "strategy=individual_sites+individual_adp"
+                    break
+            else:
+                # Strategy argument not found, add it
+                phenix_refine_cmd.append("strategy=individual_sites+individual_adp")
+            if "--overwrite" not in phenix_refine_cmd:
+                phenix_refine_cmd.append("--overwrite")
+            fixed_errors.add('atoms_special_positions')
+            re_run = True
+
+        if (("R-free flags not compatible" in combined_output) or ("missing flag" in combined_output)) and ('r_free_flags' not in fixed_errors):
+            logging.warning("R-free flags not compatible or missing flag. Generating new flags with fraction=0.05 and max_free=500.")
+            phenix_refine_cmd.extend([
+                "xray_data.r_free_flags.generate=True",
+                "xray_data.r_free_flags.fraction=0.05",
+                "xray_data.r_free_flags.max_free=500",
+            ])
+            if "--overwrite" not in phenix_refine_cmd:
+                phenix_refine_cmd.append("--overwrite")
+            fixed_errors.add('r_free_flags')
+            re_run = True
+
+        if re_run:
+            continue  # Retry with the adjusted command
+
+        # If no known errors can be fixed, raise an error
+        logging.error(f"Phenix refine failed with return code {returncode}.")
+        logging.error(stdout)
+        logging.error(stderr)
+        raise RuntimeError("Phenix refine failed.")
+
+    else:
+        # Exceeded maximum iterations
+        logging.error("Exceeded maximum number of iterations.")
+        raise RuntimeError("Phenix refine failed after maximum attempts.")
+
+    logging.info(f"Phenix refine finished for {os.path.basename(pdb_path)}.")
+    logging.info(f"Refinement output directory: {os.path.basename(refinement_folder)}")
+
+    r_work, r_free = extract_rfactors(refinement_folder)
+    logging.info(f"R_work: {r_work}, R_free: {r_free} for {os.path.basename(pdb_path)}")
+
+    mtz_files = glob.glob(os.path.join(refinement_folder, "*_data.mtz"))
+    if mtz_files and os.path.exists(mtz_files[0]):
+        shutil.move(mtz_files[0], os.path.join(refine_output_root, "refinement_data.mtz"))
+
+    return r_work, r_free, refinement_folder
 
 def get_autobuild_results_paths(autobuild_working_path):
     overall_best_pdb = os.path.join(autobuild_working_path, "overall_best.pdb")
@@ -281,28 +421,6 @@ def calculate_map_model_correlation(pdb_file, data_file, map_file, solvent_conte
                 os.remove(file_path)
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
-        # Run phenix.find_ncs
-        find_ncs_command = f"phenix.find_ncs {map_file} directories.temp_dir={output_dir}/temp_dir directories.output_dir={output_dir}"
-        # logging.info(f"Correlation calculation command step 1: {find_ncs_command}") # development purpose logging
-        subprocess.run(find_ncs_command, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-        # Run phenix.ncs_average if NCS file exists
-        ncs_spec = os.path.join(output_dir, "find_ncs.ncs_spec")
-        if os.path.exists(ncs_spec):
-            ncs_average_command = f"phenix.ncs_average {map_file} ncs_in={ncs_spec} directories.temp_dir={output_dir}/temp_dir directories.output_dir={output_dir}"
-            # logging.info(f"Correlation calculation command step 2: {ncs_average_command}") # development purpose logging
-            subprocess.run(ncs_average_command, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            map_file = os.path.join(output_dir, "ncs_average.mtz")
-
-        # Run phenix.density_modification
-        denmod_command = f"phenix.density_modification {data_file} map_coeffs_file={map_file} pdb_file={pdb_file} solvent_content={solvent_content} clean_up=true output_files.output_mtz={output_dir}/denmod.mtz directories.temp_dir={output_dir}/temp_dir"
-        if os.path.exists(ncs_spec):
-            denmod_command += f" ncs_file={ncs_spec}"
-        # logging.info(f"Correlation calculation command step 3: {denmod_command}") # development purpose logging
-        subprocess.run(denmod_command, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-        # Update the map file to the density-modified one
-        map_file = os.path.join(output_dir, "denmod.mtz")
 
         # Run phenix.get_cc_mtz_pdb to calculate correlation
         try:

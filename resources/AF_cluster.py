@@ -15,14 +15,9 @@ import nvidia_smi
 import logging
 from Bio.PDB import PDBParser, Select
 from Bio.PDB.Superimposer import Superimposer
+import pycuda.driver as cuda
 
-log_format = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(
-    level=logging.INFO,
-    format=log_format,
-    datefmt='%Y-%m-%d %H:%M:%S',
-    handlers=[logging.FileHandler('AF_cluster.log'), logging.StreamHandler()]
-)
+logger = logging.getLogger(__name__)
 
 # Include functions from ClusterMSA.py, utils.py, and CalculateModelFeatures.py
 
@@ -141,35 +136,130 @@ def consensusVoting(seqs):
 
     return consensus
 
-def get_available_gpu():
+def get_nvml_gpu_info():
     nvidia_smi.nvmlInit()
     device_count = nvidia_smi.nvmlDeviceGetCount()
-    logging.info(f"Total GPUs: {device_count}")
+    gpu_info_list = []
 
-    for device_id in range(device_count):
-        handle = nvidia_smi.nvmlDeviceGetHandleByIndex(device_id)
-        info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
-        used_memory_fraction = info.used / info.total
-        logging.info(f"GPU {device_id}: {info.used / (1024**2)} MiB used ({used_memory_fraction * 100:.2f}% used)")
+    for i in range(device_count):
+        try:
+            handle = nvidia_smi.nvmlDeviceGetHandleByIndex(i)
+            uuid = nvidia_smi.nvmlDeviceGetUUID(handle).decode('utf-8')
+            pci_info = nvidia_smi.nvmlDeviceGetPciInfo(handle)
+            bus_id = pci_info.busId.decode('utf-8')  # e.g., '0000:21:00.0'
+            name = nvidia_smi.nvmlDeviceGetName(handle).decode('utf-8')
+            mem_info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
+            mem_used = mem_info.used // (1024 * 1024)  # Convert to MiB
+            mem_total = mem_info.total // (1024 * 1024)  # Convert to MiB
 
-        if used_memory_fraction <= 1/20:
-            logging.info(f"GPU {device_id} is available")
-            return device_id
+            gpu_info_list.append({
+                'nvml_index': i,
+                'uuid': uuid,
+                'bus_id': bus_id,
+                'name': name,
+                'mem_used': mem_used,
+                'mem_total': mem_total,
+            })
+        except nvidia_smi.NVMLError as err:
+            logger.warning(f"Failed to get information for GPU {i}: {err}")
+            continue
+    nvidia_smi.nvmlShutdown()
+    return gpu_info_list
 
-    logging.info("No available GPUs found")
-    return None
+def get_pycuda_gpu_info():
+    cuda.init()
+    device_count = cuda.Device.count()
+    gpu_info_list = []
+
+    for i in range(device_count):
+        dev = cuda.Device(i)
+        name = dev.name()
+        compute_capability = dev.compute_capability()  # Tuple (major, minor)
+        pci_bus_id = dev.pci_bus_id()  # e.g., '0000:21:00.0'
+
+        gpu_info_list.append({
+            'pycuda_index': i,
+            'name': name,
+            'compute_capability': compute_capability,
+            'bus_id': pci_bus_id,
+        })
+    return gpu_info_list
+
+def get_gpu_info():
+    nvml_info = get_nvml_gpu_info()
+    pycuda_info = get_pycuda_gpu_info()
+
+    # Create a mapping from bus_id to compute_capability
+    busid_to_compute_capability = {
+        gpu['bus_id']: gpu['compute_capability'] for gpu in pycuda_info
+    }
+
+    # Merge the compute capability into the NVML info
+    for gpu in nvml_info:
+        bus_id = gpu['bus_id']
+        compute_capability = busid_to_compute_capability.get(bus_id, (0, 0))
+        gpu['compute_capability'] = compute_capability[0] + compute_capability[1] / 10.0
+
+    return nvml_info
+
+def select_gpu(gpu_info_list, max_used_mem=1000):
+    """Selects the available GPU with the highest compute capability and memory usage below the max_used_mem threshold."""
+    # Filter GPUs based on memory usage
+    available_gpus = [gpu for gpu in gpu_info_list if gpu['mem_used'] <= max_used_mem]
+
+    if not available_gpus:
+        return None
+
+    # Sort by compute capability (descending) and memory usage (ascending)
+    available_gpus.sort(key=lambda gpu: (-gpu['compute_capability'], gpu['mem_used']))
+
+    return available_gpus[0]
+
+def set_cuda_visible_devices(gpu_uuid):
+    """Sets CUDA_VISIBLE_DEVICES to the GPU's UUID."""
+    os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
+    os.environ['CUDA_VISIBLE_DEVICES'] = gpu_uuid
+
+def get_available_gpu():
+    gpu_info_list = get_gpu_info()
+    if not gpu_info_list:
+        logger.error("No GPU information retrieved.")
+        return None
+
+    # # Log the GPU information
+    # for gpu in gpu_info_list:
+    #     logger.info(
+    #         f"GPU {gpu['nvml_index']} ({gpu['name']}, UUID: {gpu['uuid']}, Bus ID: {gpu['bus_id']}) - "
+    #         f"Compute Capability: {gpu['compute_capability']}, Memory Used: {gpu['mem_used']} MiB"
+    #     )
+
+    available_gpu = select_gpu(gpu_info_list)
+    if available_gpu:
+        # logger.info(
+        #     f"Selected GPU {available_gpu['nvml_index']} ({available_gpu['name']}, UUID: {available_gpu['uuid']}) "
+        #     f"with Compute Capability: {available_gpu['compute_capability']}"
+        # )
+        return available_gpu
+    else:
+        logger.info("No available GPUs found based on memory usage and compute capability.")
+        return None
 
 def wait_for_available_gpu():
     while True:
-        logging.info("Checking for available GPUs...")
-        device_id = get_available_gpu()
-        if device_id is not None:
-            logging.info(f"Using GPU {device_id}")
-            return device_id
-        print("Waiting for 1 minute before checking again...")
+        available_gpu = get_available_gpu()
+        if available_gpu:
+            gpu_uuid = available_gpu['uuid']
+            set_cuda_visible_devices(gpu_uuid)
+            # logger.info(
+            #     f"Using GPU UUID {gpu_uuid} ({available_gpu['name']}, Compute Capability: {available_gpu['compute_capability']})"
+            # )
+            return available_gpu
+        logger.info("No available GPU found. Waiting for 1 minute before retrying...")
         time.sleep(60)
 
 def run_colabfold(input_dir, output_dir, reference_pdb, num_recycle=5, num_models=1, min_mean_pLDDT=60):
+
+
     ref_parser = PDBParser()
     ref_obj = ref_parser.get_structure("reference", reference_pdb)
     
@@ -185,7 +275,7 @@ def run_colabfold(input_dir, output_dir, reference_pdb, num_recycle=5, num_model
         # Check for the presence of the HALT file in the predictions folder
         halt_file_path = os.path.join(predictions_dir, "HALT")
         if os.path.exists(halt_file_path):
-            logging.warning("HALT file detected. Stopping ColabFold.")
+            logger.warning("HALT file detected. Stopping ColabFold.")
             break
 
         a3m_basename = os.path.basename(a3m_file)
@@ -200,12 +290,16 @@ def run_colabfold(input_dir, output_dir, reference_pdb, num_recycle=5, num_model
             output_subdir,
         ]
 
-        result = subprocess.run(command, capture_output=True, text=True)
+        logger.info("Checking for available GPUs...")
+        wait_for_available_gpu()
+
+        # No need to set CUDA_VISIBLE_DEVICES here; it's already set in the environment
+        result = subprocess.run(command, capture_output=True, text=True, env=os.environ.copy())
 
         if result.returncode != 0:
-            logging.error(f"Error running ColabFold for {a3m_file}: {result.stderr}")
+            logger.error(f"Error running ColabFold for {a3m_file}: {result.stderr}")
         else:
-            logging.info(f"ColabFold completed successfully for {a3m_file}.")
+            logger.info(f"ColabFold completed successfully for {a3m_file}.")
             pdb_file = glob(os.path.join(output_subdir, "*.pdb"))[0]
             if min_mean_pLDDT == 60:
                 process_predicted_structure(pdb_file, ref_obj, af_cluster_selectives_dir, min_mean_pLDDT=60)
@@ -220,9 +314,13 @@ def read_b_factor(pdb_file):
 
     with open(pdb_file, "r") as f:
         for lin in f.readlines()[1:-3]:
-            fields = lin.split()
-            if fields[2] == "CA":
-                vals.append(float(fields[10]))
+            if lin[12:16].strip() == "CA":
+                try:
+                    b_factor = float(lin[60:66].strip())
+                    vals.append(b_factor)
+                except ValueError as e:
+                    logger.error(f"Error converting to float: {lin[60:66].strip()} in line: {lin.strip()}")
+                    raise e
     return vals
 
 
@@ -286,8 +384,8 @@ def process_predicted_structure(pdb_file, ref_obj, output_dir, min_mean_pLDDT=60
         else:
             df = pd.DataFrame(columns=["pdb", "mean_pLDDT", "rmsd_ref"])
 
-        # df = df.append({"pdb": dest_path, "mean_pLDDT": mean_pLDDT, "rmsd_ref": rmsd_ref}, ignore_index=True)
-        df = df.append({"pdb": pdb_entry, "mean_pLDDT": mean_pLDDT, "rmsd_ref": rmsd_ref}, ignore_index=True)
+        new_row = pd.DataFrame([{"pdb": pdb_entry, "mean_pLDDT": mean_pLDDT, "rmsd_ref": rmsd_ref}])
+        df = pd.concat([df, new_row], ignore_index=True)
         df = df.sort_values(by="rmsd_ref", ascending=False)
         df.to_csv(csv_file, index=False)
 
@@ -300,6 +398,18 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", default="results", help="Path to the output directory.")
     parser.add_argument("low_cutoff", default=60, type=int, help="Low cutoff for pLDDT values.")
     args = parser.parse_args()
+
+
+    # Configure logging
+    log_format = '%(asctime)s - %(levelname)s - %(message)s'
+    logging.basicConfig(
+        level=logging.INFO,
+        format=log_format,
+        datefmt='%Y-%m-%d %H:%M:%S',
+        handlers=[logging.FileHandler('AF_cluster.log'), logging.StreamHandler()]
+    )
+
+    logger = logging.getLogger(__name__)
 
     # Load MSA file
     IDs, seqs = load_fasta(args.msa_file)
@@ -323,4 +433,4 @@ if __name__ == "__main__":
     # Create ALL_AFCLUSTER_DONE file inside AF_cluster_selectives directory
     with open(f"{saving_dir}/AF_cluster_selectives/ALL_AFCLUSTER_DONE", "w") as f:
         f.write("All AF clustering is done!")
-    logging.info("Results saved in the AF_cluster_selectives folder.")
+    logger.info("Results saved in the AF_cluster_selectives folder. All AF clustering is done!")

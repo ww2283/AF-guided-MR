@@ -1,7 +1,8 @@
 import os
 import time
 import subprocess
-from utilities import wait_for_available_gpu
+from resources.AF_cluster import wait_for_available_gpu
+import logging
 
 class ColabFold:
 
@@ -9,10 +10,13 @@ class ColabFold:
         pass
 
     def run_colabfold(self, input_csv, output_dir, num_models=1, num_recycle=5, amber=True, use_gpu_relax=True):
-        device_id = wait_for_available_gpu()
+        # device_id = wait_for_available_gpu()
 
-        # Set the CUDA_VISIBLE_DEVICES environment variable
-        os.environ["CUDA_VISIBLE_DEVICES"] = str(device_id)
+        # # Set the CUDA_VISIBLE_DEVICES environment variable
+        # os.environ["CUDA_VISIBLE_DEVICES"] = str(device_id)
+
+        logging.info("Checking for available GPUs...")
+        wait_for_available_gpu()
 
         colabfold_command = [
             "colabfold_batch",
@@ -26,4 +30,4 @@ class ColabFold:
         if use_gpu_relax:
             colabfold_command.append("--use-gpu-relax")
 
-        subprocess.run(colabfold_command, check=True)
+        subprocess.run(colabfold_command, check=True, env=os.environ.copy())
