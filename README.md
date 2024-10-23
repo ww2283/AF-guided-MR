@@ -43,6 +43,7 @@ conda install -c conda-forge -c bioconda openmm==7.7.0 pdbfixer kalign2=2.04 hhs
 # cctbx-base can be installed later but doesn't hurt to install it now
 pip install --no-warn-conflicts "colabfold[alphafold-without-jax] @ git+https://github.com/sokrypton/ColabFold"
 pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+# for cuda 12, use "jax[cuda12_pip]" instead in above command
 pip install "colabfold[alphafold]"
 ```
 When you use pip, make sure you are in the right conda environment, otherwise you are just using the system python and pip, not the conda environment you just created. You can check your pip and python version by `which pip` and `which python`. 
