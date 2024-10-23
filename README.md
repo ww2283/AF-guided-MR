@@ -65,7 +65,7 @@ source ~/.bash_aliases
 next, install the required packages:
 ```
 conda install -c conda-forge cctbx-base # if you haven't installed cctbx-base from the previous step
-pip install nvidia-ml-py3 gemmi mdtraj polyleven pandarallel scikit-learn hdbscan colorama biopython
+pip install nvidia-ml-py3 gemmi mdtraj polyleven pandarallel scikit-learn hdbscan colorama biopython psutil pycuda
 ```
 The main script requires the protein sequence and data path as input. These can be designated by the --csv_path and --mtz_path flags, respectively. The csv format follows the instructions from ColabFold in the 'id,sequence' format. Optional but highly recommended inputs include the UniProt ID (--uniprot_id) and copy numbers for the protein component you wish to search (--copy_numbers). For a full list of options and input format, run the script with the --help or -h flag.
 
