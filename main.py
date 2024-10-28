@@ -1553,7 +1553,7 @@ def main():
         autobuild_input_model = best_result['partial_pdb_path']
         successful_phaser_map = best_result['phaser_output_map']
         successful_phaser_mode = best_result['mode']
-        if tfz_score is None:
+        if tfz_score is None or tfz_score == 0:
             tfz_score = best_result['tfz_score']
         successful_phaser_dir = os.path.dirname(successful_phaser_map)
         logging.info(f"Selected model from {best_result['mode']} with R-free: {best_result['r_free']}")
@@ -1569,6 +1569,7 @@ def main():
             phaser_results.sort(key=lambda x: x['tfz_score'], reverse=True)
             best_phaser_result = phaser_results[0]
             logging.info(f"Using phaser run from {best_phaser_result['mode']} with highest TFZ score: {best_phaser_result['tfz_score']}")
+            tfz_score = best_phaser_result['tfz_score']
             autobuild_input_model = best_phaser_result['phaser_output_pdb']
             successful_phaser_map = best_phaser_result['phaser_output_map']
             successful_phaser_mode = best_phaser_result['mode']
