@@ -136,6 +136,41 @@ def consensusVoting(seqs):
 
     return consensus
 
+def get_process_info(handle):
+    """Get information about processes using the GPU."""
+    try:
+        processes = nvidia_smi.nvmlDeviceGetComputeRunningProcesses(handle)
+        # Also get graphics processes if needed
+        # graphics_processes = nvidia_smi.nvmlDeviceGetGraphicsRunningProcesses(handle)
+        return processes
+    except nvidia_smi.NVMLError as err:
+        logger.warning(f"Failed to get process information: {err}")
+        return []
+
+def is_compute_intensive_process(process):
+    """Determine if a process is likely to be compute-intensive."""
+    try:
+        # Get process name using process ID
+        cmd = f"ps -p {process.pid} -o command="
+        process_cmd = subprocess.check_output(cmd, shell=True).decode('utf-8').strip()
+        
+        # Define patterns that indicate compute workloads
+        compute_patterns = [
+            'python', 'pytorch', 'tensorflow', 'conda',
+            'jupyter', 'ipython', 'train', 'inference'
+        ]
+        
+        # Ignore system processes
+        system_patterns = [
+            'Xorg', 'gnome', 'kde', 'x11', 'wayland',
+            'desktop', 'display', 'WindowServer'
+        ]
+        
+        return (any(pattern in process_cmd.lower() for pattern in compute_patterns) and
+                not any(pattern in process_cmd.lower() for pattern in system_patterns))
+    except subprocess.SubprocessError:
+        return False
+    
 def get_nvml_gpu_info():
     nvidia_smi.nvmlInit()
     device_count = nvidia_smi.nvmlDeviceGetCount()
@@ -146,11 +181,16 @@ def get_nvml_gpu_info():
             handle = nvidia_smi.nvmlDeviceGetHandleByIndex(i)
             uuid = nvidia_smi.nvmlDeviceGetUUID(handle).decode('utf-8')
             pci_info = nvidia_smi.nvmlDeviceGetPciInfo(handle)
-            bus_id = pci_info.busId.decode('utf-8')  # e.g., '0000:21:00.0'
+            bus_id = pci_info.busId.decode('utf-8')
             name = nvidia_smi.nvmlDeviceGetName(handle).decode('utf-8')
             mem_info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
-            mem_used = mem_info.used // (1024 * 1024)  # Convert to MiB
-            mem_total = mem_info.total // (1024 * 1024)  # Convert to MiB
+            mem_used = mem_info.used // (1024 * 1024)
+            
+            # Get compute processes
+            compute_processes = get_process_info(handle)
+            active_compute_processes = [
+                p for p in compute_processes if is_compute_intensive_process(p)
+            ]
 
             gpu_info_list.append({
                 'nvml_index': i,
@@ -158,7 +198,8 @@ def get_nvml_gpu_info():
                 'bus_id': bus_id,
                 'name': name,
                 'mem_used': mem_used,
-                'mem_total': mem_total,
+                'mem_total': mem_info.total // (1024 * 1024),
+                'compute_processes': len(active_compute_processes)
             })
         except nvidia_smi.NVMLError as err:
             logger.warning(f"Failed to get information for GPU {i}: {err}")
@@ -202,16 +243,21 @@ def get_gpu_info():
 
     return nvml_info
 
-def select_gpu(gpu_info_list, max_used_mem=1000):
-    """Selects the available GPU with the highest compute capability and memory usage below the max_used_mem threshold."""
-    # Filter GPUs based on memory usage
-    available_gpus = [gpu for gpu in gpu_info_list if gpu['mem_used'] <= max_used_mem]
+def select_gpu(gpu_info_list, max_compute_processes=0):
+    """Selects GPU based on active compute processes and compute capability."""
+    # Filter GPUs based on compute processes
+    available_gpus = [
+        gpu for gpu in gpu_info_list 
+        if gpu['compute_processes'] <= max_compute_processes
+    ]
 
     if not available_gpus:
         return None
 
-    # Sort by compute capability (descending) and memory usage (ascending)
-    available_gpus.sort(key=lambda gpu: (-gpu['compute_capability'], gpu['mem_used']))
+    # Sort by compute capability (descending) and number of processes (ascending)
+    available_gpus.sort(
+        key=lambda gpu: (-gpu['compute_capability'], gpu['compute_processes'])
+    )
 
     return available_gpus[0]
 

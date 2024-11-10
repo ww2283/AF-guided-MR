@@ -1583,9 +1583,9 @@ def main():
     
     data_path = os.path.abspath(args.mtz_path)
 
-    # if the resolution is better than 2.8, then use phenix.autobuild to build the model
-    if resolution < 2.8:
-        logging.info("The resolution is better than 2.8, will use phenix.autobuild to build the model.")
+    # if the resolution is better than 3.5, then use phenix.autobuild to build the model
+    if resolution < 3.5:
+        logging.info("The resolution is better than 3.5, will use phenix.autobuild to build the model.")
         
         # autobuild_input_model = partial_pdb_path if any(total_missing_copies[protein_id] > 0 for protein_id in sequence_ids_over_50) else successful_phaser_output_pdb
         logging.info(f"autobuild_input_model: {autobuild_input_model}")
@@ -1662,7 +1662,7 @@ def main():
             logging.info(f"Overall best refine map coeffs [Autobuild]: {cc_input_map_coeffs}")
             r_factor_folder = autobuild_working_path
     else:
-        # For resolution worse than 2.8 Å, run phenix.refine if not already refined
+        # For resolution worse than 3.5 Å, run phenix.refine if not already refined
         if 'successful_refinement_folder' in locals():
             # Use the existing refined model
             logging.info("Using the existing refined model directly.")
@@ -1671,7 +1671,7 @@ def main():
             logging.info(f"Refined map coeffs [Refinement]: {cc_input_map_coeffs}")
             r_factor_folder = successful_refinement_folder
         elif 'autobuild_input_model' in locals():
-            logging.info("The resolution is worse than 2.8, will use phenix.refine to refine the model.")
+            logging.info("The resolution is worse than 3.5, will use phenix.refine to refine the model.")
             r_work, r_free, r_factor_folder = utilities.rfactors_from_phenix_refine(autobuild_input_model, args.mtz_path, refine_output_root, nproc=args.nproc)
             cc_input_pdb, cc_input_map_coeffs = utilities.get_refined_pdb_and_map(r_factor_folder)
             logging.info(f"Refined model [Refinement]: {cc_input_pdb}")

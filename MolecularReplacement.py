@@ -15,6 +15,8 @@ import io
 import sys
 import PDBManager
 
+from utilities import get_available_cores
+
 class MolecularReplacement:
     def __init__(self, pdb_manager, logger=None):
         self.logger = logger if logger else logging.getLogger(__name__)
@@ -33,12 +35,29 @@ class MolecularReplacement:
     
     def run_phaser_molecular_replacement_async(self, params_filename, working_dir, ignore_timeout=False):
         try:
+            # Read nproc value from params file
+            with open(params_filename, 'r') as f:
+                params_content = f.read()
+                # Look for jobs = X in the params file
+                match = re.search(r'jobs\s*=\s*(\d+)', params_content)
+                if match:
+                    current_nproc = int(match.group(1))
+                else:
+                    current_nproc = 4  # fallback to default
+            
+            # Calculate adjusted timeout
+            base_timeout = 1800  # 30 minutes for 4 cores
+            base_cores = 4
+            # Formula: new_timeout = base_timeout * (base_cores/current_nproc)
+            # Add minimum threshold of 300 seconds (5 minutes)
+            timeout_seconds = max(300, int(base_timeout * (base_cores/current_nproc)))
+              
             phaser_cmd = ["phenix.phaser", f"{params_filename}"]
             phaser_process = subprocess.Popen(phaser_cmd, cwd=working_dir)
             
             phaser_log_path = os.path.join(working_dir, "PHASER.log")
             start_time = time.time()
-            timeout_seconds = 1800  # 30 minutes
+
             found_good_tfz = False  # Flag to check if TFZ condition is met
             
             while phaser_process.poll() is None:
@@ -83,7 +102,7 @@ class MolecularReplacement:
                             if not ignore_timeout:
                                 elapsed_time = time.time() - start_time
                                 if elapsed_time > timeout_seconds:
-                                    self.logger.warning("Terminating phaser run due to exceeding the 30 minutes time limit.")
+                                    self.logger.warning(f"Terminating phaser run due to exceeding the {timeout_seconds} seconds time limit.")
                                     phaser_process.terminate()
                                     break
                         else:
@@ -423,6 +442,14 @@ class MolecularReplacement:
             return None, None, None
         
     def generate_phaser_params_multimer(self, params_filename, hklin, solvent_content, space_group, processed_models, copy_numbers, phaser_info, nproc):
+        try:
+            adjusted_nproc = get_available_cores()
+            # Use adjusted_nproc if valid, otherwise fallback to passed nproc
+            final_nproc = adjusted_nproc if adjusted_nproc > 0 else nproc
+        except Exception as e:
+            print(f"Warning: Could not get available cores: {e}. Using provided nproc value.")
+            final_nproc = nproc
+
         with open(params_filename, "w") as f:
             f.write("phaser {\n")
             f.write("  mode = MR_AUTO\n")
@@ -463,7 +490,7 @@ class MolecularReplacement:
 
             f.write("  keywords {\n")
             f.write("    general {\n")
-            f.write(f"      jobs = {nproc}\n")
+            f.write(f"      jobs = {final_nproc}\n")
             f.write("    }\n")
             f.write("  }\n")
             f.write("}\n")

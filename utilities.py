@@ -8,6 +8,7 @@ import time
 import numpy as np
 import glob
 import nvidia_smi
+import psutil
 
 class CustomFormatter(logging.Formatter):
     def format(self, record):
@@ -87,6 +88,18 @@ def save_csv_report(output_file, num_sequences, sequence_length, run_time, resol
             'r_work': r_work,
             'r_free': r_free
         })
+
+
+def get_available_cores():
+    """This function returns a recommended number of CPU cores to use for a process, e.g. Phaser."""
+    total_cores = os.cpu_count()
+    # Get overall CPU usage percentage
+    cpu_percent = psutil.cpu_percent(interval=1)
+    used_cores = int(total_cores * (cpu_percent / 100))
+    available_cores = total_cores - used_cores
+    # Ensure at least 4 core is used
+    recommended_cores = max(4, int(0.5 * available_cores))
+    return recommended_cores
 
 def get_cpu_usage(pid):
     cmd = f"ps -p {pid} -o %cpu"
