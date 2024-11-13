@@ -1469,7 +1469,7 @@ def main():
             "use_hl_if_present=False",
             f"nproc={args.nproc}",
             "thoroughness.ncycle_refine=5",
-            # "refinement.place_waters=False", # comment out to allow water placement
+            # "refinement.place_waters=False", # comment out to prohibit water placement
             # "general.clean_up=True" # remove the TEMP folder when finished
         ]
 
