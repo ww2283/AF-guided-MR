@@ -18,6 +18,7 @@ from MolecularReplacement import MolecularReplacement
 from JobMonitor import JobMonitor
 from ColabFold import ColabFold
 from DataManager import DataManager
+from Refine import RefinementResult, AsyncRefinementManager
 import utilities
 
 af_cluster_script_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "resources", "AF_cluster.py")
@@ -437,7 +438,7 @@ def main():
     }
 
     phaser_results = []
-    refinement_results = []
+    refinement_results: list[RefinementResult] = []
 
     """
     Phaser default mode 1st attempt with best models
@@ -463,6 +464,8 @@ def main():
         r_free_threshold = 0.4
     else:
         r_free_threshold = 0.43
+
+    refinement_manager = AsyncRefinementManager(r_free_threshold)
 
     # reinitiate copy_numbers's value to 0 but keep the keys and call it total_found_copies
     total_found_copies = {protein_id: 0 for protein_id in copy_numbers}
@@ -661,16 +664,17 @@ def main():
             phaser_info['interpro_mode']['interpro_switch'] = 'off'   
 
         if partial_pdb_path is not None and pdb_manager.get_sequence_length_from_pdb(partial_pdb_path) > 0: 
-            r_work_default_mode, r_free_default_mode, refinement_folder_default_mode = utilities.rfactors_from_phenix_refine(partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc)
-            refinement_results.append({
-                'mode': 'default_mode',
-                'tfz_score': phaser_info["default_mode"]['tfz_score'],
-                'r_free': r_free_default_mode,
-                'r_work': r_work_default_mode,
-                'refinement_folder': refinement_folder_default_mode,
-                'partial_pdb_path': partial_pdb_path,
-                'phaser_output_map': glob.glob(os.path.join(refinement_folder_default_mode, '*.mtz'))[0],
-            })
+            r_work_default_mode, r_free_default_mode, refinement_folder_default_mode, _ = utilities.rfactors_from_phenix_refine(partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc)
+            refinement_results.append(RefinementResult(
+                cluster_number=-3,  # Use -1 for non-cluster refinements
+                r_work=r_work_default_mode,
+                r_free=r_free_default_mode,
+                refinement_folder=refinement_folder_default_mode,
+                partial_pdb_path=partial_pdb_path,
+                phaser_output_dir=phaser_info["default_mode"]["output_dir"]['01'],
+                mode='default_mode',
+                tfz_score=phaser_info["default_mode"]['tfz_score']
+            ))
 
             if r_free_default_mode < r_free_threshold:
                 logging.success(f"Default mode solution accepted based on R: {r_work_default_mode:.2f}/{r_free_default_mode:.2f}. refinement output: {refinement_folder_default_mode}")
@@ -775,17 +779,18 @@ def main():
                         interpro_partial_pdb_path_residue_count != 0):
                     phaser_info["interpro_mode"]['tfz_score'], LLG = molecular_replacement.get_final_tfz(interpro_mode_dir)
                     logging.info(f"TFZ score for interpro phaser run: {phaser_info['interpro_mode']['tfz_score']}, LLG: {LLG}")                
-                    r_work_interpro_mode, r_free_interpro_mode, refinement_folder_interpro_mode = utilities.rfactors_from_phenix_refine(interpro_partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc)
+                    r_work_interpro_mode, r_free_interpro_mode, refinement_folder_interpro_mode, _ = utilities.rfactors_from_phenix_refine(interpro_partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc)
                     logging.info(f"interpro mode refinement output: {refinement_folder_interpro_mode}")
-                    refinement_results.append({
-                        'mode': 'interpro_mode',
-                        'tfz_score': phaser_info["interpro_mode"]['tfz_score'],
-                        'r_free': r_free_interpro_mode,
-                        'r_work': r_work_interpro_mode,
-                        'refinement_folder': refinement_folder_interpro_mode,
-                        'partial_pdb_path': interpro_partial_pdb_path,
-                        'phaser_output_map': glob.glob(os.path.join(refinement_folder_interpro_mode, '*.mtz'))[0],
-                    })
+                    refinement_results.append(RefinementResult(
+                        cluster_number=-2,  # Use -1 for non-cluster refinements
+                        r_work=r_work_interpro_mode,
+                        r_free=r_free_interpro_mode,
+                        refinement_folder=refinement_folder_interpro_mode,
+                        partial_pdb_path=interpro_partial_pdb_path,
+                        phaser_output_dir=interpro_mode_dir,
+                        mode='interpro_mode',
+                        tfz_score=phaser_info["interpro_mode"]['tfz_score']
+                    ))
 
                     if r_free_interpro_mode < r_free_threshold:
                         if r_free_default_mode < r_free_threshold and r_free_interpro_mode > r_free_default_mode:
@@ -929,19 +934,20 @@ def main():
                     logging.info(f"TFZ score for pae phaser run: {phaser_info['pae_mode']['tfz_score']}, LLG: {LLG}")                
 
                     # Perform refinement using Phenix
-                    r_work_pae_mode, r_free_pae_mode, refinement_folder_pae_mode = utilities.rfactors_from_phenix_refine(
+                    r_work_pae_mode, r_free_pae_mode, refinement_folder_pae_mode, _ = utilities.rfactors_from_phenix_refine(
                         pae_partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc
                     )
                     logging.info(f"pae mode refinement output: {refinement_folder_pae_mode}")
-                    refinement_results.append({
-                        'mode': 'pae_mode',
-                        'tfz_score': phaser_info["pae_mode"]['tfz_score'],
-                        'r_free': r_free_pae_mode,
-                        'r_work': r_work_pae_mode,
-                        'refinement_folder': refinement_folder_pae_mode,
-                        'partial_pdb_path': pae_partial_pdb_path,
-                        'phaser_output_map': glob.glob(os.path.join(refinement_folder_pae_mode, '*.mtz'))[0],
-                    })
+                    refinement_results.append(RefinementResult(
+                        cluster_number=-1,  # Use -1 for non-cluster refinements
+                        r_work=r_work_pae_mode,
+                        r_free=r_free_pae_mode,
+                        refinement_folder=refinement_folder_pae_mode,
+                        partial_pdb_path=pae_partial_pdb_path,
+                        phaser_output_dir=pae_mode_dir,
+                        mode='pae_mode',
+                        tfz_score=phaser_info["pae_mode"]['tfz_score']
+                    ))
 
                     if r_free_pae_mode < r_free_threshold:
                         if r_free_interpro_mode < r_free_threshold and r_free_pae_mode > existing_r_free:
@@ -1044,11 +1050,11 @@ def main():
             logging.info(f"Found sequence length is at least 70% of the total sequence length: {found_sequence_length}/{total_sequence_length} = {found_ratio:.2f}. AF_cluster mode will not be run to save time.")
         elif refinement_results:
             # Sort the refinement_results by r_free
-            refinement_results.sort(key=lambda x: x['r_free'])
+            refinement_results.sort(key=lambda x: x.r_free)
             # Pick the one with the lowest r_free
             current_best_result = refinement_results[0]
-            if current_best_result['r_free'] < r_free_threshold:
-                logging.info(f"Best refinement result: {current_best_result['r_free']:.2f} in {current_best_result['refinement_folder']}, skipping AF_cluster mode to save time.")
+            if current_best_result.r_free < r_free_threshold:
+                logging.info(f"Best refinement result: {current_best_result.r_free:.2f} in {current_best_result.refinement_folder}, skipping AF_cluster mode to save time.")
                 phaser_info['AF_cluster_mode']['af_cluster_switch'] = 'off'
 
     """
@@ -1056,6 +1062,7 @@ def main():
     """
 
     if phaser_info['AF_cluster_mode']['af_cluster_switch'] == 'on':
+        current_phaser_process = None        
         # Set up the paths and parameters for AF_cluster mode
         AF_cluster_mode_root = os.path.join(output_root, "AF_cluster_root")
         if os.path.exists(AF_cluster_mode_root) and not args.skip_af_cluster:
@@ -1102,6 +1109,91 @@ def main():
 
                 used_pdbs = set()
                 while not AF_cluster_success:
+
+                    # Check for completed refinements
+                    successful_refinement = refinement_manager.check_completed_refinements()
+                    if successful_refinement:
+                        # A refinement has completed and met the criteria
+                        cluster_number = successful_refinement.cluster_number
+                        r_work = successful_refinement.r_work
+                        r_free = successful_refinement.r_free
+                        refinement_folder = successful_refinement.refinement_folder
+                        partial_pdb_path = successful_refinement.partial_pdb_path
+                        phaser_output_dir = successful_refinement.phaser_output_dir  # Get the correct Phaser directory
+
+                        logging.success(f"AF_cluster mode solution accepted based on R: {r_work:.2f}/{r_free:.2f}")
+
+                        # Add the successful refinement to the main refinement_results list
+                        refinement_results.append(successful_refinement)
+
+                        # Update total_found_copies and total_missing_copies based on the successful phaser run
+                        # Use phaser_output_dir instead of reconstructing mr_cluster_dir
+                        mr_cluster_dir = phaser_output_dir  # This now points to the correct directory
+                        # Deduce missing copies based on AF_cluster mode output
+                        _, _, new_found_copies = molecular_replacement.deduce_missing_copies(
+                            os.path.join(mr_cluster_dir, "PHASER.log"), phaser_info, all_combinations, mean_matthews_coeff, top_switch=False
+                        )
+                        logging.info(f"Newly found copies during AF_cluster phaser attempt: {new_found_copies}")
+
+                        # Update total_found_copies and total_missing_copies
+                        total_found_copies = {
+                            protein_id: total_found_copies.get(protein_id, 0) + new_found_copies.get(protein_id, 0)
+                            for protein_id in total_found_copies
+                        }
+                        logging.info(f"Total found copies after AF_cluster mode: {total_found_copies}")
+
+                        total_missing_copies = {
+                            protein_id: total_missing_copies.get(protein_id, 0) - new_found_copies.get(protein_id, 0)
+                            for protein_id in total_missing_copies
+                        }
+                        logging.info(f"Total missing copies after AF_cluster mode: {total_missing_copies}")
+
+                        # Compute the total sequence length found so far
+                        found_sequence_length = sum(
+                            len(protein_info[protein_id]["sequence"]) * total_found_copies.get(protein_id, 0)
+                            for protein_id in total_found_copies
+                        )
+
+                        # Calculate the found ratio
+                        found_ratio = found_sequence_length / total_sequence_length
+                        logging.info(f"Current found sequence length: {found_sequence_length}, total sequence length: {total_sequence_length}, ratio: {found_ratio:.2f}")
+
+                        # Check if all copies have been found
+                        if all(value <= 0 for value in total_missing_copies.values()) or found_ratio >= 0.8:
+                            logging.success("Either all components successfully located, or found ratio is at least 80%. No further searches needed.")
+                            phaser_info["AF_cluster_mode"]['success'] = True
+
+                            # If the AF_cluster process is running, terminate it
+                            if af_cluster_process is not None:
+                                logging.info("Halting AF_cluster process.")
+                                halt_file_path = os.path.join(predictions_folder, 'HALT')
+                                with open(halt_file_path, 'w') as f:
+                                    f.write("HALT")
+                            AF_cluster_success = True
+                            # Terminate current phaser run
+                            molecular_replacement.terminate_current_run()
+                            # Terminate all running refinements associated with this AF_cluster loop
+                            refinement_manager.terminate_all_refinements()
+                            logging.warning("Terminated running phaser process and pending refinements after finding successful solution")
+                        else:
+                            logging.warning("Not all components located. Further searches may be needed.")
+
+                        # Update partial_pdb_path to the successful one
+                        partial_pdb_path = successful_refinement.partial_pdb_path
+                        existing_r_free = r_free
+                        existing_residue_count = pdb_manager.get_sequence_length_from_pdb(partial_pdb_path)
+                        continue  # Proceed to the next iteration of the loop
+
+                    if AF_cluster_success:
+                        phaser_info["AF_cluster_mode"]['success'] = True
+                        break
+
+                    if os.path.exists(f"{predictions_folder}/HALT"):
+                        logging.warning("AF_cluster mode halted.")
+                        if af_cluster_process is not None:
+                            af_cluster_process.terminate()
+                        break
+
                     if os.path.exists(rmsd_ranking_file):
                         next_pdb = pdb_manager.get_next_pdb_entry(rmsd_ranking_file, used_pdbs)
                         if next_pdb is None and os.path.exists(af_cluster_finish_file):
@@ -1158,134 +1250,19 @@ def main():
                                 AF_cluster_partial_pdb_path = os.path.join(mr_cluster_dir, "AF_cluster_partial.pdb")
                                 pdb_manager.process_pdb_file_for_phaser(AF_cluster_phaser_output_pdb, keep_chains, AF_cluster_partial_pdb_path, partial_pdb_path)
 
-                                # Get residue counts
-                                AF_cluster_phaser_output_pdb_residue_count = (
-                                    pdb_manager.get_sequence_length_from_pdb(AF_cluster_phaser_output_pdb)
-                                    if AF_cluster_phaser_output_pdb else 0
+                                af_cluster_tfz_score, _ = molecular_replacement.get_final_tfz(mr_cluster_dir)
+
+                                # Start refinement asynchronously
+                                refinement_manager.start_refinement(
+                                    cluster_number=cluster_number,
+                                    partial_pdb_path=AF_cluster_partial_pdb_path,
+                                    mtz_path=args.mtz_path,
+                                    refine_output_root=refine_output_root,
+                                    nproc=args.nproc,
+                                    phaser_output_dir=mr_cluster_dir,
+                                    mode=f"AF_cluster_mode_cluster_{cluster_number}",
+                                    tfz_score=af_cluster_tfz_score
                                 )
-                                AF_cluster_partial_pdb_path_residue_count = (
-                                    pdb_manager.get_sequence_length_from_pdb(AF_cluster_partial_pdb_path)
-                                    if AF_cluster_partial_pdb_path else 0
-                                )
-                                current_partial_pdb_path_residue_count = (
-                                    pdb_manager.get_sequence_length_from_pdb(partial_pdb_path)
-                                    if partial_pdb_path else 0
-                                )
-
-                                # Log residue counts
-                                logging.info(f"Residue counts:\n default mode: {default_phaser_output_pdb_residue_count},\n"
-                                            f"interpro mode: {interpro_partial_pdb_path_residue_count},\n"
-                                            f"pae mode: {pae_partial_pdb_path_residue_count},\n"
-                                            f"AF_cluster mode: {AF_cluster_partial_pdb_path_residue_count},\n"
-                                            f"current partial pdb: {current_partial_pdb_path_residue_count}.")
-
-                                # Compare residue counts between AF_cluster mode and existing modes
-                                if (AF_cluster_partial_pdb_path_residue_count > current_partial_pdb_path_residue_count and 
-                                        AF_cluster_partial_pdb_path_residue_count != 0):
-                                    # Retrieve TFZ score and LLG for AF_cluster mode
-                                    phaser_info["AF_cluster_mode"]['tfz_score'], LLG = molecular_replacement.get_final_tfz(mr_cluster_dir)
-                                    logging.info(f"TFZ score for AF_cluster phaser run: {phaser_info['AF_cluster_mode']['tfz_score']}, LLG: {LLG}")
-
-                                    # Perform refinement using Phenix
-                                    r_work_AF_cluster_mode, r_free_AF_cluster_mode, refinement_folder_AF_cluster_mode = utilities.rfactors_from_phenix_refine(
-                                        AF_cluster_partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc
-                                    )
-                                    logging.info(f"AF_cluster mode refinement output: {refinement_folder_AF_cluster_mode}")
-                                    refinement_results.append({
-                                        'mode': f'AF_cluster_mode_cluster_{cluster_number}',
-                                        'tfz_score': phaser_info["AF_cluster_mode"]['tfz_score'],
-                                        'r_free': r_free_AF_cluster_mode,
-                                        'r_work': r_work_AF_cluster_mode,
-                                        'refinement_folder': refinement_folder_AF_cluster_mode,
-                                        'partial_pdb_path': AF_cluster_partial_pdb_path,
-                                        'phaser_output_map': glob.glob(os.path.join(refinement_folder_AF_cluster_mode, '*.mtz'))[0],
-                                    })
-
-                                    if r_free_AF_cluster_mode < r_free_threshold:
-                                        if existing_r_free < r_free_threshold and r_free_AF_cluster_mode > existing_r_free:
-                                            logging.warning(
-                                                f"AF_cluster mode solution with R: {r_work_AF_cluster_mode:.2f}/{r_free_AF_cluster_mode:.2f} "
-                                                f"is worse than existing solution with R: {existing_r_free:.2f}"
-                                            )
-                                            # Log debugging information without updating copies
-                                            logging.info(f"total_missing_copies after AF_cluster mode [worse]: {total_missing_copies}")
-                                            logging.info(f"total_found_copies after AF_cluster mode [worse]: {total_found_copies}")
-                                            logging.info(f"partial_pdb_path after AF_cluster mode [worse]: {partial_pdb_path}")
-                                        else:
-                                            # Good result: accept AF_cluster mode solution
-                                            logging.success(f"AF_cluster mode solution accepted based on R: {r_work_AF_cluster_mode:.2f}/{r_free_AF_cluster_mode:.2f}")
-                                            logging.info(f"After AF_cluster mode, all combinations of copy numbers are {all_combinations}")
-                                            AF_cluster_phaser_output_dir = mr_cluster_dir
-
-                                            # Deduce missing copies based on AF_cluster mode output
-                                            _, _, new_found_copies = molecular_replacement.deduce_missing_copies(
-                                                os.path.join(mr_cluster_dir, "PHASER.log"), phaser_info, all_combinations, mean_matthews_coeff, top_switch=False
-                                            )
-                                            logging.info(f"Newly found copies during AF_cluster phaser attempt: {new_found_copies}")
-
-                                            # Update total_found_copies and total_missing_copies
-                                            total_found_copies = {
-                                                protein_id: total_found_copies.get(protein_id, 0) + new_found_copies.get(protein_id, 0)
-                                                for protein_id in total_found_copies
-                                            }
-                                            logging.info(f"Total found copies after AF_cluster mode: {total_found_copies}")
-
-                                            total_missing_copies = {
-                                                protein_id: total_missing_copies.get(protein_id, 0) - new_found_copies.get(protein_id, 0)
-                                                for protein_id in total_missing_copies
-                                            }
-                                            logging.info(f"Total missing copies after AF_cluster mode: {total_missing_copies}")
-
-                                            # Compute the total sequence length found so far
-                                            found_sequence_length = sum(
-                                                len(protein_info[protein_id]["sequence"]) * total_found_copies.get(protein_id, 0)
-                                                for protein_id in total_found_copies
-                                            )
-
-                                            # Calculate the found ratio
-                                            found_ratio = found_sequence_length / total_sequence_length
-                                            logging.info(f"Current found sequence length: {found_sequence_length}, total sequence length: {total_sequence_length}, ratio: {found_ratio:.2f}")
-
-
-                                            # Check if all copies have been found
-                                            if all(value <= 0 for value in total_missing_copies.values()) or found_ratio >= 0.8:
-                                                logging.success("Either all components successfully located, or found ratio is at least 80%. No further searches needed.")
-                                                phaser_info["AF_cluster_mode"]['success'] = True
-
-                                                # If the AF_cluster process is running, terminate it
-                                                if not args.skip_af_cluster and af_cluster_process is not None:
-                                                    logging.info("Halting AF_cluster process as all copies are found.")
-                                                    halt_file_path = os.path.join(predictions_folder, 'HALT')
-                                                    with open(halt_file_path, 'w') as f:
-                                                        f.write("HALT")
-                                                    # af_cluster_process.terminate()
-                                                elif args.skip_af_cluster:
-                                                    logging.info(f"Skipping rest Phaser runs for {protein_id} due to success.")
-                                                AF_cluster_success = True
-                                            else:
-                                                logging.warning("Not all components located. Further searches may be needed.")
-                                                # You can set a switch here if you have a subsequent mode
-                                                # For example: phaser_info['next_mode']['next_switch'] = 'on'
-
-                                            # Update partial_pdb_path to AF_cluster_partial_pdb_path
-                                            partial_pdb_path = AF_cluster_partial_pdb_path
-                                            existing_r_free = r_free_AF_cluster_mode
-                                            existing_residue_count = AF_cluster_partial_pdb_path_residue_count
-                                    else:
-                                        # R-free is too high; reject AF_cluster mode solution
-                                        logging.warning(f"AF_cluster mode solution {cluster_number} rejected based on R: {r_work_AF_cluster_mode:.2f}/{r_free_AF_cluster_mode:.2f}")
-                                        phaser_info["AF_cluster_mode"]["success"] = False
-                                        # Proceed accordingly, perhaps to the next steps or modes
-
-                                        # Log debugging information without updating copies
-                                        logging.info(f"total_missing_copies after AF_cluster mode [rejection]: {total_missing_copies}")
-                                        logging.info(f"total_found_copies after AF_cluster mode [rejection]: {total_found_copies}")
-                                        logging.info(f"partial_pdb_path after AF_cluster mode [rejection]: {partial_pdb_path}")
-                                elif AF_cluster_partial_pdb_path_residue_count == existing_residue_count:
-                                    # AF_cluster mode did not find new components; proceed accordingly
-                                    logging.info("AF_cluster mode did not find new components. Proceeding accordingly.")
-                                    # You can set a switch here if you have a subsequent mode
-                                    # For example: phaser_info['next_mode']['next_switch'] = 'on'
 
                             else: 
                                 """
@@ -1302,22 +1279,22 @@ def main():
                                         'phaser_output_map': os.path.join(mr_cluster_dir, "PHASER.1.mtz")
                                     })
                                 
-                                mr_cluster_enemble_dir = os.path.join(mr_cluster_dir, "mr_cluster_ensemble")
+                                mr_cluster_ensemble_dir = os.path.join(mr_cluster_dir, "mr_cluster_ensemble")
                                 cf_adjusted_pae_domains = pdb_manager.get_domain_definitions_from_pae(cluster_cf_pae_path, offset, primary_pae_cutoff=15)
                                 # logging.info(f"cf_adjusted_pae_domains for {cluster_number}: {cf_adjusted_pae_domains}")
                                 cluster_ensemble_files = pdb_manager.prepare_domain_ensembles(
                                     best_model_path,
-                                    cf_adjusted_pae_domains, mr_cluster_enemble_dir, len(protein_info[protein_id]["sequence"])
+                                    cf_adjusted_pae_domains, mr_cluster_ensemble_dir, len(protein_info[protein_id]["sequence"])
                                 )
                                 logging.info(f"cluster_ensemble_files: {cluster_ensemble_files}")
-                                processed_ensemble_dir = os.path.join(mr_cluster_enemble_dir, "processed_ensembles_for_pae_mr")
+                                processed_ensemble_dir = os.path.join(mr_cluster_ensemble_dir, "processed_ensembles_for_pae_mr")
                                 os.makedirs(processed_ensemble_dir, exist_ok=True)
                                 processed_ensemble_paths = {protein_id: []}
                                 for ensemble_file in cluster_ensemble_files:
                                     processed_ensemble_path = os.path.join(processed_ensemble_dir, os.path.basename(ensemble_file))
                                     pdb_manager.process_pdb_file(ensemble_file, b_factor_cutoff, processed_ensemble_path)
                                     processed_ensemble_paths[protein_id].append(processed_ensemble_path)
-                                params_filename = os.path.join(mr_cluster_enemble_dir, f"phaser_params_cluster_{cluster_number}_pae_mode.txt")
+                                params_filename = os.path.join(mr_cluster_ensemble_dir, f"phaser_params_cluster_{cluster_number}_pae_mode.txt")
                                 if partial_pdb_path is None:
                                     molecular_replacement.generate_phaser_params_multimer(
                                         params_filename, args.mtz_path, solvent_content, 
@@ -1329,166 +1306,46 @@ def main():
                                         space_group, partial_pdb_path, processed_ensemble_paths, {protein_id: total_missing_copies[protein_id]}, phaser_info, nproc=args.nproc
                                     )
                                 logging.info(f"phaser params file for cluster {cluster_number} in pae mode is generated and run.")
-                                phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename, mr_cluster_enemble_dir, ignore_timeout=args.no_timeout)
+                                phaser_process = molecular_replacement.run_phaser_molecular_replacement_async(params_filename, mr_cluster_ensemble_dir, ignore_timeout=args.no_timeout)
 
-                                AF_cluster_pae_success = molecular_replacement.handle_phaser_output(mr_cluster_enemble_dir)
+                                AF_cluster_pae_success = molecular_replacement.handle_phaser_output(mr_cluster_ensemble_dir)
                                 if AF_cluster_pae_success:
                                     # Generate new partial PDB if necessary
-                                    keep_chains = pdb_manager.parse_phaser_log(os.path.join(mr_cluster_enemble_dir, "PHASER.log"))
-                                    AF_cluster_phaser_output_pdb = os.path.join(mr_cluster_enemble_dir, "PHASER.1.pdb")
-                                    AF_cluster_partial_pdb_path = os.path.join(mr_cluster_enemble_dir, "AF_cluster_partial.pae.pdb")
+                                    keep_chains = pdb_manager.parse_phaser_log(os.path.join(mr_cluster_ensemble_dir, "PHASER.log"))
+                                    AF_cluster_phaser_output_pdb = os.path.join(mr_cluster_ensemble_dir, "PHASER.1.pdb")
+                                    AF_cluster_partial_pdb_path = os.path.join(mr_cluster_ensemble_dir, "AF_cluster_partial.pae.pdb")
                                     pdb_manager.process_pdb_file_for_phaser(AF_cluster_phaser_output_pdb, keep_chains, AF_cluster_partial_pdb_path, partial_pdb_path)
 
-                                    # Get residue counts
-                                    AF_cluster_phaser_output_pdb_residue_count = (
-                                        pdb_manager.get_sequence_length_from_pdb(AF_cluster_phaser_output_pdb)
-                                        if AF_cluster_phaser_output_pdb else 0
+                                    af_cluster_pae_tfz_score, _ = molecular_replacement.get_final_tfz(mr_cluster_ensemble_dir)
+
+                                    # Start refinement asynchronously
+                                    refinement_manager.start_refinement(
+                                        cluster_number=cluster_number,
+                                        partial_pdb_path=AF_cluster_partial_pdb_path,
+                                        mtz_path=args.mtz_path,
+                                        refine_output_root=refine_output_root,
+                                        nproc=args.nproc,
+                                        phaser_output_dir=mr_cluster_ensemble_dir,
+                                        mode=f"AF_cluster_mode_cluster_{cluster_number}_pae_mode",
+                                        tfz_score=af_cluster_pae_tfz_score
                                     )
-                                    AF_cluster_partial_pdb_path_residue_count = (
-                                        pdb_manager.get_sequence_length_from_pdb(AF_cluster_partial_pdb_path)
-                                        if AF_cluster_partial_pdb_path else 0
-                                    )
-                                    current_partial_pdb_path_residue_count = (
-                                        pdb_manager.get_sequence_length_from_pdb(partial_pdb_path)
-                                        if partial_pdb_path else 0
-                                    )
-
-                                    # Log residue counts
-                                    logging.info(f"Residue counts:\n default mode: {default_phaser_output_pdb_residue_count},\n"
-                                                f"interpro mode: {interpro_partial_pdb_path_residue_count},\n"
-                                                f"pae mode: {pae_partial_pdb_path_residue_count},\n"
-                                                f"AF_cluster pae mode: {AF_cluster_partial_pdb_path_residue_count},\n"
-                                                f"current partial pdb: {current_partial_pdb_path_residue_count}.")
-
-                                    # Compare residue counts between AF_cluster pae mode and existing modes
-                                    if (AF_cluster_partial_pdb_path_residue_count > current_partial_pdb_path_residue_count and
-                                            AF_cluster_partial_pdb_path_residue_count != 0):
-                                        # Retrieve TFZ score and LLG for AF_cluster pae mode
-                                        phaser_info["AF_cluster_mode"]['tfz_score'], LLG = molecular_replacement.get_final_tfz(mr_cluster_enemble_dir)
-                                        logging.info(f"TFZ score for AF_cluster phaser run {cluster_number} in pae mode: {phaser_info['AF_cluster_mode']['tfz_score']}, LLG: {LLG}")
-
-                                        # Perform refinement using Phenix
-                                        r_work_AF_cluster_pae_mode, r_free_AF_cluster_pae_mode, refinement_folder_AF_cluster_pae_mode = utilities.rfactors_from_phenix_refine(
-                                            AF_cluster_partial_pdb_path, args.mtz_path, refine_output_root, nproc=args.nproc
-                                        )
-                                        logging.info(f"AF_cluster pae mode refinement output: {refinement_folder_AF_cluster_pae_mode}")
-                                        refinement_results.append({
-                                            'mode': f'AF_cluster_mode_cluster_{cluster_number}_pae_mode',
-                                            'tfz_score': phaser_info["AF_cluster_mode"]['tfz_score'],
-                                            'r_free': r_free_AF_cluster_pae_mode,
-                                            'r_work': r_work_AF_cluster_pae_mode,
-                                            'refinement_folder': refinement_folder_AF_cluster_pae_mode,
-                                            'partial_pdb_path': AF_cluster_partial_pdb_path,
-                                            'phaser_output_map': glob.glob(os.path.join(refinement_folder_AF_cluster_pae_mode, '*.mtz'))[0],
-                                        })
-
-                                        if r_free_AF_cluster_pae_mode < r_free_threshold:
-                                            if existing_r_free < r_free_threshold and r_free_AF_cluster_pae_mode > existing_r_free:
-                                                logging.warning(
-                                                    f"AF_cluster pae mode solution {cluster_number} with R: {r_work_AF_cluster_pae_mode:.2f}/{r_free_AF_cluster_pae_mode:.2f} "
-                                                    f"is worse than existing solution with R: {existing_r_free:.2f}"
-                                                )
-                                                # Log debugging information without updating copies
-                                                logging.info(f"total_missing_copies after AF_cluster pae mode [worse]: {total_missing_copies}")
-                                                logging.info(f"total_found_copies after AF_cluster pae mode [worse]: {total_found_copies}")
-                                                logging.info(f"partial_pdb_path after AF_cluster pae mode [worse]: {partial_pdb_path}")
-                                            else:
-                                                # Good result: accept AF_cluster pae mode solution
-                                                logging.success(f"AF_cluster pae mode solution {cluster_number} accepted based on R: {r_work_AF_cluster_pae_mode:.2f}/{r_free_AF_cluster_pae_mode:.2f}")
-                                                logging.info(f"After AF_cluster pae mode, all combinations of copy numbers are {all_combinations}")
-                                                AF_cluster_phaser_output_dir = mr_cluster_enemble_dir
-
-                                                # Deduce missing copies based on AF_cluster pae mode output
-                                                _, _, new_found_copies = molecular_replacement.deduce_missing_copies(
-                                                    os.path.join(mr_cluster_enemble_dir, "PHASER.log"), phaser_info, all_combinations, mean_matthews_coeff, top_switch=False
-                                                )
-                                                logging.info(f"Newly found copies during AF_cluster pae phaser attempt: {new_found_copies}")
-
-                                                # Update total_found_copies and total_missing_copies
-                                                total_found_copies = {
-                                                    protein_id: total_found_copies.get(protein_id, 0) + new_found_copies.get(protein_id, 0)
-                                                    for protein_id in total_found_copies
-                                                }
-                                                logging.info(f"Total found copies after AF_cluster pae mode: {total_found_copies}")
-
-                                                total_missing_copies = {
-                                                    protein_id: total_missing_copies.get(protein_id, 0) - new_found_copies.get(protein_id, 0)
-                                                    for protein_id in total_missing_copies
-                                                }
-                                                logging.info(f"Total missing copies after AF_cluster pae mode: {total_missing_copies}")
-
-                                                # Compute the total sequence length found so far
-                                                found_sequence_length = sum(
-                                                    len(protein_info[protein_id]["sequence"]) * total_found_copies.get(protein_id, 0)
-                                                    for protein_id in total_found_copies
-                                                )
-
-                                                # Calculate the found ratio
-                                                found_ratio = found_sequence_length / total_sequence_length
-                                                logging.info(f"Current found sequence length: {found_sequence_length}, total sequence length: {total_sequence_length}, ratio: {found_ratio:.2f}")
-
-                                                # Check if all copies have been found
-                                                if all(value <= 0 for value in total_missing_copies.values()) or found_ratio >= 0.8:
-                                                    logging.success("Either all components successfully located, or found ratio is at least 80%. No further searches needed.")
-                                                    phaser_info["AF_cluster_mode"]['success'] = True
-
-                                                    # If the AF_cluster process is running, terminate it
-                                                    if not args.skip_af_cluster and af_cluster_process is not None:
-                                                        logging.info(f"Thus the AF_cluster for {protein_id} will be stopped.")
-                                                        halt_file_path = os.path.join(predictions_folder, 'HALT')
-                                                        with open(halt_file_path, 'w') as f:
-                                                            f.write("HALT")
-                                                        # af_cluster_process.terminate()
-                                                    elif args.skip_af_cluster:
-                                                        logging.info(f"Skipping rest Phaser runs for {protein_id} due to success.")
-                                                    AF_cluster_success = True
-                                                else:
-                                                    logging.warning("Not all components located. Further searches may be needed.")
-                                                    # You can set a switch here if you have a subsequent mode
-
-                                                # Update partial_pdb_path to AF_cluster_partial_pdb_path
-                                                partial_pdb_path = AF_cluster_partial_pdb_path
-                                                existing_r_free = r_free_AF_cluster_pae_mode
-                                                existing_residue_count = AF_cluster_partial_pdb_path_residue_count
-                                        else:
-                                            # R-free is too high; reject AF_cluster pae mode solution
-                                            logging.warning(f"AF_cluster pae mode solution {cluster_number} rejected based on R: {r_work_AF_cluster_pae_mode:.2f}/{r_free_AF_cluster_pae_mode:.2f}")
-                                            phaser_info["AF_cluster_mode"]["success"] = False
-
-                                            # Log debugging information without updating copies
-                                            logging.info(f"total_missing_copies after AF_cluster pae mode [rejection]: {total_missing_copies}")
-                                            logging.info(f"total_found_copies after AF_cluster pae mode [rejection]: {total_found_copies}")
-                                            logging.info(f"partial_pdb_path after AF_cluster pae mode [rejection]: {partial_pdb_path}")
-                                    elif AF_cluster_partial_pdb_path_residue_count == existing_residue_count:
-                                        # AF_cluster pae mode did not find new components; proceed accordingly
-                                        logging.info("AF_cluster pae mode did not find new components. Proceeding accordingly.")
-                                        # You can set a switch here if you have a subsequent mode
                                 else:
                                     # AF_cluster pae mode failed; proceed accordingly
                                     logging.warning(f"AF_cluster phaser run {cluster_number} in pae mode failed.")
                                     # phaser_info["AF_cluster_mode"]['tfz_score'] = 0
                                     logging.info(f"partial_pdb_path remains as: {partial_pdb_path}")
                                     # No need to update total_missing_copies and total_found_copies
-                                    phaser_info["AF_cluster_mode"]['tfz_score'], _ = molecular_replacement.get_final_tfz(mr_cluster_enemble_dir)
-                                    if os.path.exists(os.path.join(mr_cluster_enemble_dir, "PHASER.1.pdb")):
+                                    phaser_info["AF_cluster_mode"]['tfz_score'], _ = molecular_replacement.get_final_tfz(mr_cluster_ensemble_dir)
+                                    if os.path.exists(os.path.join(mr_cluster_ensemble_dir, "PHASER.1.pdb")):
                                         phaser_results.append({
                                             'mode': f'AF_cluster_mode_cluster_{cluster_number}_pae_mode',
                                             'tfz_score': phaser_info["AF_cluster_mode"]['tfz_score'],
-                                            'phaser_output_dir': mr_cluster_enemble_dir,
-                                            'phaser_output_pdb': os.path.join(mr_cluster_enemble_dir, "PHASER.1.pdb"),
-                                            'phaser_output_map': os.path.join(mr_cluster_enemble_dir, "PHASER.1.mtz")
+                                            'phaser_output_dir': mr_cluster_ensemble_dir,
+                                            'phaser_output_pdb': os.path.join(mr_cluster_ensemble_dir, "PHASER.1.pdb"),
+                                            'phaser_output_map': os.path.join(mr_cluster_ensemble_dir, "PHASER.1.mtz")
                                         })
-                    if AF_cluster_success:
-                        phaser_info["AF_cluster_mode"]['success'] = True
-                        phaser_info['AF_cluster_mode']['output_dir'] = AF_cluster_phaser_output_dir
-                        break
-                    if os.path.exists(f"{predictions_folder}/HALT"):
-                        logging.warning("AF_cluster mode halted.")
-                        if af_cluster_process is not None:
-                            af_cluster_process.terminate()
-                        break
 
-                    time.sleep(100)
+                    time.sleep(30)
 
                 # check if all proteins in total_missing_copies have been processed; if so, break the for loop, if not, continue
                 if all(count == 0 for count in total_missing_copies.values()):
@@ -1546,18 +1403,18 @@ def main():
     prepare for autobuild or refine
     """    
     if refinement_results:
-        # Sort the refinement_results by r_free
-        refinement_results.sort(key=lambda x: x['r_free'])
-        # Pick the one with the lowest r_free
+        # Sort by r_free
+        refinement_results.sort(key=lambda x: x.r_free)
+        # Pick best result
         best_result = refinement_results[0]
-        autobuild_input_model = best_result['partial_pdb_path']
-        successful_phaser_map = best_result['phaser_output_map']
-        successful_phaser_mode = best_result['mode']
+        autobuild_input_model = best_result.partial_pdb_path
+        successful_phaser_map = best_result.phaser_output_map
+        successful_phaser_mode = best_result.mode
         if tfz_score is None or tfz_score == 0:
-            tfz_score = best_result['tfz_score']
+            tfz_score = best_result.tfz_score
         successful_phaser_dir = os.path.dirname(successful_phaser_map)
-        logging.info(f"Selected model from {best_result['mode']} with R-free: {best_result['r_free']}")
-        successful_refinement_folder = best_result['refinement_folder'] 
+        logging.info(f"Selected model from {best_result.mode} with R-free: {best_result.r_free}")
+        successful_refinement_folder = best_result.refinement_folder
 
         if not successful_phaser:
             successful_phaser = successful_phaser_mode
@@ -1628,6 +1485,16 @@ def main():
             with open(os.path.join(autobuild_folder, "AUTOBUILD_COMMAND.txt"), "w") as cmd_file:
                 cmd_file.write(formatted_cmd)
             logging.info("Skipping autobuild process as --skip_autobuild is specified.")
+            if refinement_results:
+                r_work = best_result.r_work
+                r_free = best_result.r_free
+                r_factor_folder = best_result.refinement_folder
+            else:
+                r_work = None
+                r_free = None
+                r_factor_folder = None
+            cc_input_pdb = autobuild_input_model 
+            cc_input_map_coeffs = successful_phaser_map
         else:
             # Verify that none of the elements in the command are None
             if any(elem is None for elem in phenix_autobuild_cmd):
@@ -1635,6 +1502,23 @@ def main():
 
             phenix_autobuild_process = subprocess.Popen(phenix_autobuild_cmd)
             autobuild_log_path = os.path.join(autobuild_folder, "AutoBuild_run_1_/AutoBuild_run_1_1.log")
+
+            main_autobuild_pid = phenix_autobuild_process.pid
+            
+            # Start tracking this autobuild run
+            job_monitor.start_autobuild_tracking(main_autobuild_pid, autobuild_folder)
+            
+            autobuild_log_path = os.path.join(autobuild_folder, "AutoBuild_run_1_/AutoBuild_run_1_1.log")
+            
+            # Update subjob PIDs periodically
+            def update_tracking():
+                while phenix_autobuild_process.poll() is None:
+                    job_monitor.update_subjob_pids()
+                    time.sleep(60)
+                    
+            tracking_thread = threading.Thread(target=update_tracking)
+            tracking_thread.start()
+
             # Start the monitoring in a separate thread, passing autobuild_log_path and autobuild_process
             while not os.path.exists(autobuild_log_path):
                 time.sleep(10) 
@@ -1651,6 +1535,10 @@ def main():
             phenix_autobuild_process.wait()
             autobuild_temp_dir = os.path.join(autobuild_folder, "AutoBuild_run_1_/TEMP0")
             time.sleep(60) # wait for the settlement of the TEMP0 folder
+
+            # Terminate only tracked processes for this run
+            job_monitor.terminate_tracked_processes()
+
             if os.path.exists(autobuild_temp_dir):
                 shutil.rmtree(autobuild_temp_dir, onerror=utilities.remove_readonly)
             os.chdir(output_root)
@@ -1672,7 +1560,7 @@ def main():
             r_factor_folder = successful_refinement_folder
         elif 'autobuild_input_model' in locals():
             logging.info("The resolution is worse than 3.5, will use phenix.refine to refine the model.")
-            r_work, r_free, r_factor_folder = utilities.rfactors_from_phenix_refine(autobuild_input_model, args.mtz_path, refine_output_root, nproc=args.nproc)
+            r_work, r_free, r_factor_folder, _ = utilities.rfactors_from_phenix_refine(autobuild_input_model, args.mtz_path, refine_output_root, nproc=args.nproc)
             cc_input_pdb, cc_input_map_coeffs = utilities.get_refined_pdb_and_map(r_factor_folder)
             logging.info(f"Refined model [Refinement]: {cc_input_pdb}")
             logging.info(f"Refined map coeffs [Refinement]: {cc_input_map_coeffs}")
@@ -1680,9 +1568,14 @@ def main():
     """
     extract r_work, r_free values
     """
-    r_work, r_free = utilities.extract_rfactors(r_factor_folder)
-    logging.info(f"R_work: {r_work}, R_free: {r_free}")
-
+    if r_factor_folder:
+        try:
+            r_work, r_free = utilities.extract_rfactors(r_factor_folder)
+            logging.info(f"R_work: {r_work}, R_free: {r_free}")
+        except Exception as e:
+            logging.error(f"Error extracting R-factors: {e}")
+            r_work = None
+            r_free = None
     """
     calculate map model correlation values
     """
@@ -1715,7 +1608,7 @@ def main():
         run_time, 
         resolution, 
         tfz_score, 
-        successful_phaser, 
+        successful_phaser_mode if successful_phaser_mode else successful_phaser, 
         successful_phaser_output_dir, 
         reference_model_map_cc,
         phaser_model_map_cc,

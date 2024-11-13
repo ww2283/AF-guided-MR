@@ -21,18 +21,13 @@ class MolecularReplacement:
     def __init__(self, pdb_manager, logger=None):
         self.logger = logger if logger else logging.getLogger(__name__)
         self.pdb_manager = PDBManager.PDBManager()
+        self.terminate_flag = False  # Add class-level termination flag
 
-    # Add this function after the generate_phaser_params() function
-    def run_phaser_molecular_replacement(self, working_dir, params_filename, root_dir):
-        try:
-            os.chdir(working_dir)
-            cmd = f"phenix.phaser {params_filename}"
-            with open(os.devnull, "w") as devnull:
-                subprocess.run(cmd, stdout=devnull, stderr=subprocess.STDOUT, shell=True, text=True)
-            os.chdir(root_dir)
-        except Exception as e:
-            self.logger.error(f"Error in run_phaser_molecular_replacement: {e}")
-    
+    def terminate_current_run(self):
+        """Safely terminate current phaser run"""
+        self.terminate_flag = True
+
+    # Add this function after the generate_phaser_params() function    
     def run_phaser_molecular_replacement_async(self, params_filename, working_dir, ignore_timeout=False):
         try:
             # Read nproc value from params file
@@ -61,6 +56,13 @@ class MolecularReplacement:
             found_good_tfz = False  # Flag to check if TFZ condition is met
             
             while phaser_process.poll() is None:
+                # Check termination flag first
+                if self.terminate_flag:
+                    self.logger.warning("Terminating phaser run due to external request")
+                    phaser_process.terminate()
+                    self.terminate_flag = False  # Reset flag
+                    break
+
                 if os.path.exists(phaser_log_path):
                     # Always check log size
                     log_size_mb = os.path.getsize(phaser_log_path) / (1024 * 1024)

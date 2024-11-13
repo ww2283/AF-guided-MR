@@ -93,13 +93,21 @@ def save_csv_report(output_file, num_sequences, sequence_length, run_time, resol
 def get_available_cores():
     """This function returns a recommended number of CPU cores to use for a process, e.g. Phaser."""
     total_cores = os.cpu_count()
-    # Get overall CPU usage percentage
-    cpu_percent = psutil.cpu_percent(interval=1)
-    used_cores = int(total_cores * (cpu_percent / 100))
-    available_cores = total_cores - used_cores
-    # Ensure at least 4 core is used
-    recommended_cores = max(4, int(0.5 * available_cores))
-    return recommended_cores
+    
+    while True:
+        # Get overall CPU usage percentage 
+        cpu_percent = psutil.cpu_percent(interval=1)
+        
+        if cpu_percent > 80:
+            logging.info(f"CPU usage at {cpu_percent}%. Waiting 60 seconds before checking again...")
+            time.sleep(60)
+            continue
+            
+        used_cores = int(total_cores * (cpu_percent / 100))
+        available_cores = total_cores - used_cores
+        # Ensure at least 4 cores are used
+        recommended_cores = max(4, int(0.25 * available_cores))
+        return recommended_cores
 
 def get_cpu_usage(pid):
     cmd = f"ps -p {pid} -o %cpu"
@@ -301,14 +309,15 @@ def rfactors_from_phenix_refine(pdb_path, data_path, refine_output_root, nproc):
             raise ValueError("One or more elements in phenix_refine_cmd are None.")
         process = subprocess.Popen(cmd, cwd=refinement_folder, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         stdout, stderr = process.communicate()
-        return process.returncode, stdout, stderr
+        return process.returncode, stdout, stderr, process
 
     fixed_errors = set()
     max_iterations = 5
+    last_process = None
 
     for iteration in range(max_iterations):
-        returncode, stdout, stderr = run_phenix_refine(phenix_refine_cmd)
-
+        returncode, stdout, stderr, process = run_phenix_refine(phenix_refine_cmd)
+        last_process = process
         if returncode == 0:
             # Success
             break
@@ -371,7 +380,7 @@ def rfactors_from_phenix_refine(pdb_path, data_path, refine_output_root, nproc):
         logging.error("Exceeded maximum number of iterations.")
         raise RuntimeError("Phenix refine failed after maximum attempts.")
 
-    logging.info(f"Phenix refine finished for {os.path.basename(pdb_path)}.")
+    logging.info(f"Phenix refine finished for {os.path.join(os.path.basename(refinement_folder), os.path.basename(pdb_path))}.")
     logging.info(f"Refinement output directory: {os.path.basename(refinement_folder)}")
 
     r_work, r_free = extract_rfactors(refinement_folder)
@@ -381,7 +390,7 @@ def rfactors_from_phenix_refine(pdb_path, data_path, refine_output_root, nproc):
     if mtz_files and os.path.exists(mtz_files[0]):
         shutil.move(mtz_files[0], os.path.join(refine_output_root, "refinement_data.mtz"))
 
-    return r_work, r_free, refinement_folder
+    return r_work, r_free, refinement_folder, last_process
 
 def get_autobuild_results_paths(autobuild_working_path):
     overall_best_pdb = os.path.join(autobuild_working_path, "overall_best.pdb")

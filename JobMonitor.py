@@ -5,12 +5,14 @@ import re
 import time
 import logging
 import psutil
+import json
 from utilities import get_cpu_usage
 
 
 class JobMonitor:
     def __init__(self, logger=None):
         self.logger = logger if logger else logging.getLogger(__name__)
+        self.process_tracking_file = None
 
     def mark_colabfold_finished(self, output_dir, structure_name):
         done_file = os.path.join(output_dir, f"{structure_name}.done.txt")
@@ -175,3 +177,64 @@ class JobMonitor:
             open(finished_file, 'w').close()
         except Exception as e:
             self.logger.error(f"Error creating FINISHED file for job {job}: {e}")
+
+    def start_autobuild_tracking(self, main_pid, working_dir):
+        """Initialize tracking for this autobuild run"""
+        self.process_tracking_file = os.path.join(working_dir, f"autobuild_tracking_{main_pid}.json")
+        tracking_data = {
+            "main_pid": main_pid,
+            "working_dir": working_dir,
+            "subjob_pids": []
+        }
+        with open(self.process_tracking_file, 'w') as f:
+            json.dump(tracking_data, f)
+
+    def update_subjob_pids(self):
+        """Update list of subjob PIDs for current autobuild run"""
+        if not self.process_tracking_file or not os.path.exists(self.process_tracking_file):
+            return
+            
+        with open(self.process_tracking_file, 'r') as f:
+            tracking_data = json.load(f)
+            
+        main_pid = tracking_data["main_pid"]
+        working_dir = tracking_data["working_dir"]
+        
+        try:
+            main_process = psutil.Process(main_pid)
+            children = main_process.children(recursive=True)
+            subjob_pids = [
+                p.pid for p in children 
+                if 'phenix.autobuild' in ' '.join(p.cmdline()) 
+                and working_dir in ' '.join(p.cmdline())
+            ]
+            
+            tracking_data["subjob_pids"] = subjob_pids
+            with open(self.process_tracking_file, 'w') as f:
+                json.dump(tracking_data, f)
+                
+        except Exception as e:
+            self.logger.error(f"Error updating subjob PIDs: {e}")
+
+    def terminate_tracked_processes(self):
+        """Terminate only processes associated with current autobuild run"""
+        if not self.process_tracking_file or not os.path.exists(self.process_tracking_file):
+            return
+            
+        with open(self.process_tracking_file, 'r') as f:
+            tracking_data = json.load(f)
+            
+        for pid in tracking_data["subjob_pids"]:
+            try:
+                process = psutil.Process(pid)
+                if process.is_running():
+                    self.logger.info(f"Terminating tracked autobuild subjob: {pid}")
+                    process.terminate()
+                    process.wait(timeout=3)
+            except Exception as e:
+                self.logger.error(f"Error terminating process {pid}: {e}")
+                
+        try:
+            os.remove(self.process_tracking_file)
+        except Exception as e:
+            self.logger.error(f"Error removing tracking file: {e}")
