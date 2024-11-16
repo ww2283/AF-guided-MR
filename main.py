@@ -1247,7 +1247,7 @@ def main():
                                 # Generate new partial PDB if necessary
                                 keep_chains = pdb_manager.parse_phaser_log(os.path.join(mr_cluster_dir, "PHASER.log"))
                                 AF_cluster_phaser_output_pdb = os.path.join(mr_cluster_dir, "PHASER.1.pdb")  # Path to Phaser's output PDB
-                                AF_cluster_partial_pdb_path = os.path.join(mr_cluster_dir, "AF_cluster_partial.pdb")
+                                AF_cluster_partial_pdb_path = os.path.join(mr_cluster_dir, f"AF_cluster_partial_{cluster_number}.pdb")
                                 pdb_manager.process_pdb_file_for_phaser(AF_cluster_phaser_output_pdb, keep_chains, AF_cluster_partial_pdb_path, partial_pdb_path)
 
                                 af_cluster_tfz_score, _ = molecular_replacement.get_final_tfz(mr_cluster_dir)
@@ -1313,7 +1313,7 @@ def main():
                                     # Generate new partial PDB if necessary
                                     keep_chains = pdb_manager.parse_phaser_log(os.path.join(mr_cluster_ensemble_dir, "PHASER.log"))
                                     AF_cluster_phaser_output_pdb = os.path.join(mr_cluster_ensemble_dir, "PHASER.1.pdb")
-                                    AF_cluster_partial_pdb_path = os.path.join(mr_cluster_ensemble_dir, "AF_cluster_partial.pae.pdb")
+                                    AF_cluster_partial_pdb_path = os.path.join(mr_cluster_ensemble_dir, f"AF_cluster_partial_{cluster_number}.pae.pdb")
                                     pdb_manager.process_pdb_file_for_phaser(AF_cluster_phaser_output_pdb, keep_chains, AF_cluster_partial_pdb_path, partial_pdb_path)
 
                                     af_cluster_pae_tfz_score, _ = molecular_replacement.get_final_tfz(mr_cluster_ensemble_dir)
