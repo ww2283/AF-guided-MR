@@ -60,31 +60,34 @@ class AsyncRefinementManager:
                 partial_pdb_path, mtz_path, refine_output_root, nproc=nproc
             )
 
-            # Create refinement result
-            result = RefinementResult(
-                cluster_number=cluster_number,
-                r_work=r_work,
-                r_free=r_free,
-                refinement_folder=refinement_folder,
-                partial_pdb_path=partial_pdb_path,
-                phaser_output_dir=phaser_output_dir,
-                mode=mode,
-                tfz_score=tfz_score,
-                is_complete=True,
-                process=process
-            )
+            # Create refinement result if valid R-factors exist
+            if r_work > 0 and r_free > 0:  # Add this check
+                result = RefinementResult(
+                    cluster_number=cluster_number,
+                    r_work=r_work,
+                    r_free=r_free,
+                    refinement_folder=refinement_folder,
+                    partial_pdb_path=partial_pdb_path,
+                    phaser_output_dir=phaser_output_dir,
+                    mode=mode,
+                    tfz_score=tfz_score,
+                    is_complete=True,
+                    process=process
+                )
 
-            # Store result in refinement_results dictionary
-            self.refinement_results[cluster_number] = result
+                # Always store valid results
+                self.refinement_results[cluster_number] = result
 
-            # If R-free is below threshold, put result in success queue
-            if r_free < self.r_free_threshold:
-                logging.success(f"Refinement for cluster {cluster_number} successful with R-free: {r_free:.4f}")
-                self.success_queue.put(result)
-            else:
-                logging.info(f"Refinement for cluster {cluster_number} completed but R-free ({r_free:.4f}) above threshold")
+                # Only put in success queue if meets threshold
+                if r_free < self.r_free_threshold:
+                    logging.success(f"Refinement for cluster {cluster_number} successful with R-free: {r_free:.4f}")
+                    self.success_queue.put(result)
+                else:
+                    logging.info(f"Refinement for cluster {cluster_number} completed with R-free: {r_free:.4f} (above threshold)")
 
-            return result
+                return result
+
+            return None  # Return None if R-factors invalid
 
         except Exception as e:
             logging.error(f"Refinement for cluster {cluster_number} failed: {e}")

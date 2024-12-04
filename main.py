@@ -1,4 +1,3 @@
-
 import time
 import os
 import sys
@@ -1184,6 +1183,23 @@ def main():
                         existing_residue_count = pdb_manager.get_sequence_length_from_pdb(partial_pdb_path)
                         continue  # Proceed to the next iteration of the loop
 
+                    # After checking successful refinements, check if we should select best available result
+                    # This ensures we don't lose valid results even if none meet the threshold
+                    refinements = list(refinement_manager.refinement_results.values())
+                    if refinements:
+                        # Sort refinements by R-free
+                        refinements.sort(key=lambda x: x.r_free)
+                        best_refinement = refinements[0]
+                        
+                        # If no successful refinement yet, consider using best available
+                        if not successful_refinement and best_refinement.r_free < 0.5:  # Use reasonable cutoff
+                            # logging.info(f"No refinement met threshold, but found usable result with R-free: {best_refinement.r_free:.4f}")
+                            refinement_results.append(best_refinement)
+                            
+                            # # Update latest result for later model selection
+                            # partial_pdb_path = best_refinement.partial_pdb_path
+                            # phaser_output_dir = best_refinement.phaser_output_dir
+                            
                     if AF_cluster_success:
                         phaser_info["AF_cluster_mode"]['success'] = True
                         break
@@ -1344,6 +1360,8 @@ def main():
                                             'phaser_output_pdb': os.path.join(mr_cluster_ensemble_dir, "PHASER.1.pdb"),
                                             'phaser_output_map': os.path.join(mr_cluster_ensemble_dir, "PHASER.1.mtz")
                                         })
+
+
 
                     time.sleep(30)
 
