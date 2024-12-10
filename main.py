@@ -1615,6 +1615,26 @@ def main():
     os.chdir(output_root)
     # remove the cc_working_folder
     shutil.rmtree(cc_working_folder)
+
+    """
+    save solution pdb and map to results folder
+    """
+    results_dir = os.path.join(output_root, "results")
+    os.makedirs(results_dir, exist_ok=True)
+    
+    # Copy the final solution files if they exist
+    if cc_input_pdb and os.path.exists(cc_input_pdb):
+        pdb_filename = os.path.basename(cc_input_pdb)
+        results_pdb = os.path.join(results_dir, f"final_{pdb_filename}")
+        shutil.copy2(cc_input_pdb, results_pdb)
+        logging.info(f"Saved final PDB solution to: {results_pdb}")
+    
+    if cc_input_map_coeffs and os.path.exists(cc_input_map_coeffs):
+        map_filename = os.path.basename(cc_input_map_coeffs)
+        results_map = os.path.join(results_dir, f"final_{map_filename}")
+        shutil.copy2(cc_input_map_coeffs, results_map)
+        logging.info(f"Saved final map coefficients to: {results_map}")
+        
     """
     prepare report.csv
     """
